@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+
+<!-- =========================
+CONFIGURAÇÕES BÁSICAS
+========================= -->
+
+<link rel="icon" type="image/png" href="/abr.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Projeto Levando a Palavra do Senhor</title>
+
+<!-- ÍCONES (FONT AWESOME) -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =========================================
+     STATUS DA PÁGINA
+========================================= -->
+
+<div class="status-pagina">
+    <span class="status-bolinha"></span>
+    <span>Página ativa</span>
+</div>
+
+<!-- =========================
+HEADER
+========================= -->
+<div class="header">
+
+<img src="banner-doacao.png" class="banner">
+
+</div>
+
+<!-- =========================================
+     MENU PRINCIPAL DA COMUNIDADE
+========================================= -->
+<nav class="menu-comunidade">
+
+    <!-- PROVA SOCIAL — GRANDE -->
+    <button
+        class="menu-comunidade-btn prova-social-destaque ativo"
+        type="button"
+        onclick="abrirAbaComunidade('posts')"
+    >
+        <i class="fas fa-newspaper"></i>
+        <span>Prova Social</span>
+    </button>
+
+
+    <!-- ÁREA DOS OUTROS BOTÕES -->
+    <div class="menu-comunidade-rede">
+
+        <!-- LINHA DE CIMA -->
+        <div class="menu-comunidade-linha">
+
+            <button
+                class="menu-comunidade-btn"
+                type="button"
+                onclick="abrirAbaComunidade('missoes')"
+            >
+                <i class="fas fa-cross"></i>
+                <span>Missões</span>
+            </button>
+
+            <button
+                class="menu-comunidade-btn"
+                type="button"
+                onclick="abrirAbaComunidade('ranking')"
+            >
+                <i class="fas fa-trophy"></i>
+                <span>Ranking</span>
+            </button>
+
+            <button
+                class="menu-comunidade-btn"
+                type="button"
+                onclick="abrirAbaComunidade('membros')"
+            >
+                <i class="fas fa-star"></i>
+                <span>Membros</span>
+            </button>
+
+            <!-- NOVO -->
+            <button
+                class="menu-comunidade-btn"
+                type="button"
+            >
+                <i class="fas fa-heart"></i>
+                <span>Favoritos</span>
+            </button>
+
+        </div>
+
+
+        <!-- CORRENTE -->
+        <div class="corrente-comunidade">
+            <span></span>
+            <i class="fas fa-link"></i>
+            <span></span>
+        </div>
+
+
+        <!-- LINHA DE BAIXO -->
+        <div class="menu-comunidade-linha">
+
+            <button class="menu-comunidade-btn" type="button">
+                <i class="fas fa-fire"></i>
+                <span>Desafios</span>
+            </button>
+
+            <button class="menu-comunidade-btn" type="button">
+                <i class="fas fa-comments"></i>
+                <span>Conversas</span>
+            </button>
+
+            <button class="menu-comunidade-btn" type="button">
+                <i class="fas fa-book-open"></i>
+                <span>Palavra</span>
+            </button>
+
+            <button class="menu-comunidade-btn" type="button">
+                <i class="fas fa-gift"></i>
+                <span>Recompensas</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- =========================================
+     ABA MISSÕES
+========================================= -->
+<section id="aba-missoes" class="aba-comunidade">
+
+
+
+
+    <div class="missoes-header">
+        <span class="missoes-header-icone">
+            <i class="fas fa-cross"></i>
+        </span>
+
+        <div>
+            <h2>Missões</h2>
+            <p>Pequenas ações que levam a Palavra mais longe.</p>
+        </div>
+    </div>
+
+    <!-- VERSÍCULO DO DIA -->
+    <div class="missao-versiculo">
+
+        <div class="missao-versiculo-topo">
+            <span>
+                <i class="fas fa-book-open"></i>
+                VERSÍCULO DO DIA
+            </span>
+
+            <strong>
+                <i class="fas fa-fire"></i>
+                +10 pontos
+            </strong>
+        </div>
+
+        <div class="missao-versiculo-conteudo">
+
+            <div class="aspas-versiculo">“</div>
+
+            <p id="versiculoDoDia">
+                O Senhor é a minha força e o meu escudo;
+                nele o meu coração confia.
+            </p>
+
+            <div class="referencia-versiculo" id="referenciaVersiculo">
+                Salmos 28:7
+            </div>
+
+        </div>
+
+        <div class="missao-versiculo-rodape">
+
+            <div class="missao-status">
+                <i class="fas fa-calendar-day"></i>
+                Atualizado hoje
+            </div>
+
+            <button
+                type="button"
+                class="btn-compartilhar-versiculo"
+                onclick="abrirCompartilharVersiculo()"
+            >
+                <i class="fas fa-share-nodes"></i>
+                Compartilhar
+            </button>
+
+        </div>
+
+    </div>
+
+<!-- =========================================
+     CARDS DE MISSÕES
+========================================= -->
+
+<div class="missoes-lista">
+
+    <div class="missao-card">
+
+        <div class="missao-card-icone">
+            <i class="fas fa-share-nodes"></i>
+        </div>
+
+        <div class="missao-card-conteudo">
+            <span class="missao-card-label">MISSÃO DE HOJE</span>
+
+            <h3>Compartilhe a Palavra</h3>
+
+            <p>
+                Compartilhe o versículo de hoje com alguém que precisa ouvir uma palavra de esperança.
+            </p>
+
+            <div class="missao-card-progresso">
+                <div class="missao-card-progresso-topo">
+                    <span>Progresso</span>
+                    <strong>+15 pontos</strong>
+                </div>
+
+                <div class="missao-progresso-barra">
+                    <div class="missao-progresso-preenchido"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="missao-card-botao" type="button">
+            Fazer missão
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+
+    <div class="missao-card">
+
+        <div class="missao-card-icone">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="missao-card-conteudo">
+            <span class="missao-card-label">MISSÃO DE HOJE</span>
+
+            <h3>Deixe uma Palavra</h3>
+
+            <p>
+                Entre na comunidade e deixe uma mensagem de fé para outras pessoas.
+            </p>
+
+            <div class="missao-card-progresso">
+                <div class="missao-card-progresso-topo">
+                    <span>Progresso</span>
+                    <strong>+10 pontos</strong>
+                </div>
+
+                <div class="missao-progresso-barra">
+                    <div class="missao-progresso-preenchido"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="missao-card-botao" type="button">
+            Fazer missão
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+
+    <div class="missao-card">
+
+        <div class="missao-card-icone">
+            <i class="fas fa-book-open"></i>
+        </div>
+
+        <div class="missao-card-conteudo">
+            <span class="missao-card-label">MISSÃO DE HOJE</span>
+
+            <h3>Leia a Bíblia</h3>
+
+            <p>
+                Continue sua jornada de leitura e avance mais um capítulo da Palavra de Deus.
+            </p>
+
+            <div class="missao-card-progresso">
+                <div class="missao-card-progresso-topo">
+                    <span>Progresso</span>
+                    <strong>+20 pontos</strong>
+                </div>
+
+                <div class="missao-progresso-barra">
+                    <div class="missao-progresso-preenchido"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="missao-card-botao" type="button">
+            Fazer missão
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+</div>
+<!-- =========================================
+     CARD — IMPACTO + REDES SOCIAIS
+========================================= -->
+</section>
+
+<!-- =========================================
+     ABA RANKING
+========================================= -->
+
+<section id="aba-ranking" class="aba-comunidade">
+
+    <!-- =========================================
+     ACUMULADOR — PONTOS DA FÉ
+========================================= -->
+
+
+    <div class="ranking-header">
+
+        <span class="ranking-header-label">
+            <i class="fas fa-trophy"></i>
+            RANKING DA COMUNIDADE
+        </span>
+
+        <h2>
+            Quem participa,
+            <strong>deixa sua marca.</strong>
+        </h2>
+
+        <p>
+            Acumule pontos participando da comunidade,
+            cumprindo missões e compartilhando a Palavra.
+        </p>
+
+    </div>
+
+    <div class="ranking-conteudo">
+
+    </div>
+    <div class="ranking-fe-total">
+
+    <div class="ranking-fe-total-topo">
+        <span>
+    <i class="fas fa-fire"></i>
+    PONTOS DE FÉ TOTAL
+</span>
+        <i class="fas fa-chart-line"></i>
+    </div>
+
+    <div class="ranking-fe-total-numero">
+        184.750
+    </div>
+
+    <div class="ranking-fe-total-legenda">
+    total de Pontos de Fé acumulados no ranking
+</div>
+
+    <div class="ranking-fe-total-barra">
+        <span></span>
+    </div>
+
+    <div class="ranking-fe-total-rodape">
+        <span>
+            <i class="fas fa-users"></i>
+            Comunidade A Bíblia Revela
+        </span>
+
+        <strong>
+            +2.480 hoje
+        </strong>
+    </div>
+
+</div>
+    <!-- MEU RANKING -->
+
+    <div class="ranking-meu-card">
+
+        <div class="ranking-meu-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <div class="ranking-meu-info">
+            <span>SEU RANKING</span>
+            <strong>Faça login para participar</strong>
+        </div>
+
+        <div class="ranking-meus-pontos">
+            <strong>0</strong>
+            <span>pontos</span>
+        </div>
+
+    </div>
+
+
+    <!-- PÓDIO -->
+
+    <div class="ranking-podio">
+
+        <!-- 2º LUGAR -->
+
+        <div class="ranking-podio-item segundo">
+
+            <span class="ranking-podio-posicao">
+                2º
+            </span>
+
+            <div class="ranking-podio-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <strong>Nome do membro</strong>
+
+            <span>1.850 pontos</span>
+
+        </div>
+
+
+        <!-- 1º LUGAR -->
+
+        <div class="ranking-podio-item primeiro">
+
+            <span class="ranking-podio-posicao">
+                1º
+            </span>
+
+            <div class="ranking-podio-avatar">
+                <i class="fas fa-crown"></i>
+            </div>
+
+            <strong>Nome do membro</strong>
+
+            <span>2.450 pontos</span>
+
+        </div>
+
+
+        <!-- 3º LUGAR -->
+
+        <div class="ranking-podio-item terceiro">
+
+            <span class="ranking-podio-posicao">
+                3º
+            </span>
+
+            <div class="ranking-podio-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <strong>Nome do membro</strong>
+
+            <span>1.620 pontos</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- LISTA DO RANKING -->
+
+    <div class="ranking-lista">
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">4</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>1.420 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">5</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>1.280 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">6</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>1.150 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">7</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>1.080 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">8</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>1.020 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">9</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>970 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">10</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>920 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">11</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>870 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">12</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>825 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">13</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>780 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">14</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>735 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">15</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>690 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">16</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>645 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">17</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>610 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">18</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>575 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">19</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>540 pontos</span>
+        </div>
+    </div>
+
+    <div class="ranking-item">
+        <span class="ranking-item-numero">20</span>
+        <div class="ranking-item-avatar"><i class="fas fa-user"></i></div>
+        <div class="ranking-item-info">
+            <strong>Nome do membro</strong>
+            <span>505 pontos</span>
+        </div>
+    </div>
+
+</div>
+    </div>
+
+</section>
+
+<section id="aba-posts" class="aba-comunidade ativa">
+
+    <div class="impacto-redes">
+
+    <!-- =========================================
+         RESUMO DA COMUNIDADE
+    ========================================= -->
+
+    <div class="card-resumo-comunidade">
+
+        <div class="resumo-topo">
+
+            <div class="resumo-titulo">
+
+                <span class="resumo-icone">
+                    <i class="fas fa-users"></i>
+                </span>
+
+                <div>
+                    <span class="resumo-label">
+                        PROVA SOCIAL
+                    </span>
+
+                    <h2>
+                        A Palavra acontecendo
+                    </h2>
+                </div>
+
+            </div>
+
+            <span class="resumo-online">
+                <span class="online-ponto"></span>
+                AO VIVO
+            </span>
+
+        </div>
+
+        <p class="resumo-descricao">
+            Uma comunidade unida para levar a Palavra de Deus mais longe.
+        </p>
+
+        <div class="resumo-numeros">
+
+            <div class="resumo-numero">
+                <strong id="contadorInscritos">
+                    +260 mil
+                </strong>
+                <span>inscritos</span>
+            </div>
+
+            <div class="resumo-numero">
+                <strong>+30 milhões</strong>
+                <span>visualizações</span>
+            </div>
+
+            <div class="resumo-numero">
+                <strong>TODAS</strong>
+                <span>redes</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         ÁREA COMPACTA
+    ========================================= -->
+
+    <div class="prova-social-grid">
+
+
+        <!-- COMENTÁRIOS -->
+
+        <div class="card card-comentarios">
+
+            <div class="card-titulo-linha">
+
+                <div>
+                    <span class="card-label">
+                        <i class="fas fa-comments"></i>
+                        COMUNIDADE
+                    </span>
+
+                    <h2>
+                        Comentários
+                    </h2>
+                </div>
+
+                <span class="comentarios-ao-vivo">
+                    <span></span>
+                    AO VIVO
+                </span>
+
+            </div>
+
+            <div id="novoComentario"></div>
+
+            <div id="comentarios"></div>
+
+        </div>
+
+
+        <!-- VÍDEO RECENTE -->
+
+        <div class="card card-videos">
+
+            <div class="card-titulo-linha">
+
+                <div>
+                    <span class="card-label">
+                        <i class="fas fa-play"></i>
+                        CONTEÚDO
+                    </span>
+
+                    <h2>
+                        Vídeo recente
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="video-destaque">
+
+                <div class="video-destaque-imagem">
+
+                    <div
+                        class="video-destaque-conteudo"
+                        id="videoDestaque"
+                    >
+
+                        <div class="video-destaque-overlay"></div>
+
+                        <div class="video-play">
+                            <i class="fas fa-play"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="video-destaque-info">
+
+                    <strong>
+                        Deus cuida de você!
+                    </strong>
+
+                    <span>
+                        A Bíblia Revela
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIS VISTOS
+    ========================================= -->
+
+    <div class="card card-mais-vistos">
+
+        <div class="mais-vistos-titulo">
+            ⭐ Mais vistos
+        </div>
+
+        <div class="box-carrossel">
+
+            <button
+                class="seta esquerda"
+                onclick="moverCarrossel('maisVistos', -1)"
+            >
+                ❮
+            </button>
+
+            <div
+                class="carrossel"
+                id="maisVistos"
+            ></div>
+
+            <button
+                class="seta direita"
+                onclick="moverCarrossel('maisVistos', 1)"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTROLE DE FLUXO -->
+<div id="fluxoControle" class="fluxo-controle">
+
+
+<!-- =========================================
+     MODAL — COMPARTILHAR VERSÍCULO
+========================================= -->
+
+<div id="modalCompartilharVersiculo" class="modal-compartilhar">
+
+    <div class="modal-compartilhar-caixa">
+
+        <!-- CABEÇALHO -->
+        <div class="modal-compartilhar-header">
+
+            <div>
+                <span class="modal-compartilhar-label">
+                    <i class="fas fa-share-nodes"></i>
+                    COMPARTILHAR
+                </span>
+
+                <h3>Escolha sua arte</h3>
+
+                <p>
+                    Selecione um modelo para compartilhar o
+                    Versículo do Dia.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-fechar"
+                onclick="fecharCompartilharVersiculo()"
+                aria-label="Fechar"
+            >
+                <i class="fas fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- TEMPLATES -->
+        <div class="templates-versiculo">
+
+            <!-- TEMPLATE 1 -->
+            <button
+                type="button"
+                class="template-versiculo"
+                onclick="selecionarTemplateVersiculo(1)"
+            >
+
+                <div class="template-preview template-1">
+
+                    <div class="template-overlay"></div>
+
+                    <div class="template-conteudo">
+
+                        <div class="template-cruz">
+                            ✝
+                        </div>
+
+                        <span class="template-label">
+                            VERSÍCULO DO DIA
+                        </span>
+
+                        <p class="template-texto">
+                            <span class="template-aspas">“</span>
+                            <span class="template-versiculo-texto">
+                                O Senhor é a minha força e o meu escudo;
+                                nele o meu coração confia.
+                            </span>
+                        </p>
+
+                        <strong class="template-referencia">
+                            Salmos 28:7
+                        </strong>
+
+                        <div class="template-marca">
+                            A BÍBLIA REVELA
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="template-info">
+                    <span>Modelo 01</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </button>
+
+
+            <!-- TEMPLATE 2 -->
+            <button
+                type="button"
+                class="template-versiculo"
+                onclick="selecionarTemplateVersiculo(2)"
+            >
+
+                <div class="template-preview template-2">
+
+                    <div class="template-overlay"></div>
+
+                    <div class="template-conteudo">
+
+                        <span class="template-label">
+                            PALAVRA DE HOJE
+                        </span>
+
+                        <div class="linha-dourada"></div>
+
+                        <p class="template-texto">
+                            “
+                            <span class="template-versiculo-texto">
+                                O Senhor é a minha força e o meu escudo;
+                                nele o meu coração confia.
+                            </span>
+                            ”
+                        </p>
+
+                        <strong class="template-referencia">
+                            SALMOS 28:7
+                        </strong>
+
+                        <div class="template-marca">
+                            ✦ A BÍBLIA REVELA
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="template-info">
+                    <span>Modelo 02</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </button>
+
+
+            <!-- TEMPLATE 3 -->
+            <button
+                type="button"
+                class="template-versiculo"
+                onclick="selecionarTemplateVersiculo(3)"
+            >
+
+                <div class="template-preview template-3">
+
+                    <div class="template-overlay"></div>
+
+                    <div class="template-conteudo">
+
+                        <div class="template-numero">
+                            01
+                        </div>
+
+                        <span class="template-label">
+                            VERSÍCULO DO DIA
+                        </span>
+
+                        <p class="template-texto">
+                            <span class="template-versiculo-texto">
+                                O Senhor é a minha força e o meu escudo;
+                                nele o meu coração confia.
+                            </span>
+                        </p>
+
+                        <strong class="template-referencia">
+                            — SALMOS 28:7
+                        </strong>
+
+                        <div class="template-marca">
+                            A BÍBLIA REVELA
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="template-info">
+                    <span>Modelo 03</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+     MODAL — PRÉVIA DO VERSÍCULO
+========================================= -->
+
+<div id="modalPreviewVersiculo" class="modal-preview-versiculo">
+
+    <div class="modal-preview-caixa">
+
+        <div class="preview-header">
+
+            <div>
+                <span>
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    SUA ARTE
+                </span>
+
+                <h3>Prévia do compartilhamento</h3>
+            </div>
+
+            <button
+                type="button"
+                class="modal-fechar"
+                onclick="fecharPreviewVersiculo()"
+            >
+                <i class="fas fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ARTE 9:16 -->
+
+        <div
+            id="previewArteVersiculo"
+            class="preview-arte"
+        >
+
+            <div class="preview-brilho"></div>
+
+            <div class="preview-conteudo">
+
+                <div class="preview-cruz">
+                    ✝
+                </div>
+
+                <span class="preview-label">
+                    VERSÍCULO DO DIA
+                </span>
+
+                <p id="previewVersiculoTexto">
+                    O Senhor é a minha força e o meu escudo;
+                    nele o meu coração confia.
+                </p>
+
+                <strong id="previewVersiculoReferencia">
+                    Salmos 28:7
+                </strong>
+
+                <div class="preview-marca">
+                    A BÍBLIA REVELA
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTÕES -->
+
+        <div class="preview-acoes">
+
+            <button
+                type="button"
+                class="btn-voltar-template"
+                onclick="fecharPreviewVersiculo(); abrirCompartilharVersiculo();"
+            >
+                <i class="fas fa-arrow-left"></i>
+                Escolher outra
+            </button>
+
+            <button
+                type="button"
+                class="btn-compartilhar-final"
+                onclick="compartilharArteVersiculo()"
+            >
+                <i class="fas fa-share-nodes"></i>
+                Compartilhar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

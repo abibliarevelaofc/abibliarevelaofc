@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Bíblia Revela</title>
+
+    <meta
+        name="description"
+        content="A Bíblia Revela — Explore, aprenda e viva a Palavra."
+    >
+
+    <!-- FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ÍCONES -->
+    <script
+        src="https://unpkg.com/lucide@latest"
+    ></script>
+
+  <link rel="stylesheet" href="style.css"> 
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="variables.css">
+<link rel="stylesheet" href="inicio.css">
+<link rel="stylesheet" href="responsivo.css">
+<link rel="stylesheet" href="leitor.css">
+<link rel="stylesheet" href="cursos.css">
+<link rel="stylesheet" href="loja.css">
+<link rel="stylesheet" href="destaques.css">
+<link rel="stylesheet" href="missoes.css">
+<link rel="stylesheet" href="comunidade.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <a href="#inicio" class="brand">
+
+        <div class="brand-logo">
+    <img src="icones/abr.png" alt="A Bíblia Revela">
+</div>
+
+<div class="brand-name">
+    <span>A BÍBLIA</span>
+    <strong>REVELA</strong>
+</div>
+
+    </a>
+
+
+  <!-- MENU DESKTOP -->
+
+<nav class="main-nav">
+
+    <a
+        href="#inicio"
+        class="active"
+    >
+        Início
+    </a>
+
+    <a href="#biblia">
+        Bíblia
+    </a>
+
+    <a
+        href="#"
+        class="nav-comunidade"
+        data-page="comunidade"
+    >
+        Comunidade
+    </a>
+
+    <a
+        href="#"
+        class="nav-loja"
+        data-page="loja"
+    >
+        Loja
+    </a>
+
+    <!-- CURSO CRIADOR PRO -->
+
+    <a
+        href="#"
+        class="nav-cursos destaque-curso"
+        data-page="cursos"
+    >
+        <span>Curso Criador PRO</span>
+        <small>Edição com IA</small>
+    </a>
+
+</nav>
+
+    <!-- AÇÕES -->
+
+    <div class="header-actions">
+
+        
+
+
+       
+
+
+        <button class="profile">
+
+            <!-- FUTURA FOTO DO USUÁRIO -->
+
+            <div class="profile-photo image-placeholder">
+
+                <i data-lucide="user"></i>
+
+            </div>
+
+
+            <div class="profile-text">
+
+                <span>Bem-vindo,</span>
+
+                <strong>
+                    Membro
+                    <i data-lucide="chevron-down"></i>
+                </strong>
+
+            </div>
+
+        </button>
+
+    </div>
+
+
+    <!-- BOTÃO MOBILE -->
+
+    <button
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-label="Abrir menu"
+    >
+
+        <i data-lucide="menu"></i>
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     NOTIFICAÇÃO FLUTUANTE
+===================================================== -->
+
+<button
+    class="floating-notification"
+    aria-label="Notificações"
+>
+    <i data-lucide="bell"></i>
+</button>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<!-- =====================================================
+     MENU MOBILE
+===================================================== -->
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+<!-- =====================================================
+     CHECK-IN — CAFÉ FLUTUANTE
+===================================================== -->
+
+<button
+    type="button"
+    class="hero-checkin-coffee"
+    id="heroCheckinCoffee"
+    aria-label="Check-in diário"
+>
+
+    <!-- FUMAÇA -->
+    <span class="coffee-steam coffee-steam-1"></span>
+    <span class="coffee-steam coffee-steam-2"></span>
+    <span class="coffee-steam coffee-steam-3"></span>
+
+    <!-- CAFÉ -->
+    <img
+        src="icones/cafe.png"
+        alt=""
+    >
+
+    <!-- TEXTO -->
+    <span class="hero-checkin-label">
+        CHECK-IN
+    </span>
+
+</button>
+    <!-- FUNDO -->
+
+    <div class="hero-background">
+
+ <div class="hero-background">
+    <video class="hero-video-bg hero-video-1" autoplay muted playsinline>
+        <source src="./fundo-bíbliavideo.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-video-bg hero-video-2" muted playsinline>
+        <source src="./fundo-bíbliavideo.mp4" type="video/mp4">
+    </video>
+</div>
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- =====================================================
+     CARROSSEL 3D — DESTAQUES
+===================================================== -->
+
+<section class="featured-carousel" id="featuredCarousel">
+
+    <div class="featured-carousel-header">
+        <span>EM DESTAQUE</span>
+        <h2>DESCUBRA O QUE PREPARAMOS PARA VOCÊ</h2>
+    </div>
+
+    <div class="featured-carousel-stage">
+
+        <!-- ITEM ANTERIOR -->
+        <article class="featured-card featured-card-prev">
+            <div class="featured-card-image">
+                <span>DESTAQUE</span>
+            </div>
+        </article>
+
+        <!-- ITEM PRINCIPAL -->
+        <article class="featured-card featured-card-active">
+
+            <div class="featured-card-image">
+                <span>DESTAQUE PRINCIPAL</span>
+            </div>
+
+            <div class="featured-card-content">
+                <span class="featured-card-label">
+                    A BÍBLIA REVELA
+                </span>
+
+               
+
+                <p>
+                    Explore conteúdos, estudos e experiências
+                    criadas para fortalecer sua caminhada.
+                </p>
+
+                <button type="button" class="featured-card-button">
+                    CONHECER AGORA
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+
+        </article>
+
+        <!-- ITEM PRÓXIMO -->
+        <article class="featured-card featured-card-next">
+            <div class="featured-card-image">
+                <span>PRÓXIMO</span>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- SETAS -->
+    <button
+        type="button"
+        class="featured-carousel-arrow featured-carousel-prev"
+        id="featuredCarouselPrev"
+        aria-label="Destaque anterior"
+    >
+        <i data-lucide="chevron-left"></i>
+    </button>
+
+    <button
+        type="button"
+        class="featured-carousel-arrow featured-carousel-next"
+        id="featuredCarouselNext"
+        aria-label="Próximo destaque"
+    >
+        <i data-lucide="chevron-right"></i>
+    </button>
+
+    <!-- INDICADORES -->
+    <div class="featured-carousel-dots">
+        <button class="active" aria-label="Destaque 1"></button>
+        <button aria-label="Destaque 2"></button>
+        <button aria-label="Destaque 3"></button>
+        <button aria-label="Destaque 4"></button>
+        <button aria-label="Destaque 5"></button>
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     NOVO MEIO DA HOME
+================================================== -->
+
+<!-- =====================================================
+     MINI BANNERS — HERO MOBILE
+===================================================== -->
+
+<div class="hero-mini-banners">
+
+    <button class="hero-mini-banner" type="button">
+        <i data-lucide="book-open"></i>
+        <span>BÍBLIA</span>
+    </button>
+
+    <button class="hero-mini-banner" type="button">
+        <i data-lucide="flame"></i>
+        <span>DEVOCIONAL</span>
+    </button>
+
+    <button class="hero-mini-banner" type="button">
+        <i data-lucide="users"></i>
+        <span>COMUNIDADE</span>
+    </button>
+
+    <button class="hero-mini-banner" type="button">
+        <i data-lucide="gift"></i>
+        <span>LOJA</span>
+    </button>
+
+</div>
+
+<section class="hero-main-panel">
+
+    <!-- =================================================
+         LADO ESQUERDO
+    ================================================== -->
+
+    <div class="hero-main-left">
+
+        <!-- DESTAQUE / VERSÍCULO -->
+
+        <div class="hero-verse-panel">
+
+            <div class="hero-verse-top">
+
+                <span class="hero-verse-kicker">
+                    PALAVRA DO DIA
+                </span>
+
+                <span class="hero-verse-live">
+                    <span></span>
+                    AO VIVO
+                </span>
+
+            </div>
+
+
+            <div class="hero-verse-content">
+
+                <div class="hero-verse-icon">
+                    <i data-lucide="quote"></i>
+                </div>
+
+                <p>
+                    "Ensina-me o teu caminho, Senhor,
+                    para que eu ande na tua verdade."
+                </p>
+
+            </div>
+
+
+            <!-- VERSÍCULO + ASSINAR NA MESMA LINHA -->
+
+            <div class="hero-verse-footer">
+
+                <span class="hero-verse-reference">
+                    SALMOS 86:11
+                </span>
+
+                <button
+                    type="button"
+                    class="hero-subscribe-button"
+                >
+
+                    <i data-lucide="crown"></i>
+
+                    <span>
+                        ASSINAR
+                    </span>
+
+                    <i data-lucide="arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             COMENTÁRIOS
+        ================================================== -->
+
+        <div class="hero-comments-panel">
+
+            <div class="hero-comments-header">
+
+                <div class="hero-comments-title">
+
+                    <span class="hero-comments-live-dot"></span>
+
+                    <strong>
+                        COMENTÁRIOS
+                    </strong>
+
+                    <small>
+                        AO VIVO
+                    </small>
+
+                </div>
+
+                <span class="hero-comments-count">
+                    24
+                </span>
+
+            </div>
+
+
+            <div class="hero-comments-list">
+
+
+                <!-- COMENTÁRIO 1 -->
+
+                <article class="hero-comment">
+
+                    <div class="hero-comment-avatar">
+                        J
+                    </div>
+
+                    <div class="hero-comment-content">
+
+                        <strong>
+                            João
+                        </strong>
+
+                        <span>
+                            Deus abençoe essa missão! 🙏
+                        </span>
+
+                    </div>
+
+                    <small>
+                        2 min
+                    </small>
+
+                </article>
+
+
+                <!-- COMENTÁRIO 2 -->
+
+                <article class="hero-comment">
+
+                    <div class="hero-comment-avatar">
+                        M
+                    </div>
+
+                    <div class="hero-comment-content">
+
+                        <strong>
+                            Maria
+                        </strong>
+
+                        <span>
+                            A Palavra transforma vidas. ❤️
+                        </span>
+
+                    </div>
+
+                    <small>
+                        4 min
+                    </small>
+
+                </article>
+
+
+                <!-- COMENTÁRIO 3 -->
+
+                <article class="hero-comment">
+
+                    <div class="hero-comment-avatar">
+                        P
+                    </div>
+
+                    <div class="hero-comment-content">
+
+                        <strong>
+                            Pedro
+                        </strong>
+
+                        <span>
+                            Glória a Deus! ✨
+                        </span>
+
+                    </div>
+
+                    <small>
+                        6 min
+                    </small>
+
+                </article>
+
+
+                <!-- COMENTÁRIO 4 -->
+
+                <article class="hero-comment">
+
+                    <div class="hero-comment-avatar">
+                        A
+                    </div>
+
+                    <div class="hero-comment-content">
+
+                        <strong>
+                            Ana
+                        </strong>
+
+                        <span>
+                            Que bênção! Estou aprendendo muito aqui.
+                        </span>
+
+                    </div>
+
+                    <small>
+                        8 min
+                    </small>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+<!-- =================================================
+     RANKING — LATERAL DIREITA
+================================================== -->
+
+<aside class="hero-ranking-panel">
+
+    <div class="hero-ranking-header">
+
+        <div>
+            <span>COMUNIDADE</span>
+            <strong>RANKING</strong>
+        </div>
+
+        <i data-lucide="trophy"></i>
+
+    </div>
+
+
+    <div class="hero-ranking-list">
+
+        <!-- 1 -->
+
+        <article class="hero-ranking-item is-first">
+
+            <span class="hero-ranking-position">
+                01
+            </span>
+
+            <div class="hero-ranking-avatar">
+                J
+            </div>
+
+            <!-- PLACA FLUTUANTE -->
+            <div class="hero-ranking-name-plate">
+
+                <strong>João</strong>
+
+                <small>3.840 pts</small>
+
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </article>
+
+
+        <!-- 2 -->
+
+        <article class="hero-ranking-item is-second">
+
+            <span class="hero-ranking-position">
+                02
+            </span>
+
+            <div class="hero-ranking-avatar">
+                M
+            </div>
+
+            <!-- PLACA FLUTUANTE -->
+            <div class="hero-ranking-name-plate">
+
+                <strong>Maria</strong>
+
+                <small>3.420 pts</small>
+
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </article>
+
+
+        <!-- 3 -->
+
+        <article class="hero-ranking-item is-third">
+
+            <span class="hero-ranking-position">
+                03
+            </span>
+
+            <div class="hero-ranking-avatar">
+                P
+            </div>
+
+            <!-- PLACA FLUTUANTE -->
+            <div class="hero-ranking-name-plate">
+
+                <strong>Pedro</strong>
+
+                <small>3.180 pts</small>
+
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </article>
+
+
+        <!-- 4 -->
+
+        <article class="hero-ranking-item">
+
+            <span class="hero-ranking-position">
+                04
+            </span>
+
+            <div class="hero-ranking-avatar">
+                A
+            </div>
+
+            <!-- PLACA FLUTUANTE -->
+            <div class="hero-ranking-name-plate">
+
+                <strong>Ana</strong>
+
+                <small>2.960 pts</small>
+
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </article>
+
+
+        <!-- 5 -->
+
+        <article class="hero-ranking-item">
+
+            <span class="hero-ranking-position">
+                05
+            </span>
+
+            <div class="hero-ranking-avatar">
+                L
+            </div>
+
+            <!-- PLACA FLUTUANTE -->
+            <div class="hero-ranking-name-plate">
+
+                <strong>Lucas</strong>
+
+                <small>2.740 pts</small>
+
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </article>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="hero-ranking-button"
+    >
+
+        VER RANKING COMPLETO
+
+        <i data-lucide="arrow-up-right"></i>
+
+    </button>
+
+</aside>
+
+</section>
+
+ <!-- =====================================================
+     TEMPLATES EM DESTAQUE
+===================================================== -->
+
+<section class="verse-templates-carousel" id="verseTemplatesCarousel">
+
+    <div class="verse-templates-header">
+    </div>
+
+    <div class="verse-templates-stage">
+
+
+        <!-- =================================================
+             CAPA MAIS À ESQUERDA
+        ================================================== -->
+
+        <article class="verse-template-card verse-template-far-prev">
+
+            <div class="verse-template-inner">
+
+                <img
+                    src="template2.png"
+                    alt="Template de versículo 2"
+                >
+
+            </div>
+
+        </article>
+
+
+   <!-- =================================================
+     CAPA ESQUERDA
+================================================== -->
+
+<article class="verse-template-card verse-template-prev">
+
+    <div class="verse-template-inner">
+
+        <img
+            src="template6.png"
+            alt="Template de versículo 6"
+        >
+
+    </div>
+
+</article>
+
+
+        <!-- =================================================
+             CAPA PRINCIPAL
+        ================================================== -->
+
+        <article class="verse-template-card verse-template-active">
+
+            <div class="verse-template-inner">
+
+                <img
+                    src="template1.png"
+                    alt="Template de versículo"
+                >
+
+            </div>
+
+        </article>
+
+
+<!-- =================================================
+     CAPA DIREITA
+================================================== -->
+
+<article class="verse-template-card verse-template-next">
+
+    <div class="verse-template-inner">
+
+        <img
+            src="template4.png"
+            alt="Template de versículo 4"
+        >
+
+    </div>
+
+</article>
+
+
+        <!-- =================================================
+             CAPA MAIS À DIREITA
+        ================================================== -->
+
+        <article class="verse-template-card verse-template-far-next">
+
+    <div class="verse-template-inner">
+
+        <img
+            src="template5.png"
+            alt="Template de versículo 5"
+        >
+
+    </div>
+
+</article>
+
+
+    </div>
+        <!-- SETAS -->
+
+        <button
+            type="button"
+            class="verse-templates-arrow verse-templates-prev"
+            id="verseTemplatesPrev"
+            aria-label="Template anterior"
+        >
+            <i data-lucide="chevron-left"></i>
+        </button>
+
+
+        <button
+            type="button"
+            class="verse-templates-arrow verse-templates-next"
+            id="verseTemplatesNext"
+            aria-label="Próximo template"
+        >
+            <i data-lucide="chevron-right"></i>
+        </button>
+
+
+        <!-- INDICADORES -->
+
+        <div class="verse-templates-dots">
+
+            <button class="active"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+
+        </div>
+
+    </section>
+      </section>
+
+    <!-- =====================================================
+         CARD — PROGRESSO DO MEMBRO
+    ===================================================== -->
+
+    <section class="member-progress">
+
+        <!-- =================================================
+             TOPO
+        ================================================== -->
+
+        <div class="member-progress-header">
+
+    <div class="member-progress-title">
+
+        <span class="member-progress-kicker">
+            SUA JORNADA
+        </span>
+
+   
+
+    </div>
+
+
+    <div class="member-progress-level-mini">
+
+        <i data-lucide="crown"></i>
+
+        <span>
+            MEMBRO
+        </span>
+
+    </div>
+
+</div>
+
+    <!-- =================================================
+         ÁREA PRINCIPAL DO HUD
+    ================================================== -->
+
+    <div class="member-hud-main">
+
+
+        <!-- =================================================
+             DIAS SEGUIDOS
+        ================================================== -->
+
+        <div class="member-hud-stat member-hud-streak">
+
+            <div class="member-hud-icon">
+
+                <i data-lucide="flame"></i>
+
+            </div>
+
+            <div class="member-hud-stat-text">
+
+                <strong id="memberStreak">
+                    7
+                </strong>
+
+                <span>
+                    DIAS SEGUIDOS
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PONTOS DA FÉ
+        ================================================== -->
+
+        <div class="member-hud-stat member-hud-faith">
+
+            <div class="member-hud-icon">
+
+                <i data-lucide="star"></i>
+
+            </div>
+
+            <div class="member-hud-stat-text">
+
+                <strong id="memberFaithPoints">
+                    2.450
+                </strong>
+
+                <span>
+                    PONTOS DA FÉ
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CÍRCULO CENTRAL — NÍVEL + XP
+        ================================================== -->
+
+        <div class="member-xp-circle">
+
+            <div class="member-xp-ring">
+
+                <svg
+                    class="member-xp-svg"
+                    viewBox="0 0 120 120"
+                    aria-hidden="true"
+                >
+
+                    <circle
+                        class="member-xp-track"
+                        cx="60"
+                        cy="60"
+                        r="52"
+                    ></circle>
+
+
+                    <circle
+                        class="member-xp-fill"
+                        id="memberXpCircle"
+                        cx="60"
+                        cy="60"
+                        r="52"
+                    ></circle>
+
+                </svg>
+
+
+                <div class="member-xp-center">
+
+                    <span>
+                        NÍVEL
+                    </span>
+
+                    <strong id="memberLevel">
+                        12
+                    </strong>
+
+                    <small>
+                        840 XP
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NÍVEL
+        ================================================== -->
+
+        <div class="member-hud-stat member-hud-level">
+
+            <div class="member-hud-icon">
+
+                <i data-lucide="shield"></i>
+
+            </div>
+
+            <div class="member-hud-stat-text">
+
+                <strong>
+                    12
+                </strong>
+
+                <span>
+                    NÍVEL
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             VERSÍCULO
+        ================================================== -->
+
+        <div class="member-hud-verse">
+
+            <div class="member-hud-verse-scroll">
+
+                <img
+    src="icones/iconemissao.png"
+    class="member-missions-custom-icon"
+    alt=""
+>
+
+            </div>
+
+            <div class="member-hud-verse-text">
+
+                <span>
+                    “Entrega o teu caminho ao Senhor,
+                    confia nEle, e Ele tudo fará.”
+                </span>
+
+                <small>
+                    Salmos 37:5
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         MISSÕES
+    ================================================== -->
+
+    <button
+        type="button"
+        class="member-missions-button"
+        id="memberMissionsButton"
+    >
+    <span class="member-missions-tip member-missions-tip-left"></span>
+<span class="member-missions-tip member-missions-tip-right"></span>
+
+<span class="member-missions-frame member-missions-frame-top"></span>
+<span class="member-missions-frame member-missions-frame-bottom"></span>
+
+        <span class="member-missions-icon">
+
+            <img
+            src="icones/iconemissao.png"
+            class="member-missions-custom-icon"
+            alt=""
+        >
+
+        </span>
+
+
+        <span class="member-missions-text">
+
+            <strong>
+                MISSÕES
+            </strong>
+
+            <small>
+                Complete desafios e ganhe recompensas
+            </small>
+
+        </span>
+
+
+        <span class="member-missions-arrow">
+
+            <i data-lucide="chevron-right"></i>
+
+        </span>
+
+    </button>
+
+
+</section>
+
+
+<!-- =====================================================
+     TELA — MISSÕES
+===================================================== -->
+
+
+<!-- =====================================================
+     TELA — MISSÕES
+===================================================== -->
+
+<section class="missions-view" id="missionsView">
+
+    <div class="missions-scroll">
+
+        <div class="missions-header">
+
+            <span class="missions-kicker">
+                SUA JORNADA
+            </span>
+
+            <h1>
+                MISSÕES
+            </h1>
+
+            <p>
+                Complete desafios e avance em sua caminhada.
+            </p>
+
+        </div>
+
+
+     <div class="missions-list">
+
+    <!-- MISSÃO 1 -->
+    <article class="mission-card mission-active">
+
+        <div class="mission-icon">
+            <i data-lucide="book-open"></i>
+        </div>
+
+        <div class="mission-content">
+
+            <strong>Leia um capítulo</strong>
+
+            <span>
+                Leia um capítulo da Bíblia hoje.
+            </span>
+
+            <div class="mission-progress">
+
+                <div class="mission-progress-bar">
+                    <div class="mission-progress-fill" style="width: 65%;"></div>
+                </div>
+
+                <small>1 de 1 capítulo</small>
+
+            </div>
+
+        </div>
+
+        <div class="mission-reward">
+            +50 XP
+        </div>
+
+    </article>
+
+
+    <!-- MISSÃO 2 -->
+    <article class="mission-card">
+
+        <div class="mission-icon">
+            <i data-lucide="flame"></i>
+        </div>
+
+        <div class="mission-content">
+
+            <strong>Faça seu check-in</strong>
+
+            <span>
+                Registre sua presença hoje.
+            </span>
+
+            <div class="mission-progress">
+
+                <div class="mission-progress-bar">
+                    <div class="mission-progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <small>Concluído</small>
+
+            </div>
+
+        </div>
+
+        <div class="mission-reward">
+            +30 XP
+        </div>
+
+    </article>
+
+
+    <!-- MISSÃO 3 -->
+    <article class="mission-card">
+
+        <div class="mission-icon">
+            <i data-lucide="heart"></i>
+        </div>
+
+        <div class="mission-content">
+
+            <strong>Faça seu devocional</strong>
+
+            <span>
+                Reserve um momento para a Palavra.
+            </span>
+
+            <div class="mission-progress">
+
+                <div class="mission-progress-bar">
+                    <div class="mission-progress-fill" style="width: 40%;"></div>
+                </div>
+
+                <small>4 de 10 minutos</small>
+
+            </div>
+
+        </div>
+
+        <div class="mission-reward">
+            +100 XP
+        </div>
+
+    </article>
+
+
+    <!-- MISSÃO 4 -->
+    <article class="mission-card">
+
+        <div class="mission-icon">
+            <i data-lucide="message-circle"></i>
+        </div>
+
+        <div class="mission-content">
+
+            <strong>Compartilhe a Palavra</strong>
+
+            <span>
+                Compartilhe uma mensagem bíblica.
+            </span>
+
+            <div class="mission-progress">
+
+                <div class="mission-progress-bar">
+                    <div class="mission-progress-fill" style="width: 0%;"></div>
+                </div>
+
+                <small>Não iniciado</small>
+
+            </div>
+
+        </div>
+
+        <div class="mission-reward">
+            +75 XP
+        </div>
+
+    </article>
+
+</div>
+
+
+        <!-- BOTÃO DENTRO DO PERGAMINHO -->
+
+        <div class="missions-close-area">
+
+            <button
+                type="button"
+                class="missions-close"
+                id="missionsClose"
+            >
+
+                <i data-lucide="arrow-left"></i>
+
+                <span>
+                    VOLTAR PARA INÍCIO
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     TELA — BÍBLIA
+===================================================== -->
+
+<section class="bible-view" id="bibliaView">
+
+    <!-- FUNDO CINEMATOGRÁFICO -->
+    <div class="bible-background"></div>
+
+    <!-- ESCURECIMENTO -->
+    <div class="bible-overlay"></div>
+
+<!-- =====================================================
+     ANIMAÇÃO DE ABERTURA DA BÍBLIA
+===================================================== -->
+
+<div class="bible-opening-animation" id="bibleOpeningAnimation">
+
+    <!-- DESKTOP -->
+    <video
+        class="bible-opening-video bible-video-desktop"
+        id="bibleVideoDesktop"
+        muted
+        playsinline
+        preload="auto"
+    >
+        <source
+            src="bible-opening-desktop.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+
+    <!-- MOBILE -->
+    <video
+        class="bible-opening-video bible-video-mobile"
+        id="bibleVideoMobile"
+        muted
+        playsinline
+        preload="auto"
+    >
+        <source
+            src="bible-opening-mobile.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+
+    <!-- BRILHO DA TRANSIÇÃO -->
+    <div
+        class="bible-opening-flash"
+        id="bibleOpeningFlash"
+    ></div>
+
+</div>
+
+    <!-- CONTEÚDO DA BÍBLIA -->
+    <div class="bible-screen-content">
+
+    <!-- VOLTAR PARA O INÍCIO -->
+    <button
+        class="bible-back-button"
+        id="bibleBackButton"
+        type="button"
+        aria-label="Voltar para o início"
+    >
+        <i data-lucide="arrow-left"></i>
+        <span>INÍCIO</span>
+    </button>
+
+
+    <!-- PESQUISA -->
+    <button
+        class="bible-search-button"
+        id="bibleSearchButton"
+        type="button"
+        aria-label="Pesquisar na Bíblia"
+    >
+        <i data-lucide="search"></i>
+    </button>
+
+
+    
+<!-- BÍBLIA FECHADA -->
+<div class="bible-closed">
+
+
+<!-- TITULO -->
+
+    <h1 class="bible-title">
+    MOMENTO DE LEITURA
+</h1>
+
+    <!-- BOTÃO -->
+    <button
+        class="bible-open-button"
+        id="bibleOpenButton"
+        type="button"
+    >
+        <span>ABRIR A BÍBLIA</span>
+        <i data-lucide="book-open"></i>
+    </button>
+
+</div>
+
+<!-- =====================================================
+     LEITOR DA BÍBLIA
+===================================================== -->
+
+<div class="bible-reader" id="bibleReader">
+
+   <div class="bible-reader-header">
+
+    <div class="bible-reader-book">
+
+        <span class="bible-reader-label">
+            ALMEIDA
+        </span>
+
+        <h2 id="bibleCurrentBook">
+            GÊNESIS
+        </h2>
+
+    </div>
+
+
+
+
+    <div class="bible-reader-actions">
+
+
+<div class="bible-theme-switcher" aria-label="Tema da leitura">
+
+    <button
+        type="button"
+        class="bible-theme-dot active"
+        data-theme="dark"
+        aria-label="Fundo escuro"
+    ></button>
+
+    <button
+        type="button"
+        class="bible-theme-dot light"
+        data-theme="light"
+        aria-label="Fundo claro"
+    ></button>
+
+</div>
+
+        <button
+            class="bible-reader-search"
+            id="bibleReaderSearch"
+            type="button"
+            aria-label="Pesquisar nas Escrituras"
+        >
+            <i data-lucide="search"></i>
+        </button>
+
+        <button
+            class="bible-reader-fullscreen"
+            id="bibleReaderFullscreen"
+            type="button"
+            aria-label="Entrar no modo imersivo"
+        >
+            <i data-lucide="maximize"></i>
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- SELETORES -->
+    <div class="bible-reader-controls">
+
+        <!-- LIVRO -->
+        <div class="bible-select-group">
+
+            <label for="bibleBookSelect">
+                LIVRO
+            </label>
+
+            <select id="bibleBookSelect">
+                <option value="genesis">
+                    Gênesis
+                </option>
+            </select>
+
+        </div>
+
+
+        <!-- CAPÍTULO -->
+        <div class="bible-select-group">
+
+            <label for="bibleChapterSelect">
+                CAPÍTULO
+            </label>
+
+            <select id="bibleChapterSelect">
+                <option value="1">
+                    1
+                </option>
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROGRESSO -->
+    <div class="bible-reading-progress">
+
+        <div class="bible-progress-info">
+
+            <span>
+                PROGRESSO DA LEITURA
+            </span>
+
+            <span id="bibleProgressText">
+                0%
+            </span>
+
+        </div>
+
+        <div class="bible-progress-bar">
+
+            <div
+                class="bible-progress-fill"
+                id="bibleProgressFill"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ÁREA DO TEXTO -->
+    <main class="bible-text-content" id="bibleTextContent">
+
+        <!-- LOADING -->
+        <div
+            class="bible-loading"
+            id="bibleLoading"
+        >
+            <i data-lucide="loader-circle"></i>
+
+            <span>
+                CARREGANDO AS ESCRITURAS...
+            </span>
+        </div>
+
+
+        <!-- TÍTULO DO CAPÍTULO -->
+        <div class="bible-chapter-heading">
+
+    <span id="bibleChapterBook">
+        GÊNESIS
+    </span>
+
+    <strong id="bibleChapterTitle">
+        1
+    </strong>
+
+</div>
+
+        <!-- VERSÍCULOS -->
+        <div
+            class="bible-verses"
+            id="bibleVerses"
+        ></div>
+
+    </main>
+
+
+<div class="bible-read-complete">
+    <button
+        type="button"
+        id="bibleMarkRead"
+        aria-label="Marcar capítulo como lido"
+    >
+        <i data-lucide="check"></i>
+        <span>MARCAR COMO LIDO</span>
+    </button>
+</div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="bible-reader-navigation">
+
+        <button
+            class="bible-nav-button"
+            id="biblePreviousChapter"
+            type="button"
+        >
+            <i data-lucide="chevron-left"></i>
+
+            <span>
+                ANTERIOR
+            </span>
+        </button>
+
+
+        <div class="bible-reference">
+
+            <span id="bibleCurrentReference">
+                Gênesis 1
+            </span>
+
+        </div>
+
+
+        <button
+            class="bible-nav-button"
+            id="bibleNextChapter"
+            type="button"
+        >
+            <span>
+                PRÓXIMO
+            </span>
+
+            <i data-lucide="chevron-right"></i>
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+    <!-- =================================================
+         PAINEL DE PESQUISA
+    ================================================== -->
+
+    <div
+        class="bible-search-panel"
+        id="bibleSearchPanel"
+    >
+
+        <div class="bible-search-box">
+
+            <button
+                class="bible-search-close"
+                id="bibleSearchClose"
+                type="button"
+                aria-label="Fechar pesquisa"
+            >
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+
+            <span class="bible-search-label">
+                PESQUISAR NAS ESCRITURAS
+            </span>
+
+
+            <div class="bible-search-input-wrapper">
+
+                <i data-lucide="search"></i>
+
+                <input
+                    type="search"
+                    id="bibleSearchInput"
+                    placeholder="Digite um versículo, livro, Salmo ou passagem..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="bibleSearchSubmit"
+                    aria-label="Pesquisar"
+                >
+
+                    <i data-lucide="arrow-right"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- SUGESTÕES -->
+            <div class="bible-search-suggestions">
+
+                <button type="button">
+                    João 3:16
+                </button>
+
+                <button type="button">
+                    Salmos 23
+                </button>
+
+                <button type="button">
+                    Salmos 91
+                </button>
+
+                <button type="button">
+                    Romanos 8:28
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+            <div
+                class="bible-search-results"
+                id="bibleSearchResults"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+   
+<!-- =====================================================
+     LOJA — A BÍBLIA REVELA
+===================================================== -->
+
+<section class="store-view" id="lojaView">
+
+    <div class="store-bg"></div>
+
+    <div class="store-container">
+
+        <!-- CABEÇALHO -->
+        <header class="store-header">
+
+            <span class="store-label">
+                A BÍBLIA REVELA
+            </span>
+
+            <h1>
+                NOSSA <strong>LOJA</strong>
+            </h1>
+
+            <p>
+                Produtos selecionados para quem carrega
+                a Palavra no coração.
+            </p>
+
+        </header>
+
+
+        <!-- CATEGORIAS -->
+        <div class="store-categories">
+
+            <button
+                class="store-category active"
+                data-category="roupas"
+            >
+                ROUPAS
+            </button>
+
+            <button
+                class="store-category"
+                data-category="livros"
+            >
+                LIVROS
+            </button>
+
+        </div>
+
+
+        <!-- PRODUTOS -->
+        <div
+            class="store-products"
+            id="storeProducts"
+        >
+
+            <!--
+                Os produtos serão inseridos
+                automaticamente pelo script.js
+            -->
+
+        </div>
+
+
+        <!-- VOLTAR -->
+        <button
+            class="store-back"
+            id="storeBack"
+            type="button"
+        >
+
+            <i data-lucide="arrow-left"></i>
+
+            VOLTAR PARA INÍCIO
+
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         MODAL DO PRODUTO
+    ================================================== -->
+
+    <div
+        class="product-modal"
+        id="productModal"
+        aria-hidden="true"
+    >
+
+        <div class="product-modal-overlay"></div>
+
+
+        <div class="product-modal-content">
+
+            <!-- FECHAR -->
+
+            <button
+                class="product-modal-close"
+                id="productModalClose"
+                type="button"
+                aria-label="Fechar produto"
+            >
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+
+            <!-- GALERIA -->
+
+            <div class="product-gallery">
+
+                <div
+                    class="product-main-image"
+                    id="productMainImage"
+                >
+
+                </div>
+
+
+                <div
+                    class="product-thumbnails"
+                    id="productThumbnails"
+                >
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="product-details">
+
+                <span
+                    class="product-detail-category"
+                    id="productCategory"
+                >
+                </span>
+
+
+                <h2 id="productTitle">
+                </h2>
+
+
+                <div
+                    class="product-price"
+                    id="productPrice"
+                >
+                </div>
+
+
+                <div class="product-divider"></div>
+
+
+                <!-- CORES -->
+
+                <div
+                    class="product-option"
+                    id="productColorsWrapper"
+                >
+
+                    <span>
+                        COR
+                    </span>
+
+                    <div
+                        class="product-colors"
+                        id="productColors"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- TAMANHOS -->
+
+                <div
+                    class="product-option"
+                    id="productSizesWrapper"
+                >
+
+                    <span>
+                        TAMANHO
+                    </span>
+
+                    <div
+                        class="product-sizes"
+                        id="productSizes"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- DESCRIÇÃO -->
+
+                <div class="product-description">
+
+                    <span>
+                        DESCRIÇÃO
+                    </span>
+
+                    <p id="productDescription">
+                    </p>
+
+                </div>
+
+
+                <!-- BOTÃO -->
+
+                <a
+                    href="#"
+                    class="product-buy"
+                    id="productBuy"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    COMPRAR AGORA
+
+                    <i data-lucide="arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA — CURSOS
+===================================================== -->
+
+<section class="course-view" id="cursosView">
+
+    <div class="course-bg"></div>
+
+    <div class="course-container">
+
+
+        <!-- =================================================
+             VÍDEO — PRIMEIRO ELEMENTO DA PÁGINA
+        ================================================= -->
+
+        <div class="course-video-wrapper">
+
+            <div class="course-video">
+
+                <div class="course-video-placeholder">
+
+                    <i data-lucide="play"></i>
+
+                    <span>
+                        VÍDEO DE APRESENTAÇÃO
+                    </span>
+
+                    <small>
+                        Seu vídeo será colocado aqui
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INFORMAÇÕES PRINCIPAIS
+        ================================================= -->
+
+        <div class="course-info">
+
+            <span class="course-category">
+                CURSO ONLINE
+            </span>
+
+
+            <h2>
+                Criador PRO —
+                <strong>Edição com IA</strong>
+            </h2>
+
+
+            <p class="course-description">
+                Aprenda a criar conteúdos incríveis utilizando
+                inteligência artificial, edição profissional e
+                ferramentas modernas para transformar suas ideias
+                em vídeos de alto nível.
+            </p>
+
+
+            <!-- =================================================
+                 BENEFÍCIOS
+            ================================================= -->
+
+            <div class="course-benefits">
+
+                <div class="course-benefit">
+
+                    <i data-lucide="check"></i>
+
+                    <span>
+                        Criação de vídeos com Inteligência Artificial
+                    </span>
+
+                </div>
+
+
+                <div class="course-benefit">
+
+                    <i data-lucide="check"></i>
+
+                    <span>
+                        Técnicas de edição profissional
+                    </span>
+
+                </div>
+
+
+                <div class="course-benefit">
+
+                    <i data-lucide="check"></i>
+
+                    <span>
+                        Ferramentas e recursos para criação de conteúdo
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPRA
+            ================================================= -->
+
+            <div class="course-purchase">
+
+                <div class="course-price">
+
+                    <small>
+                        ACESSO AO CURSO
+                    </small>
+
+                    <strong>
+                        R$ XX,XX
+                    </strong>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="course-buy"
+                    id="courseBuy"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    COMPRAR AGORA
+
+                    <i data-lucide="arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DESTAQUE — AGORA NO FINAL
+        ================================================= -->
+
+        <div class="course-final-highlight">
+
+            <span>
+                A BÍBLIA REVELA • CURSOS
+            </span>
+
+            <h1>
+                APRENDA A CRIAR
+                <strong>COM IA</strong>
+            </h1>
+
+            <p>
+                Transforme suas ideias em conteúdos profissionais
+                utilizando inteligência artificial, criatividade
+                e técnicas de edição.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             VOLTAR
+        ================================================= -->
+
+        <button
+            class="course-back"
+            id="courseBack"
+            type="button"
+        >
+
+            <i data-lucide="arrow-left"></i>
+
+            VOLTAR PARA INÍCIO
+
+        </button>
+
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TELA — COMUNIDADE
+===================================================== -->
+
+<section class="community-view" id="comunidadeView">
+
+    <div class="community-frame-wrapper">
+
+        <iframe
+            src="Comunidade/public/index.html"
+            id="communityFrame"
+            title="Comunidade A Bíblia Revela"
+            loading="eager">
+        </iframe>
+
+    </div>
+
+</section>
+
+
+</main>
+
+<script src="script.js"></script>
+<script src="biblia-leitura.js"></script>
+
+</body>
+
+</html>

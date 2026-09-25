@@ -1,0 +1,2325 @@
+/* =====================================================
+   LOJA DIGITAL
+===================================================== */
+
+.store-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #090909;
+    color: #fff;
+}
+
+/* HERO */
+
+.store-hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 30px 100px;
+}
+
+/* FUNDO */
+
+.store-hero-background {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 65, 35, 0.28),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #16130e 0%,
+            #090909 50%,
+            #050505 100%
+        );
+
+    z-index: 0;
+}
+
+/* BRILHO SUTIL */
+
+.store-hero-background::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(180, 150, 80, 0.12),
+        transparent 70%
+    );
+
+    filter: blur(20px);
+}
+
+/* OVERLAY */
+
+.store-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.85)
+        );
+
+    z-index: 1;
+}
+
+/* CONTEÚDO */
+
+.store-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+/* EYEBROW */
+
+.store-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* TÍTULO */
+
+.store-hero-content h1 {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(42px, 7vw, 88px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: 2px;
+
+    color: #fff;
+}
+
+.store-hero-content h1 strong {
+    display: block;
+
+    font-weight: 700;
+
+    background: linear-gradient(
+        180deg,
+        #fff8df 0%,
+        #d7b96c 50%,
+        #9b7935 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* DESCRIÇÃO */
+
+.store-hero-content p {
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    font-weight: 300;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* DIVISOR */
+
+.store-divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 35px auto;
+}
+
+.store-divider span {
+    width: 80px;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(215, 185, 108, 0.7)
+    );
+}
+
+.store-divider span:last-child {
+    background: linear-gradient(
+        to left,
+        transparent,
+        rgba(215, 185, 108, 0.7)
+    );
+}
+
+.store-divider i {
+    width: 18px;
+    height: 18px;
+
+    color: #d7b96c;
+}
+
+/* BOTÕES */
+
+.store-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.store-primary-button,
+.store-secondary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border-radius: 3px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.store-primary-button {
+    background: linear-gradient(
+        135deg,
+        #d7b96c,
+        #9b7935
+    );
+
+    color: #080808;
+
+    border: 1px solid transparent;
+}
+
+.store-primary-button:hover {
+    transform: translateY(-3px);
+}
+
+.store-secondary-button {
+    color: #fff;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    backdrop-filter: blur(10px);
+}
+
+.store-secondary-button:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(215, 185, 108, 0.6);
+}
+
+/* SCROLL */
+
+.store-scroll {
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.store-scroll i {
+    width: 17px;
+    height: 17px;
+
+    animation: storeScroll 2s infinite;
+}
+
+@keyframes storeScroll {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+
+/* =====================================================
+   TELA DA LOJA
+===================================================== */
+
+.store-view {
+    display: none;
+    position: relative;
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    overflow: hidden;
+    padding: 80px 6%;
+    opacity: 0;
+    transform: translateY(35px);
+}
+
+.store-view.active {
+    display: block;
+    animation: lojaEntrando 0.65s ease forwards;
+}
+
+@keyframes lojaEntrando {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* FUNDO */
+
+.store-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212, 175, 55, 0.10),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            #080808 0%,
+            #0d0d0d 50%,
+            #050505 100%
+        );
+}
+
+
+/* BRILHO CENTRAL */
+
+.store-view::before {
+    content: "";
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: -250px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    filter: blur(100px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* CONTEÚDO */
+
+.store-content {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* CABEÇALHO */
+
+.store-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.store-eyebrow {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+    opacity: 0.65;
+}
+
+.store-header h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 82px);
+
+    line-height: 0.95;
+
+    font-weight: 300;
+
+    letter-spacing: -3px;
+}
+
+.store-header h1 strong {
+    display: block;
+
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #d4af37,
+        #ffffff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.store-header p {
+    margin-top: 25px;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    opacity: 0.65;
+}
+
+
+/* GRID */
+
+.store-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* PRODUTO */
+
+.store-product {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    border-radius: 22px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.store-product:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(212,175,55,0.45);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+}
+
+
+/* IMAGEM */
+
+.store-product-image {
+    height: 300px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,0.16),
+            transparent 60%
+        ),
+        #111;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.store-product-image i {
+    width: 90px;
+    height: 90px;
+
+    opacity: 0.7;
+}
+
+
+/* INFORMAÇÕES */
+
+.store-product-info {
+    padding: 28px;
+}
+
+.store-category {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+.store-product-info h2 {
+    margin: 10px 0 10px;
+
+    font-size: 25px;
+}
+
+.store-product-info p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    opacity: 0.6;
+}
+
+
+/* RODAPÉ DO PRODUTO */
+
+.store-product-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.store-product-bottom strong {
+    font-size: 20px;
+}
+
+.store-product-bottom a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.store-product-bottom a i {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* BOTÃO VOLTAR */
+
+.store-back {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 50px auto 0;
+
+    padding: 14px 22px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 50px;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.store-back:hover {
+    background: rgba(255,255,255,0.1);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   QUANDO A LOJA ESTIVER ABERTA
+===================================================== */
+
+body.store-open main > *:not(#lojaView) {
+    display: none;
+}
+
+body.store-open #lojaView {
+    display: block;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .store-view {
+        padding: 55px 20px 100px;
+    }
+
+    .store-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .store-product-image {
+        height: 240px;
+    }
+
+    .store-header {
+        margin-bottom: 40px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .store-view {
+        padding: 40px 15px 90px;
+    }
+
+    .store-header h1 {
+        font-size: 48px;
+    }
+
+    .store-header p {
+        font-size: 14px;
+    }
+
+    .store-product-info {
+        padding: 22px;
+    }
+
+    .store-product-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .store-product-image {
+        height: 210px;
+    }
+
+}
+
+
+/* =====================================================
+   LOJA — A BÍBLIA REVELA
+===================================================== */
+
+.store-view {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding: 110px 6% 100px;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.store-view.active {
+    display: block;
+    animation: storeEntrance .6s ease forwards;
+}
+
+@keyframes storeEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.store-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, .10),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 0% 50%,
+            rgba(255, 255, 255, .025),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #090909 55%,
+            #040404 100%
+        );
+}
+
+.store-view::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+
+    top: -350px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(212, 175, 55, .06);
+
+    filter: blur(120px);
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.store-container {
+    position: relative;
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.store-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.store-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    color: rgba(255,255,255,.55);
+}
+
+.store-header h1 {
+    margin: 0;
+
+    font-size: clamp(48px, 7vw, 88px);
+
+    line-height: .95;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+
+    color: #fff;
+}
+
+.store-header h1 strong {
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff 0%,
+            #d4af37 50%,
+            #fff 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.store-header p {
+    max-width: 520px;
+
+    margin: 25px auto 0;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+/* =====================================================
+   CATEGORIAS
+===================================================== */
+
+.store-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 45px;
+}
+
+.store-category {
+    position: relative;
+
+    padding: 13px 28px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.025);
+
+    border-radius: 50px;
+
+    color: rgba(255,255,255,.50);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.store-category:hover {
+    color: #fff;
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    transform: translateY(-2px);
+}
+
+.store-category.active {
+    color: #050505;
+
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 8px 30px rgba(212,175,55,.16);
+}
+
+
+/* =====================================================
+   GRID DOS PRODUTOS
+===================================================== */
+
+.store-products {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.store-product {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.018)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.store-product:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
+}
+
+
+/* =====================================================
+   IMAGEM DO PRODUTO
+===================================================== */
+
+.store-product-image {
+    position: relative;
+
+    width: 100%;
+    height: 390px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.10),
+            transparent 60%
+        ),
+        #101010;
+}
+
+.store-product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.store-product:hover
+.store-product-image img {
+    transform: scale(1.045);
+}
+
+
+/* =====================================================
+   PLACEHOLDER QUANDO NÃO HÁ IMAGEM
+===================================================== */
+
+.store-product-image i {
+    width: 70px;
+    height: 70px;
+
+    color: rgba(255,255,255,.35);
+}
+
+
+/* =====================================================
+   GRADIENTE SOBRE IMAGEM
+===================================================== */
+
+.store-product-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.45),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.store-product-info {
+    padding: 25px;
+}
+
+.store-category-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.40);
+}
+
+.store-product-info h2 {
+    margin: 0;
+
+    font-size: 21px;
+    line-height: 1.2;
+
+    color: #fff;
+}
+
+.store-product-info p {
+    margin: 10px 0 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: rgba(255,255,255,.48);
+}
+
+
+/* =====================================================
+   RODAPÉ DO CARD
+===================================================== */
+
+.store-product-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 23px;
+}
+
+.store-product-price {
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.store-product-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 11px 15px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.store-product-button:hover {
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #050505;
+
+    transform: translateY(-2px);
+}
+
+.store-product-button i {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.store-back {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 55px auto 0;
+
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.035);
+
+    color: rgba(255,255,255,.60);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.store-back:hover {
+    color: #fff;
+
+    border-color:
+        rgba(212,175,55,.30);
+
+    transform: translateY(-2px);
+}
+
+.store-back i {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =====================================================
+   MODAL — PRODUTO
+===================================================== */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.product-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.product-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.84);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.product-modal-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1050px, 100%);
+
+    /*
+       IMPORTANTE:
+       o modal nunca poderá ultrapassar
+       a área visível da tela
+    */
+    max-height: calc(100vh - 60px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #090909
+        );
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.65);
+
+    transform:
+        translateY(20px)
+        scale(.98);
+
+    transition:
+        transform .4s ease;
+}
+
+.product-modal.active
+.product-modal-content {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+/* =====================================================
+   BOTÃO FECHAR
+===================================================== */
+
+.product-modal-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 5;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(0,0,0,.55);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.product-modal-close:hover {
+    background: #d4af37;
+
+    color: #050505;
+
+    transform: rotate(90deg);
+}
+
+.product-modal-close i {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =====================================================
+   GALERIA
+===================================================== */
+
+.product-gallery {
+    padding: 30px;
+
+    min-width: 0;
+}
+
+.product-main-image {
+    width: 100%;
+
+    height: 500px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.10),
+            transparent 60%
+        ),
+        #101010;
+}
+
+.product-main-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   MINIATURAS
+===================================================== */
+
+.product-thumbnails {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    overflow-x: auto;
+}
+
+.product-thumbnail {
+    flex: 0 0 70px;
+
+    width: 70px;
+    height: 70px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: #111;
+
+    cursor: pointer;
+
+    opacity: .55;
+
+    transition: .3s ease;
+}
+
+.product-thumbnail.active,
+.product-thumbnail:hover {
+    opacity: 1;
+
+    border-color:
+        rgba(212,175,55,.75);
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   DETALHES DO PRODUTO
+===================================================== */
+
+.product-details {
+    padding: 55px 45px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.product-detail-category {
+    margin-bottom: 13px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,.40);
+}
+
+.product-details h2 {
+    margin: 0;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.05;
+
+    color: #fff;
+}
+
+.product-price {
+    margin-top: 20px;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    color: #d4af37;
+}
+
+.product-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   OPÇÕES
+===================================================== */
+
+.product-option {
+    margin-bottom: 25px;
+}
+
+.product-option > span,
+.product-description > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.45);
+}
+
+
+/* CORES */
+
+.product-colors {
+    display: flex;
+
+    gap: 9px;
+}
+
+.product-color {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    border: 2px solid transparent;
+
+    outline: 1px solid rgba(255,255,255,.15);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.product-color.active {
+    outline:
+        2px solid #d4af37;
+
+    outline-offset: 3px;
+}
+
+
+/* TAMANHOS */
+
+.product-sizes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.product-size {
+    min-width: 42px;
+
+    padding: 10px 13px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.025);
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.product-size:hover,
+.product-size.active {
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #050505;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
+.product-description {
+    margin-bottom: 28px;
+}
+
+.product-description p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+/* =====================================================
+   COMPRAR
+===================================================== */
+
+.product-buy {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 16px 22px;
+
+    border-radius: 10px;
+
+    background: #d4af37;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-buy:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(212,175,55,.20);
+}
+
+.product-buy i {
+    width: 16px;
+    height: 16px;
+}
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.store-product-info {
+    padding: 25px;
+}
+
+.store-category-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.40);
+}
+
+.store-product-info h2 {
+    margin: 0;
+
+    font-size: 21px;
+    line-height: 1.2;
+
+    color: #fff;
+}
+
+.store-product-info p {
+    margin: 10px 0 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: rgba(255,255,255,.48);
+}
+
+
+/* =====================================================
+   RODAPÉ DO CARD
+===================================================== */
+
+.store-product-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 23px;
+}
+
+.store-product-price {
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.store-product-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 11px 15px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.store-product-button:hover {
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #050505;
+
+    transform: translateY(-2px);
+}
+
+.store-product-button i {
+    width: 14px;
+    height: 14px;
+}
+
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.store-back {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 55px auto 0;
+
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.035);
+
+    color: rgba(255,255,255,.60);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.store-back:hover {
+    color: #fff;
+
+    border-color:
+        rgba(212,175,55,.30);
+
+    transform: translateY(-2px);
+}
+
+.store-back i {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =====================================================
+   MODAL — PRODUTO
+===================================================== */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.product-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.product-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.84);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.product-modal-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1050px, 100%);
+
+    /*
+       IMPORTANTE:
+       o modal nunca poderá ultrapassar
+       a área visível da tela
+    */
+    max-height: calc(100vh - 60px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #090909
+        );
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.65);
+
+    transform:
+        translateY(20px)
+        scale(.98);
+
+    transition:
+        transform .4s ease;
+}
+
+.product-modal.active
+.product-modal-content {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+/* =====================================================
+   BOTÃO FECHAR
+===================================================== */
+
+.product-modal-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 5;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(0,0,0,.55);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.product-modal-close:hover {
+    background: #d4af37;
+
+    color: #050505;
+
+    transform: rotate(90deg);
+}
+
+.product-modal-close i {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =====================================================
+   GALERIA
+===================================================== */
+
+.product-gallery {
+    padding: 30px;
+
+    min-width: 0;
+}
+
+.product-main-image {
+    width: 100%;
+
+    height: 500px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.10),
+            transparent 60%
+        ),
+        #101010;
+}
+
+.product-main-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   MINIATURAS
+===================================================== */
+
+.product-thumbnails {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    overflow-x: auto;
+}
+
+.product-thumbnail {
+    flex: 0 0 70px;
+
+    width: 70px;
+    height: 70px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: #111;
+
+    cursor: pointer;
+
+    opacity: .55;
+
+    transition: .3s ease;
+}
+
+.product-thumbnail.active,
+.product-thumbnail:hover {
+    opacity: 1;
+
+    border-color:
+        rgba(212,175,55,.75);
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   DETALHES DO PRODUTO
+===================================================== */
+
+.product-details {
+    padding: 55px 45px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.product-detail-category {
+    margin-bottom: 13px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,.40);
+}
+
+.product-details h2 {
+    margin: 0;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.05;
+
+    color: #fff;
+}
+
+.product-price {
+    margin-top: 20px;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    color: #d4af37;
+}
+
+.product-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   OPÇÕES
+===================================================== */
+
+.product-option {
+    margin-bottom: 25px;
+}
+
+.product-option > span,
+.product-description > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.45);
+}
+
+
+/* CORES */
+
+.product-colors {
+    display: flex;
+
+    gap: 9px;
+}
+
+.product-color {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    border: 2px solid transparent;
+
+    outline: 1px solid rgba(255,255,255,.15);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.product-color.active {
+    outline:
+        2px solid #d4af37;
+
+    outline-offset: 3px;
+}
+
+
+/* TAMANHOS */
+
+.product-sizes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.product-size {
+    min-width: 42px;
+
+    padding: 10px 13px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.025);
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.product-size:hover,
+.product-size.active {
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #050505;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
+.product-description {
+    margin-bottom: 28px;
+}
+
+.product-description p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+/* =====================================================
+   COMPRAR
+===================================================== */
+
+.product-buy {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 16px 22px;
+
+    border-radius: 10px;
+
+    background: #d4af37;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-buy:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(212,175,55,.20);
+}
+
+.product-buy i {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* =====================================================
+   ESCONDER SITE QUANDO LOJA ESTÁ ABERTA
+===================================================== */
+
+body.store-open main > *:not(#lojaView) {
+    display: none;
+}
+
+body.store-open #lojaView {
+    display: block;
+}

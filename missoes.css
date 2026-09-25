@@ -1,0 +1,1124 @@
+/* =====================================================
+   TELA — MISSÕES
+===================================================== */
+
+.missions-view {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 2000;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+/* =====================================================
+   PERGAMINHO
+===================================================== */
+
+.missions-scroll {
+    position: relative;
+
+    width: min(1100px, 94vw);
+    height: calc(100dvh - 150px);
+
+    margin: 0;
+
+    padding: 55px 50px 45px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(87, 48, 17, 0.18),
+            transparent 8%,
+            transparent 92%,
+            rgba(87, 48, 17, 0.18)
+        ),
+        linear-gradient(
+            180deg,
+            #ead7a7 0%,
+            #f4e5bd 48%,
+            #dfc38b 100%
+        );
+
+   border-radius: 0 0 8px 8px;
+
+    box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 45px rgba(91, 51, 17, 0.22),
+    inset 0 0 8px rgba(72, 39, 10, 0.35);
+    transform: translateY(110%);
+
+    opacity: 0;
+
+    transition:
+    transform 0.95s cubic-bezier(.16, .8, .25, 1),
+    opacity 0.4s ease;
+
+    scrollbar-width: thin;
+}
+
+
+/* =====================================================
+   IMPACTO DO PERGAMINHO
+   EFEITO FÍSICO — BATIDA + PÓ SECO
+===================================================== */
+
+
+/* =====================================================
+   CAMADA DE IMPACTO
+===================================================== */
+
+.missions-view::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 32px;
+
+    pointer-events: none;
+
+    z-index: 3000;
+
+    opacity: 0;
+
+    background:
+
+        /* pequenos fragmentos de pó */
+        radial-gradient(
+            circle at 4% 65%,
+            rgba(119, 82, 44, .75) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 9% 35%,
+            rgba(194, 153, 94, .85) 0 1.5px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 17% 70%,
+            rgba(127, 88, 48, .65) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 26% 25%,
+            rgba(211, 173, 112, .8) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 34% 68%,
+            rgba(125, 86, 47, .75) 0 1.5px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 43% 35%,
+            rgba(203, 163, 103, .8) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 52% 72%,
+            rgba(116, 79, 42, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 61% 28%,
+            rgba(211, 174, 113, .85) 0 1.5px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 70% 65%,
+            rgba(122, 84, 45, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 79% 32%,
+            rgba(204, 165, 105, .85) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 88% 70%,
+            rgba(120, 82, 44, .7) 0 1.5px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 96% 35%,
+            rgba(210, 172, 111, .8) 0 1px,
+            transparent 2px
+        );
+
+    filter: blur(.15px);
+
+    transform:
+        translateY(0)
+        scaleX(.98);
+}
+
+
+/* =====================================================
+   PÓ MAIS FINO
+===================================================== */
+
+.missions-view::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 38px;
+
+    pointer-events: none;
+
+    z-index: 3001;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 7% 78%,
+            rgba(224, 190, 134, .75) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 14% 22%,
+            rgba(103, 69, 37, .55) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 21% 82%,
+            rgba(218, 182, 126, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 31% 18%,
+            rgba(109, 74, 39, .6) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 39% 76%,
+            rgba(226, 192, 137, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 48% 20%,
+            rgba(105, 71, 38, .55) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 57% 84%,
+            rgba(221, 187, 130, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 66% 17%,
+            rgba(105, 71, 38, .55) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 75% 78%,
+            rgba(224, 190, 134, .7) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 84% 22%,
+            rgba(104, 70, 37, .55) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 93% 76%,
+            rgba(220, 184, 127, .7) 0 1px,
+            transparent 2px
+        );
+
+    filter: blur(.2px);
+}
+
+
+/* =====================================================
+   PEQUENA BATIDA NA BORDA
+===================================================== */
+
+body.missions-open .missions-view::before {
+
+    animation:
+        parchmentImpact
+        1.05s
+        cubic-bezier(.2, .8, .25, 1)
+        both;
+}
+
+
+body.missions-open .missions-view::after {
+
+    animation:
+        parchmentDust
+        1.25s
+        ease-out
+        .08s
+        both;
+}
+
+
+/* =====================================================
+   IMPACTO
+===================================================== */
+
+@keyframes parchmentImpact {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(0)
+            scaleX(.98);
+    }
+
+    18% {
+        opacity: .95;
+    }
+
+    /* momento em que bate */
+    32% {
+        opacity: 1;
+        transform:
+            translateY(1px)
+            scaleX(1);
+    }
+
+    38% {
+        opacity: .9;
+        transform:
+            translateY(-2px)
+            scaleX(1.012);
+    }
+
+    55% {
+        opacity: .65;
+        transform:
+            translateY(-5px)
+            scaleX(1.018);
+    }
+
+    75% {
+        opacity: .3;
+        transform:
+            translateY(-9px)
+            scaleX(1.025);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-15px)
+            scaleX(1.035);
+    }
+}
+
+
+/* =====================================================
+   PÓ SUBINDO
+===================================================== */
+
+@keyframes parchmentDust {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(3px)
+            scaleX(.98);
+    }
+
+    22% {
+        opacity: .75;
+    }
+
+    42% {
+        opacity: .8;
+        transform:
+            translateY(-2px)
+            scaleX(1);
+    }
+
+    65% {
+        opacity: .45;
+        transform:
+            translateY(-7px)
+            scaleX(1.015);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-14px)
+            scaleX(1.025);
+    }
+}
+
+.missions-scroll::after {
+    bottom: 0;
+
+    border-radius:
+        45% 45% 8px 8px;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.missions-header {
+    position: relative;
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin:
+        0 auto 40px;
+
+    z-index: 3;
+}
+
+
+.missions-kicker {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    color: #765326;
+}
+
+
+.missions-header h1 {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(32px, 5vw, 58px);
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    color: #4d3015;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.5);
+}
+
+
+.missions-header p {
+    margin:
+        10px 0 0;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 14px;
+
+    color: #71552f;
+}
+
+
+/* =====================================================
+   LISTA
+===================================================== */
+
+.missions-list {
+    position: relative;
+
+    display: grid;
+
+    gap: 16px;
+
+    max-width: 850px;
+
+    margin:
+        0 auto;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   CARD DA MISSÃO
+===================================================== */
+
+.mission-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-height: 88px;
+
+    padding:
+        16px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.28),
+            rgba(150,103,48,0.08)
+        );
+
+    border:
+        1px solid rgba(109, 71, 28, 0.28);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 7px 18px rgba(73, 42, 14, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.mission-card:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(73, 42, 14, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+
+/* =====================================================
+   ÍCONE
+===================================================== */
+
+.mission-icon {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8d642d,
+            #c49a58
+        );
+
+    color: #fff8e8;
+
+    box-shadow:
+        0 5px 12px rgba(72, 42, 12, 0.25),
+        inset 0 1px 2px rgba(255,255,255,0.35);
+}
+
+
+.mission-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.mission-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+}
+
+
+.mission-content strong {
+    font-family: "Cinzel", serif;
+
+    font-size: 16px;
+
+    color: #4d3015;
+}
+
+
+.mission-content span {
+    font-family: "Inter", sans-serif;
+
+    font-size: 12px;
+
+    color: #765b36;
+}
+
+
+/* =====================================================
+   RECOMPENSA
+===================================================== */
+
+.mission-reward {
+    flex-shrink: 0;
+
+    padding:
+        7px 11px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(105, 71, 28, 0.12);
+
+    border:
+        1px solid rgba(105, 71, 28, 0.2);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #67471f;
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.missions-close {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    margin:
+        35px auto 45px;
+
+    padding:
+        12px 22px;
+
+    border:
+        1px solid rgba(82, 52, 20, 0.30);
+
+    border-radius: 30px;
+
+    background:
+        rgba(92, 59, 23, 0.10);
+
+    color: #583a19;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(72, 42, 12, 0.12);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.missions-close:hover {
+    background:
+        rgba(92, 59, 23, 0.18);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.missions-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* =====================================================
+   ESTADO — MISSÕES ABERTAS
+===================================================== */
+
+
+/* -----------------------------------------------------
+   HUD DA JORNADA
+   Fica preso no topo
+----------------------------------------------------- */
+
+
+
+/* -----------------------------------------------------
+   ATIVA A TELA
+----------------------------------------------------- */
+
+/* =====================================================
+   MISSÕES — ABRIR E FECHAR COMO PERGAMINHO
+===================================================== */
+
+.missions-view {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+
+    /*
+       NÃO usar visibility hidden aqui,
+       porque precisamos enxergar a descida.
+    */
+    visibility: visible;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   PERGAMINHO FECHADO
+===================================================== */
+
+.missions-scroll {
+    position: relative;
+
+    width: min(1100px, 94vw);
+    height: calc(100dvh - 150px);
+
+    transform: translateY(110%);
+    opacity: 0;
+
+    transition:
+        transform 0.95s cubic-bezier(.16, .8, .25, 1),
+        opacity 0.95s cubic-bezier(.16, .8, .25, 1);
+}
+
+
+/* =====================================================
+   PERGAMINHO ABERTO
+===================================================== */
+
+body.missions-open .missions-view {
+    pointer-events: auto;
+}
+
+body.missions-open .missions-scroll {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* -----------------------------------------------------
+   PERGAMINHO SOBE
+----------------------------------------------------- */
+
+body.missions-open .missions-scroll {
+    transform:
+        translateY(0);
+
+    opacity: 1;
+}
+
+/* =====================================================
+   MISSÕES — CONTEÚDO ACOMPANHA O PERGAMINHO
+===================================================== */
+
+/*
+   O conteúdo fica pronto desde o início.
+   Assim ele sobe junto com o pergaminho.
+*/
+
+.missions-header,
+.missions-list,
+.missions-close-area {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .missions-scroll {
+        width: 100vw;
+
+        height:
+            calc(100dvh - 125px);
+
+        padding:
+            40px 18px 35px;
+
+        border-radius:
+            18px 18px 0 0;
+    }
+
+
+    .missions-header {
+        margin-bottom: 28px;
+    }
+
+
+    .missions-header h1 {
+        font-size: 34px;
+    }
+
+
+    .missions-header p {
+        font-size: 12px;
+    }
+
+
+    .mission-card {
+        gap: 12px;
+
+        min-height: 76px;
+
+        padding: 12px;
+    }
+
+
+    .mission-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .mission-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .mission-content strong {
+        font-size: 13px;
+    }
+
+
+    .mission-content span {
+        font-size: 10px;
+    }
+
+
+    .mission-reward {
+        font-size: 9px;
+
+        padding:
+            6px 8px;
+    }
+
+
+    .missions-close {
+        margin:
+            30px auto 40px;
+
+        padding:
+            11px 18px;
+
+        font-size: 10px;
+    }
+}
+
+/* =====================================================
+   PROGRESSO DAS MISSÕES
+===================================================== */
+
+.mission-content {
+    min-width: 0;
+}
+
+.mission-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.mission-progress-bar {
+    width: 150px;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(91, 58, 22, 0.14);
+}
+
+.mission-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        #8d642d,
+        #c49a58
+    );
+}
+
+.mission-progress small {
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    color: #765b36;
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   MISSÃO CONCLUÍDA
+===================================================== */
+
+.mission-card:has(.mission-progress-fill[style*="100%"]) {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(196,154,88,0.16),
+            rgba(255,255,255,0.22)
+        );
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .mission-progress {
+        gap: 7px;
+        margin-top: 6px;
+    }
+
+    .mission-progress-bar {
+        width: 100px;
+        height: 4px;
+    }
+
+    .mission-progress small {
+        font-size: 8px;
+    }
+
+}
+/* =====================================================
+   MEMBER PROGRESS — PERGAMINHO ÚNICO
+===================================================== */
+
+.member-progress {
+    position: fixed;
+
+    left: 50%;
+    bottom: 0;
+
+    width: min(100vw, 1100px);
+    margin: 0;
+    margin-bottom: 0 !important;
+
+    transform: translateX(-50%);
+
+    z-index: 2100;
+
+    /*
+       Mesma duração do pergaminho de MISSÕES.
+       Assim sobe e desce junto.
+    */
+    transition:
+        transform 0.95s cubic-bezier(.16, .8, .25, 1);
+
+    /*
+       Acabamento para parecer uma única peça
+    */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* =====================================================
+   MEMBER PROGRESS — ESPAÇO PARA A PONTA DO PERGAMINHO
+===================================================== */
+
+.member-progress {
+    position: fixed;
+
+    left: 50%;
+
+    /* sobe um pouco o card para criar espaço */
+    bottom: 18px;
+
+    width: min(100vw, 1100px);
+    margin: 0;
+
+    transform: translateX(-50%);
+
+    z-index: 2100;
+
+    transition:
+        transform 0.95s cubic-bezier(.16, .8, .25, 1);
+
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    overflow: visible !important;
+}
+
+
+/* =====================================================
+   PONTA INFERIOR DO PERGAMINHO
+===================================================== */
+
+.member-progress::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 100%;
+
+    height: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #b28a50 0%,
+            #e2c58f 45%,
+            #a77c42 100%
+        );
+
+    border-radius:
+        0 0 45% 45%;
+
+    box-shadow:
+        0 4px 9px rgba(0, 0, 0, 0.28),
+        inset 0 1px 2px rgba(255, 255, 255, 0.25);
+
+    z-index: 2200;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ABRIR MISSÕES
+===================================================== */
+
+body.missions-open .member-progress {
+    transform:
+        translate(-50%, calc(-100dvh + 100%));
+}
+/* =====================================================
+   ABRIR MISSÕES
+   MEMBER PROGRESS SOBE ATÉ O TOPO EXATO
+===================================================== */
+
+body.missions-open .member-progress {
+    transform:
+        translate(-50%, calc(-100dvh + 100%));
+
+    /*
+       Pequena sombra durante o movimento,
+       como a borda do pergaminho sendo puxada.
+    */
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* =====================================================
+   APP — TELA FIXA
+===================================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+
+    overscroll-behavior: none;
+}
+
+body {
+    position: fixed;
+    inset: 0;
+}
+
+.app {
+    width: 100vw;
+    height: 100dvh;
+
+    overflow: hidden;
+}
+

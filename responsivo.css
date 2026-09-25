@@ -1,0 +1,7871 @@
+/* =========================================================
+   HEADER — ULTRA FINO / CAFÉ TRANSPARENTE PREMIUM
+========================================================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 46px;
+
+    box-sizing: border-box;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(35, 20, 12, .34) 0%,
+            rgba(35, 20, 12, .18) 100%
+        );
+
+    border-bottom: 1px solid rgba(213, 170, 85, .10);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.16);
+
+    z-index: 1000;
+}
+
+
+/* LINHA INFERIOR SUPER SUTIL */
+.header::after {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: 0;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(213,170,85,.16),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+
+/* ÍCONE DO CANAL */
+.brand-logo {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: transparent;
+    border: 0;
+
+    box-shadow: none;
+}
+
+
+/* SUA LOGO abr.png */
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 1px 2px rgba(0,0,0,.45));
+}
+
+
+/* CASO O HTML AINDA TENHA O PLACEHOLDER */
+.brand-logo .logo-placeholder {
+    width: 25px;
+    height: 25px;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   NOME — A BÍBLIA REVELA
+========================================================= */
+
+.brand-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    line-height: .9;
+    white-space: nowrap;
+}
+
+
+.brand-name span {
+    font-family: "Cinzel", serif;
+
+    font-size: 6px;
+    font-weight: 600;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(238,220,185,.78);
+}
+
+
+.brand-name strong {
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+    color: rgba(255,244,218,.96);
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.65);
+}
+
+
+/* =========================================================
+   MENU PRINCIPAL
+========================================================= */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 2px;
+
+    margin-left: 26px;
+
+    flex: 1;
+}
+
+
+.main-nav a {
+    position: relative;
+
+    height: 28px;
+    padding: 0 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    color: rgba(245,232,210,.68);
+
+    text-decoration: none;
+
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: .3px;
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+
+.main-nav a:hover {
+    color: rgba(255,245,225,.96);
+
+    background: rgba(255,255,255,.035);
+}
+
+
+.main-nav a.active {
+    color: rgba(255,245,225,.98);
+}
+
+
+/* LINHA DO ITEM ATIVO */
+.main-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    width: 13px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: rgba(213,170,85,.55);
+
+    border-radius: 10px;
+}
+
+
+
+/* =========================================================
+   AÇÕES DO HEADER
+========================================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+}
+
+
+/* BOTÕES */
+.icon-button {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.055);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.025);
+
+    color: rgba(245,230,205,.72);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.icon-button:hover {
+    background: rgba(255,255,255,.07);
+    color: #fff;
+}
+
+
+.icon-button svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.profile {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 2px 6px 2px 3px;
+
+    border: 1px solid rgba(255,255,255,.055);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.025);
+
+    color: inherit;
+
+    cursor: pointer;
+}
+
+
+.profile-photo {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: rgba(92,57,32,.38);
+
+    border: 1px solid rgba(213,170,85,.18);
+}
+
+
+.profile-photo svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+
+.profile-text span {
+    font-size: 5px;
+
+    color: rgba(235,220,198,.48);
+}
+
+
+.profile-text strong {
+    margin-top: 2px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 7px;
+    font-weight: 600;
+
+    color: rgba(255,245,225,.82);
+}
+
+
+.profile-text svg {
+    width: 8px;
+    height: 8px;
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.mobile-menu {
+    display: none;
+
+    width: 29px;
+    height: 29px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.025);
+
+    color: rgba(245,230,205,.82);
+
+    cursor: pointer;
+}
+
+
+.mobile-menu svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   MENU MOBILE — HEADER
+   INÍCIO → BÍBLIA → COMUNIDADE → LOJA → CURSO PRO
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* HEADER */
+    .header {
+        height: 44px;
+        padding: 0 10px;
+    }
+
+
+    /* =====================================================
+       MENU PRINCIPAL
+    ===================================================== */
+
+    .main-nav {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 0;
+
+        margin-left: -100px;
+        margin-right: 4px;
+
+        flex: 1 1 auto;
+        min-width: 0;
+
+        overflow: hidden;
+    }
+
+    .main-nav a {
+        height: 30px;
+
+        padding: 0 4px;
+
+        font-size: 9px;
+        letter-spacing: .1px;
+
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+
+    /* =====================================================
+       CURSO CRIADOR PRO
+    ===================================================== */
+
+    .main-nav .destaque-curso {
+        width: 74px;
+        min-width: 74px;
+        max-width: 74px;
+
+        height: 32px;
+
+        padding: 3px 4px;
+        margin: 0 2px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 1px;
+
+        line-height: 1;
+
+        /* DOURADO PREMIUM */
+        background: linear-gradient(
+            135deg,
+            #8f6b25 0%,
+            #b89445 35%,
+            #d6bd76 55%,
+            #a47d32 100%
+        );
+
+        border: 1px solid rgba(224, 197, 119, .75);
+
+        border-radius: 5px;
+
+        box-shadow:
+            0 2px 7px rgba(0, 0, 0, .28),
+            inset 0 1px 0 rgba(255, 235, 170, .25);
+
+        color: #fff;
+
+        overflow: visible;
+        white-space: normal;
+        flex-shrink: 0;
+    }
+
+    .main-nav .destaque-curso span {
+        display: block;
+
+        width: 100%;
+
+        font-size: 6.5px;
+        font-weight: 800;
+
+        line-height: 8px;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        color: #fff;
+    }
+
+    .main-nav .destaque-curso small {
+        display: block;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        font-size: 6px;
+        font-weight: 900;
+
+        line-height: 7px;
+
+        letter-spacing: .7px;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        color: #fff7dc;
+    }
+
+
+    /* =====================================================
+       AÇÕES — PERFIL
+    ===================================================== */
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+
+        margin-left: 0;
+        gap: 3px;
+
+        flex-shrink: 0;
+    }
+
+    .profile-text {
+        display: none;
+    }
+
+    .profile {
+        width: 28px;
+        height: 28px;
+
+        padding: 2px;
+
+        justify-content: center;
+
+        flex-shrink: 0;
+    }
+
+    .profile-photo {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    /* =====================================================
+       BOTÃO MENU ☰
+    ===================================================== */
+
+    .mobile-menu {
+        display: flex;
+
+        width: 28px;
+        height: 28px;
+
+        margin-left: 3px;
+
+        flex-shrink: 0;
+    }
+
+    .mobile-menu svg {
+        width: 13px;
+        height: 13px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .header {
+        height: 42px;
+        padding: 0 7px;
+    }
+
+
+    /* LOGO */
+
+    .brand {
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .brand-logo,
+    .brand-logo .logo-placeholder {
+        width: 22px;
+        height: 22px;
+    }
+
+    .brand-name span {
+        font-size: 4.5px;
+        letter-spacing: .7px;
+    }
+
+    .brand-name strong {
+        font-size: 8px;
+        letter-spacing: .3px;
+    }
+
+
+    /* MENU */
+
+    .main-nav {
+        margin-left: -100px;
+        margin-right: 2px;
+        gap: 0;
+    }
+
+    .main-nav a {
+        padding: 0 3px;
+        font-size: 6px;
+    }
+
+
+    /* CURSO CRIADOR PRO */
+
+    .main-nav .destaque-curso {
+        width: 66px;
+        min-width: 66px;
+        max-width: 66px;
+
+        height: 30px;
+
+        padding: 2px 3px;
+        margin: 0 1px;
+
+        border-radius: 5px;
+    }
+
+    .main-nav .destaque-curso span {
+        font-size: 5.7px;
+        line-height: 7px;
+    }
+
+    .main-nav .destaque-curso small {
+        font-size: 5px;
+        line-height: 6px;
+        letter-spacing: .5px;
+    }
+
+
+    /* PERFIL */
+
+    .header-actions {
+        gap: 2px;
+    }
+
+    .profile {
+        width: 25px;
+        height: 25px;
+    }
+
+    .profile-photo {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    /* MENU ☰ */
+
+    .mobile-menu {
+        width: 25px;
+        height: 25px;
+
+        margin-left: 2px;
+    }
+
+    .mobile-menu svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+/* =====================================================
+   HOME — RESPONSIVO MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+
+
+
+    /* ===============================
+       HOME
+    =============================== */
+
+  .hero {
+
+    width: 100%;
+    min-width: 0;
+
+    height: 100svh;
+    min-height: 100svh;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+ .hero-content {
+
+    position: absolute;
+
+    top: 48%;
+    left: 50%;
+
+    width: 42%;
+    max-width: 430px;
+
+    height: 250px;
+
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    z-index: 10;
+}
+
+    .hero-content h1 {
+
+        margin-top: 18px;
+
+        font-size: clamp(48px, 13vw, 78px);
+
+        line-height: .92;
+
+        max-width: 100%;
+    }
+
+
+    .hero-description {
+
+        width: 100%;
+
+        margin-top: 20px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .hero-divider {
+
+        margin: 14px 0;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+
+
+    .hero-button {
+
+        margin-top: 19px;
+
+        padding: 13px 20px;
+
+        max-width: 100%;
+    }
+
+
+/* =====================================================
+   COMENTÁRIOS — PAINEL CENTRAL COMPACTO
+===================================================== */
+
+.hero-live-comments {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 135px;
+    max-width: 135px;
+
+    height: 82px;
+
+    margin: 0;
+    padding: 6px 7px;
+
+    transform: translate(-50%, -50%);
+
+    box-sizing: border-box;
+
+    border-radius: 7px;
+
+    z-index: 15;
+
+    font-size: 6px;
+    line-height: 1.15;
+
+    overflow: hidden;
+
+}
+
+
+/* CABEÇALHO */
+
+.hero-live-comments .hero-comments-header {
+
+    height: 14px;
+
+    margin-bottom: 3px;
+
+}
+
+
+/* STATUS */
+
+.hero-live-comments .hero-live-status {
+
+    font-size: 5px;
+
+}
+
+
+/* TÍTULO */
+
+.hero-live-comments .hero-comments-title {
+
+    font-size: 6px;
+
+}
+
+
+/* CONTADOR */
+
+.hero-live-comments .hero-comments-count {
+
+    font-size: 5px;
+
+}
+
+
+/* COMENTÁRIOS */
+
+.hero-live-comments .hero-comment {
+
+    min-height: 10px;
+
+    padding: 2px 0;
+
+    gap: 4px;
+
+}
+
+
+/* AVATAR */
+
+.hero-live-comments .hero-comment-avatar {
+
+    width: 14px;
+    height: 14px;
+
+    min-width: 14px;
+
+    font-size: 5px;
+
+}
+
+
+/* TEXTO */
+
+.hero-live-comments .hero-comment-content {
+
+    min-width: 0;
+
+}
+
+
+.hero-live-comments .hero-comment-content strong {
+
+    font-size: 5.5px;
+
+    line-height: 1;
+
+}
+
+
+.hero-live-comments .hero-comment-content span {
+
+    font-size: 5px;
+
+    line-height: 1.1;
+
+}
+
+
+/* TEMPO */
+
+.hero-live-comments .hero-comment small {
+
+    font-size: 4.5px;
+
+}
+
+  /* =====================================================
+   CARDS LATERAIS — MOBILE
+   MESMA COMPOSIÇÃO DO DESKTOP
+===================================================== */
+
+.hero-side {
+    display: flex;
+
+    position: absolute;
+
+    top: 45%;
+
+    width: 20%;
+    max-width: 125px;
+
+    transform: translateY(-50%);
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    z-index: 12;
+}
+
+.hero-left {
+    left: 5px;
+    align-items: flex-start;
+}
+
+.hero-right {
+    right: 5px;
+    align-items: flex-end;
+}
+
+
+/* CARD */
+
+.hero-side .feature-card {
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 7px 6px;
+
+    border-radius: 9px;
+
+    transform: scale(.78);
+
+    transform-origin: center;
+}
+
+
+/* ÍCONE */
+
+.hero-side .feature-icon {
+    width: 22px;
+    height: 22px;
+
+    margin-bottom: 3px;
+}
+
+.hero-side .feature-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+/* TÍTULO */
+
+.hero-side .feature-card h3 {
+    font-size: 6.5px;
+
+    line-height: 1.15;
+
+    letter-spacing: .45px;
+}
+
+
+/* DESCRIÇÃO */
+
+.hero-side .feature-card p {
+    font-size: 5.5px;
+
+    line-height: 1.25;
+
+    margin-top: 3px;
+}
+
+
+/* LINK */
+
+.hero-side .feature-card a {
+    font-size: 5.5px;
+
+    margin-top: 3px;
+
+    letter-spacing: .5px;
+}
+    /* ===============================
+       BÍBLIA
+    =============================== */
+
+    .hero-bible {
+
+        width: 78%;
+
+        max-width: 440px;
+
+        bottom: 45px;
+    }
+
+
+    /* ===============================
+       PEDESTAL
+    =============================== */
+
+    .bible-pedestal {
+
+        width: 88%;
+
+        max-width: 100%;
+
+        height: 135px;
+
+        border-radius: 12px 12px 0 0;
+    }
+
+
+    .pedestal-verse {
+
+        bottom: 30px;
+
+        font-size: 13px;
+
+        letter-spacing: 1.5px;
+
+        max-width: 90%;
+    }
+
+
+    .pedestal-verse small {
+
+        margin-top: 7px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* ===============================
+       OBJETO EM DESTAQUE
+    =============================== */
+
+    .featured-object {
+
+        width: 125px;
+
+        height: 90px;
+    }
+
+
+    .featured-object-icon svg {
+
+        width: 48px;
+
+        height: 48px;
+    }
+
+
+    .featured-object-title {
+
+        bottom: -18px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* ===============================
+       CARROSSEL
+    =============================== */
+
+ .featured-carousel {
+    top: 50px !important;
+    left: 50% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    transform: translateX(-50%) scale(0.68) !important;
+
+    transform-origin: top center !important;
+
+    overflow: visible;
+}
+
+
+.verse-templates-carousel {
+
+    position: absolute;
+
+    top: calc(80% - 170px);
+
+    left: 50%;
+
+    width: 100%;
+
+    height: 150px;
+
+    margin: 0;
+
+    padding: 0;
+
+    transform:
+        translateX(-50%);
+
+    transform-origin: bottom center;
+
+    z-index: 18;
+
+}
+    /* ===============================
+       CABEÇALHO
+    =============================== */
+
+    .verse-templates-header {
+
+        width: 100%;
+
+        padding: 0 18px;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .verse-templates-label {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .verse-templates-header h2 {
+
+        font-size: 12px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .verse-templates-counter {
+
+        font-size: 7px;
+
+    }
+
+
+    /* ===============================
+       ÁREA DAS CAPAS
+    =============================== */
+
+    .verse-templates-stage {
+
+        position: relative;
+
+        width: 100%;
+
+        height: 150px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        perspective: 1100px;
+
+        transform-style: preserve-3d;
+
+    }
+
+
+    /* ===============================
+       TODAS AS CAPAS
+    =============================== */
+
+    .verse-template-card {
+    position: absolute;
+
+    width: 98px;
+    height: 185px;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        opacity .45s ease,
+        filter .45s ease;
+}
+
+
+    /* ===============================
+       CAPA MAIS À ESQUERDA
+    =============================== */
+
+    .verse-template-far-prev {
+
+        transform:
+            translateX(-165px)
+            translateZ(-70px)
+            rotateY(15deg)
+            scale(.62);
+
+        opacity: .55;
+
+        z-index: 1;
+
+    }
+
+
+    /* ===============================
+       CAPA ESQUERDA
+    =============================== */
+
+    .verse-template-prev {
+
+        transform:
+            translateX(-82px)
+            translateZ(-20px)
+            rotateY(8deg)
+            scale(.78);
+
+        opacity: .88;
+
+        z-index: 2;
+
+    }
+
+
+    /* ===============================
+       CAPA PRINCIPAL
+    =============================== */
+
+    .verse-template-active {
+
+        transform:
+            translateZ(40px)
+            scale(.84);
+
+        opacity: 1;
+
+        z-index: 5;
+
+        box-shadow:
+            0 18px 35px rgba(0,0,0,.42),
+            0 0 20px rgba(255,255,255,.18),
+            inset 0 1px 0 rgba(255,255,255,1);
+
+    }
+
+
+    /* ===============================
+       CAPA DIREITA
+    =============================== */
+
+    .verse-template-next {
+
+        transform:
+            translateX(82px)
+            translateZ(-20px)
+            rotateY(-8deg)
+            scale(.78);
+
+        opacity: .88;
+
+        z-index: 2;
+
+    }
+
+
+    /* ===============================
+       CAPA MAIS À DIREITA
+    =============================== */
+
+    .verse-template-far-next {
+
+        transform:
+            translateX(165px)
+            translateZ(-70px)
+            rotateY(-15deg)
+            scale(.62);
+
+        opacity: .55;
+
+        z-index: 1;
+
+    }
+
+
+    /* ===============================
+       CONTEÚDO DAS CAPAS
+    =============================== */
+
+    .verse-template-inner {
+
+        padding: 20px 12px;
+
+    }
+
+
+    .verse-template-inner > span {
+
+        font-size: 6px;
+
+        letter-spacing: 1.7px;
+
+    }
+
+
+    .verse-template-inner p {
+
+        font-size: 11px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .verse-template-inner small {
+
+        font-size: 6px;
+
+        letter-spacing: 1.4px;
+
+    }
+
+
+    /* ===============================
+       SETAS
+    =============================== */
+
+    .verse-templates-arrow {
+
+        width: 24px;
+
+        height: 24px;
+
+        top: 57%;
+
+    }
+
+
+    .verse-templates-arrow svg {
+
+        width: 11px;
+
+        height: 11px;
+
+    }
+
+
+    .verse-templates-prev {
+
+        left: 8px;
+
+    }
+
+
+    .verse-templates-next {
+
+        right: 8px;
+
+    }
+
+
+    /* ===============================
+       INDICADORES
+    =============================== */
+
+    .verse-templates-dots {
+
+        bottom: 0;
+
+    }
+/* =====================================================
+   PROGRESSO DO MEMBRO
+   HUD SAGRADO — CAFÉ PREMIUM
+   MOBILE HOME
+===================================================== */
+
+.member-progress {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 8px;
+
+    transform: translateX(-50%);
+
+    width: min(96%, 900px);
+    height: 166px;
+
+    box-sizing: border-box;
+
+    padding: 9px 12px 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -30%,
+            rgba(213,170,85,.20),
+            transparent 48%
+        ),
+
+        radial-gradient(
+            circle at 8% 100%,
+            rgba(126,78,43,.34),
+            transparent 42%
+        ),
+
+        linear-gradient(
+            145deg,
+            #24140d 0%,
+            #392014 30%,
+            #4b2a18 55%,
+            #321b11 78%,
+            #1e100a 100%
+        );
+
+
+    /* =================================================
+       BORDA EXTERNA
+    ================================================= */
+
+    border:
+        1px solid
+        rgba(111,74,40,.95);
+
+
+    /* =================================================
+       CANTOS
+    ================================================= */
+
+    border-radius:
+        20px 20px 0 0;
+
+
+    /* =================================================
+       PROFUNDIDADE 3D
+    ================================================= */
+
+  box-shadow: 
+
+    /* =================================================
+       ESPESSURA DA TÁBUA
+    ================================================= */
+
+    0 4px 0 
+    #241309,
+
+    0 8px 0 
+    #160b06,
+
+
+    /* =================================================
+       SOMBRA REAL NO FUNDO
+    ================================================= */
+
+    0 14px 24px 
+    rgba(0,0,0,.55),
+
+
+    /* =================================================
+       RELEVO SUPERIOR
+    ================================================= */
+
+    inset 0 2px 0 
+    rgba(255,220,160,.22),
+
+
+    /* =================================================
+       RELEVO INFERIOR
+    ================================================= */
+
+    inset 0 -3px 0 
+    rgba(0,0,0,.42),
+
+
+    /* =================================================
+       LATERAL ESQUERDA
+    ================================================= */
+
+    inset 2px 0 0 
+    rgba(255,190,100,.08),
+
+
+    /* =================================================
+       LATERAL DIREITA
+    ================================================= */
+
+    inset -2px 0 0 
+    rgba(0,0,0,.32),
+
+
+    /* =================================================
+       MICRO-RELEVO
+    ================================================= */
+
+    0 1px 0 
+    rgba(255,220,160,.10),
+
+    0 -1px 0 
+    rgba(0,0,0,.35);
+
+
+/* =====================================================
+   VIDRO / DESFOQUE
+===================================================== */
+
+backdrop-filter: 
+    blur(22px);
+
+-webkit-backdrop-filter: 
+    blur(22px);
+
+
+z-index: 
+    999;
+
+}
+
+/* =====================================================
+   MOLDURA INTERNA — RELEVO
+===================================================== */
+
+.member-progress::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px solid
+        rgba(213,170,85,.22);
+
+    border-radius:
+        15px 15px 0 0;
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,225,170,.16),
+
+        inset 0 -2px 0
+        rgba(0,0,0,.30),
+
+        inset 1px 0 0
+        rgba(255,190,100,.06),
+
+        inset -1px 0 0
+        rgba(0,0,0,.20);
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
+}
+
+
+/* =====================================================
+   TEXTURA SUTIL DE MADEIRA
+===================================================== */
+
+.member-progress::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius:
+        inherit;
+
+    background:
+
+        repeating-linear-gradient(
+            8deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(255,210,145,.025) 19px,
+            transparent 21px
+        ),
+
+        repeating-linear-gradient(
+            172deg,
+            transparent 0px,
+            transparent 31px,
+            rgba(0,0,0,.035) 32px,
+            transparent 35px
+        );
+
+    opacity:
+        .9;
+
+    pointer-events:
+        none;
+
+    z-index:
+        2;
+
+}
+
+
+/* =====================================================
+   GARANTE PROFUNDIDADE DOS ELEMENTOS INTERNOS
+===================================================== */
+
+.member-progress > * {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+}
+/* =====================================================
+   LINHA DOURADA SUPERIOR
+===================================================== */
+
+.member-progress::before {
+    content: "";
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px solid
+        rgba(213,170,85,.22);
+
+    border-radius:
+        15px 15px 0 0;
+
+    box-shadow:
+
+        /* RELEVO DA MOLDURA */
+        inset 0 1px 0
+        rgba(255,225,170,.16),
+
+        inset 0 -2px 0
+        rgba(0,0,0,.30),
+
+        inset 1px 0 0
+        rgba(255,190,100,.06),
+
+        inset -1px 0 0
+        rgba(0,0,0,.20);
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   BRILHO AMBIENTE
+===================================================== */
+
+.member-progress::after {
+    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        repeating-linear-gradient(
+            8deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(255,210,145,.025) 19px,
+            transparent 21px
+        ),
+
+        repeating-linear-gradient(
+            172deg,
+            transparent 0px,
+            transparent 31px,
+            rgba(0,0,0,.035) 32px,
+            transparent 35px
+        );
+
+    opacity: .9;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.member-progress {
+    isolation: isolate;
+}
+
+/* =====================================================
+   DESGASTE SUTIL DA MADEIRA
+===================================================== */
+
+.member-progress > * {
+    position: relative;
+    z-index: 3;
+}
+
+.member-progress::marker {
+    display: none;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.member-progress-header {
+
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.member-progress-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.member-progress-kicker {
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 6px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #B8944A;
+
+    margin-bottom: 3px;
+
+}
+
+
+.member-progress-title strong {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: .7px;
+
+    color: #F0D9A0;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.45);
+
+}
+
+
+/* =====================================================
+   MINI EMBLEMA
+===================================================== */
+
+.member-progress-level-mini {
+
+    height: 23px;
+
+    padding: 0 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    border-radius: 8px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(126,78,43,.65),
+            rgba(48,27,17,.75)
+        );
+
+    border:
+        1px solid
+        rgba(213,170,85,.30);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,235,190,.15),
+
+        0 4px 10px
+        rgba(0,0,0,.28);
+
+}
+
+
+.member-progress-level-mini svg {
+
+    width: 12px;
+    height: 12px;
+
+    color: #D5AA55;
+
+}
+
+
+.member-progress-level-mini span {
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 5px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(255,235,202,.72);
+
+}
+
+
+/* =====================================================
+   HUD PRINCIPAL — 5 ELEMENTOS
+   COMPACTO / MOBILE
+===================================================== */
+
+
+.member-hud-main {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 67px;
+
+    display: grid;
+    grid-template-columns:
+        1fr
+        1fr
+        76px
+        1fr
+        1fr;
+
+    align-items: center;
+    gap: 4px;
+}
+
+
+
+/* =====================================================
+   ESTATÍSTICAS
+===================================================== */
+
+.member-hud-stat {
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-width: 0;
+
+}
+
+
+.member-hud-stat-text {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+}
+
+
+.member-hud-stat-text strong {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+}
+
+
+.member-hud-stat-text span {
+
+    margin-top: 3px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4.5px;
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    color: rgba(255,235,202,.58);
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   ÍCONES
+===================================================== */
+
+.member-hud-icon {
+
+    position: relative;
+
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #5b341e,
+            #2d180e
+        );
+
+    border:
+        1px solid
+        rgba(213,170,85,.35);
+
+    box-shadow:
+
+        0 5px 10px
+        rgba(0,0,0,.32),
+
+        inset 0 1px 0
+        rgba(255,235,190,.14);
+
+}
+
+
+.member-hud-icon svg {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 18px;
+    height: 18px;
+
+    stroke-width: 2;
+
+}
+
+
+/* =====================================================
+   FOGO
+===================================================== */
+
+.member-hud-streak .member-hud-icon {
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,94,35,.22),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            145deg,
+            #5c2b17,
+            #28130b
+        );
+
+}
+
+
+.member-hud-streak .member-hud-icon svg {
+
+    color: #F06A2B;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(240,106,43,.42)
+        );
+
+}
+
+
+.member-hud-streak .member-hud-stat-text strong {
+
+    color: #E87536;
+
+}
+
+
+/* =====================================================
+   PONTOS DA FÉ
+===================================================== */
+
+.member-hud-faith .member-hud-icon {
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(213,170,85,.24),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            145deg,
+            #5b401d,
+            #29170c
+        );
+
+}
+
+
+.member-hud-faith .member-hud-icon svg {
+
+    color: #E3BE63;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(227,190,99,.45)
+        );
+
+}
+
+
+.member-hud-faith .member-hud-stat-text strong {
+
+    color: #E1B958;
+
+}
+
+
+/* =====================================================
+   NÍVEL LATERAL
+===================================================== */
+
+.member-hud-level .member-hud-icon {
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(213,170,85,.20),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            145deg,
+            #4f351a,
+            #28160d
+        );
+
+}
+
+
+.member-hud-level .member-hud-icon svg {
+
+    color: #D5AA55;
+
+}
+
+
+.member-hud-level .member-hud-stat-text strong {
+
+    color: #E8CA82;
+
+}
+
+
+/* =====================================================
+   CÍRCULO XP
+===================================================== */
+.member-xp-circle {
+    width: 66px;
+    height: 66px;
+    margin: auto;
+}
+
+.member-xp-ring {
+
+    position: relative;
+
+    width: 66px;
+    height: 66px;
+
+}
+
+
+.member-xp-svg {
+
+    width: 66px;
+    height: 66px;
+
+    transform: rotate(-90deg);
+
+    overflow: visible;
+
+}
+
+
+.member-xp-track {
+
+    fill: none;
+
+    stroke:
+        rgba(0,115,170,.22);
+
+    stroke-width: 8;
+
+}
+
+
+.member-xp-fill {
+
+    fill: none;
+
+    stroke:
+        #21D4FF;
+
+    stroke-width: 8;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 326.73;
+
+    stroke-dashoffset: 91.48;
+
+    filter:
+        drop-shadow(
+            0 0 2px
+            rgba(0,200,255,.65)
+        );
+
+    animation:
+        xpRingEnergy 3s ease-in-out infinite;
+
+}
+@keyframes xpRingEnergy {
+
+    0%, 100% {
+
+        opacity: .90;
+
+        filter:
+            drop-shadow(
+                0 0 2px
+                rgba(0,200,255,.55)
+            );
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        filter:
+            drop-shadow(
+                0 0 3px
+                rgba(0,210,255,.80)
+            );
+
+    }
+
+}
+
+@keyframes memberXpGlow {
+
+    0%, 100% {
+
+        filter:
+            drop-shadow(0 0 4px rgba(0,191,255,.8))
+            drop-shadow(0 0 8px rgba(0,150,255,.65))
+            drop-shadow(0 0 13px rgba(0,210,255,.35));
+
+    }
+
+    50% {
+
+        filter:
+            drop-shadow(0 0 5px rgba(0,220,255,1))
+            drop-shadow(0 0 11px rgba(0,180,255,.9))
+            drop-shadow(0 0 19px rgba(0,220,255,.55));
+
+    }
+
+}
+
+
+/* =====================================================
+   CENTRO DO XP
+===================================================== */
+
+.member-xp-center strong {
+
+    margin-top: 1px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #38D9FF;
+
+    text-shadow:
+        0 0 3px rgba(56,217,255,.75),
+        0 0 7px rgba(0,170,255,.35);
+
+    animation:
+        xpLevelPulse 2.8s ease-in-out infinite;
+
+}
+
+@keyframes xpLevelPulse {
+
+    0%, 100% {
+
+        text-shadow:
+            0 0 3px rgba(56,217,255,.65),
+            0 0 6px rgba(0,170,255,.25);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 4px rgba(56,217,255,.9),
+            0 0 9px rgba(0,190,255,.4);
+
+    }
+
+}
+
+
+.member-xp-center span {
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    color:
+        rgba(125,225,255,.72);
+
+    text-shadow:
+        0 0 4px
+        rgba(0,180,255,.25);
+
+}
+
+
+.member-xp-center strong {
+
+    margin-top: 1px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #F0D27B;
+
+}
+
+
+
+.member-xp-center small {
+
+    margin-top: 2px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: .4px;
+
+    color:
+        rgba(125,225,255,.58);
+
+}
+
+/* =====================================================
+   VERSÍCULO
+===================================================== */
+
+.member-hud-verse {
+
+    height: 52px;
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 0 4px;
+
+}
+
+
+.member-hud-verse-scroll {
+
+    width: 28px;
+    height: 28px;
+
+    min-width: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        rgba(213,170,85,.12);
+
+    border:
+        1px solid
+        rgba(213,170,85,.25);
+
+}
+
+
+.member-hud-verse-scroll svg {
+
+    width: 15px;
+    height: 15px;
+
+    color: #D5AA55;
+
+}
+
+
+.member-hud-verse-text {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.member-hud-verse-text span {
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 5px;
+
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    color:
+        rgba(255,235,202,.72);
+
+}
+
+
+.member-hud-verse-text small {
+
+    margin-top: 3px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    color: #D5AA55;
+
+}
+/* =====================================================
+   MISSÕES — PREMIUM / HUD BÍBLICO
+===================================================== */
+
+.member-missions-button {
+
+    position: relative;
+    z-index: 4;
+
+    width: 100%;
+    height: 82px;
+    min-height: 82px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(211, 164, 73, .82);
+
+    /* CORPO DA PLACA */
+    background:
+        linear-gradient(
+            180deg,
+            #70471f 0%,
+            #563117 18%,
+            #3c2110 52%,
+            #29140a 100%
+        );
+
+    /* PROFUNDIDADE DA PLACA */
+    box-shadow:
+
+        /* sombra externa */
+        0 12px 24px rgba(0,0,0,.52),
+
+        /* contorno externo */
+        0 0 0 1px rgba(66,35,13,.95),
+
+        /* linha dourada externa */
+        0 0 0 2px rgba(171,117,40,.18),
+
+        /* relevo superior */
+        inset 0 2px 0 rgba(255,235,184,.22),
+
+        /* profundidade inferior */
+        inset 0 -4px 0 rgba(0,0,0,.42),
+
+        /* brilho interno */
+        inset 0 0 18px rgba(213,170,85,.07);
+
+    transition:
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease;
+}
+
+
+/* =====================================================
+   MOLDURA INTERNA
+===================================================== */
+
+.member-missions-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 5px;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(213,170,85,.18);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,240,200,.10),
+
+        inset 0 -1px 0 rgba(0,0,0,.32);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BRILHO SUPERIOR DA PLACA
+===================================================== */
+
+.member-missions-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 7%;
+
+    width: 86%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,218,139,.18) 12%,
+            rgba(255,235,180,.72) 50%,
+            rgba(255,218,139,.18) 88%,
+            transparent 100%
+        );
+
+    opacity: .8;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ÍCONE / PERGAMINHO
+===================================================== */
+
+.member-missions-icon {
+
+    position: relative;
+
+    width: 53px;
+    height: 53px;
+
+    min-width: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(213,170,85,.27),
+            rgba(89,48,17,.22)
+        );
+
+    border: 1px solid rgba(213,170,85,.42);
+
+    box-shadow:
+
+        0 5px 10px rgba(0,0,0,.32),
+
+        inset 0 1px 0 rgba(255,240,190,.17),
+
+        inset 0 -3px 5px rgba(0,0,0,.22);
+}
+
+
+/* pequeno brilho no topo do ícone */
+
+.member-missions-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 3px;
+    left: 20%;
+
+    width: 60%;
+    height: 1px;
+
+    background:
+        rgba(255,232,170,.45);
+}
+
+
+/* SVG */
+
+.member-missions-icon svg {
+
+    width: 31px;
+    height: 31px;
+
+    color: #e0b965;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.65))
+        drop-shadow(0 0 4px rgba(213,170,85,.12));
+}
+
+
+/* =====================================================
+   ÁREA DE TEXTO
+===================================================== */
+
+.member-missions-text {
+
+    position: relative;
+
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.member-missions-text strong {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: #f2d79d;
+
+    text-shadow:
+
+        0 2px 2px rgba(0,0,0,.75),
+
+        0 0 8px rgba(213,170,85,.10);
+}
+
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
+
+.member-missions-text small {
+
+    margin-top: 7px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11.5px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    letter-spacing: .15px;
+
+    color: rgba(255,238,205,.68);
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.7);
+}
+
+
+/* =====================================================
+   SETA CIRCULAR
+===================================================== */
+
+.member-missions-arrow {
+
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 28%,
+            rgba(255,225,157,.28),
+            rgba(116,72,27,.16) 42%,
+            rgba(37,19,9,.48) 100%
+        );
+
+    border: 1px solid rgba(213,170,85,.65);
+
+    box-shadow:
+
+        0 5px 11px rgba(0,0,0,.40),
+
+        inset 0 2px 0 rgba(255,240,190,.18),
+
+        inset 0 -3px 5px rgba(0,0,0,.38);
+}
+
+
+/* aro interno da seta */
+
+.member-missions-arrow::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(213,170,85,.16);
+}
+
+
+/* brilho superior */
+
+.member-missions-arrow::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+    left: 17px;
+
+    width: 18px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,235,180,.16);
+
+    filter: blur(2px);
+}
+
+
+.member-missions-arrow svg {
+
+    position: relative;
+    z-index: 2;
+
+    width: 25px;
+    height: 25px;
+
+    color: #f3d99e;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.65));
+}
+
+
+/* =====================================================
+   EFEITO DE HOVER
+===================================================== */
+
+.member-missions-button:hover {
+
+    transform: translateY(-1px);
+
+    filter: brightness(1.08);
+
+    border-color:
+        rgba(235,193,107,.95);
+
+    box-shadow:
+
+        0 15px 28px rgba(0,0,0,.55),
+
+        0 0 0 1px rgba(213,170,85,.18),
+
+        inset 0 2px 0 rgba(255,240,200,.25),
+
+        inset 0 0 22px rgba(213,170,85,.10);
+}
+
+
+.member-missions-button:hover
+.member-missions-arrow {
+
+    background:
+        radial-gradient(
+            circle at 35% 28%,
+            rgba(255,232,175,.36),
+            rgba(116,72,27,.22) 45%,
+            rgba(37,19,9,.48) 100%
+        );
+}
+
+
+/* =====================================================
+   CLIQUE
+===================================================== */
+
+.member-missions-button:active {
+
+    transform:
+        translateY(1px)
+        scale(.985);
+
+    box-shadow:
+
+        0 5px 12px rgba(0,0,0,.45),
+
+        inset 0 3px 7px rgba(0,0,0,.30);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 1
+   PROFUNDIDADE 3D DA PLACA
+===================================================== */
+
+.member-missions-button {
+
+    /* profundidade da peça */
+    transform-style: preserve-3d;
+
+    /* camada física inferior */
+    box-shadow:
+
+        0 12px 24px rgba(0,0,0,.52),
+
+        0 6px 0 rgba(34,17,7,.95),
+
+        0 8px 0 rgba(76,40,14,.55),
+
+        0 0 0 1px rgba(213,170,85,.38),
+
+        inset 0 2px 0 rgba(255,235,190,.22),
+
+        inset 0 -4px 0 rgba(0,0,0,.42),
+
+        inset 0 0 18px rgba(213,170,85,.07);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 2
+   MOLDURA DOURADA 3D
+===================================================== */
+
+.member-missions-button {
+
+    border-color:
+        rgba(213,170,85,.85);
+
+    box-shadow:
+
+        /* sombra externa */
+        0 12px 24px rgba(0,0,0,.52),
+
+        /* espessura inferior */
+        0 6px 0 rgba(34,17,7,.95),
+
+        0 8px 0 rgba(76,40,14,.55),
+
+        /* aro externo dourado */
+        0 0 0 1px rgba(213,170,85,.55),
+
+        /* relevo metálico */
+        inset 0 2px 0 rgba(255,238,190,.32),
+
+        inset 0 1px 0 rgba(255,255,255,.08),
+
+        /* sombra interna */
+        inset 0 -4px 0 rgba(0,0,0,.45),
+
+        /* profundidade lateral */
+        inset 2px 0 0 rgba(213,170,85,.12),
+
+        inset -2px 0 0 rgba(0,0,0,.22);
+}
+
+
+/* =====================================================
+   LINHA METÁLICA SUPERIOR
+===================================================== */
+
+.member-missions-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 1px;
+    left: 4%;
+
+    width: 92%;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(213,170,85,.20) 8%,
+            rgba(255,238,183,.85) 50%,
+            rgba(213,170,85,.20) 92%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,.45);
+
+    opacity: .9;
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 3
+   ORNAMENTOS METÁLICOS NOS CANTOS
+===================================================== */
+
+.member-missions-button {
+
+    background-image:
+
+        /* canto superior esquerdo */
+        radial-gradient(
+            ellipse 18px 8px at 18px 8px,
+            rgba(238,195,104,.42) 0%,
+            rgba(213,170,85,.16) 35%,
+            transparent 72%
+        ),
+
+        /* canto superior direito */
+        radial-gradient(
+            ellipse 18px 8px at calc(100% - 18px) 8px,
+            rgba(238,195,104,.42) 0%,
+            rgba(213,170,85,.16) 35%,
+            transparent 72%
+        ),
+
+        /* canto inferior esquerdo */
+        radial-gradient(
+            ellipse 18px 8px at 18px calc(100% - 8px),
+            rgba(213,170,85,.25) 0%,
+            rgba(145,94,29,.12) 40%,
+            transparent 72%
+        ),
+
+        /* canto inferior direito */
+        radial-gradient(
+            ellipse 18px 8px at calc(100% - 18px) calc(100% - 8px),
+            rgba(213,170,85,.25) 0%,
+            rgba(145,94,29,.12) 40%,
+            transparent 72%
+        );
+}
+
+
+/* =====================================================
+   PEQUENOS PONTOS DE RELEVO NOS CANTOS
+===================================================== */
+
+.member-missions-button {
+
+    box-shadow:
+
+        /* profundidade já existente */
+        0 12px 24px rgba(0,0,0,.52),
+        0 6px 0 rgba(34,17,7,.95),
+        0 8px 0 rgba(76,40,14,.55),
+
+        /* moldura */
+        0 0 0 1px rgba(213,170,85,.55),
+
+        /* pequenos relevos laterais */
+        inset 3px 0 0 rgba(213,170,85,.08),
+        inset -3px 0 0 rgba(0,0,0,.24),
+
+        /* parte superior */
+        inset 0 2px 0 rgba(255,238,190,.32),
+
+        /* parte inferior */
+        inset 0 -4px 0 rgba(0,0,0,.45),
+
+        /* brilho geral */
+        inset 0 0 20px rgba(213,170,85,.06);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 5
+   ÍCONE / PERGAMINHO 3D PREMIUM
+===================================================== */
+
+.member-missions-icon {
+
+    transform:
+        translateZ(10px);
+
+    transform-style: preserve-3d;
+
+    /* elevação visual da peça */
+    filter:
+        drop-shadow(0 5px 4px rgba(0,0,0,.48))
+        drop-shadow(0 1px 1px rgba(213,170,85,.22));
+
+    /* aro metálico externo */
+    outline:
+        1px solid rgba(213,170,85,.16);
+
+    outline-offset:
+        2px;
+}
+
+
+/* =====================================================
+   REFLEXO METÁLICO INTERNO
+===================================================== */
+
+.member-missions-icon {
+
+    background-image:
+
+        linear-gradient(
+            145deg,
+            rgba(255,238,184,.20) 0%,
+            transparent 22%,
+            transparent 72%,
+            rgba(0,0,0,.18) 100%
+        );
+}
+
+
+/* =====================================================
+   LUZ NO TOPO DO ÍCONE
+===================================================== */
+
+.member-missions-icon::before {
+
+    height: 2px;
+
+    top: 2px;
+
+    left: 15%;
+
+    width: 70%;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,235,174,.75),
+            transparent
+        );
+
+    box-shadow:
+        0 1px 4px rgba(255,213,120,.22);
+}
+
+
+/* =====================================================
+   PERGAMINHO / SÍMBOLO MAIS ELEVADO
+===================================================== */
+
+.member-missions-icon svg {
+
+    transform:
+        translateZ(8px);
+
+    filter:
+        drop-shadow(0 3px 2px rgba(0,0,0,.72))
+        drop-shadow(0 0 5px rgba(213,170,85,.18));
+
+    transition:
+        transform .18s ease,
+        filter .18s ease;
+}
+
+
+/* =====================================================
+   HOVER — ÍCONE RESPONDE COMO UMA PEÇA FÍSICA
+===================================================== */
+
+.member-missions-button:hover
+.member-missions-icon {
+
+    transform:
+        translateY(-1px)
+        translateZ(12px);
+
+    filter:
+        brightness(1.08)
+        drop-shadow(0 6px 5px rgba(0,0,0,.52))
+        drop-shadow(0 0 5px rgba(213,170,85,.18));
+}
+
+
+.member-missions-button:hover
+.member-missions-icon svg {
+
+    transform:
+        translateZ(10px)
+        scale(1.03);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 6
+   SETA CIRCULAR 3D PREMIUM
+===================================================== */
+
+.member-missions-arrow {
+
+    transform:
+        translateZ(12px);
+
+    transform-style: preserve-3d;
+
+    /* profundidade física */
+    box-shadow:
+
+        /* sombra de contato */
+        0 6px 8px rgba(0,0,0,.48),
+
+        /* espessura inferior */
+        0 3px 0 rgba(48,24,8,.95),
+
+        /* aro metálico */
+        0 0 0 1px rgba(213,170,85,.58),
+
+        /* luz superior */
+        inset 0 2px 0 rgba(255,239,190,.30),
+
+        /* laterais */
+        inset 2px 0 0 rgba(213,170,85,.12),
+        inset -2px 0 0 rgba(0,0,0,.28),
+
+        /* profundidade */
+        inset 0 -4px 5px rgba(0,0,0,.40),
+
+        /* brilho interno */
+        inset 0 0 10px rgba(213,170,85,.08);
+
+    transition:
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease;
+}
+
+
+/* =====================================================
+   CENTRO METÁLICO ESCULPIDO
+===================================================== */
+
+.member-missions-arrow {
+
+    background:
+
+        radial-gradient(
+            circle at 34% 27%,
+            rgba(255,237,182,.30) 0%,
+            rgba(205,155,69,.13) 18%,
+            rgba(92,51,16,.22) 48%,
+            rgba(38,19,8,.62) 100%
+        );
+}
+
+
+/* =====================================================
+   ARO INTERNO
+===================================================== */
+
+.member-missions-arrow::before {
+
+    inset: 4px;
+
+    border:
+        1px solid
+        rgba(213,170,85,.28);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,238,183,.18),
+
+        inset 0 -2px 3px
+        rgba(0,0,0,.35),
+
+        0 0 0 1px
+        rgba(0,0,0,.18);
+}
+
+
+/* =====================================================
+   REFLEXO DE LUZ NO METAL
+===================================================== */
+
+.member-missions-arrow::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 6px;
+    left: 12px;
+
+    width: 27px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,239,190,.42),
+            transparent
+        );
+
+    filter:
+        blur(2px);
+
+    opacity: .9;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SETA — ELEVADA SOBRE O METAL
+===================================================== */
+
+.member-missions-arrow svg {
+
+    transform:
+        translateZ(10px);
+
+    width: 25px;
+    height: 25px;
+
+    color: #f5dca5;
+
+    filter:
+
+        /* sombra da seta */
+        drop-shadow(
+            0 3px 2px
+            rgba(0,0,0,.78)
+        )
+
+        /* pequeno reflexo */
+        drop-shadow(
+            0 0 4px
+            rgba(255,219,139,.14)
+        );
+
+    transition:
+        transform .18s ease,
+        filter .18s ease;
+}
+
+
+/* =====================================================
+   HOVER — PEÇA SE ELEVA
+===================================================== */
+
+.member-missions-button:hover
+.member-missions-arrow {
+
+    transform:
+        translateY(-2px)
+        translateZ(16px);
+
+    filter:
+        brightness(1.10)
+        drop-shadow(
+            0 7px 7px
+            rgba(0,0,0,.52)
+        );
+}
+
+
+.member-missions-button:hover
+.member-missions-arrow svg {
+
+    transform:
+        translateZ(12px)
+        translateX(2px);
+
+    filter:
+
+        drop-shadow(
+            0 3px 2px
+            rgba(0,0,0,.78)
+        )
+
+        drop-shadow(
+            0 0 6px
+            rgba(255,219,139,.18)
+        );
+}
+
+
+/* =====================================================
+   CLIQUE — BOTÃO AFUNDA
+===================================================== */
+
+.member-missions-button:active
+.member-missions-arrow {
+
+    transform:
+        translateY(2px)
+        translateZ(5px);
+
+    box-shadow:
+
+        0 2px 4px rgba(0,0,0,.42),
+
+        inset 0 3px 6px
+        rgba(0,0,0,.42),
+
+        inset 0 1px 0
+        rgba(255,239,190,.16);
+}
+
+
+.member-missions-button:active
+.member-missions-arrow svg {
+
+    transform:
+        translateZ(3px);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 7
+   BORDA ORNAMENTAL EM FORMATO DE SETA
+===================================================== */
+
+.member-missions-button {
+
+    /* formato externo com pontas laterais */
+    clip-path:
+        polygon(
+            0% 50%,
+            2.8% 30%,
+            8% 8%,
+            92% 8%,
+            97.2% 30%,
+            100% 50%,
+            97.2% 70%,
+            92% 92%,
+            8% 92%,
+            2.8% 70%
+        );
+
+    /* mantém o volume visual */
+    filter:
+        drop-shadow(0 12px 18px rgba(0,0,0,.45));
+}
+
+/* =====================================================
+   PONTAS LATERAIS — RELEVO METÁLICO
+===================================================== */
+
+.member-missions-button {
+
+    background-image:
+
+        /* ponta esquerda */
+        linear-gradient(
+            135deg,
+            rgba(255,224,145,.45) 0%,
+            rgba(213,170,85,.18) 18%,
+            transparent 42%
+        ),
+
+        /* ponta direita */
+        linear-gradient(
+            315deg,
+            rgba(255,224,145,.45) 0%,
+            rgba(213,170,85,.18) 18%,
+            transparent 42%
+        ),
+
+        /* corpo */
+        linear-gradient(
+            180deg,
+            rgba(255,235,180,.08),
+            transparent 25%,
+            rgba(0,0,0,.12) 100%
+        );
+}
+
+/* =====================================================
+   LINHAS DE RELEVO DA BORDA
+===================================================== */
+
+.member-missions-button {
+
+    box-shadow:
+
+        /* sombra profunda */
+        0 12px 24px rgba(0,0,0,.52),
+
+        /* espessura */
+        0 6px 0 rgba(34,17,7,.95),
+        0 8px 0 rgba(76,40,14,.55),
+
+        /* borda dourada */
+        0 0 0 1px rgba(213,170,85,.65),
+
+        /* brilho superior */
+        inset 0 2px 0 rgba(255,238,190,.38),
+
+        /* linha inferior */
+        inset 0 -3px 0 rgba(0,0,0,.48),
+
+        /* laterais */
+        inset 3px 0 0 rgba(213,170,85,.16),
+        inset -3px 0 0 rgba(0,0,0,.25),
+
+        /* profundidade */
+        inset 0 0 20px rgba(213,170,85,.07);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 8
+   PONTAS LATERAIS 3D
+===================================================== */
+
+.member-missions-tip {
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 34px;
+    height: 58px;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4bd6d 0%,
+            #a96d24 28%,
+            #6f3e14 58%,
+            #3b1e0a 100%
+        );
+
+    border: 1px solid
+        rgba(238,202,132,.70);
+
+    box-shadow:
+
+        inset 2px 2px 0
+        rgba(255,239,190,.30),
+
+        inset -3px -3px 0
+        rgba(45,21,7,.55),
+
+        0 4px 7px
+        rgba(0,0,0,.42);
+}
+
+
+/* =====================================================
+   PONTA ESQUERDA
+===================================================== */
+
+.member-missions-tip-left {
+
+    left: -9px;
+
+    clip-path:
+        polygon(
+            0 50%,
+            42% 0,
+            100% 18%,
+            82% 50%,
+            100% 82%,
+            42% 100%
+        );
+}
+
+
+/* =====================================================
+   PONTA DIREITA
+===================================================== */
+
+.member-missions-tip-right {
+
+    right: -9px;
+
+    clip-path:
+        polygon(
+            58% 0,
+            100% 50%,
+            58% 100%,
+            0 82%,
+            18% 50%,
+            0 18%
+        );
+}
+
+
+/* =====================================================
+   LINHA DE LUZ NAS PONTAS
+===================================================== */
+
+.member-missions-tip-left::before,
+.member-missions-tip-right::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+
+    width: 18px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,239,190,.85),
+            transparent
+        );
+
+    box-shadow:
+        0 0 4px
+        rgba(255,218,139,.30);
+}
+
+
+.member-missions-tip-left::before {
+
+    left: 7px;
+
+    transform:
+        rotate(48deg);
+}
+
+
+.member-missions-tip-right::before {
+
+    right: 7px;
+
+    transform:
+        rotate(-48deg);
+}
+
+
+/* =====================================================
+   SOMBRA DE CONTATO
+===================================================== */
+
+.member-missions-tip-left::after,
+.member-missions-tip-right::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 7px;
+
+    width: 16px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.42);
+
+    filter:
+        blur(2px);
+}
+
+
+.member-missions-tip-left::after {
+
+    left: 8px;
+
+    transform:
+        rotate(-48deg);
+}
+
+
+.member-missions-tip-right::after {
+
+    right: 8px;
+
+    transform:
+        rotate(48deg);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 9
+   MOLDURA INTERNA ESCULPIDA
+===================================================== */
+
+.member-missions-frame {
+
+    position: absolute;
+
+    left: 7%;
+
+    width: 86%;
+
+    height: 1px;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(116,71,22,.45) 5%,
+            rgba(213,170,85,.42) 18%,
+            rgba(255,225,151,.65) 50%,
+            rgba(213,170,85,.42) 82%,
+            rgba(116,71,22,.45) 95%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.55);
+}
+
+
+/* =====================================================
+   MOLDURA SUPERIOR
+===================================================== */
+
+.member-missions-frame-top {
+
+    top: 11px;
+
+    box-shadow:
+
+        0 1px 0
+        rgba(255,235,180,.16),
+
+        0 2px 3px
+        rgba(0,0,0,.42);
+}
+
+
+/* =====================================================
+   MOLDURA INFERIOR
+===================================================== */
+
+.member-missions-frame-bottom {
+
+    bottom: 11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(80,43,13,.50) 5%,
+            rgba(165,112,39,.36) 18%,
+            rgba(213,170,85,.48) 50%,
+            rgba(165,112,39,.36) 82%,
+            rgba(80,43,13,.50) 95%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 -1px 0
+        rgba(0,0,0,.35),
+
+        0 1px 3px
+        rgba(0,0,0,.50);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 10
+   MOLDURA INTERNA ANGULAR
+===================================================== */
+
+.member-missions-button::before {
+    inset: 8px;
+    border: none;
+    border-radius: 0;
+
+    clip-path:
+        polygon(
+            0% 50%,
+            2.5% 18%,
+            7% 0%,
+            93% 0%,
+            97.5% 18%,
+            100% 50%,
+            97.5% 82%,
+            93% 100%,
+            7% 100%,
+            2.5% 82%
+        );
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,239,190,.24),
+            transparent 22%,
+            transparent 78%,
+            rgba(0,0,0,.28)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,239,190,.18),
+        inset 0 -1px 0 rgba(0,0,0,.35);
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   ETAPA 10 — REFLEXOS DAS QUINAS
+===================================================== */
+
+.member-missions-button::after {
+    content: "";
+    position: absolute;
+
+    top: 8px;
+    left: 7%;
+
+    width: 86%;
+    height: calc(100% - 16px);
+
+    pointer-events: none;
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 7%,
+            rgba(255,235,178,.42) 7.5%,
+            transparent 9%,
+            transparent 91%,
+            rgba(255,235,178,.42) 92%,
+            transparent 93%
+        );
+
+    opacity: .75;
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 11
+   JUNÇÕES METÁLICAS DAS PONTAS
+===================================================== */
+
+.member-missions-tip-left,
+.member-missions-tip-right {
+    overflow: hidden;
+}
+
+
+/* brilho interno das pontas */
+
+.member-missions-tip-left::before,
+.member-missions-tip-right::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 18px;
+    height: 38px;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,239,190,.38),
+            rgba(213,170,85,.12),
+            transparent
+        );
+
+    opacity: .75;
+
+    filter:
+        blur(.2px);
+}
+
+
+/* esquerda */
+
+.member-missions-tip-left::before {
+
+    left: 8px;
+
+    clip-path:
+        polygon(
+            0 50%,
+            100% 0,
+            100% 100%
+        );
+}
+
+
+/* direita */
+
+.member-missions-tip-right::before {
+
+    right: 8px;
+
+    transform:
+        translateY(-50%)
+        scaleX(-1);
+
+    clip-path:
+        polygon(
+            0 50%,
+            100% 0,
+            100% 100%
+        );
+}
+
+/* =====================================================
+   ENTALHE ESCURO NAS JUNÇÕES
+===================================================== */
+
+.member-missions-tip-left::after,
+.member-missions-tip-right::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 5px;
+    height: 46px;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(35,16,6,.78) 20%,
+            rgba(12,6,2,.92) 50%,
+            rgba(35,16,6,.78) 80%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 3px rgba(0,0,0,.45);
+}
+
+.member-missions-tip-left::after {
+    right: 1px;
+}
+
+.member-missions-tip-right::after {
+    left: 1px;
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 12
+   MICRO-REBITES METÁLICOS
+===================================================== */
+
+.member-missions-frame-top::before,
+.member-missions-frame-top::after,
+.member-missions-frame-bottom::before,
+.member-missions-frame-bottom::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff0bd 0%,
+            #e2b962 28%,
+            #9b6520 62%,
+            #4b270c 100%
+        );
+
+    border:
+        1px solid rgba(255,232,169,.48);
+
+    box-shadow:
+
+        0 1px 2px rgba(0,0,0,.65),
+
+        inset 1px 1px 0
+        rgba(255,245,205,.38),
+
+        0 0 3px
+        rgba(213,170,85,.18);
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* =====================================================
+   REBITES SUPERIORES
+===================================================== */
+
+.member-missions-frame-top::before {
+    left: 1px;
+}
+
+.member-missions-frame-top::after {
+    right: 1px;
+}
+
+
+/* =====================================================
+   REBITES INFERIORES
+===================================================== */
+
+.member-missions-frame-bottom::before {
+    left: 1px;
+}
+
+.member-missions-frame-bottom::after {
+    right: 1px;
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 13
+   REFLEXO SUAVE DA SUPERFÍCIE
+===================================================== */
+
+.member-missions-button {
+    background-image:
+        linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 28%,
+            rgba(255,228,157,.025) 38%,
+            rgba(255,238,190,.075) 50%,
+            rgba(255,228,157,.025) 62%,
+            transparent 72%,
+            transparent 100%
+        );
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 14
+   TEXTURA PREMIUM SUTIL
+===================================================== */
+
+.member-missions-button {
+    background-image:
+
+        /* micro textura vertical */
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,235,180,.018) 0px,
+            rgba(255,235,180,.018) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        /* micro variação horizontal */
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,.018) 0px,
+            rgba(0,0,0,.018) 1px,
+            transparent 1px,
+            transparent 5px
+        ),
+
+        /* brilho muito suave */
+        linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 32%,
+            rgba(255,230,170,.035) 48%,
+            rgba(255,238,190,.055) 50%,
+            rgba(255,230,170,.035) 52%,
+            transparent 68%,
+            transparent 100%
+        );
+}
+
+
+
+/* =====================================================
+   MISSÕES — ETAPA 14
+   TEXTURA PREMIUM SUTIL
+===================================================== */
+
+.member-missions-button {
+    background-image:
+
+        /* micro textura vertical */
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,235,180,.018) 0px,
+            rgba(255,235,180,.018) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        /* micro variação horizontal */
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,.018) 0px,
+            rgba(0,0,0,.018) 1px,
+            transparent 1px,
+            transparent 5px
+        ),
+
+        /* brilho muito suave */
+        linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 32%,
+            rgba(255,230,170,.035) 48%,
+            rgba(255,238,190,.055) 50%,
+            rgba(255,230,170,.035) 52%,
+            transparent 68%,
+            transparent 100%
+        );
+}
+
+
+/* =====================================================
+   MISSÕES — ETAPA 17
+   MEDALHÃO PREMIUM DO ÍCONE
+===================================================== */
+
+.member-missions-icon {
+
+    position: relative;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(225,184,101,.30),
+            rgba(119,72,25,.25) 48%,
+            rgba(48,25,10,.38) 100%
+        );
+
+    border:
+        1px solid
+        rgba(226,185,104,.58);
+
+    box-shadow:
+
+        /* sombra externa */
+        0 6px 12px
+        rgba(0,0,0,.38),
+
+        /* aro metálico */
+        0 0 0 1px
+        rgba(94,53,16,.72),
+
+        /* luz superior */
+        inset 0 2px 0
+        rgba(255,242,198,.24),
+
+        /* sombra inferior */
+        inset 0 -3px 5px
+        rgba(0,0,0,.34),
+
+        /* brilho metálico */
+        inset 0 0 12px
+        rgba(213,170,85,.10);
+}
+
+/* =====================================================
+   MISSÕES — ETAPA 17B
+   MEDALHÃO VISÍVEL DO ÍCONE
+===================================================== */
+
+.member-missions-icon {
+
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8a5b25 0%,
+            #694116 38%,
+            #45250e 72%,
+            #2b1609 100%
+        );
+
+    border:
+        2px solid
+        rgba(213,170,85,.72);
+
+    box-shadow:
+
+        /* sombra externa */
+        0 7px 13px
+        rgba(0,0,0,.45),
+
+        /* aro externo escuro */
+        0 0 0 2px
+        rgba(48,24,8,.90),
+
+        /* aro dourado */
+        0 0 0 3px
+        rgba(213,170,85,.16),
+
+        /* relevo superior */
+        inset 0 3px 0
+        rgba(255,239,190,.28),
+
+        /* profundidade inferior */
+        inset 0 -4px 0
+        rgba(0,0,0,.42),
+
+        /* brilho interno */
+        inset 0 0 15px
+        rgba(255,213,125,.10);
+
+    overflow: hidden;
+}
+
+/* =====================================================
+   ARO INTERNO DO MEDALHÃO
+===================================================== */
+
+.member-missions-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 5px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid
+        rgba(238,202,132,.42);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,242,201,.22),
+
+        inset 0 -2px 0
+        rgba(48,23,7,.42);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+/* =====================================================
+   ÍCONE PERSONALIZADO — MISSÕES
+===================================================== */
+
+.member-missions-custom-icon {
+    position: relative;
+    z-index: 5;
+
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.85))
+        drop-shadow(0 0 4px rgba(213,170,85,.28));
+}
+
+/* =====================================================
+   ÍCONE PERSONALIZADO — SOMENTE BOTÃO MISSÕES
+===================================================== */
+
+.member-missions-button .member-missions-custom-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.85))
+        drop-shadow(0 0 5px rgba(213,170,85,.30));
+}
+
+/* =====================================================
+   REMOVER CAIXA DO ÍCONE — MISSÕES
+===================================================== */
+
+.member-missions-button .member-missions-icon {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* =====================================================
+   AJUSTE — CARD DE PROGRESSO MAIS COMPACTO
+===================================================== */
+
+.member-progress {
+    padding-bottom: 8px;
+}
+
+/* Área principal mais baixa */
+.member-hud-main {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 67px;
+
+    display: grid;
+    grid-template-columns:
+        1fr
+        1fr
+        76px
+        1fr
+        1fr;
+
+    align-items: center;
+    gap: 4px;
+}
+
+/* Estatísticas laterais compactas */
+.member-hud-stat {
+    gap: 3px;
+    padding: 3px 0;
+    min-height: 0;
+}
+
+/* Ícone em cima */
+.member-hud-stat {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caixa do ícone */
+.member-hud-stat .member-hud-icon {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    margin: 0;
+}
+
+/* Texto logo abaixo do ícone */
+.member-hud-stat .member-hud-stat-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Número */
+.member-hud-stat .member-hud-stat-text strong {
+    line-height: 1;
+    margin: 0;
+}
+
+/* Descrição */
+.member-hud-stat .member-hud-stat-text span {
+    line-height: 1;
+    margin: 0;
+}
+
+/* Reduz espaço do círculo central */
+.member-xp-circle {
+    margin: 0;
+}
+
+/* Versículo mais próximo */
+.member-hud-verse {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* Botão MISSÕES mais próximo do HUD */
+.member-missions-button {
+    margin-top: 3px;
+}
+
+/* =====================================================
+   LIBERAR ALTURA DO CARD DE PROGRESSO
+===================================================== */
+
+.member-progress {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.member-hud-main {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.member-missions-button {
+    position: relative;
+    z-index: 20;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+/* =====================================================
+   HUD — COMPACTAR ESPAÇO, MANTER ELEMENTOS GRANDES
+===================================================== */
+
+.member-progress {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Cabeçalho sem espaço vertical extra */
+.member-progress-header {
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 2px 0 !important;
+}
+
+/* Área principal ocupando somente o necessário */
+.member-hud-main {
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    row-gap: 0 !important;
+}
+
+/* =====================================================
+   MANTER TAMANHO ORIGINAL DOS ELEMENTOS
+===================================================== */
+
+/* Ícones voltam a ficar grandes */
+.member-hud-stat .member-hud-icon {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+}
+
+/* Textos continuam grandes */
+.member-hud-stat .member-hud-stat-text {
+    gap: 1px !important;
+    line-height: 1 !important;
+}
+
+.member-hud-stat .member-hud-stat-text strong {
+    line-height: 1 !important;
+}
+
+.member-hud-stat .member-hud-stat-text span {
+    line-height: 1 !important;
+}
+
+/* =====================================================
+   CÍRCULO XP — GRANDE NOVAMENTE
+===================================================== */
+
+.member-xp-circle {
+    transform: scale(1) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =====================================================
+   VERSÍCULO — SEM ESPAÇO MARROM EXCESSIVO
+===================================================== */
+
+.member-hud-verse {
+    margin: 0 !important;
+    padding: 1px 0 !important;
+}
+
+/* =====================================================
+   MISSÕES — HUD PREMIUM
+===================================================== */
+
+.member-missions-button {
+    position: relative;
+    z-index: 20;
+
+    width: 100%;
+    height: 82px;
+    min-height: 82px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    border: 1px solid rgba(213,170,85,.45);
+    border-radius: 15px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    background:
+    /* textura de tecido envelhecido */
+    repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.018) 0px,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 4px
+    ),
+
+    repeating-linear-gradient(
+        90deg,
+        rgba(0,0,0,.025) 0px,
+        rgba(0,0,0,.025) 1px,
+        transparent 1px,
+        transparent 5px
+    ),
+
+    /* variação natural do tecido */
+    radial-gradient(
+        ellipse at 30% 20%,
+        rgba(126,86,48,.22),
+        transparent 45%
+    ),
+
+    radial-gradient(
+        ellipse at 80% 75%,
+        rgba(20,10,5,.28),
+        transparent 55%
+    ),
+
+    /* café velho / couro envelhecido */
+    linear-gradient(
+        135deg,
+        #5a3820 0%,
+        #4a2d1a 28%,
+        #392216 58%,
+        #2b180f 100%
+    );
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.45),
+        0 2px 0 rgba(213,170,85,.18),
+        inset 0 1px 0 rgba(255,235,190,.18),
+        inset 0 -5px 12px rgba(0,0,0,.30);
+}
+
+
+/* =====================================================
+   MOLDURA INTERNA
+===================================================== */
+
+.member-missions-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 5px;
+
+    border: 1px solid rgba(213,170,85,.18);
+    border-radius: 11px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   LINHA METÁLICA SUPERIOR
+===================================================== */
+
+.member-missions-button::after {
+    content: "";
+
+    position: absolute;
+    top: 1px;
+    left: 12%;
+    right: 12%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,225,150,.65),
+            transparent
+        );
+
+    opacity: .75;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MEDALHÃO DO ÍCONE
+===================================================== */
+
+.member-missions-icon {
+    position: relative;
+    z-index: 5;
+
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6d471f,
+            #35200f
+        );
+
+    border: 2px solid rgba(213,170,85,.72);
+
+    box-shadow:
+        0 5px 10px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,235,190,.28),
+        inset 0 -4px 7px rgba(0,0,0,.45);
+}
+
+
+/* ANEL INTERNO */
+
+.member-missions-icon::after {
+    content: "";
+
+    position: absolute;
+    inset: 5px;
+
+    border: 1px solid rgba(236,198,111,.38);
+    border-radius: 8px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ÍCONE PERSONALIZADO
+===================================================== */
+
+.member-missions-button .member-missions-custom-icon {
+    position: relative;
+    z-index: 6;
+
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.85))
+        drop-shadow(0 0 5px rgba(213,170,85,.30));
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.member-missions-text {
+    position: relative;
+    z-index: 5;
+
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 0;
+    padding: 0;
+}
+
+.member-missions-text strong {
+    font-family: "Cinzel", serif;
+
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: #F0D9A0;
+
+    text-shadow:
+        0 2px 3px rgba(0,0,0,.75),
+        0 0 8px rgba(213,170,85,.15);
+}
+
+.member-missions-text small {
+    margin-top: 5px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11.5px;
+    line-height: 1;
+
+    color: rgba(255,235,202,.58);
+}
+
+
+/* =====================================================
+   SETA
+===================================================== */
+
+.member-missions-arrow {
+    position: relative;
+    z-index: 5;
+
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(213,170,85,.20),
+            rgba(213,170,85,.06)
+        );
+
+    border: 1px solid rgba(213,170,85,.42);
+
+    box-shadow:
+        0 4px 8px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,235,190,.20);
+}
+
+.member-missions-arrow svg {
+    width: 22px;
+    height: 22px;
+
+    color: #D5AA55;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(0,0,0,.65));
+}
+
+
+/* =====================================================
+   ORNAMENTOS LATERAIS
+===================================================== */
+
+.member-missions-tip {
+    position: absolute;
+    top: 50%;
+
+    width: 12px;
+    height: 32px;
+
+    transform: translateY(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            #d5aa55,
+            #79511f,
+            #d5aa55
+        );
+
+    opacity: .8;
+
+    pointer-events: none;
+}
+
+.member-missions-tip-left {
+    left: 0;
+
+    clip-path: polygon(
+        0 50%,
+        100% 0,
+        100% 100%
+    );
+}
+
+.member-missions-tip-right {
+    right: 0;
+
+    clip-path: polygon(
+        100% 50%,
+        0 0,
+        0 100%
+    );
+}
+
+
+/* =====================================================
+   LINHAS INTERNAS
+===================================================== */
+
+.member-missions-frame {
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(213,170,85,.35),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.member-missions-frame-top {
+    top: 9px;
+}
+
+.member-missions-frame-bottom {
+    bottom: 9px;
+}
+
+
+/* =====================================================
+   INTERAÇÃO
+===================================================== */
+
+.member-missions-button:active {
+    transform: scale(.985);
+}
+
+/* =====================================================
+   MEMBER PROGRESS — REDUZIR ALTURA DO CARD
+===================================================== */
+
+.member-progress {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    row-gap: 0 !important;
+}
+
+.member-progress-header {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.member-hud-main {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    row-gap: 0 !important;
+}
+
+.member-hud-verse {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* =====================================================
+   MISSÕES — REDUZIR ALTURA DO BOTÃO
+===================================================== */
+
+.member-missions-button {
+    height: 70px !important;
+    min-height: 70px !important;
+
+    padding: 0 16px !important;
+
+    gap: 14px !important;
+}
+
+/* Ícone acompanha a redução */
+.member-missions-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+}
+
+/* Ícone personalizado */
+.member-missions-button .member-missions-custom-icon {
+    width: 29px !important;
+    height: 29px !important;
+}
+
+/* Seta acompanha o novo tamanho */
+.member-missions-arrow {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+}
+
+/* Seta interna */
+.member-missions-arrow svg {
+    width: 21px !important;
+    height: 21px !important;
+}
+
+/* Texto continua com destaque */
+.member-missions-text strong {
+    font-size: 23px !important;
+}
+
+/* =====================================================
+   MISSÕES — PEQUENA REDUÇÃO FINAL
+===================================================== */
+
+.member-missions-button {
+    height: 66px !important;
+    min-height: 66px !important;
+}
+
+/* =====================================================
+   SEGURANÇA — ESPAÇO PARA O HUD
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        padding-bottom: 175px;
+
+    }
+
+}
+
+ /* =====================================================
+    HOME MOBILE — CARDS LATERAIS
+    VISUAL ORIGINAL PRESERVADO
+ ===================================================== */
+
+@media (max-width: 768px) {
+
+    /* =================================================
+       ÁREAS LATERAIS
+    ================================================= */
+
+    .hero-side {
+
+        position: absolute;
+
+        top: 37%;
+
+        width: 112px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 6px;
+
+        z-index: 16;
+
+    }
+
+
+    .hero-left {
+
+        left: 3px;
+
+        right: auto;
+
+    }
+
+
+    .hero-right {
+
+        right: 3px;
+
+        left: auto;
+
+    }
+
+
+    /* =================================================
+       CARDS
+       NÃO ALTERAR CONTEÚDO INTERNO
+    ================================================= */
+
+    .hero-side .feature-card {
+
+        width: 112px;
+
+        height: 68px;
+
+        min-height: 68px;
+
+        margin: 0;
+
+        flex-shrink: 0;
+
+        overflow: hidden;
+
+    }
+
+
+    /* =================================================
+       NÃO ESMAGAR ÍCONE / TÍTULO / TEXTO / LINK
+       DEIXA O CSS ORIGINAL DO CARD CONTROLAR
+    ================================================= */
+
+    .hero-side .feature-icon,
+    .hero-side .feature-card h3,
+    .hero-side .feature-card p,
+    .hero-side .feature-card a {
+
+        flex-shrink: 0;
+
+    }
+
+
+    /* =================================================
+       TEMPLATES SEMPRE ABAIXO DOS CARDS
+    ================================================= */
+
+    .verse-templates-carousel {
+
+        z-index: 18;
+
+    }
+
+
+    .member-progress {
+
+        z-index: 19;
+
+    }
+
+}
+/* =====================================================
+   AJUSTE — SUA JORNADA
+===================================================== */
+
+.member-progress-header {
+    width: 100% !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+
+    margin: 0 !important;
+    padding: 0 8px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.member-progress-header span {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+    font-size: 11px !important;
+
+    white-space: nowrap !important;
+}
+
+.member-progress-header strong {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+    font-size: 18px !important;
+
+    white-space: nowrap !important;
+}
+
+/* =====================================================
+   MISSÕES — AJUSTE FINAL DE ALTURA
+===================================================== */
+
+.member-missions-button {
+    height: 62px !important;
+    min-height: 62px !important;
+    padding: 0 14px !important;
+    gap: 12px !important;
+}
+
+.member-missions-icon {
+    width: 43px !important;
+    height: 43px !important;
+    min-width: 43px !important;
+}
+
+.member-missions-button .member-missions-custom-icon {
+    width: 27px !important;
+    height: 27px !important;
+}
+
+.member-missions-arrow {
+    width: 43px !important;
+    height: 43px !important;
+    min-width: 43px !important;
+}
+
+.member-missions-arrow svg {
+    width: 19px !important;
+    height: 19px !important;
+}
+
+/* =====================================================
+   MEMBER PROGRESS — CENTRO BEM MAIS BAIXO
+===================================================== */
+
+.member-hud-main {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Reduz a altura dos blocos centrais */
+.member-hud-main > * {
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* NV, XP e Pontos */
+.member-hud-stats,
+.member-hud-xp,
+.member-hud-level,
+.member-hud-points {
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Textos e números dos indicadores */
+.member-hud-stats *,
+.member-hud-xp *,
+.member-hud-level *,
+.member-hud-points * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Barra de XP mais fina */
+.member-progress-bar,
+.member-hud-progress {
+    height: 5px !important;
+    min-height: 5px !important;
+    margin: 1px 0 !important;
+}
+
+/* Reduz possíveis espaços dos elementos internos */
+.member-hud-main br {
+    display: none !important;
+}
+
+/* =====================================================
+   MEMBER PROGRESS — TOPO MAIS COMPACTO
+===================================================== */
+
+.member-progress-header {
+    height: 23px !important;
+    min-height: 23px !important;
+    max-height: 23px !important;
+
+    padding: 0 8px !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.member-progress-header span {
+    font-size: 10px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.member-progress-header strong {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =====================================================
+   CÍRCULO XP — AJUSTE CORRETO
+===================================================== */
+
+.member-xp-circle {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+
+    flex: 0 0 50px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    position: relative !important;
+
+    /* AJUSTE HORIZONTAL */
+    transform: translateX(18px) !important;
+}
+
+/* ANEL */
+.member-xp-ring {
+    width: 50px !important;
+    height: 50px !important;
+
+    min-width: 50px !important;
+    min-height: 50px !important;
+
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    aspect-ratio: 1 / 1 !important;
+}
+
+
+/* SVG */
+.member-xp-ring .member-xp-svg {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 50px !important;
+    height: 50px !important;
+
+    display: block !important;
+
+    aspect-ratio: 1 / 1 !important;
+}
+
+.member-xp-center {
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 25%,
+            #173746,
+            #07151C 72%
+        );
+
+    border:
+        1px solid
+        rgba(35,205,255,.28);
+
+    box-shadow:
+
+        inset 0 2px 7px
+        rgba(0,0,0,.55),
+
+        0 4px 10px
+        rgba(0,0,0,.38);
+
+}
+
+
+/* NÍVEL */
+.member-xp-center span {
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    color:
+        rgba(125,225,255,.72);
+
+    text-shadow:
+        0 0 4px
+        rgba(0,180,255,.25);
+
+}
+
+.member-xp-center strong {
+
+    margin-top: 1px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #38D9FF;
+
+    text-shadow:
+        0 0 3px rgba(56,217,255,.75),
+        0 0 7px rgba(0,170,255,.35);
+
+    animation:
+        xpLevelPulse 2.8s ease-in-out infinite;
+
+}
+@keyframes xpLevelPulse {
+
+    0%, 100% {
+
+        text-shadow:
+            0 0 3px rgba(56,217,255,.65),
+            0 0 6px rgba(0,170,255,.25);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 4px rgba(56,217,255,.9),
+            0 0 9px rgba(0,190,255,.4);
+
+    }
+
+}
+
+@keyframes xpLevelPulse {
+
+    0%, 100% {
+
+        text-shadow:
+            0 0 3px rgba(56,217,255,.65),
+            0 0 6px rgba(0,170,255,.25);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 4px rgba(56,217,255,.9),
+            0 0 9px rgba(0,190,255,.4);
+
+    }
+
+}
+
+
+/* XP */
+.member-xp-center small {
+
+    margin-top: 2px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 4px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: .4px;
+
+    color:
+        rgba(125,225,255,.58);
+
+}
+
+/* =====================================================
+   MISSÕES — MAIS COMPACTO
+===================================================== */
+
+.member-missions-button {
+    height: 58px !important;
+    min-height: 58px !important;
+
+    padding: 0 12px !important;
+    gap: 10px !important;
+}
+
+.member-missions-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+}
+
+.member-missions-button .member-missions-custom-icon {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.member-missions-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+}
+
+.member-missions-arrow svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* =====================================================
+   MENU MOBILE — ICE PREMIUM FINO
+   A BÍBLIA REVELA
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #mobileMenuPanel {
+
+        position: fixed !important;
+
+     top: 12px !important;
+
+left: 14px !important;
+
+right: auto !important;
+
+        /* MAIS FINO */
+        width: 185px !important;
+
+        padding: 8px !important;
+
+        margin: 0 !important;
+
+        display: none !important;
+
+        flex-direction: column !important;
+
+        gap: 2px !important;
+
+        z-index: 999999 !important;
+
+
+        /* =================================================
+           BRANCO GELO PROFUNDO
+        ================================================= */
+
+        background:
+
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.99) 0%,
+                rgba(242,246,247,.99) 45%,
+                rgba(218,225,227,.99) 100%
+            ) !important;
+
+
+        /* =================================================
+           BORDA PREMIUM
+        ================================================= */
+
+        border:
+
+            1px solid
+            rgba(213,170,85,.65) !important;
+
+        border-radius: 15px !important;
+
+
+        /* =================================================
+           PROFUNDIDADE 3D
+        ================================================= */
+
+        box-shadow:
+
+            0 24px 55px rgba(0,0,0,.30),
+
+            0 8px 20px rgba(0,0,0,.15),
+
+            inset 0 1px 0 rgba(255,255,255,1),
+
+            inset 0 -1px 0 rgba(80,80,80,.10) !important;
+
+
+        overflow: hidden !important;
+
+    }
+
+
+    /* =====================================================
+       MENU ABERTO
+    ===================================================== */
+
+    #mobileMenuPanel.show {
+
+        display: flex !important;
+
+        animation:
+
+            iceMenuOpen
+
+            .25s
+
+            cubic-bezier(.16,1,.3,1)
+
+            forwards;
+
+    }
+
+
+    /* =====================================================
+       LINHA DOURADA SUPERIOR
+    ===================================================== */
+
+    #mobileMenuPanel::before {
+
+        content: "";
+
+        display: block;
+
+        width: 48px;
+
+        height: 2px;
+
+        margin: 1px auto 6px;
+
+        border-radius: 20px;
+
+        background:
+
+            linear-gradient(
+                90deg,
+                transparent,
+                #92702e,
+                #ecd28d,
+                #92702e,
+                transparent
+            );
+
+        box-shadow:
+
+            0 0 10px
+            rgba(213,170,85,.45);
+
+    }
+
+
+    /* =====================================================
+       LINKS — COMPACTOS
+    ===================================================== */
+
+    #mobileMenuPanel a {
+
+        position: relative;
+
+        display: flex !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        height: 38px !important;
+
+        min-height: 38px !important;
+
+        padding: 0 11px !important;
+
+        margin: 0 !important;
+
+
+        color: #171919 !important;
+
+        font-family:
+            "Inter",
+            sans-serif !important;
+
+        font-size: 11px !important;
+
+        font-weight: 700 !important;
+
+        letter-spacing: .25px;
+
+        text-decoration: none !important;
+
+        background: transparent !important;
+
+        border: 1px solid transparent !important;
+
+        border-radius: 9px !important;
+
+        transition: .2s ease;
+
+    }
+
+
+    /* =====================================================
+       PEQUENO DETALHE DOURADO
+    ===================================================== */
+
+    #mobileMenuPanel a::before {
+
+        content: "";
+
+        width: 5px;
+
+        height: 5px;
+
+        margin-right: 9px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background:
+
+            linear-gradient(
+                135deg,
+                #ecd28d,
+                #92702e
+            );
+
+        box-shadow:
+
+            0 0 7px
+            rgba(213,170,85,.35);
+
+        transition: .2s ease;
+
+    }
+
+
+    /* =====================================================
+       INTERAÇÃO
+    ===================================================== */
+
+    #mobileMenuPanel a:hover,
+
+    #mobileMenuPanel a:active {
+
+        color: #6f5422 !important;
+
+        background:
+
+            linear-gradient(
+                90deg,
+                rgba(213,170,85,.16),
+                rgba(255,255,255,.30)
+            ) !important;
+
+        border-color:
+
+            rgba(213,170,85,.20) !important;
+
+        transform:
+
+            translateX(-2px);
+
+    }
+
+
+    #mobileMenuPanel a:hover::before,
+
+    #mobileMenuPanel a:active::before {
+
+        transform: scale(1.35);
+
+        box-shadow:
+
+            0 0 10px
+            rgba(213,170,85,.60);
+
+    }
+
+
+    /* =====================================================
+       ANIMAÇÃO — ENTRA PELO CANTO DIREITO
+    ===================================================== */
+
+    @keyframes iceMenuOpen {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+
+                translateX(15px)
+                scale(.97);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+
+                translateX(0)
+                scale(1);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   MINI BANNERS — MOBILE
+===================================================== */
+
+.hero-mini-banners {
+
+    position: absolute;
+
+    top: 155px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 24px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 5px;
+
+    z-index: 10;
+
+}
+
+
+.hero-mini-banner {
+
+    height: 31px;
+
+    min-width: 0;
+
+    padding: 0 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.68);
+
+    background: #D0C4AA !important;
+
+    background-image: none !important;
+
+    box-shadow:
+        0 5px 12px rgba(37, 35, 31, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
+
+    color: #25231F;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+}
+
+
+.hero-mini-banner svg {
+
+    width: 13px;
+    height: 13px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+
+}
+
+
+/* BÍBLIA */
+
+.hero-mini-banner:nth-child(1) svg {
+
+    color: #315C9B !important;
+
+}
+
+
+/* DEVOCIONAL */
+
+.hero-mini-banner:nth-child(2) svg {
+
+    color: #F05A28 !important;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(240, 90, 40, 0.35)
+        );
+
+}
+
+
+/* COMUNIDADE */
+
+.hero-mini-banner:nth-child(3) svg {
+
+    color: #3B7A72 !important;
+
+}
+
+
+/* LOJA */
+
+.hero-mini-banner:nth-child(4) svg {
+
+    color: #7A4FB3 !important;
+
+}
+
+.hero-mini-banner:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* =====================================================
+   HERO MAIN — MOBILE
+   CARD CENTRAL COMPACTO
+   CAFÉ PREMIUM 3D — DESIGNER CINEMATIC
+===================================================== */
+
+.hero-main-panel {
+
+    position: absolute;
+
+    top: 190px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 24px);
+
+    height: 195px;
+
+    min-height: 0;
+
+    padding: 5px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 82px;
+
+    gap: 5px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+
+    /* =================================================
+       BASE — CAFÉ ESPRESSO PREMIUM
+    ================================================= */
+
+    background:
+
+        /* brilho dourado superior */
+        radial-gradient(
+            circle at 18% 4%,
+            rgba(255, 220, 157, 0.22) 0%,
+            rgba(255, 220, 157, 0.08) 16%,
+            transparent 34%
+        ),
+
+        /* luz central quente */
+        radial-gradient(
+            circle at 52% 42%,
+            rgba(184, 126, 62, 0.20) 0%,
+            rgba(184, 126, 62, 0.08) 28%,
+            transparent 58%
+        ),
+
+        /* brilho dourado inferior */
+        radial-gradient(
+            circle at 82% 92%,
+            rgba(214, 169, 89, 0.18) 0%,
+            rgba(214, 169, 89, 0.05) 24%,
+            transparent 48%
+        ),
+
+        /* sombra café profunda */
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(22, 10, 5, 0.70) 0%,
+            transparent 42%
+        ),
+
+        /* gradiente principal */
+        linear-gradient(
+            135deg,
+            #24130C 0%,
+            #392014 18%,
+            #55321E 38%,
+            #70482A 56%,
+            #4A2A19 74%,
+            #29160E 100%
+        );
+
+
+    /* =================================================
+       BOLINHAS 3D — PARTÍCULAS DECORATIVAS
+    ================================================= */
+
+    background-image:
+
+        /* bolinha grande — canto superior esquerdo */
+        radial-gradient(
+            circle at 9% 18%,
+            rgba(255, 231, 184, 0.32) 0%,
+            rgba(226, 185, 108, 0.16) 3%,
+            rgba(130, 76, 35, 0.08) 7%,
+            transparent 11%
+        ),
+
+        /* bolinha pequena */
+        radial-gradient(
+            circle at 27% 76%,
+            rgba(239, 202, 137, 0.24) 0%,
+            rgba(190, 130, 65, 0.10) 4%,
+            transparent 8%
+        ),
+
+        /* bolinha dourada */
+        radial-gradient(
+            circle at 67% 17%,
+            rgba(255, 226, 164, 0.30) 0%,
+            rgba(211, 160, 82, 0.12) 4%,
+            transparent 9%
+        ),
+
+        /* bolinha pequena direita */
+        radial-gradient(
+            circle at 91% 39%,
+            rgba(255, 222, 157, 0.22) 0%,
+            rgba(180, 115, 48, 0.08) 3%,
+            transparent 7%
+        ),
+
+        /* bolinha inferior */
+        radial-gradient(
+            circle at 74% 84%,
+            rgba(239, 196, 119, 0.25) 0%,
+            rgba(170, 103, 43, 0.08) 4%,
+            transparent 9%
+        ),
+
+        /* micro pontos */
+        radial-gradient(
+            circle at 43% 12%,
+            rgba(255, 233, 190, 0.18) 0%,
+            transparent 2.5%
+        ),
+
+        radial-gradient(
+            circle at 57% 91%,
+            rgba(255, 221, 158, 0.16) 0%,
+            transparent 2.5%
+        ),
+
+        radial-gradient(
+            circle at 84% 68%,
+            rgba(255, 229, 174, 0.18) 0%,
+            transparent 2%
+        ),
+
+        /* luz dourada */
+        radial-gradient(
+            circle at 18% 4%,
+            rgba(255, 220, 157, 0.22) 0%,
+            rgba(255, 220, 157, 0.08) 16%,
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 52% 42%,
+            rgba(184, 126, 62, 0.20) 0%,
+            rgba(184, 126, 62, 0.08) 28%,
+            transparent 58%
+        ),
+
+        radial-gradient(
+            circle at 82% 92%,
+            rgba(214, 169, 89, 0.18) 0%,
+            rgba(214, 169, 89, 0.05) 24%,
+            transparent 48%
+        ),
+
+        /* sombra profunda */
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(22, 10, 5, 0.70) 0%,
+            transparent 42%
+        ),
+
+        /* base */
+        linear-gradient(
+            135deg,
+            #24130C 0%,
+            #392014 18%,
+            #55321E 38%,
+            #70482A 56%,
+            #4A2A19 74%,
+            #29160E 100%
+        );
+
+
+    /* =================================================
+       BORDA DOURADA
+    ================================================= */
+
+    border:
+        1px solid
+        rgba(224, 184, 108, 0.55);
+
+
+    /* =================================================
+       PROFUNDIDADE 3D
+    ================================================= */
+
+    box-shadow:
+
+        /* sombra externa principal */
+        0 20px 42px
+        rgba(20, 8, 3, 0.52),
+
+        /* sombra curta */
+        0 6px 16px
+        rgba(0, 0, 0, 0.34),
+
+        /* brilho externo dourado */
+        0 0 24px
+        rgba(202, 151, 74, 0.10),
+
+        /* topo iluminado */
+        inset 0 1px 0
+        rgba(255, 232, 190, 0.34),
+
+        /* lateral interna */
+        inset 1px 0 0
+        rgba(255, 210, 143, 0.10),
+
+        /* fundo interno */
+        inset 0 -2px 0
+        rgba(12, 5, 2, 0.48),
+
+        /* profundidade interna */
+        inset 0 0 28px
+        rgba(20, 7, 2, 0.22);
+
+
+    /* =================================================
+       ACABAMENTO
+    ================================================= */
+
+    isolation: isolate;
+
+}
+
+
+/* =====================================================
+   BRILHO SUPERIOR DO CARD
+===================================================== */
+
+.hero-main-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 7%;
+
+    width: 86%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 226, 167, 0.62),
+            rgba(255, 239, 203, 0.34),
+            transparent
+        );
+
+    opacity: 0.9;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   REFLEXO 3D SUAVE
+===================================================== */
+
+.hero-main-panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 85px;
+
+    right: -32px;
+
+    bottom: -48px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(231, 186, 105, 0.20) 0%,
+            rgba(196, 133, 55, 0.08) 32%,
+            transparent 70%
+        );
+
+    filter: blur(3px);
+
+    pointer-events: none;
+
+}
+/* =================================================
+   LADO ESQUERDO
+================================================= */
+/* =====================================================
+   HERO MAIN — MOBILE
+   CARD CENTRAL COMPACTO E PREMIUM
+   ICE IVORY 3D — PREMIUM CINEMATIC
+===================================================== */
+
+.hero-main-left {
+
+    min-width: 0;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows: minmax(0, 1fr) 58px;
+
+    gap: 5px;
+
+}
+
+ 
+/* =====================================================
+   VERSÍCULO — CHAMPAGNE GOLD PREMIUM 3D
+   DESTAQUE DENTRO DO CAFÉ
+===================================================== */
+
+.hero-verse-panel {
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 9px 11px !important;
+
+    border-radius: 13px !important;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    position: relative;
+
+    /* =================================================
+       FUNDO — CHAMPAGNE + DOURADO + CAFÉ
+    ================================================= */
+
+    background:
+
+        /* brilho principal */
+        radial-gradient(
+            circle at 18% 12%,
+            rgba(255, 246, 220, 0.72) 0%,
+            rgba(246, 220, 168, 0.42) 18%,
+            transparent 42%
+        ),
+
+        /* luz dourada lateral */
+        radial-gradient(
+            circle at 92% 85%,
+            rgba(210, 164, 82, 0.42) 0%,
+            rgba(178, 123, 48, 0.18) 25%,
+            transparent 52%
+        ),
+
+        /* sombra quente */
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(104, 63, 27, 0.22) 0%,
+            transparent 42%
+        ),
+
+        /* gradiente principal */
+        linear-gradient(
+            135deg,
+            #FFF4D8 0%,
+            #F3DCA9 22%,
+            #E4C17B 46%,
+            #D5AA55 68%,
+            #B78335 100%
+        ) !important;
+
+
+    /* =================================================
+       MICRO TEXTURA / BOLINHAS DE LUZ
+    ================================================= */
+
+    background-image:
+
+        radial-gradient(
+            circle at 12% 22%,
+            rgba(255,255,255,.52) 0%,
+            rgba(255,255,255,.16) 3%,
+            transparent 7%
+        ),
+
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(255,247,221,.40) 0%,
+            rgba(255,247,221,.12) 3%,
+            transparent 7%
+        ),
+
+        radial-gradient(
+            circle at 88% 72%,
+            rgba(255,241,201,.34) 0%,
+            rgba(255,241,201,.08) 4%,
+            transparent 9%
+        ),
+
+        radial-gradient(
+            circle at 38% 88%,
+            rgba(255,255,255,.28) 0%,
+            transparent 5%
+        ),
+
+        radial-gradient(
+            circle at 18% 12%,
+            rgba(255, 246, 220, 0.72) 0%,
+            rgba(246, 220, 168, 0.42) 18%,
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 92% 85%,
+            rgba(210, 164, 82, 0.42) 0%,
+            rgba(178, 123, 48, 0.18) 25%,
+            transparent 52%
+        ),
+
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(104, 63, 27, 0.22) 0%,
+            transparent 42%
+        ),
+
+        linear-gradient(
+            135deg,
+            #FFF4D8 0%,
+            #F3DCA9 22%,
+            #E4C17B 46%,
+            #D5AA55 68%,
+            #B78335 100%
+        ) !important;
+
+
+    /* =================================================
+       BORDA PREMIUM
+    ================================================= */
+
+    border:
+        1px solid
+        rgba(255, 239, 194, 0.92) !important;
+
+
+    /* =================================================
+       EFEITO 3D
+    ================================================= */
+
+    box-shadow:
+
+        0 9px 22px
+        rgba(50, 27, 10, 0.28),
+
+        0 2px 7px
+        rgba(80, 45, 15, 0.18),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.90),
+
+        inset 1px 0 0
+        rgba(255, 244, 211, 0.50),
+
+        inset 0 -1px 0
+        rgba(112, 69, 24, 0.28),
+
+        inset 0 0 20px
+        rgba(255, 231, 172, 0.18);
+
+
+    /* =================================================
+       TEXTO
+    ================================================= */
+
+    color: #382313;
+
+}
+
+
+/* =====================================================
+   REFLEXO SUPERIOR
+===================================================== */
+
+.hero-verse-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 10%;
+
+    width: 80%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.95),
+            rgba(255,238,190,.75),
+            transparent
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   BRILHO DOURADO INFERIOR
+===================================================== */
+
+.hero-verse-panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 75px;
+
+    right: -28px;
+
+    bottom: -40px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,235,176,.38) 0%,
+            rgba(216,166,80,.16) 35%,
+            transparent 72%
+        );
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+}
+/* =====================================================
+   TOPO DO VERSÍCULO
+===================================================== */
+
+.hero-verse-top {
+
+    height: 14px;
+
+    min-height: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 5px;
+
+}
+
+
+.hero-verse-kicker {
+
+    font-size: 6.5px !important;
+
+    letter-spacing: 0.11em !important;
+
+    line-height: 1;
+
+    color: #92702E;
+
+}
+
+
+.hero-verse-live {
+
+    font-size: 5.5px !important;
+
+    letter-spacing: 0.08em !important;
+
+    line-height: 1;
+
+    color: #92702E;
+
+}
+
+
+.hero-verse-live span {
+
+    background: #C9A15A;
+
+    box-shadow:
+        0 0 7px rgba(201, 161, 90, 0.55);
+
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL DO VERSÍCULO
+===================================================== */
+
+.hero-verse-content {
+
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 2px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px !important;
+
+}
+
+
+.hero-verse-icon {
+
+    width: 27px !important;
+
+    height: 27px !important;
+
+    min-width: 27px;
+
+    border-radius: 8px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #E3C98B,
+            #C9A15A
+        );
+
+    color: #25231F;
+
+    box-shadow:
+        0 5px 12px rgba(201, 161, 90, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+}
+
+
+.hero-verse-icon svg {
+
+    width: 13px !important;
+
+    height: 13px !important;
+
+}
+
+
+.hero-verse-content p {
+
+    flex: 1;
+
+    min-width: 0;
+
+    max-width: none !important;
+
+    margin: 0;
+
+    /* MENOR E MAIS ELEGANTE */
+
+    font-size: 11.5px !important;
+
+    line-height: 1.22 !important;
+
+    letter-spacing: 0 !important;
+
+    color: #25231F;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   RODAPÉ — REFERÊNCIA + ASSINAR
+===================================================== */
+
+.hero-verse-footer {
+
+    height: 28px;
+
+    min-height: 28px;
+
+    margin-top: 2px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 6px !important;
+
+}
+
+
+.hero-verse-reference {
+
+    font-size: 7px !important;
+
+    letter-spacing: 0.10em !important;
+
+    white-space: nowrap;
+
+    color: #92702E;
+
+}
+
+
+/* =====================================================
+   BOTÃO ASSINAR — BRANCO GRADIENTE
+===================================================== */
+
+.hero-subscribe-button {
+
+    height: 26px !important;
+
+    min-height: 26px;
+
+    padding: 0 9px !important;
+
+    gap: 4px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 6px !important;
+
+    letter-spacing: 0.08em !important;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #FAF9F6 45%,
+            #E8E4DA 100%
+        );
+
+    color: #25231F;
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 5px 12px rgba(37, 35, 31, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+
+}
+
+
+.hero-subscribe-button svg {
+
+    width: 10px !important;
+
+    height: 10px !important;
+
+}
+
+
+/* =====================================================
+   COMENTÁRIOS
+===================================================== */
+
+/* =====================================================
+   COMENTÁRIOS — BRANCO GELO 3D PREMIUM
+===================================================== */
+
+.hero-comments-panel {
+
+    min-width: 0;
+
+    min-height: 0;
+
+    padding: 5px 7px !important;
+
+    border-radius: 10px !important;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+
+    /* =================================================
+       BRANCO GELO PROFUNDO
+    ================================================= */
+
+    background:
+
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,255,255,.65) 22%,
+            transparent 48%
+        ),
+
+        radial-gradient(
+            circle at 90% 95%,
+            rgba(204,213,221,.48) 0%,
+            rgba(204,213,221,.18) 30%,
+            transparent 58%
+        ),
+
+        linear-gradient(
+            145deg,
+            #FFFFFF 0%,
+            #F8FAFB 28%,
+            #EDF1F4 58%,
+            #DCE3E8 100%
+        ) !important;
+
+
+    background-image:
+
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,255,255,.65) 22%,
+            transparent 48%
+        ),
+
+        radial-gradient(
+            circle at 90% 95%,
+            rgba(204,213,221,.48) 0%,
+            rgba(204,213,221,.18) 30%,
+            transparent 58%
+        ),
+
+        linear-gradient(
+            145deg,
+            #FFFFFF 0%,
+            #F8FAFB 28%,
+            #EDF1F4 58%,
+            #DCE3E8 100%
+        ) !important;
+
+
+    /* =================================================
+       BORDA
+    ================================================= */
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+
+    /* =================================================
+       PROFUNDIDADE 3D
+    ================================================= */
+
+    box-shadow:
+
+        0 9px 22px
+        rgba(35, 43, 49, .20),
+
+        0 2px 7px
+        rgba(30, 38, 44, .12),
+
+        inset 0 1px 0
+        rgba(255,255,255,1),
+
+        inset 1px 0 0
+        rgba(255,255,255,.72),
+
+        inset 0 -1px 0
+        rgba(145,155,163,.28),
+
+        inset 0 0 18px
+        rgba(255,255,255,.38);
+
+
+    color: #252A2F;
+
+}
+
+
+/* =====================================================
+   REFLEXO SUPERIOR
+===================================================== */
+
+.hero-comments-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 12%;
+
+    width: 76%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,1),
+            transparent
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO — SEM DESPERDÍCIO
+===================================================== */
+
+.hero-comments-header {
+
+    height: 12px !important;
+
+    min-height: 12px;
+
+    margin: 0 0 2px 0 !important;
+
+    padding: 0 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.hero-comments-title {
+
+    gap: 3px !important;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.hero-comments-title strong {
+
+    font-size: 6px !important;
+
+    letter-spacing: 0.06em !important;
+
+    line-height: 1;
+
+    color: #25231F;
+
+}
+
+
+/* REMOVE TEXTO DESNECESSÁRIO */
+
+.hero-comments-title small {
+
+    display: none !important;
+
+}
+
+
+.hero-comments-count {
+
+    font-size: 6px !important;
+
+    line-height: 1;
+
+    color: #92702E;
+
+}
+
+
+.hero-comments-live-dot {
+
+    background: #C9A15A;
+
+    box-shadow:
+        0 0 6px rgba(201, 161, 90, 0.45);
+
+}
+
+
+/* =====================================================
+   5 COMENTÁRIOS — UM EMBAIXO DO OUTRO
+===================================================== */
+
+.hero-comments-list {
+
+    flex: 1;
+
+    min-height: 0;
+
+    width: 100%;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    justify-content: space-between;
+
+    gap: 2px !important;
+
+    overflow: hidden;
+
+}
+
+
+.hero-comment {
+
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    width: 100%;
+
+    padding: 2px 7px !important;
+
+    border-radius: 5px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 7.5px !important;
+
+    line-height: 1 !important;
+
+    background:
+        rgba(242, 240, 234, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.58);
+
+    color: #25231F;
+
+    box-shadow:
+        0 2px 7px rgba(37, 35, 31, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+}
+
+/* =====================================================
+   RANKING — MOLDURA DE MADEIRA PREMIUM
+===================================================== */
+
+.hero-ranking-panel {
+
+    min-width: 0;
+    min-height: 0;
+
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+
+    /*
+       ESPAÇO INTERNO DA MOLDURA
+       topo maior por causa do título RANKING
+    */
+    padding:
+        55px
+        22px
+        48px
+        22px !important;
+
+    box-sizing: border-box;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    /*
+       REMOVE O FUNDO BRANCO
+       para o centro ficar transparente
+    */
+    background: transparent !important;
+
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    color: #25231F;
+}
+
+
+/* =====================================================
+   MOLDURA DE MADEIRA
+===================================================== */
+
+.hero-ranking-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        url("./ranking-moldura.png");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: 100% 100%;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   REMOVE AS PARTÍCULAS ANTIGAS
+===================================================== */
+
+.hero-ranking-panel::after {
+
+    display: none !important;
+
+}
+
+
+
+/* =====================================================
+   CABEÇALHO ORIGINAL — OCULTO
+   A MOLDURA JÁ POSSUI O TÍTULO
+===================================================== */
+
+.hero-ranking-header {
+
+    display: none !important;
+
+}
+
+/* =====================================================
+   LISTA DENTRO DA MOLDURA
+===================================================== */
+
+.hero-ranking-list {
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 3px !important;
+
+    overflow: hidden;
+
+}
+
+.hero-ranking-item {
+
+    flex: 1;
+
+    min-width: 0;
+    min-height: 0;
+
+    height: auto !important;
+
+    padding: 2px 5px !important;
+
+    border-radius: 7px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px !important;
+
+    overflow: visible !important;
+
+    background:
+        rgba(15, 12, 9, .72) !important;
+
+    border:
+        1px solid
+        rgba(255, 214, 137, .20) !important;
+
+    box-shadow:
+
+        0 3px 8px
+        rgba(0,0,0,.30),
+
+        inset 0 1px 0
+        rgba(255,255,255,.10);
+
+}
+
+.hero-ranking-button {
+
+    width: 100%;
+
+    height: 22px;
+
+    min-height: 22px;
+
+    margin-top: 4px !important;
+
+    padding: 0 3px !important;
+
+    border-radius: 6px !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    font-size: 5px !important;
+
+    letter-spacing: .05em !important;
+
+    background:
+        rgba(35, 22, 12, .82) !important;
+
+    border:
+        1px solid
+        rgba(211, 151, 62, .55) !important;
+
+    color: #F4D58A !important;
+
+    box-shadow:
+
+        0 3px 8px
+        rgba(0,0,0,.30),
+
+        inset 0 1px 0
+        rgba(255,220,150,.16);
+
+}
+
+/* =====================================================
+   RANKING — AJUSTE FINAL
+   MOLDURA MAIOR + TEXTOS MAIS LEGÍVEIS
+===================================================== */
+
+.hero-ranking-panel {
+
+    /* aumenta um pouco o painel */
+    width: calc(100% + 16px) !important;
+    margin-left: -8px !important;
+
+    /*
+       mais espaço para a moldura de madeira
+       e para o conteúdo interno
+    */
+    padding:
+        62px
+        27px
+        53px
+        27px !important;
+
+}
+
+
+/* =====================================================
+   ITENS DO RANKING
+===================================================== */
+
+.hero-ranking-item {
+
+    padding: 4px 7px !important;
+
+    gap: 6px !important;
+
+    min-height: 0;
+
+    background:
+        rgba(20, 14, 9, .82) !important;
+
+    border:
+        1px solid
+        rgba(225, 177, 91, .30) !important;
+
+    box-shadow:
+        0 3px 9px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,235,190,.12);
+
+}
+
+
+/* =====================================================
+   AVATAR MAIOR
+===================================================== */
+
+.hero-ranking-item .hero-ranking-avatar {
+
+    width: 23px !important;
+    height: 23px !important;
+
+    min-width: 23px !important;
+
+    font-size: 8px !important;
+
+}
+
+
+/* =====================================================
+   RANKING — NOVA PLACA DE MADEIRA
+   PASSO 1 — JOÃO
+===================================================== */
+
+.hero-ranking-item.is-first .hero-ranking-name-plate {
+
+    position: absolute !important;
+
+    left: 31px !important;
+    right: 12px !important;
+
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    height: 27px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    box-sizing: border-box !important;
+
+    padding: 2px 7px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d9b078 0%,
+            #c28a4e 30%,
+            #a96838 65%,
+            #79431f 100%
+        ) !important;
+
+    border: 1px solid #5c3219 !important;
+
+    border-radius: 5px !important;
+
+    box-shadow:
+        0 1px 0 #e6c18c,
+        0 3px 0 #5a3018,
+        0 5px 8px rgba(0,0,0,.55),
+        inset 0 1px 1px rgba(255,245,215,.55),
+        inset 0 -2px 2px rgba(65,30,12,.30) !important;
+
+    z-index: 100 !important;
+
+}
+
+
+
+}
+/* =====================================================
+   TEMPLATES — IMAGEM
+===================================================== */
+
+/* =====================================================
+   TEMPLATES — IMAGENS
+===================================================== */
+
+.verse-template-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 !important;
+    display: block !important;
+}
+
+.verse-template-inner img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* =====================================================
+   CHECK-IN — CAFÉ PREMIUM
+===================================================== */
+
+.hero-checkin-coffee {
+
+    position: absolute;
+
+    left: 10px;
+    top: 95px;
+
+    width: 64px;
+    height: 82px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+    z-index: 50;
+
+    transform: translateY(0);
+
+    transition:
+        transform .25s ease;
+}
+
+
+/* =====================================================
+   CAFÉ
+===================================================== */
+
+.hero-checkin-coffee img {
+
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    display: block;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(0 5px 5px rgba(0,0,0,.45));
+
+    pointer-events: none;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+
+/* =====================================================
+   FUMAÇA
+===================================================== */
+
+.coffee-steam {
+
+    position: absolute;
+
+    top: -10px;
+
+    width: 5px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.55),
+            rgba(255,255,255,.02)
+        );
+
+    filter:
+        blur(2px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 4;
+
+    animation:
+        coffeeSteam 3s ease-in-out infinite;
+}
+
+
+/* FUMAÇA ESQUERDA */
+
+.coffee-steam-1 {
+
+    left: 10px;
+
+    animation-delay:
+        0s;
+}
+
+
+/* FUMAÇA CENTRAL */
+
+.coffee-steam-2 {
+
+    left: 31px;
+
+    height: 22px;
+
+    animation-delay:
+        1s;
+}
+
+
+/* FUMAÇA DIREITA */
+
+.coffee-steam-3 {
+
+    left: 18px;
+
+    height: 17px;
+
+    animation-delay:
+        1.8s;
+}
+
+
+/* =====================================================
+   ANIMAÇÃO DA FUMAÇA
+===================================================== */
+
+@keyframes coffeeSteam {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            translateX(0)
+            scale(.75);
+
+    }
+
+    20% {
+
+        opacity: .45;
+
+    }
+
+    50% {
+
+        opacity: .65;
+
+        transform:
+            translateY(-5px)
+            translateX(3px)
+            scale(1);
+
+    }
+
+    80% {
+
+        opacity: .35;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-20px)
+            translateX(-3px)
+            scale(1.25);
+
+    }
+}
+
+
+/* =====================================================
+   TEXTO CHECK-IN
+===================================================== */
+
+.hero-checkin-label {
+
+    position: relative;
+
+    margin-top: -2px;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    color:
+        rgba(238,216,171,.95);
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.8);
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.hero-checkin-coffee:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+}
+
+
+.hero-checkin-coffee:hover img {
+
+    filter:
+        drop-shadow(0 7px 8px rgba(0,0,0,.6));
+}
+
+/* ===============================
+   APROXIMAR BOLINHAS DO CARROSSEL
+=============================== */
+
+.featured-carousel-dots {
+    margin-top: -25px !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.main-nav a {
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: .3px;
+    color: rgba(245,232,210,.68);
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+.main-nav a:hover {
+    color: rgba(255,245,225,.96);
+    background: rgba(255,255,255,.035);
+}
+
+.main-nav a.active {
+    color: rgba(255,245,225,.98);
+}
+
+/* LINHA DO ITEM ATIVO */
+.main-nav a.active::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+
+    width: 13px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: rgba(213,170,85,.55);
+
+    border-radius: 10px;
+}
+
+/* =====================================================
+   CURSO CRIADOR PRO — DOURADO PREMIUM
+   MESMA IDENTIDADE DO VERSÍCULO PREMIUM
+===================================================== */
+
+.main-nav .destaque-curso {
+    width: 108px !important;
+    min-width: 108px !important;
+    height: 28px !important;
+    padding: 3px 7px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8f6b25 0%,
+            #b89445 30%,
+            #d5aa55 50%,
+            #e3c477 65%,
+            #a47d32 100%
+        );
+
+    border: 1px solid rgba(224,197,119,.85);
+    border-radius: 7px !important;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,235,170,.35),
+        inset 0 -1px 0 rgba(93,58,18,.35);
+
+    color: #fff;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.45);
+
+    transition:
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease;
+}
+
+.main-nav .destaque-curso span {
+    display: block;
+    width: 100%;
+
+    font-size: 6.5px !important;
+    font-weight: 800;
+    line-height: 7px !important;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+.main-nav .destaque-curso small {
+    display: block;
+    width: 100%;
+
+    margin-top: 1px !important;
+
+    font-size: 4px !important;
+    font-weight: 900;
+
+    line-height: 5px !important;
+    letter-spacing: .4px !important;
+
+    text-align: center;
+    white-space: nowrap;
+
+    color: rgba(255,245,215,.92);
+}
+
+.main-nav .destaque-curso:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.32),
+        0 0 10px rgba(213,170,85,.18),
+        inset 0 1px 0 rgba(255,240,190,.42);
+}
+/* =====================================================
+   NOTIFICAÇÃO FLUTANTE
+===================================================== */
+
+.floating-notification {
+    position: fixed;
+
+    top: 58px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 50%;
+
+    background: rgba(15, 15, 15, .72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, .35);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.floating-notification svg {
+    width: 18px;
+    height: 18px;
+}
+
+.floating-notification:hover {
+    transform: scale(1.08);
+    background: rgba(25, 25, 25, .88);
+}
+
+@media (max-width: 900px) {
+
+    .floating-notification {
+        top: 48px;
+        right: 10px;
+
+        width: 32px;
+        height: 32px;
+    }
+
+    .floating-notification svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+.hero-background {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    z-index: 0 !important;
+}
+
+.hero-video-bg {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    z-index: 0 !important;
+
+    opacity: 0;
+
+    filter:
+        brightness(.72)
+        contrast(1.05)
+        saturate(.92);
+
+    transition: opacity 3s ease-in-out !important;
+
+    pointer-events: none;
+}
+
+.hero-video-1 {
+    opacity: 1;
+}
+
+.hero-video-2 {
+    opacity: 0;
+    transform: scaleX(-1);
+}
+
+.hero-ranking-panel {
+
+    width: calc(100% + 11px) !important;
+    margin-left: -5.5px !important;
+    top: -7px !important;
+    padding:
+        100.5px
+        24.5px
+        55.5px
+        24.5px !important;
+}
