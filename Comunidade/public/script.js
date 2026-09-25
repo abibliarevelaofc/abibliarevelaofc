@@ -16,7 +16,7 @@ let res = await fetch("/api/youtube");
 let data = await res.json();
 
 
-document.getElementById("contador").innerHTML =
+document.getElementById("contadorInscritos").innerHTML =
 Number(data.inscritos).toLocaleString("pt-BR");
 
 
@@ -24,7 +24,7 @@ Number(data.inscritos).toLocaleString("pt-BR");
 
 console.log(error);
 
-document.getElementById("contador").innerHTML="Erro";
+document.getElementById("contadorInscritos").innerHTML="Erro";
 
 }
 
@@ -32,45 +32,114 @@ document.getElementById("contador").innerHTML="Erro";
 
 // ===== VÍDEOS AUTOMÁTICOS =====
 
-async function criarVideos(){
+async function criarVideos() {
+    try {
+        // =========================================
+        // VÍDEOS RECENTES
+        // =========================================
 
-try{
+        const respostaRecentes = await fetch("/api/videos");
+
+        if (!respostaRecentes.ok) {
+            throw new Error(
+                `Erro ao carregar vídeos recentes: HTTP ${respostaRecentes.status}`
+            );
+        }
+
+        const listaRecentes = await respostaRecentes.json();
+
+        console.log("🎬 Vídeos recentes:", listaRecentes);
+
+        if (Array.isArray(listaRecentes) && listaRecentes.length > 0) {
+
+            const video = listaRecentes[0];
+
+            const destaque =
+                document.getElementById("videoDestaque");
+
+            if (destaque) {
+
+                destaque.style.backgroundImage =
+                    `url("${video.imagem}")`;
+
+                destaque.style.backgroundSize = "cover";
+                destaque.style.backgroundPosition = "center";
+                destaque.style.cursor = "pointer";
+
+                destaque.onclick = function () {
+                    window.open(
+                        `https://www.youtube.com/watch?v=${video.id}`,
+                        "_blank"
+                    );
+                };
+
+                destaque.innerHTML = `
+                    <div class="video-destaque-overlay"></div>
+
+                    <div class="video-play">
+                        <i class="fas fa-play"></i>
+                    </div>
+                `;
+            }
+
+            // Atualiza título e canal
+            const info = document.querySelector(
+                ".video-destaque-info"
+            );
+
+            if (info) {
+                info.innerHTML = `
+                    <strong>
+                        ${video.titulo || "Vídeo recente"}
+                    </strong>
+
+                    <span>
+                        A Bíblia Revela
+                    </span>
+                `;
+            }
+
+        } else {
+            console.warn("⚠️ Nenhum vídeo recente encontrado.");
+        }
 
 
-const [recentes,populares] = await Promise.all([
+        // =========================================
+        // MAIS VISTOS
+        // =========================================
 
-fetch("/api/videos"),
+        const respostaPopulares =
+            await fetch("/api/populares");
 
-fetch("/api/populares")
+        if (!respostaPopulares.ok) {
+            throw new Error(
+                `Erro ao carregar mais vistos: HTTP ${respostaPopulares.status}`
+            );
+        }
 
-]);
+        const listaPopulares =
+            await respostaPopulares.json();
 
+        console.log("🔥 Vídeos mais vistos:", listaPopulares);
 
-const listaRecentes = await recentes.json();
+        if (Array.isArray(listaPopulares)) {
+            montarCarrossel(
+                "maisVistos",
+                listaPopulares
+            );
+        } else {
+            console.warn(
+                "⚠️ /api/populares não retornou uma lista."
+            );
+        }
 
-const listaPopulares = await populares.json();
+    } catch (erro) {
 
-
-
-montarCarrossel(
-"recentes",
-listaRecentes
-);
-
-
-montarCarrossel(
-"maisVistos",
-listaPopulares
-);
-
-
-
-}catch(error){
-
-console.log("ERRO VIDEOS:", error);
-
-}
-
+        console.error(
+            "❌ ERRO VIDEOS:",
+            erro
+        );
+    }
 }
 
 function baixarFigurinhas() {
