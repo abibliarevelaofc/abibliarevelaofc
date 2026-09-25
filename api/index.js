@@ -1,7 +1,9 @@
-
 const express = require("express");
 const axios = require("axios");
 require("dotenv").config();
+
+const CHANNEL_ID =
+  process.env.CHANNEL_ID || "UCtSMXdmSrCe4PtqXTX4g4Jg";
 
 const app = express();
 
@@ -53,7 +55,6 @@ function salvarCache(tipo, dados) {
   cacheTime[tipo] = Date.now();
 }
 
-
 /* =========================
    YOUTUBE
 ========================= */
@@ -69,7 +70,7 @@ app.get("/api/youtube", async (req, res) => {
       {
         params: {
           part: "statistics",
-          id: process.env.CHANNEL_ID,
+          id: CHANNEL_ID,
           key: process.env.YOUTUBE_API_KEY
         }
       }
@@ -101,11 +102,12 @@ app.get("/api/youtube", async (req, res) => {
 
     res.status(500).json({
       erro: "Erro contador",
-      detalhe: error.response?.data?.error?.message || error.message
+      detalhe:
+        error.response?.data?.error?.message ||
+        error.message
     });
   }
 });
-
 
 /* =========================
    VÍDEOS RECENTES
@@ -122,7 +124,7 @@ app.get("/api/videos", async (req, res) => {
       {
         params: {
           part: "contentDetails",
-          id: process.env.CHANNEL_ID,
+          id: CHANNEL_ID,
           key: process.env.YOUTUBE_API_KEY
         }
       }
@@ -189,8 +191,9 @@ app.get("/api/videos", async (req, res) => {
           video.snippet.thumbnails?.default?.url ||
           "",
         views: stats
-          ? Number(stats.statistics.viewCount || 0)
-              .toLocaleString("pt-BR")
+          ? Number(
+              stats.statistics.viewCount || 0
+            ).toLocaleString("pt-BR")
           : "0"
       };
     });
@@ -207,11 +210,12 @@ app.get("/api/videos", async (req, res) => {
 
     res.status(500).json({
       erro: "Erro ao buscar vídeos",
-      detalhe: error.response?.data?.error?.message || error.message
+      detalhe:
+        error.response?.data?.error?.message ||
+        error.message
     });
   }
 });
-
 
 /* =========================
    VÍDEOS MAIS VISTOS
@@ -228,7 +232,7 @@ app.get("/api/populares", async (req, res) => {
       {
         params: {
           part: "snippet",
-          channelId: process.env.CHANNEL_ID,
+          channelId: CHANNEL_ID,
           maxResults: 10,
           order: "viewCount",
           type: "video",
@@ -237,7 +241,10 @@ app.get("/api/populares", async (req, res) => {
       }
     );
 
-    if (!resposta.data.items || resposta.data.items.length === 0) {
+    if (
+      !resposta.data.items ||
+      resposta.data.items.length === 0
+    ) {
       return res.json([]);
     }
 
@@ -276,8 +283,9 @@ app.get("/api/populares", async (req, res) => {
           video.snippet.thumbnails?.default?.url ||
           "",
         views: stats
-          ? Number(stats.statistics.viewCount || 0)
-              .toLocaleString("pt-BR")
+          ? Number(
+              stats.statistics.viewCount || 0
+            ).toLocaleString("pt-BR")
           : "0"
       };
     });
@@ -294,11 +302,12 @@ app.get("/api/populares", async (req, res) => {
 
     res.status(500).json({
       erro: "Erro ao buscar populares",
-      detalhe: error.response?.data?.error?.message || error.message
+      detalhe:
+        error.response?.data?.error?.message ||
+        error.message
     });
   }
 });
-
 
 /* =========================
    COMENTÁRIOS
@@ -315,8 +324,7 @@ app.get("/api/comentarios", async (req, res) => {
       {
         params: {
           part: "snippet",
-          allThreadsRelatedToChannelId:
-            process.env.CHANNEL_ID,
+          allThreadsRelatedToChannelId: CHANNEL_ID,
           maxResults: 20,
           order: "time",
           key: process.env.YOUTUBE_API_KEY
@@ -355,11 +363,12 @@ app.get("/api/comentarios", async (req, res) => {
 
     res.status(500).json({
       erro: "Erro ao buscar comentários",
-      detalhe: error.response?.data?.error?.message || error.message
+      detalhe:
+        error.response?.data?.error?.message ||
+        error.message
     });
   }
 });
-
 
 /* =========================
    FLUXO
@@ -389,7 +398,6 @@ app.get("/api/fluxo", (req, res) => {
 
   res.json(cache.fluxo);
 });
-
 
 app.post("/api/fluxo", (req, res) => {
   const { tipo } = req.body;
@@ -424,7 +432,6 @@ app.post("/api/fluxo", (req, res) => {
   res.json(cache.fluxo);
 });
 
-
 /* =========================
    DOWNLOAD FIGURINHAS
 ========================= */
@@ -435,10 +442,8 @@ app.get("/baixar-figurinhas", (req, res) => {
   );
 });
 
-
 /* =========================
    EXPORTAÇÃO PARA VERCEL
 ========================= */
 
 module.exports = app;
-
