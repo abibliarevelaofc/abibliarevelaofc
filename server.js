@@ -22,7 +22,9 @@ console.log("=================================");
 app.use(express.json());
 
 // Arquivos públicos do site
-app.use(express.static(path.join(__dirname, "public")));
+const pastaSite = path.join(__dirname, "..");
+
+app.use(express.static(pastaSite));
 
 // =====================================================
 // PROTEÇÃO DE COTA DO YOUTUBE
@@ -176,8 +178,7 @@ app.get("/", (req, res) => {
 
     res.sendFile(
         path.join(
-            __dirname,
-            "public",
+            pastaSite,
             "index.html"
         )
     );

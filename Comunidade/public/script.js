@@ -657,51 +657,6 @@ carregarComentarios();
 },30000);
 
 
-let atual = 0;
-
-const figurinhas = document.querySelectorAll(".figurinha");
-
-
-function trocarFigurinha(){
-
-
-figurinhas.forEach(fig=>{
-
-fig.classList.remove("ativa");
-
-});
-
-
-
-figurinhas[atual].classList.add("ativa");
-
-
-
-atual++;
-
-
-if(atual >= figurinhas.length){
-
-atual = 0;
-
-}
-
-
-}
-
-
-
-trocarFigurinha();
-
-
-setInterval(()=>{
-
-trocarFigurinha();
-
-},4000);
-
-
-
 function abrirAbaComunidade(aba) {
 
     // Esconde todas as abas

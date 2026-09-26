@@ -1364,14 +1364,25 @@ app.delete("/api/biblia/destaque", autenticarToken, async (req, res) => {
    ROTA PRINCIPAL
 ========================================= */
 
+// =====================================================
+// ARQUIVOS DO SITE
+// =====================================================
+
+const path = require("path");
+
+// A pasta principal do projeto é:
+// D:\abíbliarevela
+const pastaSite = path.join(__dirname, "..");
+
+// Servir HTML, CSS, JS, imagens, vídeos etc.
+app.use(express.static(pastaSite));
+
+// =====================================================
+// PÁGINA PRINCIPAL
+// =====================================================
+
 app.get("/", (req, res) => {
-    res.json({
-        sucesso: true,
-        mensagem: "Backend A Bíblia Revela está funcionando!",
-        mongodb: mongoose.connection.readyState === 1
-            ? "conectado"
-            : "desconectado"
-    });
+    res.sendFile(path.join(pastaSite, "index.html"));
 });
 
 /* =========================================
