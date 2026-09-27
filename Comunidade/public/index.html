@@ -760,55 +760,34 @@ HEADER
 
         <div class="card card-videos">
 
-            <div class="card-titulo-linha">
+    <div class="card-titulo-linha">
+        <div>
+            <span class="card-label">
+                <i class="fas fa-play"></i>
+                CONTEÚDO
+            </span>
 
-                <div>
-                    <span class="card-label">
-                        <i class="fas fa-play"></i>
-                        CONTEÚDO
-                    </span>
-
-                    <h2>
-                        Vídeo recente
-                    </h2>
-                </div>
-
-            </div>
-
-            <div class="video-destaque">
-
-                <div class="video-destaque-imagem">
-
-                    <div
-                        class="video-destaque-conteudo"
-                        id="videoDestaque"
-                    >
-
-                        <div class="video-destaque-overlay"></div>
-
-                        <div class="video-play">
-                            <i class="fas fa-play"></i>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="video-destaque-info">
-
-                    <strong>
-                        Deus cuida de você!
-                    </strong>
-
-                    <span>
-                        A Bíblia Revela
-                    </span>
-
-                </div>
-
-            </div>
-
+            <h2>Vídeos recentes</h2>
         </div>
+    </div>
+
+    <div class="box-carrossel">
+
+        <button class="seta esquerda"
+            onclick="moverCarrossel('videosRecentes', -1)">
+            ❮
+        </button>
+
+        <div class="carrossel" id="videosRecentes"></div>
+
+        <button class="seta direita"
+            onclick="moverCarrossel('videosRecentes', 1)">
+            ❯
+        </button>
+
+    </div>
+
+</div>
 
     </div>
 

@@ -50,59 +50,18 @@ async function criarVideos() {
 
         console.log("🎬 Vídeos recentes:", listaRecentes);
 
-        if (Array.isArray(listaRecentes) && listaRecentes.length > 0) {
+      if (Array.isArray(listaRecentes) && listaRecentes.length > 0) {
 
-            const video = listaRecentes[0];
+    montarCarrossel(
+        "videosRecentes",
+        listaRecentes.slice(0, 5)
+    );
 
-            const destaque =
-                document.getElementById("videoDestaque");
+} else {
 
-            if (destaque) {
+    console.warn("⚠️ Nenhum vídeo recente encontrado.");
 
-                destaque.style.backgroundImage =
-                    `url("${video.imagem}")`;
-
-                destaque.style.backgroundSize = "cover";
-                destaque.style.backgroundPosition = "center";
-                destaque.style.cursor = "pointer";
-
-                destaque.onclick = function () {
-                    window.open(
-                        `https://www.youtube.com/watch?v=${video.id}`,
-                        "_blank"
-                    );
-                };
-
-                destaque.innerHTML = `
-                    <div class="video-destaque-overlay"></div>
-
-                    <div class="video-play">
-                        <i class="fas fa-play"></i>
-                    </div>
-                `;
-            }
-
-            // Atualiza título e canal
-            const info = document.querySelector(
-                ".video-destaque-info"
-            );
-
-            if (info) {
-                info.innerHTML = `
-                    <strong>
-                        ${video.titulo || "Vídeo recente"}
-                    </strong>
-
-                    <span>
-                        A Bíblia Revela
-                    </span>
-                `;
-            }
-
-        } else {
-            console.warn("⚠️ Nenhum vídeo recente encontrado.");
-        }
-
+}
 
         // =========================================
         // MAIS VISTOS
