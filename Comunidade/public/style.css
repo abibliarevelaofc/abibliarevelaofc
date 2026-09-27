@@ -2848,9 +2848,7 @@ border-radius:12px;
     transform: translateY(-1px);
 }
 
-.menu-comunidade-btn:hover i {
-    color: #d4af37;
-}
+
 
 /* ABA ATIVA */
 
@@ -5471,8 +5469,8 @@ border-radius:12px;
 
 .banner {
     width: 100%;
-    max-width: 900px;
-    height: 100px;
+    max-width: 400px;
+    height: 70px;
     display: block;
     margin: 0 auto;
     object-fit: fill;
@@ -6494,11 +6492,7 @@ border-radius:12px;
         gap: 0 !important;
         font-size: 11px !important;
 
-        background: linear-gradient(
-            145deg,
-            #24140b,
-            #120a06
-        ) !important;
+      
     }
 
     .menu-comunidade-btn i {
@@ -6524,12 +6518,7 @@ border-radius:12px;
     gap: 3px;
     padding: 4px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(36,20,11,.96),
-            rgba(12,8,5,.98)
-        );
+    
 
     border: 1px solid rgba(212,175,55,.28);
     border-radius: 14px;
@@ -6620,6 +6609,7 @@ border-radius:12px;
     white-space: nowrap;
 
     font-size: 10px;
+    top: -10px;
 }
 
 
@@ -6680,21 +6670,25 @@ border-radius:12px;
 .menu-comunidade-rede .menu-comunidade-btn:nth-child(5) {
     grid-column: 1;
     grid-row: 3;
+    top: -10px;
 }
 
 .menu-comunidade-rede .menu-comunidade-btn:nth-child(6) {
     grid-column: 2;
     grid-row: 3;
+    top: -10px;
 }
 
 .menu-comunidade-rede .menu-comunidade-btn:nth-child(7) {
     grid-column: 3;
     grid-row: 3;
+    top: -10px;
 }
 
 .menu-comunidade-rede .menu-comunidade-btn:nth-child(8) {
     grid-column: 4;
     grid-row: 3;
+    top: -10px;
 }
 
 
@@ -6724,11 +6718,13 @@ border-radius:12px;
     .menu-comunidade .menu-comunidade-btn {
         font-size: 9px;
         padding: 2px;
+        
     }
 
     .menu-comunidade-rede::before {
         font-size: 7px;
     }
+   
 }
 
 /* =====================================================
@@ -6776,9 +6772,11 @@ border-radius:12px;
 }
 
 .menu-comunidade-linha .menu-comunidade-btn {
-    height: 34px !important;
-    min-height: 34px !important;
+    height: 30px !important;
+    min-height: 30px !important;
     padding: 2px 4px !important;
+    top: -2px;
+    left: -10px;
 }
 .corrente-comunidade {
     height: 0 !important;
@@ -6845,3 +6843,194 @@ border-radius:12px;
 .menu-comunidade-linha .menu-comunidade-btn {
     font-size: 7.0px !important;
 }
+
+
+
+
+/* =====================================================
+   MENU COMUNIDADE — VÍDEO COMO ÚNICO FUNDO
+===================================================== */
+
+.menu-comunidade {
+    position: relative !important;
+    overflow: visible !important;
+    isolation: isolate;
+
+    /* REMOVE O FUNDO CSS */
+    background: transparent !important;
+
+    /* mantém o tamanho do menu */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* VÍDEO É O FUNDO REAL */
+.menu-comunidade-video {
+    position: absolute !important;
+
+    top: 0;
+    left: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+transform: scale(1.12);
+    object-position: center;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    opacity: 1;
+
+    /* acompanha exatamente o formato do menu */
+    border-radius: 14px;
+}
+
+/* REMOVE A CAMADA ESCURA DO CSS */
+.menu-comunidade::before {
+    display: none !important;
+}
+
+/* BOTÕES FICAM ACIMA DO VÍDEO */
+.menu-comunidade > *:not(.menu-comunidade-video) {
+    position: relative;
+    z-index: 2;
+}
+
+/* REMOVE QUALQUER FUNDO DO MENU COMUNIDADE */
+.menu-comunidade {
+    background: transparent !important;
+}
+
+.menu-comunidade::before,
+.menu-comunidade::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    display: none !important;
+}
+
+/* =====================================================
+   MENU COMUNIDADE — TRANSPARÊNCIA TOTAL
+===================================================== */
+
+.menu-comunidade,
+.menu-comunidade-rede,
+.menu-comunidade-linha,
+.menu-comunidade .prova-social-destaque {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* BOTÕES SEM FUNDO */
+.menu-comunidade .menu-comunidade-btn {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* REMOVE QUALQUER CAMADA SOBRE O VÍDEO */
+.menu-comunidade::before,
+.menu-comunidade::after,
+.menu-comunidade-rede::before,
+.menu-comunidade-rede::after {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* VÍDEO */
+.menu-comunidade-video {
+    z-index: 0 !important;
+}
+
+.menu-comunidade > *:not(.menu-comunidade-video) {
+    position: relative;
+    z-index: 2;
+}
+
+/* =====================================================
+   MENU COMUNIDADE — BOTÕES SEM FUNDO / SEM BORDA
+===================================================== */
+
+.menu-comunidade .menu-comunidade-btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* REMOVE FUNDO E BORDA DO HOVER */
+.menu-comunidade .menu-comunidade-btn:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* REMOVE FUNDO E BORDA DA ABA ATIVA */
+.menu-comunidade .menu-comunidade-btn.ativo {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* MANTÉM SOMENTE A COR DO ÍCONE ATIVO */
+.menu-comunidade .menu-comunidade-btn.ativo i {
+    color: #ffd45c;
+}
+
+/* REMOVE QUALQUER BORDA EXTRA */
+.menu-comunidade .menu-comunidade-btn::before {
+    display: none !important;
+}
+
+/* =====================================================
+   REMOVER CARD/FUNDO DO MENU — MP4 FICA LIVRE
+===================================================== */
+
+.menu-comunidade {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* mantém somente o vídeo como fundo */
+.menu-comunidade-video {
+    z-index: 0 !important;
+}
+
+/* conteúdo por cima do vídeo */
+.menu-comunidade > *:not(.menu-comunidade-video) {
+    position: relative;
+    z-index: 2;
+}
+
+/* LINHA ATIVA PRESA AO PRÓPRIO BOTÃO */
+.menu-comunidade .menu-comunidade-btn {
+    position: relative !important;
+}
+
+.menu-comunidade .menu-comunidade-btn.ativo::after {
+    position: absolute !important;
+    content: "" !important;
+    left: 50% !important;
+    bottom: 2px !important;
+    transform: translateX(-50%) !important;
+    width: 32px !important;
+    height: 2px !important;
+}
+.menu-comunidade-rede::before {
+    display: none !important;
+    content: none !important;
+}
+
+.menu-comunidade .corrente-comunidade {
+    display: none !important;
+}
+
+.menu-comunidade .prova-social-destaque.ativo::after {
+    bottom: 9px !important;
+}
+

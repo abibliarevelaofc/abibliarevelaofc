@@ -1,0 +1,115 @@
+/* =====================================================
+   PROVA SOCIAL — FUNDO TOTALMENTE TRANSPARENTE
+===================================================== */
+
+/* ABA INTEIRA */
+#aba-posts {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ÁREA PRINCIPAL */
+#aba-posts .impacto-redes {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* GRID */
+#aba-posts .prova-social-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* =====================================================
+   REMOVE RESUMO GRANDE
+===================================================== */
+
+#aba-posts .card-resumo-comunidade {
+    display: none !important;
+}
+
+/* =====================================================
+   COMENTÁRIOS — TOTALMENTE TRANSPARENTE
+===================================================== */
+
+#aba-posts .card-comentarios,
+#aba-posts .card-comentarios.card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 6px 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* =====================================================
+   TÍTULO DOS COMENTÁRIOS
+===================================================== */
+
+#aba-posts .card-comentarios .card-titulo-linha {
+    padding: 0 4px !important;
+    margin-bottom: 6px !important;
+
+    background: transparent !important;
+}
+
+/* =====================================================
+   VÍDEOS — TOTALMENTE TRANSPARENTES
+===================================================== */
+
+#aba-posts .card-videos,
+#aba-posts .card-videos.card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* TÍTULO DOS VÍDEOS */
+#aba-posts .card-videos .card-titulo-linha {
+    background: transparent !important;
+}
+
+/* =====================================================
+   MAIS VISTOS — TAMBÉM SEM FUNDO
+===================================================== */
+
+#aba-posts .card-mais-vistos,
+#aba-posts .card-mais-vistos.card {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}

@@ -75,10 +75,11 @@ body.community-open .community-view {
 .banner {
     width: 120%;
     max-width: 900px;
-    height: 150px;
+    height: 110px;
     display: block;
     margin: 0 auto;
     object-fit: contain;
+    
    
 }
 html,
@@ -161,3 +162,78 @@ body {
 }
 
 
+
+/* REMOVE QUALQUER FUNDO DO MENU COMUNIDADE */
+.menu-comunidade {
+    background: transparent !important;
+}
+
+.menu-comunidade::before,
+.menu-comunidade::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    display: none !important;
+}
+
+/* =====================================================
+   PROVA SOCIAL — NOVO LAYOUT
+===================================================== */
+
+/* REMOVE O RESUMO GRANDE */
+#aba-posts .card-resumo-comunidade {
+    display: none !important;
+}
+
+/* ÁREA DA PROVA SOCIAL */
+#aba-posts .impacto-redes {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* GRID VIRA COLUNA */
+#aba-posts .prova-social-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+/* =====================================================
+   COMENTÁRIOS — FLUTUANDO ABAIXO DO MENU
+===================================================== */
+
+#aba-posts .card-comentarios {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 6px 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* TÍTULO DOS COMENTÁRIOS */
+#aba-posts .card-comentarios .card-titulo-linha {
+    padding: 0 4px;
+    margin-bottom: 6px;
+}
+
+/* =====================================================
+   VÍDEOS ABAIXO DOS COMENTÁRIOS
+===================================================== */
+
+#aba-posts .card-videos {
+    width: 100% !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
