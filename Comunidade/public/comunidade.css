@@ -360,3 +360,194 @@
 .impacto-redes {
     transform: none !important;
 }
+
+/* =====================================================
+   MAIS VISTOS — IGUAL AO VÍDEOS RECENTES
+===================================================== */
+
+.prova-social-grid .card-mais-vistos {
+
+    width: 100% !important;
+
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: none !important;
+
+    padding: 10px !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+
+    /* MESMA COR DO VÍDEOS RECENTES */
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+    border-radius: 16px !important;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.03) !important;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .mais-vistos-titulo {
+
+    margin: 0 0 8px !important;
+
+    color: #d6a84f !important;
+
+    font-size: 10px !important;
+    font-weight: 900 !important;
+}
+
+
+/* =====================================================
+   ÁREA DO CARROSSEL
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .box-carrossel {
+
+    flex: 1 !important;
+
+    width: 100% !important;
+    min-height: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =====================================================
+   CARROSSEL
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .carrossel {
+
+    display: flex !important;
+
+    gap: 10px !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    padding: 5px 2px 8px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =====================================================
+   CARDS DOS VÍDEOS MAIS VISTOS
+   MESMO TAMANHO DO VÍDEO RECENTE
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .short {
+
+    width: 130px !important;
+    height: 230px !important;
+
+    min-width: 130px !important;
+    min-height: 230px !important;
+
+    max-width: 130px !important;
+    max-height: 230px !important;
+
+    flex: 0 0 130px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+
+    /* MESMA COR */
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+    border-radius: 13px !important;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.03) !important;
+}
+
+
+/* =====================================================
+   IMAGEM
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .short img {
+
+    width: 100% !important;
+
+    height: 180px !important;
+    min-height: 180px !important;
+
+    flex: 0 0 180px !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+}
+
+
+/* =====================================================
+   TÍTULO DO VÍDEO
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .short p {
+
+    height: 32px !important;
+    min-height: 32px !important;
+
+    margin: 0 !important;
+    padding: 6px !important;
+
+    box-sizing: border-box !important;
+
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =====================================================
+   VISUALIZAÇÕES
+===================================================== */
+
+.prova-social-grid .card-mais-vistos .short .views {
+
+    height: 18px !important;
+    min-height: 18px !important;
+
+    padding: 0 6px 5px !important;
+
+    box-sizing: border-box !important;
+
+    font-size: 7px !important;
+}
