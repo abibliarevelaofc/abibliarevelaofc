@@ -270,3 +270,169 @@
     padding: 0 6px 6px !important;
     font-size: 7px !important;
 }
+
+ /* =====================================================
+    VÍDEOS RECENTES + MAIS VISTOS
+    MESMO PADRÃO VERTICAL GRANDE
+ ===================================================== */
+
+ /* ===== CONTAINER DOS DOIS ===== */
+
+ .prova-social-grid .card-videos,
+ .prova-social-grid .card-mais-vistos {
+     box-sizing: border-box !important;
+     padding: 10px !important;
+ }
+
+ /* ===== CARD INTERNO DOS VÍDEOS RECENTES ===== */
+
+ .prova-social-grid .card-videos .video-destaque {
+     width: 100% !important;
+     height: 150px !important;
+     min-height: 150px !important;
+     max-height: 150px !important;
+
+     display: flex !important;
+     flex-direction: column !important;
+
+     overflow: hidden !important;
+
+     background:
+         linear-gradient(
+             145deg,
+             #24140b,
+             #100805
+         ) !important;
+
+     border: 1px solid rgba(214,168,79,.20) !important;
+     border-radius: 12px !important;
+
+     box-sizing: border-box !important;
+ }
+
+ /* imagem do Vídeos Recentes */
+
+ .prova-social-grid .card-videos .video-destaque-imagem {
+     width: 100% !important;
+     height: 105px !important;
+     min-height: 105px !important;
+     flex: 0 0 105px !important;
+
+     overflow: hidden !important;
+ }
+
+ /* conteúdo da imagem */
+
+ .prova-social-grid .card-videos .video-destaque-conteudo {
+     width: 100% !important;
+     height: 100% !important;
+     background-size: cover !important;
+     background-position: center !important;
+ }
+
+ /* informações */
+
+ .prova-social-grid .card-videos .video-destaque-info {
+     height: 45px !important;
+     min-height: 45px !important;
+     padding: 6px 7px !important;
+
+     box-sizing: border-box !important;
+
+     display: flex !important;
+     flex-direction: column !important;
+     justify-content: center !important;
+ }
+
+
+ /* =====================================================
+    MAIS VISTOS
+    EXATAMENTE A MESMA ALTURA
+ ===================================================== */
+
+ .prova-social-grid .card-mais-vistos .short {
+     width: 105px !important;
+
+     height: 150px !important;
+     min-height: 150px !important;
+     max-height: 150px !important;
+
+     display: flex !important;
+     flex-direction: column !important;
+
+     overflow: hidden !important;
+
+     box-sizing: border-box !important;
+
+     background:
+         linear-gradient(
+             145deg,
+             #24140b,
+             #100805
+         ) !important;
+
+     border: 1px solid rgba(214,168,79,.20) !important;
+     border-radius: 12px !important;
+
+     box-shadow:
+         0 8px 20px rgba(0,0,0,.30),
+         inset 0 1px 0 rgba(255,255,255,.03) !important;
+ }
+
+ /* imagem Mais Vistos */
+
+ .prova-social-grid .card-mais-vistos .short img {
+     width: 100% !important;
+     height: 105px !important;
+     min-height: 105px !important;
+     flex: 0 0 105px !important;
+
+     object-fit: cover !important;
+     display: block !important;
+ }
+
+ /* título Mais Vistos */
+
+ .prova-social-grid .card-mais-vistos .short p {
+     height: 27px !important;
+     min-height: 27px !important;
+
+     margin: 0 !important;
+     padding: 5px 6px !important;
+
+     box-sizing: border-box !important;
+
+     font-size: 8px !important;
+     line-height: 1.15 !important;
+
+     overflow: hidden !important;
+ }
+
+ /* visualizações */
+
+ .prova-social-grid .card-mais-vistos .short .views {
+     height: 18px !important;
+     min-height: 18px !important;
+
+     padding: 0 6px !important;
+
+     box-sizing: border-box !important;
+
+     font-size: 7px !important;
+ }
+
+
+ /* =====================================================
+    GARANTIR MESMA ALTURA VISUAL
+ ===================================================== */
+
+ .prova-social-grid .card-videos,
+ .prova-social-grid .card-mais-vistos {
+     align-self: start !important;
+ }
+
+ .prova-social-grid .card-videos .video-destaque,
+ .prova-social-grid .card-mais-vistos .short {
+     margin-top: 0 !important;
+     margin-bottom: 0 !important;
+ }
