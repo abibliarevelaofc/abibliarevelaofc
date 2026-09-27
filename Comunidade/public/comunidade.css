@@ -229,151 +229,33 @@
     box-sizing: border-box !important;
 }
 
-
 /* =====================================================
-   MAIS VISTOS
-   NÃO CORTAR O CARROSSEL
+   PROVA SOCIAL
+   VÍDEOS RECENTES + MAIS VISTOS
+   PAINÉIS VERTICAIS IGUAIS
 ===================================================== */
 
-.prova-social-grid .card-mais-vistos {
-
-    overflow: hidden !important;
-}
-
-
-/* ÁREA DO CARROSSEL */
-
-.prova-social-grid .card-mais-vistos .box-carrossel {
-
-    width: 100% !important;
-    min-height: 230px !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    overflow: visible !important;
-}
-
-
-/* CARROSSEL */
-
-.prova-social-grid .card-mais-vistos .carrossel {
-
-    display: flex !important;
-    gap: 8px !important;
-
-    width: 100% !important;
-    min-width: 0 !important;
-
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-
-    padding: 4px 2px 8px !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* CARDS DO MAIS VISTOS */
-
-.prova-social-grid .card-mais-vistos .short {
-
-    width: 130px !important;
-    height: 230px !important;
-
-    min-width: 130px !important;
-    min-height: 230px !important;
-
-    max-width: 130px !important;
-    max-height: 230px !important;
-
-    flex: 0 0 130px !important;
-
+#aba-posts .prova-social-grid {
     display: flex !important;
     flex-direction: column !important;
-
-    overflow: hidden !important;
-
-    box-sizing: border-box !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 13px !important;
-}
-
-
-/* IMAGEM MAIS VISTOS */
-
-.prova-social-grid .card-mais-vistos .short img {
-
+    gap: 12px !important;
     width: 100% !important;
-    height: 180px !important;
-
-    min-height: 180px !important;
-
-    object-fit: cover !important;
-    flex: 0 0 180px !important;
-}
-
-
-/* TEXTO */
-
-.prova-social-grid .card-mais-vistos .short p {
-
-    height: 32px !important;
-    min-height: 32px !important;
-
-    padding: 6px !important;
-    margin: 0 !important;
-
-    box-sizing: border-box !important;
-
-    font-size: 8px !important;
-}
-
-
-/* VISUALIZAÇÕES */
-
-.prova-social-grid .card-mais-vistos .short .views {
-
-    height: 18px !important;
-    min-height: 18px !important;
-
-    padding: 0 6px 5px !important;
-
-    box-sizing: border-box !important;
-
-    font-size: 7px !important;
 }
 
 
 /* =====================================================
-   NÃO ACHATAR NADA
+   PAINEL — VÍDEOS RECENTES
 ===================================================== */
 
-.impacto-redes {
-    transform: none !important;
-}
-
-/* =====================================================
-   MAIS VISTOS — IGUAL AO VÍDEOS RECENTES
-===================================================== */
-
-.prova-social-grid .card-mais-vistos {
+#aba-posts .prova-social-grid .card-videos {
 
     width: 100% !important;
-
     height: 320px !important;
     min-height: 320px !important;
-    max-height: none !important;
 
+    margin: 0 !important;
     padding: 10px !important;
+
     box-sizing: border-box !important;
 
     display: flex !important;
@@ -381,7 +263,6 @@
 
     overflow: hidden !important;
 
-    /* MESMA COR DO VÍDEOS RECENTES */
     background:
         linear-gradient(
             145deg,
@@ -398,68 +279,9 @@
 }
 
 
-/* =====================================================
-   TÍTULO
-===================================================== */
+/* CARD VERTICAL DO VÍDEO RECENTE */
 
-.prova-social-grid .card-mais-vistos .mais-vistos-titulo {
-
-    margin: 0 0 8px !important;
-
-    color: #d6a84f !important;
-
-    font-size: 10px !important;
-    font-weight: 900 !important;
-}
-
-
-/* =====================================================
-   ÁREA DO CARROSSEL
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .box-carrossel {
-
-    flex: 1 !important;
-
-    width: 100% !important;
-    min-height: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    overflow: hidden !important;
-}
-
-
-/* =====================================================
-   CARROSSEL
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .carrossel {
-
-    display: flex !important;
-
-    gap: 10px !important;
-
-    width: 100% !important;
-
-    min-width: 0 !important;
-
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-
-    padding: 5px 2px 8px !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* =====================================================
-   CARDS DOS VÍDEOS MAIS VISTOS
-   MESMO TAMANHO DO VÍDEO RECENTE
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .short {
+#aba-posts .card-videos .video-destaque {
 
     width: 130px !important;
     height: 230px !important;
@@ -467,19 +289,14 @@
     min-width: 130px !important;
     min-height: 230px !important;
 
-    max-width: 130px !important;
-    max-height: 230px !important;
+    margin: auto !important;
 
-    flex: 0 0 130px !important;
-
-    display: flex !important;
-    flex-direction: column !important;
+    flex: 0 0 230px !important;
 
     overflow: hidden !important;
 
     box-sizing: border-box !important;
 
-    /* MESMA COR */
     background:
         linear-gradient(
             145deg,
@@ -487,81 +304,18 @@
             #100805
         ) !important;
 
-    border: 1px solid rgba(214,168,79,.20) !important;
     border-radius: 13px !important;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
 }
 
 
 /* =====================================================
-   IMAGEM
+   PAINEL — MAIS VISTOS
+   EXATAMENTE IGUAL AO RECENTE
 ===================================================== */
 
-.prova-social-grid .card-mais-vistos .short img {
+#aba-posts .prova-social-grid .card-mais-vistos {
 
     width: 100% !important;
-
-    height: 180px !important;
-    min-height: 180px !important;
-
-    flex: 0 0 180px !important;
-
-    object-fit: cover !important;
-
-    display: block !important;
-}
-
-
-/* =====================================================
-   TÍTULO DO VÍDEO
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .short p {
-
-    height: 32px !important;
-    min-height: 32px !important;
-
-    margin: 0 !important;
-    padding: 6px !important;
-
-    box-sizing: border-box !important;
-
-    font-size: 8px !important;
-    line-height: 1.15 !important;
-
-    overflow: hidden !important;
-}
-
-
-/* =====================================================
-   VISUALIZAÇÕES
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .short .views {
-
-    height: 18px !important;
-    min-height: 18px !important;
-
-    padding: 0 6px 5px !important;
-
-    box-sizing: border-box !important;
-
-    font-size: 7px !important;
-}
-
-/* =====================================================
-   CORREÇÃO FINAL — MAIS VISTOS
-   MESMO PAINEL DOS VÍDEOS RECENTES
-===================================================== */
-
-#aba-posts .prova-social-grid .card-mais-vistos,
-#aba-posts .prova-social-grid .card-mais-vistos.card {
-
-    width: 100% !important;
-
     height: 320px !important;
     min-height: 320px !important;
     max-height: 320px !important;
@@ -576,7 +330,8 @@
 
     overflow: hidden !important;
 
-    /* MESMO FUNDO DOS VÍDEOS RECENTES */
+    flex: 0 0 320px !important;
+
     background:
         linear-gradient(
             145deg,
@@ -598,14 +353,11 @@
 }
 
 
-/* =====================================================
-   TÍTULO
-===================================================== */
+/* TÍTULO */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.mais-vistos-titulo {
+#aba-posts .card-mais-vistos .mais-vistos-titulo {
 
-    display: block !important;
+    flex: 0 0 auto !important;
 
     margin: 0 0 8px !important;
     padding: 0 !important;
@@ -621,14 +373,13 @@
    ÁREA DO CARROSSEL
 ===================================================== */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.box-carrossel {
+#aba-posts .card-mais-vistos .box-carrossel {
 
     width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
 
-    flex: 1 1 auto !important;
-
-    min-height: 0 !important;
+    flex: 0 0 240px !important;
 
     display: flex !important;
     align-items: center !important;
@@ -639,40 +390,36 @@
 }
 
 
-/* =====================================================
-   CARROSSEL
-===================================================== */
+/* CARROSSEL */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.carrossel {
-
-    width: 100% !important;
+#aba-posts .card-mais-vistos .carrossel {
 
     display: flex !important;
     flex-direction: row !important;
-
     align-items: center !important;
 
     gap: 10px !important;
+
+    width: 100% !important;
+    height: 230px !important;
 
     min-width: 0 !important;
 
     overflow-x: auto !important;
     overflow-y: hidden !important;
 
-    padding: 5px 2px 8px !important;
+    padding: 4px 2px 8px !important;
 
     box-sizing: border-box !important;
 }
 
 
 /* =====================================================
-   CARDS INDIVIDUAIS
-   MESMO PADRÃO VERTICAL DO RECENTE
+   CARD INDIVIDUAL DO MAIS VISTOS
+   MESMO 130 × 230 DO RECENTE
 ===================================================== */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.short {
+#aba-posts .card-mais-vistos .short {
 
     width: 130px !important;
     height: 230px !important;
@@ -708,35 +455,26 @@
 }
 
 
-/* =====================================================
-   IMAGEM
-===================================================== */
+/* IMAGEM */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.short img {
+#aba-posts .card-mais-vistos .short img {
 
     width: 100% !important;
-
     height: 180px !important;
+
     min-height: 180px !important;
     max-height: 180px !important;
 
     flex: 0 0 180px !important;
 
     object-fit: cover !important;
-
     display: block !important;
 }
 
 
-/* =====================================================
-   TEXTO
-===================================================== */
+/* TEXTO */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.short p {
-
-    width: 100% !important;
+#aba-posts .card-mais-vistos .short p {
 
     height: 32px !important;
     min-height: 32px !important;
@@ -753,12 +491,9 @@
 }
 
 
-/* =====================================================
-   VISUALIZAÇÕES
-===================================================== */
+/* VIEWS */
 
-#aba-posts .prova-social-grid .card-mais-vistos
-.short .views {
+#aba-posts .card-mais-vistos .short .views {
 
     height: 18px !important;
     min-height: 18px !important;
@@ -772,7 +507,8 @@
 
 
 /* =====================================================
-   GARANTIR QUE NÃO SEJA ACHATADO
+   IMPORTANTE
+   NÃO COMPRIMIR O CONTAINER
 ===================================================== */
 
 #aba-posts .impacto-redes {
