@@ -636,3 +636,25 @@
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
+
+
+/* =====================================================
+   MAIS VISTOS — REMOVER SOMENTE O FUNDO DO PAINEL
+===================================================== */
+
+#aba-posts .prova-social-grid .card-mais-vistos,
+#aba-posts .prova-social-grid .card-mais-vistos::before,
+#aba-posts .prova-social-grid .card-mais-vistos::after {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    filter: none !important;
+}
