@@ -114,176 +114,18 @@
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;}
 /* =====================================================
-   VÍDEOS RECENTES — SHORTS VERTICAIS
-===================================================== */
-
-#aba-posts .card-videos {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* ÁREA DOS 5 SHORTS */
-#aba-posts #videosRecentes {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 10px !important;
-
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-
-    scroll-behavior: smooth;
-
-    padding: 2px 2px 8px !important;
-
-    scrollbar-width: none;
-}
-
-#aba-posts #videosRecentes::-webkit-scrollbar {
-    display: none;
-}
-
-/* CADA SHORT */
-#aba-posts #videosRecentes .short {
-    flex: 0 0 150px !important;
-    width: 150px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    cursor: pointer;
-}
-
-/* IMAGEM 9:16 */
-#aba-posts #videosRecentes .imagem-video {
-    position: relative !important;
-
-    width: 150px !important;
-    height: 267px !important;
-
-    overflow: hidden !important;
-
-    border-radius: 10px !important;
-}
-
-/* IMAGEM */
-#aba-posts #videosRecentes .imagem-video img {
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-    object-position: center !important;
-
-    display: block !important;
-}
-
-/* BOTÃO ASSISTIR */
-#aba-posts #videosRecentes .assistir {
-    position: absolute !important;
-
-    left: 50% !important;
-    bottom: 10px !important;
-
-    transform: translateX(-50%) !important;
-
-    padding: 6px 10px !important;
-
-    border: none !important;
-    border-radius: 20px !important;
-
-    font-size: 10px !important;
-    white-space: nowrap !important;
-
-    cursor: pointer;
-}
-
-/* TÍTULO */
-#aba-posts #videosRecentes .short > p {
-    margin: 7px 2px 3px !important;
-
-    font-size: 11px !important;
-    line-height: 1.3 !important;
-
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-
-    overflow: hidden !important;
-}
-
-/* VISUALIZAÇÕES */
-#aba-posts #videosRecentes .views {
-    margin: 0 2px !important;
-
-    font-size: 9px !important;
-    opacity: .65;
-}
-
-/* =====================================================
-   MAIS VISTOS — AUMENTAR ALTURA DOS CARDS
-===================================================== */
-
-.card-mais-vistos .short {
-    height: 150px !important;
-    min-height: 150px !important;
-    max-height: 150px !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-}
-
-/* imagem ocupa mais espaço vertical */
-.card-mais-vistos .short img {
-    width: 100% !important;
-    height: 105px !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* título */
-.card-mais-vistos .short p {
-    padding: 6px !important;
-    margin: 0 !important;
-    font-size: 8px !important;
-    line-height: 1.2 !important;
-}
-
-/* visualizações */
-.card-mais-vistos .short .views {
-    padding: 0 6px 6px !important;
-    font-size: 7px !important;
-}
-/* =====================================================
    VÍDEOS RECENTES + MAIS VISTOS
-   DOIS CARDS PRINCIPAIS VERTICAIS
-   MESMO TAMANHO — UM EMBAIXO DO OUTRO
+   CARD PRINCIPAL BEM VERTICAL
 ===================================================== */
 
-/* CONTAINER DOS DOIS */
 .prova-social-grid {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     gap: 12px !important;
     width: 100% !important;
 }
+
 
 /* =====================================================
    OS DOIS CARDS PRINCIPAIS
@@ -293,20 +135,18 @@
 .prova-social-grid .card-mais-vistos {
 
     width: 100% !important;
-    height: 220px !important;
 
-    min-width: 0 !important;
-    min-height: 220px !important;
-    max-height: 220px !important;
-
-    box-sizing: border-box !important;
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: none !important;
 
     padding: 10px !important;
+    box-sizing: border-box !important;
 
     display: flex !important;
     flex-direction: column !important;
 
-    overflow: hidden !important;
+    overflow: visible !important;
 
     background:
         linear-gradient(
@@ -325,39 +165,22 @@
 
 
 /* =====================================================
-   VÍDEOS RECENTES — CONTEÚDO VERTICAL
+   VÍDEOS RECENTES
+   CARD INTERNO VERTICAL
 ===================================================== */
 
 .prova-social-grid .card-videos .video-destaque {
 
-    width: 105px !important;
-    height: 150px !important;
+    width: 130px !important;
+    height: 230px !important;
 
-    min-width: 105px !important;
-    min-height: 150px !important;
+    min-width: 130px !important;
+    min-height: 230px !important;
+
+    max-width: 130px !important;
+    max-height: 230px !important;
 
     margin: auto !important;
-
-    flex-shrink: 0 !important;
-
-    overflow: hidden !important;
-
-    border-radius: 12px !important;
-    box-sizing: border-box !important;
-}
-
-
-/* =====================================================
-   MAIS VISTOS — CARDS INTERNOS
-===================================================== */
-
-.prova-social-grid .card-mais-vistos .short {
-
-    width: 105px !important;
-    height: 150px !important;
-
-    min-width: 105px !important;
-    min-height: 150px !important;
 
     flex-shrink: 0 !important;
 
@@ -372,29 +195,166 @@
             #100805
         ) !important;
 
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 12px !important;
+    border-radius: 13px !important;
+}
+
+
+/* IMAGEM DO RECENTE */
+
+.prova-social-grid .card-videos .video-destaque-imagem {
+
+    width: 100% !important;
+    height: 180px !important;
+
+    min-height: 180px !important;
+    max-height: 180px !important;
+
+    flex: 0 0 180px !important;
+
+    overflow: hidden !important;
+}
+
+
+/* INFORMAÇÕES */
+
+.prova-social-grid .card-videos .video-destaque-info {
+
+    width: 100% !important;
+    height: 50px !important;
+
+    min-height: 50px !important;
+
+    padding: 7px !important;
+
+    box-sizing: border-box !important;
 }
 
 
 /* =====================================================
-   IMAGEM DOS CARDS
+   MAIS VISTOS
+   NÃO CORTAR O CARROSSEL
 ===================================================== */
 
-.prova-social-grid .card-videos .video-destaque-imagem,
+.prova-social-grid .card-mais-vistos {
+
+    overflow: hidden !important;
+}
+
+
+/* ÁREA DO CARROSSEL */
+
+.prova-social-grid .card-mais-vistos .box-carrossel {
+
+    width: 100% !important;
+    min-height: 230px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    overflow: visible !important;
+}
+
+
+/* CARROSSEL */
+
+.prova-social-grid .card-mais-vistos .carrossel {
+
+    display: flex !important;
+    gap: 8px !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    padding: 4px 2px 8px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* CARDS DO MAIS VISTOS */
+
+.prova-social-grid .card-mais-vistos .short {
+
+    width: 130px !important;
+    height: 230px !important;
+
+    min-width: 130px !important;
+    min-height: 230px !important;
+
+    max-width: 130px !important;
+    max-height: 230px !important;
+
+    flex: 0 0 130px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+    border-radius: 13px !important;
+}
+
+
+/* IMAGEM MAIS VISTOS */
+
 .prova-social-grid .card-mais-vistos .short img {
 
     width: 100% !important;
-    height: 105px !important;
+    height: 180px !important;
 
-    min-height: 105px !important;
+    min-height: 180px !important;
 
     object-fit: cover !important;
+    flex: 0 0 180px !important;
+}
+
+
+/* TEXTO */
+
+.prova-social-grid .card-mais-vistos .short p {
+
+    height: 32px !important;
+    min-height: 32px !important;
+
+    padding: 6px !important;
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+
+    font-size: 8px !important;
+}
+
+
+/* VISUALIZAÇÕES */
+
+.prova-social-grid .card-mais-vistos .short .views {
+
+    height: 18px !important;
+    min-height: 18px !important;
+
+    padding: 0 6px 5px !important;
+
+    box-sizing: border-box !important;
+
+    font-size: 7px !important;
 }
 
 
 /* =====================================================
-   REMOVER COMPRESSÃO
+   NÃO ACHATAR NADA
 ===================================================== */
 
 .impacto-redes {
