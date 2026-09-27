@@ -467,3 +467,376 @@
         ) !important;
 }
 
+
+
+/* =====================================================
+   MEU CANAL — ESTRUTURA DOS DOIS CARROSSÉIS
+   NÃO ALTERA MAIS VISTOS / VÍDEOS RECENTES
+===================================================== */
+
+
+/* =====================================================
+   PAINEL — MEU CANAL
+===================================================== */
+
+#aba-posts .card-meu-canal {
+
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    border-radius: 0 !important;
+
+    overflow: visible !important;
+}
+
+
+/* =====================================================
+   TÍTULO — MEU CANAL
+===================================================== */
+
+#aba-posts .card-meu-canal .mais-vistos-titulo {
+
+    width: 100% !important;
+
+    margin: 0 0 8px !important;
+
+    padding: 0 !important;
+
+    color: #d6a84f !important;
+
+    font-size: 10px !important;
+
+    font-weight: 900 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+/* =====================================================
+   ÁREA DO CARROSSEL
+   TRANSPARENTE
+===================================================== */
+
+#aba-posts .card-meu-canal .box-carrossel {
+
+    width: 100% !important;
+
+    height: 230px !important;
+
+    min-height: 230px !important;
+    max-height: 230px !important;
+
+    margin: 0 !important;
+
+    padding: 0 18px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    position: relative !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =====================================================
+   CARROSSEL HORIZONTAL
+   5 CARDS LADO A LADO
+===================================================== */
+
+#aba-posts .card-meu-canal .carrossel {
+
+    width: 100% !important;
+
+    height: 230px !important;
+
+    min-height: 230px !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 10px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    scroll-behavior: smooth !important;
+
+    scrollbar-width: none !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* ESCONDE BARRA NO CHROME */
+
+#aba-posts .card-meu-canal .carrossel::-webkit-scrollbar {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+   CADA CARD — ENQUETE E POST
+   MESMO TAMANHO DO MAIS VISTOS
+===================================================== */
+
+#aba-posts .card-meu-canal .short {
+
+    width: 130px !important;
+
+    min-width: 130px !important;
+
+    max-width: 130px !important;
+
+    height: 230px !important;
+
+    min-height: 230px !important;
+
+    max-height: 230px !important;
+
+    flex: 0 0 130px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
+
+    background-color: #24140b !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+
+    border-radius: 13px !important;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.03) !important;
+}
+
+
+/* =====================================================
+   ENQUETES
+===================================================== */
+
+#aba-posts .enquete-card {
+
+    padding: 12px 9px !important;
+
+    justify-content: flex-start !important;
+
+    gap: 8px !important;
+
+    color: #fff !important;
+
+    text-align: center !important;
+}
+
+
+/* PERGUNTA */
+
+#aba-posts .enquete-card strong {
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: 55px !important;
+
+    margin: 5px 0 5px !important;
+
+    color: #f3e4c1 !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.35 !important;
+
+    font-weight: 800 !important;
+}
+
+
+/* BOTÕES DA ENQUETE */
+
+#aba-posts .enquete-card button {
+
+    width: 100% !important;
+
+    min-height: 34px !important;
+
+    padding: 6px 5px !important;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(214,168,79,.28) !important;
+
+    border-radius: 8px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214,168,79,.16),
+            rgba(70,35,15,.40)
+        ) !important;
+
+    color: #f5dfae !important;
+
+    font-size: 8px !important;
+
+    font-weight: 800 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =====================================================
+   POSTS COM IMAGEM
+===================================================== */
+
+#aba-posts .post-imagem-card {
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: stretch !important;
+
+    justify-content: stretch !important;
+}
+
+
+/* IMAGEM DO POST */
+
+#aba-posts .post-imagem-card img {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    min-height: 100% !important;
+
+    max-height: 100% !important;
+
+    flex: 1 1 auto !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+
+    border-radius: 12px !important;
+}
+
+
+/* =====================================================
+   SETAS — MEU CANAL
+===================================================== */
+
+#aba-posts .card-meu-canal .seta {
+
+    position: absolute !important;
+
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    z-index: 20 !important;
+
+    width: 24px !important;
+
+    height: 34px !important;
+
+    min-width: 24px !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border: 1px solid rgba(214,168,79,.30) !important;
+
+    border-radius: 8px !important;
+
+    background: rgba(20,10,5,.92) !important;
+
+    color: #d6a84f !important;
+
+    font-size: 13px !important;
+
+    font-weight: 900 !important;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.35) !important;
+
+    cursor: pointer !important;
+}
+
+
+#aba-posts .card-meu-canal .seta.esquerda {
+
+    left: 0 !important;
+}
+
+
+#aba-posts .card-meu-canal .seta.direita {
+
+    right: 0 !important;
+}
+
+
+/* =====================================================
+   GARANTIA — CONTAINERS TRANSPARENTES
+===================================================== */
+
+#aba-posts .card-meu-canal,
+#aba-posts .card-meu-canal .box-carrossel,
+#aba-posts .card-meu-canal .carrossel {
+
+    background: transparent !important;
+
+    background-color: transparent !important;
+
+    background-image: none !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+}
