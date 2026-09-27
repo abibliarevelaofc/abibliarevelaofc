@@ -1,62 +1,111 @@
 /* =====================================================
-   PROVA SOCIAL — FUNDO TOTALMENTE TRANSPARENTE
+   PROVA SOCIAL — VERSÃO LIMPA E DEFINITIVA
 ===================================================== */
 
-/* ABA INTEIRA */
+
+/* =====================================================
+   ABA PRINCIPAL — TRANSPARENTE
+===================================================== */
+
 #aba-posts {
     background: transparent !important;
     background-color: transparent !important;
+
     border: none !important;
     box-shadow: none !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    overflow: visible !important;
 }
 
-/* ÁREA PRINCIPAL */
-#aba-posts .impacto-redes {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* GRID */
-#aba-posts .prova-social-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 10px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
 
 /* =====================================================
-   REMOVE RESUMO GRANDE
+   ÁREA PRINCIPAL
+===================================================== */
+
+#aba-posts .impacto-redes {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+#aba-posts .prova-social-grid {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   REMOVER RESUMO GRANDE
 ===================================================== */
 
 #aba-posts .card-resumo-comunidade {
     display: none !important;
 }
 
+
 /* =====================================================
-   COMENTÁRIOS — TOTALMENTE TRANSPARENTE
+   COMENTÁRIOS — TRANSPARENTE
 ===================================================== */
 
 #aba-posts .card-comentarios,
 #aba-posts .card-comentarios.card {
+
     width: 100% !important;
+
     margin: 0 !important;
+
     padding: 6px 0 !important;
 
     background: transparent !important;
     background-color: transparent !important;
+
     border: none !important;
     box-shadow: none !important;
 
@@ -64,274 +113,114 @@
     -webkit-backdrop-filter: none !important;
 }
 
-/* =====================================================
-   TÍTULO DOS COMENTÁRIOS
-===================================================== */
+
+/* TÍTULO DOS COMENTÁRIOS */
 
 #aba-posts .card-comentarios .card-titulo-linha {
+
     padding: 0 4px !important;
+
     margin-bottom: 6px !important;
 
     background: transparent !important;
-}
-
-/* =====================================================
-   VÍDEOS — TOTALMENTE TRANSPARENTES
-===================================================== */
-
-#aba-posts .card-videos,
-#aba-posts .card-videos.card {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
     background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-/* TÍTULO DOS VÍDEOS */
-#aba-posts .card-videos .card-titulo-linha {
-    background: transparent !important;
 }
 
 
 /* =====================================================
-   MAIS VISTOS — TAMBÉM SEM FUNDO
-===================================================== */
-
-#aba-posts .card-mais-vistos,
-#aba-posts .card-mais-vistos.card {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;}
-/* =====================================================
-   VÍDEOS RECENTES + MAIS VISTOS
-   CARD PRINCIPAL BEM VERTICAL
-===================================================== */
-
-.prova-social-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
-    width: 100% !important;
-}
-
-
-/* =====================================================
-   OS DOIS CARDS PRINCIPAIS
-===================================================== */
-
-.prova-social-grid .card-videos,
-.prova-social-grid .card-mais-vistos {
-
-    width: 100% !important;
-
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: none !important;
-
-    padding: 10px !important;
-    box-sizing: border-box !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    overflow: visible !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 16px !important;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
-}
-
-
-/* =====================================================
-   VÍDEOS RECENTES
-   CARD INTERNO VERTICAL
-===================================================== */
-
-.prova-social-grid .card-videos .video-destaque {
-
-    width: 130px !important;
-    height: 230px !important;
-
-    min-width: 130px !important;
-    min-height: 230px !important;
-
-    max-width: 130px !important;
-    max-height: 230px !important;
-
-    margin: auto !important;
-
-    flex-shrink: 0 !important;
-
-    overflow: hidden !important;
-
-    box-sizing: border-box !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    border-radius: 13px !important;
-}
-
-
-/* IMAGEM DO RECENTE */
-
-.prova-social-grid .card-videos .video-destaque-imagem {
-
-    width: 100% !important;
-    height: 180px !important;
-
-    min-height: 180px !important;
-    max-height: 180px !important;
-
-    flex: 0 0 180px !important;
-
-    overflow: hidden !important;
-}
-
-
-/* INFORMAÇÕES */
-
-.prova-social-grid .card-videos .video-destaque-info {
-
-    width: 100% !important;
-    height: 50px !important;
-
-    min-height: 50px !important;
-
-    padding: 7px !important;
-
-    box-sizing: border-box !important;
-}
-
-/* =====================================================
-   PROVA SOCIAL
-   VÍDEOS RECENTES + MAIS VISTOS
-   PAINÉIS VERTICAIS IGUAIS
-===================================================== */
-
-#aba-posts .prova-social-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-}
-
-
-/* =====================================================
-   PAINEL — VÍDEOS RECENTES
+   =====================================================
+   VÍDEOS RECENTES — PAINEL TRANSPARENTE
+   =====================================================
 ===================================================== */
 
 #aba-posts .prova-social-grid .card-videos {
 
     width: 100% !important;
+
     height: 320px !important;
+
     min-height: 320px !important;
 
+    max-height: 320px !important;
+
+    flex: 0 0 320px !important;
+
     margin: 0 !important;
+
     padding: 10px !important;
 
     box-sizing: border-box !important;
 
     display: flex !important;
+
     flex-direction: column !important;
 
-    overflow: hidden !important;
+    overflow: visible !important;
 
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
 
-    border: 1px solid rgba(214,168,79,.20) !important;
+    /* TRANSPARENTE */
+    background: transparent !important;
+
+    background-image: none !important;
+
+    background-color: transparent !important;
+
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+
     border-radius: 16px !important;
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
+
+    backdrop-filter: none !important;
+
+    -webkit-backdrop-filter: none !important;
 }
 
 
-/* CARD VERTICAL DO VÍDEO RECENTE */
+/* TÍTULO DOS VÍDEOS */
 
-#aba-posts .card-videos .video-destaque {
+#aba-posts .prova-social-grid .card-videos .card-titulo-linha {
 
-    width: 130px !important;
-    height: 230px !important;
+    background: transparent !important;
 
-    min-width: 130px !important;
-    min-height: 230px !important;
+    background-image: none !important;
 
-    margin: auto !important;
-
-    flex: 0 0 230px !important;
-
-    overflow: hidden !important;
-
-    box-sizing: border-box !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    border-radius: 13px !important;
+    background-color: transparent !important;
 }
 
 
 /* =====================================================
-   PAINEL — MAIS VISTOS
-   EXATAMENTE IGUAL AO RECENTE
+   CARD INDIVIDUAL DO VÍDEO
+   ESTE É MARROM
 ===================================================== */
 
-#aba-posts .prova-social-grid .card-mais-vistos {
+#aba-posts .prova-social-grid .card-videos .video-destaque {
 
-    width: 100% !important;
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: 320px !important;
+    width: 130px !important;
 
-    margin: 0 !important;
-    padding: 10px !important;
+    height: 230px !important;
+
+    min-width: 130px !important;
+
+    min-height: 230px !important;
+
+    max-width: 130px !important;
+
+    max-height: 230px !important;
+
+    flex: 0 0 230px !important;
+
+    margin: auto !important;
 
     box-sizing: border-box !important;
 
-    display: flex !important;
-    flex-direction: column !important;
-
     overflow: hidden !important;
 
-    flex: 0 0 320px !important;
 
+    /* MARROM SOMENTE NO CARD */
     background:
         linear-gradient(
             145deg,
@@ -341,30 +230,130 @@
 
     background-color: #24140b !important;
 
+
     border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 16px !important;
+
+    border-radius: 13px !important;
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.30),
+        0 8px 20px rgba(0,0,0,.30),
         inset 0 1px 0 rgba(255,255,255,.03) !important;
+}
+
+
+/* =====================================================
+   IMAGEM DO VÍDEO
+===================================================== */
+
+#aba-posts .prova-social-grid
+.card-videos
+.video-destaque-imagem {
+
+    width: 100% !important;
+
+    height: 180px !important;
+
+    min-height: 180px !important;
+
+    max-height: 180px !important;
+
+    flex: 0 0 180px !important;
+
+    overflow: hidden !important;
+
+    display: block !important;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES DO VÍDEO
+===================================================== */
+
+#aba-posts .prova-social-grid
+.card-videos
+.video-destaque-info {
+
+    width: 100% !important;
+
+    height: 50px !important;
+
+    min-height: 50px !important;
+
+    padding: 7px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =====================================================
+   =====================================================
+   MAIS VISTOS — PAINEL TRANSPARENTE
+   =====================================================
+===================================================== */
+
+#aba-posts .prova-social-grid .card-mais-vistos {
+
+    width: 100% !important;
+
+    height: 320px !important;
+
+    min-height: 320px !important;
+
+    max-height: 320px !important;
+
+    flex: 0 0 320px !important;
+
+    margin: 0 !important;
+
+    padding: 10px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    overflow: visible !important;
+
+
+    /* TRANSPARENTE */
+    background: transparent !important;
+
+    background-image: none !important;
+
+    background-color: transparent !important;
+
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+
+    border-radius: 16px !important;
+
 
     backdrop-filter: none !important;
+
     -webkit-backdrop-filter: none !important;
 }
 
 
-/* TÍTULO */
+/* =====================================================
+   TÍTULO MAIS VISTOS
+===================================================== */
 
 #aba-posts .card-mais-vistos .mais-vistos-titulo {
 
     flex: 0 0 auto !important;
 
     margin: 0 0 8px !important;
+
     padding: 0 !important;
 
     color: #d6a84f !important;
 
     font-size: 10px !important;
+
     font-weight: 900 !important;
 }
 
@@ -376,36 +365,47 @@
 #aba-posts .card-mais-vistos .box-carrossel {
 
     width: 100% !important;
+
     height: 240px !important;
+
     min-height: 240px !important;
 
     flex: 0 0 240px !important;
 
     display: flex !important;
+
     align-items: center !important;
 
-    overflow: hidden !important;
+    overflow: visible !important;
 
     box-sizing: border-box !important;
 }
 
 
-/* CARROSSEL */
+/* =====================================================
+   CARROSSEL
+===================================================== */
 
 #aba-posts .card-mais-vistos .carrossel {
 
     display: flex !important;
+
     flex-direction: row !important;
+
     align-items: center !important;
 
     gap: 10px !important;
 
     width: 100% !important;
+
     height: 230px !important;
 
     min-width: 0 !important;
 
+    min-height: 230px !important;
+
     overflow-x: auto !important;
+
     overflow-y: hidden !important;
 
     padding: 4px 2px 8px !important;
@@ -415,30 +415,36 @@
 
 
 /* =====================================================
-   CARD INDIVIDUAL DO MAIS VISTOS
-   MESMO 130 × 230 DO RECENTE
+   CARD INDIVIDUAL MAIS VISTOS
+   MESMO TAMANHO DO VÍDEO
 ===================================================== */
 
 #aba-posts .card-mais-vistos .short {
 
     width: 130px !important;
+
     height: 230px !important;
 
     min-width: 130px !important;
+
     min-height: 230px !important;
 
     max-width: 130px !important;
+
     max-height: 230px !important;
 
     flex: 0 0 130px !important;
 
     display: flex !important;
+
     flex-direction: column !important;
 
     overflow: hidden !important;
 
     box-sizing: border-box !important;
 
+
+    /* MARROM SOMENTE NO CARD */
     background:
         linear-gradient(
             145deg,
@@ -446,7 +452,11 @@
             #100805
         ) !important;
 
+    background-color: #24140b !important;
+
+
     border: 1px solid rgba(214,168,79,.20) !important;
+
     border-radius: 13px !important;
 
     box-shadow:
@@ -455,47 +465,62 @@
 }
 
 
-/* IMAGEM */
+/* =====================================================
+   IMAGEM — MAIS VISTOS
+===================================================== */
 
 #aba-posts .card-mais-vistos .short img {
 
     width: 100% !important;
+
     height: 180px !important;
 
     min-height: 180px !important;
+
     max-height: 180px !important;
 
     flex: 0 0 180px !important;
 
     object-fit: cover !important;
+
     display: block !important;
 }
 
 
-/* TEXTO */
+/* =====================================================
+   TEXTO — MAIS VISTOS
+===================================================== */
 
 #aba-posts .card-mais-vistos .short p {
 
+    width: 100% !important;
+
     height: 32px !important;
+
     min-height: 32px !important;
 
     margin: 0 !important;
+
     padding: 6px !important;
 
     box-sizing: border-box !important;
 
     font-size: 8px !important;
+
     line-height: 1.15 !important;
 
     overflow: hidden !important;
 }
 
 
-/* VIEWS */
+/* =====================================================
+   VISUALIZAÇÕES
+===================================================== */
 
 #aba-posts .card-mais-vistos .short .views {
 
     height: 18px !important;
+
     min-height: 18px !important;
 
     padding: 0 6px 5px !important;
@@ -507,287 +532,43 @@
 
 
 /* =====================================================
-   IMPORTANTE
-   NÃO COMPRIMIR O CONTAINER
+   GARANTIA — NENHUM PAINEL MARROM
 ===================================================== */
 
-#aba-posts .impacto-redes {
-    transform: none !important;
-}
+/* SOMENTE OS CARDS INTERNOS PODEM SER MARRONS */
 
-/* =====================================================
-   CORREÇÃO FINAL
-   MAIS VISTOS — FUNDO + ALTURA + FLUXO DA PÁGINA
-===================================================== */
-
-
-/* =====================================================
-   1. PAINEL MAIS VISTOS
-      MESMO FUNDO DO VÍDEOS RECENTES
-===================================================== */
-
-#aba-posts .prova-social-grid .card-mais-vistos {
-
-    width: 100% !important;
-
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: none !important;
-
-    flex: 0 0 320px !important;
-
-    margin: 0 !important;
-    padding: 10px !important;
-
-    box-sizing: border-box !important;
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    background-color: #24140b !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 16px !important;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
-
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    /* NÃO CORTAR O PAINEL */
-    overflow: visible !important;
-}
-
-
-/* =====================================================
-   2. CONTAINER PRINCIPAL
-      DEIXAR A PÁGINA CRESCER PARA BAIXO
-===================================================== */
-
-#aba-posts,
+#aba-posts .card-videos,
+#aba-posts .card-mais-vistos,
 #aba-posts .impacto-redes,
 #aba-posts .prova-social-grid {
 
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
+    background-color: transparent !important;
 
-    overflow: visible !important;
+    background-image: none !important;
 }
 
 
 /* =====================================================
-   3. CARROSSEL
-      PODE ROLAR HORIZONTALMENTE,
-      MAS NÃO CORTA VERTICALMENTE
+   MANTER OS CARDS INTERNOS MARRONS
 ===================================================== */
 
-#aba-posts .card-mais-vistos .box-carrossel {
+#aba-posts .card-videos .video-destaque {
 
-    width: 100% !important;
-
-    height: 240px !important;
-    min-height: 240px !important;
-
-    flex: 0 0 240px !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    overflow: visible !important;
-
-    box-sizing: border-box !important;
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
 }
 
-
-#aba-posts .card-mais-vistos .carrossel {
-
-    width: 100% !important;
-
-    height: 230px !important;
-    min-height: 230px !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-
-    gap: 10px !important;
-
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-
-    padding: 4px 2px 8px !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* =====================================================
-   4. GARANTIR QUE OS CARDS NÃO SEJAM CORTADOS
-===================================================== */
 
 #aba-posts .card-mais-vistos .short {
 
-    width: 130px !important;
-    height: 230px !important;
-
-    min-width: 130px !important;
-    min-height: 230px !important;
-
-    max-width: 130px !important;
-    max-height: 230px !important;
-
-    flex: 0 0 130px !important;
-
-    overflow: hidden !important;
-
-    box-sizing: border-box !important;
-
     background:
         linear-gradient(
             145deg,
             #24140b,
             #100805
         ) !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 13px !important;
-}
-
-
-/* =====================================================
-   5. GARANTIR QUE O CONTAINER DOS DOIS
-      NÃO FIQUE PRESO NA ALTURA DA TELA
-===================================================== */
-
-#aba-posts .prova-social-grid {
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    gap: 12px !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    overflow: visible !important;
-}
-
-
-/* =====================================================
-   6. REMOVER QUALQUER COMPRESSÃO
-===================================================== */
-
-#aba-posts .impacto-redes {
-    transform: none !important;
-}
-
-/* =====================================================
-   VÍDEOS RECENTES — TRANSPARENTE
-   MESMO VISUAL DO MAIS VISTOS
-===================================================== */
-
-#aba-posts .card-videos,
-#aba-posts .card-videos.card,
-#aba-posts .prova-social-grid .card-videos {
-    background: transparent !important;
-    background-color: transparent !important;
-
-    border: none !important;
-    box-shadow: none !important;
-
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-/* Mantém apenas o card interno do vídeo */
-#aba-posts .card-videos .video-destaque {
-    background: linear-gradient(
-        145deg,
-        #24140b,
-        #100805
-    ) !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
-}
-
-/* =====================================================
-   AJUSTE DEFINITIVO — VÍDEOS RECENTES TRANSPARENTE
-   SOMENTE O PAINEL EXTERNO
-===================================================== */
-
-html body #aba-posts .prova-social-grid .card-videos,
-html body #aba-posts .prova-social-grid .card-videos.card {
-    background: transparent !important;
-    background-image: none !important;
-    background-color: transparent !important;
-
-    border: none !important;
-    box-shadow: none !important;
-
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-/* TÍTULO TAMBÉM TRANSPARENTE */
-html body #aba-posts .prova-social-grid .card-videos .card-titulo-linha {
-    background: transparent !important;
-    background-image: none !important;
-}
-
-/* =====================================================
-   CARD INDIVIDUAL DO VÍDEO
-   ESTE CONTINUA MARROM
-===================================================== */
-
-html body #aba-posts .prova-social-grid .card-videos .video-destaque {
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    background-color: #24140b !important;
-
-    border: 1px solid rgba(214,168,79,.20) !important;
-    border-radius: 13px !important;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.03) !important;
-}
-
-/* =====================================================
-   VÍDEOS RECENTES — REMOVER FUNDO MARROM DO PAINEL
-===================================================== */
-
-#aba-posts .prova-social-grid .card-videos {
-    background: transparent !important;
-    background-image: none !important;
-    background-color: transparent !important;
-
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* NÃO ALTERAR O CARD INTERNO */
-#aba-posts .prova-social-grid .card-videos .video-destaque {
-    background:
-        linear-gradient(145deg, #24140b, #100805) !important;
 }
