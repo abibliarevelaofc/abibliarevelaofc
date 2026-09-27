@@ -772,3 +772,22 @@ html body #aba-posts .prova-social-grid .card-videos .video-destaque {
         0 8px 20px rgba(0,0,0,.30),
         inset 0 1px 0 rgba(255,255,255,.03) !important;
 }
+
+/* =====================================================
+   VÍDEOS RECENTES — REMOVER FUNDO MARROM DO PAINEL
+===================================================== */
+
+#aba-posts .prova-social-grid .card-videos {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* NÃO ALTERAR O CARD INTERNO */
+#aba-posts .prova-social-grid .card-videos .video-destaque {
+    background:
+        linear-gradient(145deg, #24140b, #100805) !important;
+}
