@@ -358,31 +358,6 @@
 }
 
 
-/* =====================================================
-   ÁREA DO CARROSSEL
-===================================================== */
-
-#aba-posts .card-mais-vistos .box-carrossel {
-
-    width: 100% !important;
-
-    height: 240px !important;
-
-    min-height: 240px !important;
-
-    flex: 0 0 240px !important;
-
-    display: flex !important;
-
-    align-items: center !important;
-
-    overflow: visible !important;
-
-    box-sizing: border-box !important;
-}
-
-
-
 
 /* =====================================================
    CARD INDIVIDUAL MAIS VISTOS
