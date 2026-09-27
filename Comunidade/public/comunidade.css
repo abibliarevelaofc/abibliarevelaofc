@@ -693,3 +693,35 @@
 #aba-posts .impacto-redes {
     transform: none !important;
 }
+
+/* =====================================================
+   VÍDEOS RECENTES — TRANSPARENTE
+   MESMO VISUAL DO MAIS VISTOS
+===================================================== */
+
+#aba-posts .card-videos,
+#aba-posts .card-videos.card,
+#aba-posts .prova-social-grid .card-videos {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Mantém apenas o card interno do vídeo */
+#aba-posts .card-videos .video-destaque {
+    background: linear-gradient(
+        145deg,
+        #24140b,
+        #100805
+    ) !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.03) !important;
+}
