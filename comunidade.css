@@ -237,3 +237,66 @@ body {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
+
+
+/* =====================================================
+   MAIS VISTOS — FORÇAR FUNDO TOTALMENTE TRANSPARENTE
+===================================================== */
+
+#aba-posts .card-mais-vistos,
+#aba-posts .card-mais-vistos .box-carrossel,
+#aba-posts .card-mais-vistos .carrossel {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    outline: none !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* REMOVE QUALQUER PSEUDO-ELEMENTO QUE POSSA ESTAR CRIANDO O FOSCO */
+
+#aba-posts .card-mais-vistos::before,
+#aba-posts .card-mais-vistos::after,
+#aba-posts .card-mais-vistos .box-carrossel::before,
+#aba-posts .card-mais-vistos .box-carrossel::after,
+#aba-posts .card-mais-vistos .carrossel::before,
+#aba-posts .card-mais-vistos .carrossel::after {
+
+    content: none !important;
+
+    display: none !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    box-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* TÍTULO TAMBÉM SEM FUNDO */
+
+#aba-posts .card-mais-vistos .mais-vistos-titulo {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    box-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
