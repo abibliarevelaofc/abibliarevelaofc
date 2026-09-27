@@ -575,73 +575,63 @@
 
 
 /* =====================================================
-   MAIS VISTOS — FUNDO IGUAL AO MAIS RECENTES
+   MAIS VISTOS — PAINEL 100% TRANSPARENTE
+   IGUAL AO PAINEL MAIS RECENTES
 ===================================================== */
 
-/* CARD INDIVIDUAL DO CARROSSEL */
-#aba-posts .card-mais-vistos .short,
-#aba-posts .card-mais-vistos .short *,
-#aba-posts .card-mais-vistos .short::before,
-#aba-posts .card-mais-vistos .short::after {
+#aba-posts .prova-social-grid .card-mais-vistos {
 
-    background-color: #24140b !important;
-}
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
 
-/* FUNDO PRINCIPAL DO CARD */
-#aba-posts .card-mais-vistos .short {
-
-    background:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
-
-    background-image:
-        linear-gradient(
-            145deg,
-            #24140b,
-            #100805
-        ) !important;
+    border: none !important;
+    box-shadow: none !important;
 
     opacity: 1 !important;
-
     filter: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    isolation: auto !important;
+}
+
+/* TÍTULO */
+#aba-posts .card-mais-vistos .mais-vistos-titulo {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ÁREA AO REDOR DO CARROSSEL */
+#aba-posts .card-mais-vistos .box-carrossel {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    box-shadow: none !important;
 
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
-/* REMOVE QUALQUER CAMADA FOSCA */
-#aba-posts .card-mais-vistos .short::before,
-#aba-posts .card-mais-vistos .short::after {
-
-    content: none !important;
-
-    opacity: 1 !important;
+/* O PRÓPRIO CARROSSEL */
+#aba-posts .card-mais-vistos .carrossel {
 
     background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
 
+    border: none !important;
     box-shadow: none !important;
-
-    filter: none !important;
-}
-
-/* IMAGEM SEM OPACIDADE */
-#aba-posts .card-mais-vistos .short img {
-
-    opacity: 1 !important;
-
-    filter: none !important;
-}
-
-/* TEXTO E ÁREA INFERIOR */
-#aba-posts .card-mais-vistos .short p,
-#aba-posts .card-mais-vistos .short .views {
-
-    background: #24140b !important;
-
-    opacity: 1 !important;
 
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
