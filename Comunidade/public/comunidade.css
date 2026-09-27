@@ -99,6 +99,7 @@
     background: transparent !important;
 }
 
+
 /* =====================================================
    MAIS VISTOS — TAMBÉM SEM FUNDO
 ===================================================== */
@@ -111,8 +112,7 @@
     box-shadow: none !important;
 
     backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
+    -webkit-backdrop-filter: none !important;}
 /* =====================================================
    VÍDEOS RECENTES — SHORTS VERTICAIS
 ===================================================== */
@@ -225,4 +225,48 @@
 
     font-size: 9px !important;
     opacity: .65;
+}
+
+/* =====================================================
+   MAIS VISTOS — AUMENTAR ALTURA DOS CARDS
+===================================================== */
+
+.card-mais-vistos .short {
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24140b,
+            #100805
+        ) !important;
+
+    border: 1px solid rgba(214,168,79,.20) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* imagem ocupa mais espaço vertical */
+.card-mais-vistos .short img {
+    width: 100% !important;
+    height: 105px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* título */
+.card-mais-vistos .short p {
+    padding: 6px !important;
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+}
+
+/* visualizações */
+.card-mais-vistos .short .views {
+    padding: 0 6px 6px !important;
+    font-size: 7px !important;
 }
