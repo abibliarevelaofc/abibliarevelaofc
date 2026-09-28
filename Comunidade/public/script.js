@@ -579,11 +579,15 @@ pegarInscritos();
 
 criarVideos();
 
+
+
 carregarComentarios();
 
 carregarFluxo();
 
 registrarFluxo("acessos");
+
+carregarMensagensChat();
 
 // inscritos a cada 5 minutos
 
@@ -923,8 +927,9 @@ async function carregarMensagensChat() {
 
     try {
 
-        const token = localStorage.getItem("token") ||
-                      sessionStorage.getItem("token");
+        const token =
+            localStorage.getItem("token") ||
+            sessionStorage.getItem("token");
 
         if (!token) {
             console.log("CHAT: usuário não está logado.");
@@ -932,7 +937,7 @@ async function carregarMensagensChat() {
         }
 
         const resposta = await fetch(
-            "http://localhost:3000/api/chat/mensagens",
+            "/api/chat/mensagens",
             {
                 method: "GET",
 
@@ -944,20 +949,27 @@ async function carregarMensagensChat() {
 
         const dados = await resposta.json();
 
+        console.log("CHAT: resposta:", dados);
+
         if (!resposta.ok || !dados.sucesso) {
+
             console.error(
                 "CHAT: erro ao carregar mensagens:",
                 dados
             );
+
             return;
         }
 
-        const container = document.getElementById("chatMensagens");
+        const container =
+            document.getElementById("chatMensagens");
 
         if (!container) {
+
             console.error(
                 "CHAT: elemento #chatMensagens não encontrado."
             );
+
             return;
         }
 
@@ -965,17 +977,30 @@ async function carregarMensagensChat() {
 
         dados.mensagens.forEach(mensagem => {
 
-            const elemento = document.createElement("div");
+            const elemento =
+                document.createElement("div");
 
             elemento.className = "chat-mensagem";
 
             elemento.innerHTML = `
+
                 <div class="chat-avatar">
+
                     ${
                         mensagem.foto
-                            ? `<img src="${mensagem.foto}" alt="${mensagem.nome}">`
-                            : `<i class="fas fa-user"></i>`
+
+                            ? `
+                                <img
+                                    src="${mensagem.foto}"
+                                    alt="${mensagem.nome}"
+                                >
+                              `
+
+                            : `
+                                <i class="fas fa-user"></i>
+                              `
                     }
+
                 </div>
 
                 <div class="chat-mensagem-corpo">
@@ -997,14 +1022,15 @@ async function carregarMensagensChat() {
                     </p>
 
                 </div>
+
             `;
 
-            container.appendChild(element);
+            container.appendChild(elemento);
 
         });
 
-        // Desce para a mensagem mais recente
-        container.scrollTop = container.scrollHeight;
+        container.scrollTop =
+            container.scrollHeight;
 
     } catch (erro) {
 
@@ -1016,4 +1042,3 @@ async function carregarMensagensChat() {
     }
 }
 
-carregarMensagensChat();
