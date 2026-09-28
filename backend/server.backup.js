@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const User = require("./models/User");
 const Activity = require("./models/Activity");
 const ReadingSession = require("./models/ReadingSession");
-const ChatMessage = require("./models/ChatMessage");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
@@ -1361,122 +1360,6 @@ app.delete("/api/biblia/destaque", autenticarToken, async (req, res) => {
     }
 });
 
-
-// =====================================================
-// CHAT AO VIVO — COMUNIDADE
-// =====================================================
-
-// BUSCAR MENSAGENS DO CHAT
-app.get("/api/chat/mensagens", autenticarToken, async (req, res) => {
-    try {
-
-        const mensagens = await ChatMessage
-            .find()
-            .sort({
-                createdAt: -1
-            })
-            .limit(50)
-            .lean();
-
-        // Invertemos para mostrar da mais antiga
-        // para a mais recente no chat
-        mensagens.reverse();
-
-        return res.status(200).json({
-            sucesso: true,
-            mensagens
-        });
-
-    } catch (error) {
-
-        console.error("ERRO AO BUSCAR MENSAGENS DO CHAT:");
-        console.error(error);
-
-        return res.status(500).json({
-            sucesso: false,
-            mensagem: "Erro ao carregar mensagens do chat."
-        });
-    }
-});
-
-
-// ENVIAR MENSAGEM PARA O CHAT
-app.post("/api/chat/mensagens", autenticarToken, async (req, res) => {
-    try {
-
-        const { texto } = req.body;
-
-        // =========================================
-        // VALIDAÇÃO
-        // =========================================
-
-        if (!texto || typeof texto !== "string") {
-            return res.status(400).json({
-                sucesso: false,
-                mensagem: "Digite uma mensagem."
-            });
-        }
-
-        const textoLimpo = texto.trim();
-
-        if (!textoLimpo) {
-            return res.status(400).json({
-                sucesso: false,
-                mensagem: "Digite uma mensagem."
-            });
-        }
-
-        if (textoLimpo.length > 500) {
-            return res.status(400).json({
-                sucesso: false,
-                mensagem: "A mensagem pode ter no máximo 500 caracteres."
-            });
-        }
-
-        // =========================================
-        // BUSCAR USUÁRIO LOGADO
-        // =========================================
-
-        const usuario = await User
-            .findById(req.usuarioId)
-            .select("nome foto");
-
-        if (!usuario) {
-            return res.status(404).json({
-                sucesso: false,
-                mensagem: "Usuário não encontrado."
-            });
-        }
-
-        // =========================================
-        // CRIAR MENSAGEM
-        // =========================================
-
-        const mensagem = await ChatMessage.create({
-            usuarioId: usuario._id,
-            nome: usuario.nome,
-            foto: usuario.foto || "",
-            texto: textoLimpo
-        });
-
-        return res.status(201).json({
-            sucesso: true,
-            mensagem
-        });
-
-    } catch (error) {
-
-        console.error("ERRO AO ENVIAR MENSAGEM DO CHAT:");
-        console.error(error);
-
-        return res.status(500).json({
-            sucesso: false,
-            mensagem: "Erro ao enviar mensagem."
-        });
-    }
-});
-
-
 /* =========================================
    ROTA PRINCIPAL
 ========================================= */
@@ -1523,4 +1406,3 @@ app.get("/api/status", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Backend rodando na porta ${PORT}`);
 });
-

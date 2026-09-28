@@ -129,10 +129,14 @@ HEADER
         <!-- LINHA DE BAIXO -->
         <div class="menu-comunidade-linha">
 
-            <button class="menu-comunidade-btn" type="button">
-                <i class="fas fa-fire"></i>
-                <span>Desafios</span>
-            </button>
+            <button
+    class="menu-comunidade-btn"
+    type="button"
+    onclick="abrirAbaComunidade('chat')"
+>
+    <i class="fas fa-comments"></i>
+    <span>Chat ao Vivo</span>
+</button>
 
             <button class="menu-comunidade-btn" type="button">
                 <i class="fas fa-comments"></i>
@@ -653,6 +657,78 @@ HEADER
 
 </section>
 
+<!-- =========================================
+     ABA CHAT AO VIVO
+========================================= -->
+
+<section id="aba-chat" class="aba-comunidade">
+
+    <div class="chat-comunidade">
+
+        <!-- CABEÇALHO -->
+
+        <div class="chat-comunidade-header">
+
+            <div class="chat-comunidade-titulo">
+
+                <span class="chat-comunidade-icone">
+                    <i class="fas fa-comments"></i>
+                </span>
+
+                <div>
+                    <span class="chat-comunidade-label">
+                        COMUNIDADE
+                    </span>
+
+                    <h2>Chat ao Vivo</h2>
+
+                    <p>
+                        Converse com a comunidade e compartilhe uma palavra de fé.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="chat-comunidade-online">
+                <span></span>
+                AO VIVO
+            </div>
+
+        </div>
+
+
+        <!-- ÁREA DAS MENSAGENS -->
+
+        <div id="chatMensagens" class="chat-mensagens">
+</div>
+
+        <!-- ÁREA DE DIGITAÇÃO -->
+
+        <div class="chat-comunidade-input">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Escreva uma mensagem..."
+                maxlength="300"
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                onclick="enviarMensagemChat()"
+                aria-label="Enviar mensagem"
+            >
+                <i class="fas fa-paper-plane"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <section id="aba-posts" class="aba-comunidade ativa">
 
     <div class="impacto-redes">
@@ -731,23 +807,51 @@ HEADER
 
             <div class="card-titulo-linha">
 
-                <div>
-                    <span class="card-label">
-                        <i class="fas fa-comments"></i>
-                        COMUNIDADE
-                    </span>
 
-                    <h2>
-                        Comentários
-                    </h2>
-                </div>
+<span class="card-label card-label-comentarios">
+    <i class="fas fa-comments"></i>
+    COMENTÁRIOS DAS REDES SOCIAIS
+</span>
 
-                <span class="comentarios-ao-vivo">
-                    <span></span>
-                    AO VIVO
-                </span>
 
-            </div>
+    <!-- PROVA SOCIAL — MINI -->
+
+    <div class="prova-social-mini">
+
+        <div class="prova-mini-item">
+            <strong>+260 MIL</strong>
+            <span>INSCRITOS</span>
+        </div>
+
+        <div class="prova-mini-item">
+            <strong>+40 MILHÕES</strong>
+            <span>VIEWS</span>
+        </div>
+
+        <div class="prova-mini-redes">
+
+    <span>TODAS AS REDES</span>
+
+    <div class="prova-mini-icones">
+
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-tiktok"></i>
+
+    </div>
+
+</div>
+
+    </div>
+
+
+    <span class="comentarios-ao-vivo">
+        <span></span>
+        AO VIVO
+    </span>
+
+</div>
 
             <div id="novoComentario"></div>
 
@@ -962,6 +1066,8 @@ HEADER
 </div>
 
 </section>
+
+
 
 
 <!-- CONTROLE DE FLUXO -->

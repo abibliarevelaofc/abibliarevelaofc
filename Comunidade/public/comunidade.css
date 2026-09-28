@@ -840,3 +840,747 @@
 
     box-shadow: none !important;
 }
+
+/* =====================================================
+   PROVA SOCIAL — MINI DENTRO DO CABEÇALHO
+   NÃO ALTERA OS OUTROS CARDS
+===================================================== */
+
+#aba-posts .card-comentarios .card-titulo-linha {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 8px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =====================================================
+   MINI PROVA SOCIAL
+===================================================== */
+
+#aba-posts .card-comentarios .prova-social-mini {
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    margin-left: auto !important;
+
+    flex: 0 0 auto !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =====================================================
+   CADA NÚMERO
+===================================================== */
+
+#aba-posts .card-comentarios .prova-mini-item {
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* NÚMERO */
+
+#aba-posts .card-comentarios .prova-mini-item strong {
+
+    display: block !important;
+
+    color: #d6a84f !important;
+
+    font-size: 8px !important;
+
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
+
+    letter-spacing: .2px !important;
+}
+
+
+/* TEXTO */
+
+#aba-posts .card-comentarios .prova-mini-item span {
+
+    display: block !important;
+
+    margin-top: 3px !important;
+
+    color: rgba(255,255,255,.52) !important;
+
+    font-size: 5px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: .45px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* =====================================================
+   TODAS AS REDES
+===================================================== */
+
+#aba-posts .card-comentarios .prova-mini-redes {
+
+    display: flex !important;
+    align-items: center !important;
+
+    color: rgba(255,255,255,.42) !important;
+
+    font-size: 5px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: .4px !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    padding-left: 2px !important;
+}
+
+
+/* =====================================================
+   AO VIVO — MANTÉM COMPACTO
+===================================================== */
+
+#aba-posts .card-comentarios .comentarios-ao-vivo {
+
+    flex: 0 0 auto !important;
+
+    white-space: nowrap !important;
+
+    font-size: 6px !important;
+}
+
+
+/* =====================================================
+   MOBILE — DEIXA TUDO CABER
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #aba-posts .card-comentarios .card-titulo-linha {
+
+        gap: 5px !important;
+
+        min-width: 0 !important;
+    }
+
+
+    #aba-posts .card-comentarios .prova-social-mini {
+
+        gap: 5px !important;
+
+        min-width: 0 !important;
+    }
+
+
+    #aba-posts .card-comentarios .prova-mini-item strong {
+
+        font-size: 7px !important;
+    }
+
+
+    #aba-posts .card-comentarios .prova-mini-item span {
+
+        font-size: 4.5px !important;
+
+        letter-spacing: .3px !important;
+    }
+
+
+    #aba-posts .card-comentarios .prova-mini-redes {
+
+        font-size: 4.5px !important;
+
+        letter-spacing: .25px !important;
+    }
+
+}
+/* =====================================================
+   ÍCONES DAS REDES — MINI PROVA SOCIAL
+===================================================== */
+
+#aba-posts .card-comentarios .prova-mini-redes {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 3px !important;
+
+    padding-left: 2px !important;
+}
+
+
+/* TEXTO */
+
+#aba-posts .card-comentarios .prova-mini-redes > span {
+
+    display: block !important;
+
+    color: rgba(255,255,255,.42) !important;
+
+    font-size: 4.5px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: .25px !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* ÍCONES */
+
+#aba-posts .card-comentarios .prova-mini-icones {
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 4px !important;
+
+    height: 8px !important;
+}
+
+
+/* CADA ÍCONE */
+
+#aba-posts .card-comentarios .prova-mini-icones i {
+
+    font-size: 7px !important;
+
+    line-height: 1 !important;
+
+    color: rgba(255,255,255,.55) !important;
+
+    display: block !important;
+}
+
+/* =====================================================
+   CORES DOS ÍCONES — REDES SOCIAIS
+===================================================== */
+
+#aba-posts .card-comentarios .prova-mini-icones .fa-youtube {
+    color: #ff0000 !important;
+}
+
+#aba-posts .card-comentarios .prova-mini-icones .fa-instagram {
+    color: #e1306c !important;
+}
+
+#aba-posts .card-comentarios .prova-mini-icones .fa-facebook-f {
+    color: #1877f2 !important;
+}
+
+#aba-posts .card-comentarios .prova-mini-icones .fa-tiktok {
+    color: #25f4ee !important;
+}
+
+/* =====================================================
+   COMENTÁRIOS — TÍTULO PRINCIPAL
+===================================================== */
+
+#aba-posts .card-comentarios .card-label-comentarios {
+    display: flex !important;
+    align-items: center !important;
+
+    margin-left: 6px !important;
+
+    color: #d6a84f !important;
+
+    font-size: 9px !important;
+    font-weight: 900 !important;
+
+    letter-spacing: .35px !important;
+    line-height: 1 !important;
+}
+
+#aba-posts .card-comentarios .card-label-comentarios i {
+    margin-right: 4px !important;
+
+    color: #d6a84f !important;
+
+    font-size: 8px !important;
+}
+/* =====================================================
+   CHAT AO VIVO — COMUNIDADE
+===================================================== */
+
+#aba-chat {
+    position: relative;
+    z-index: 50;
+}
+
+.chat-comunidade {
+    position: relative;
+    z-index: 51;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    background: rgba(15, 15, 15, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.chat-comunidade-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px 28px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035),
+        rgba(255, 255, 255, 0.01)
+    );
+}
+
+.chat-comunidade-titulo {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.chat-comunidade-icone {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 20px;
+}
+
+.chat-comunidade-label {
+    display: block;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.5;
+
+    margin-bottom: 4px;
+}
+
+.chat-comunidade-header h2 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.chat-comunidade-header p {
+    margin: 5px 0 0;
+
+    font-size: 13px;
+
+    opacity: 0.55;
+}
+
+
+/* =====================================================
+   STATUS ONLINE
+===================================================== */
+
+.chat-comunidade-online {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+.chat-comunidade-online span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #35d66b;
+
+    box-shadow: 0 0 10px rgba(53, 214, 107, 0.7);
+}
+
+
+/* =====================================================
+   ÁREA DAS MENSAGENS
+===================================================== */
+
+.chat-mensagens {
+    height: 430px;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =====================================================
+   BARRA DE ROLAGEM
+===================================================== */
+
+.chat-mensagens::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-mensagens::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-mensagens::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   MENSAGEM
+===================================================== */
+
+.chat-mensagem {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.chat-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 14px;
+
+    opacity: 0.8;
+}
+
+.chat-mensagem-corpo {
+    min-width: 0;
+
+    max-width: 80%;
+}
+
+.chat-mensagem-topo {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 4px;
+}
+
+.chat-mensagem-topo strong {
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.chat-mensagem-topo span {
+    font-size: 10px;
+
+    opacity: 0.4;
+}
+
+.chat-mensagem-corpo p {
+    margin: 0;
+
+    padding: 10px 13px;
+
+    display: inline-block;
+
+    border-radius: 4px 14px 14px 14px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   CAMPO DE DIGITAÇÃO
+   FICA SEMPRE NO FINAL DO PAINEL
+===================================================== */
+
+/* =====================================================
+   CAIXA PARA DIGITAR A MENSAGEM
+===================================================== */
+
+.chat-comunidade-input {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 9999;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: rgba(10, 10, 10, 0.98);
+    top: -100px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.chat-comunidade-input input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 48px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 13px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+.chat-comunidade-input input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.chat-comunidade-input input:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =====================================================
+   BOTÃO ENVIAR
+===================================================== */
+
+.chat-comunidade-input button {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #fff;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.chat-comunidade-input button:hover {
+    transform: translateY(-1px);
+
+    background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .chat-comunidade {
+        border-radius: 16px;
+    }
+
+
+    /* CABEÇALHO */
+
+    .chat-comunidade-header {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+
+    .chat-comunidade-titulo {
+        gap: 11px;
+
+        min-width: 0;
+    }
+
+
+    .chat-comunidade-icone {
+        width: 44px;
+        height: 44px;
+
+        min-width: 44px;
+    }
+
+
+    .chat-comunidade-header h2 {
+        font-size: 20px;
+    }
+
+
+    .chat-comunidade-header p {
+        font-size: 11px;
+    }
+
+
+    /* STATUS */
+
+    .chat-comunidade-online {
+        padding: 7px 9px;
+
+        font-size: 9px;
+    }
+
+
+    /* MENSAGENS */
+
+    .chat-mensagens {
+        height: 400px;
+
+        padding: 18px 14px;
+
+        gap: 16px;
+    }
+
+
+    .chat-mensagem-corpo {
+        max-width: 85%;
+    }
+
+
+    /* CAMPO */
+
+    .chat-comunidade-input {
+        padding: 12px;
+    }
+
+
+    .chat-comunidade-input input {
+        height: 46px;
+
+        font-size: 13px;
+    }
+
+
+    .chat-comunidade-input button {
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+    }
+
+}
