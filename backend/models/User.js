@@ -26,15 +26,16 @@ const userSchema = new mongoose.Schema(
             default: ""
         },
 
-      pontos: {
-    type: Number,
-    default: 0
-},
+        pontos: {
+            type: Number,
+            default: 0
+        },
 
-xp: {
-    type: Number,
-    default: 0
-},
+        xp: {
+            type: Number,
+            default: 0
+        },
+
         nivel: {
             type: Number,
             default: 1
@@ -50,44 +51,63 @@ xp: {
             default: null
         },
 
+        // =====================================================
+        // CICLO DE CHECK-IN
+        // =====================================================
+        // Guarda o dia atual do ciclo de 7 dias.
+        //
+        // 0 = ciclo acabou / próximo será Dia 1
+        // 1 = Dia 1 concluído
+        // 2 = Dia 2 concluído
+        // ...
+        // 6 = Dia 6 concluído
+        //
+        // Depois do Dia 7 volta para 0.
+        // =====================================================
+
+        checkinDia: {
+            type: Number,
+            default: 0
+        },
+
         capitulosBibliaLidos: {
             type: Number,
             default: 0
         },
 
-               capitulosBiblia: {
+        capitulosBiblia: {
             type: [String],
             default: []
         },
-      
+
         destaquesBiblia: {
-    type: [
-        {
-            capitulo: {
-                type: String,
-                required: true
-            },
+            type: [
+                {
+                    capitulo: {
+                        type: String,
+                        required: true
+                    },
 
-            versiculo: {
-                type: Number,
-                required: true
-            },
+                    versiculo: {
+                        type: Number,
+                        required: true
+                    },
 
-            cor: {
-                type: String,
-                required: true
-            }
-        }
-    ],
-    default: []
-},
+                    cor: {
+                        type: String,
+                        required: true
+                    }
+                }
+            ],
+            default: []
+        },
 
         missoesConcluidas: {
             type: Number,
             default: 0
         },
 
-                missoesBiblia: {
+        missoesBiblia: {
             nivel1: {
                 type: Boolean,
                 default: false
@@ -109,6 +129,7 @@ xp: {
             default: Date.now
         }
     },
+
     {
         versionKey: false
     }

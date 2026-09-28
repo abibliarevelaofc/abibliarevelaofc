@@ -3691,6 +3691,1324 @@ if (missionsClose) {
 
 }
 
+/* =====================================================
+   MISSÃO — CARROSSEL DE NÍVEIS
+===================================================== */
+
+const missionLevelPrev =
+    document.getElementById("missionLevelPrev");
+
+const missionLevelNext =
+    document.getElementById("missionLevelNext");
+
+const missionLevel =
+    document.getElementById("missionLevel");
+
+const missionReward =
+    document.getElementById("missionReward");
+
+const bibleMissionProgress =
+    document.getElementById("bibleMissionProgress");
+
+const bibleMissionProgressText =
+    document.getElementById("bibleMissionProgressText");
+
+
+/* =====================================================
+   NÍVEIS DA MISSÃO
+===================================================== */
+
+const bibleMissionLevels = [
+
+    {
+        level: 1,
+        minutes: 10,
+        reward: 15,
+        label: "10 minutos"
+    },
+
+    {
+        level: 2,
+        minutes: 30,
+        reward: 35,
+        label: "30 minutos"
+    },
+
+    {
+        level: 3,
+        minutes: 60,
+        reward: 70,
+        label: "60 minutos"
+    }
+
+];
+
+
+/* =====================================================
+   ESTADO DA MISSÃO
+===================================================== */
+
+let currentBibleMissionLevel = 1;
+
+
+/*
+    Por enquanto estamos usando 0.
+
+    Depois vamos substituir pelo tempo real
+    vindo do backend.
+*/
+let bibleMissionMinutes = 0;
+let bibleMissionCompleted = {
+
+    nivel1: false,
+    nivel2: false,
+    nivel3: false
+
+};
+
+
+/* =====================================================
+   CARREGAR PROGRESSO REAL DA BÍBLIA
+===================================================== */
+
+/* =====================================================
+   CARREGAR PROGRESSO REAL DA BÍBLIA
+===================================================== */
+
+async function carregarProgressoMissaoBiblia() {
+
+    try {
+
+        const token =
+            localStorage.getItem("token");
+
+
+        if (!token) {
+
+            console.log(
+                "Usuário não autenticado."
+            );
+
+            return;
+
+        }
+
+
+        const resposta = await fetch(
+            "http://localhost:3000/api/biblia/progresso",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization":
+                        `Bearer ${token}`
+                }
+            }
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "Não foi possível carregar o progresso da Bíblia."
+            );
+
+        }
+
+
+        const dados =
+            await resposta.json();
+
+
+        console.log(
+            "Progresso da Bíblia:",
+            dados
+        );
+
+
+        // =========================================
+        // TEMPO TOTAL
+        // =========================================
+
+        bibleMissionMinutes =
+            dados.biblia?.tempoTotalMinutos || 0;
+
+
+        // =========================================
+        // MISSÕES CONCLUÍDAS
+        // =========================================
+
+        const missoesBiblia =
+            dados.biblia?.missoesBiblia || {};
+
+
+        bibleMissionCompleted = {
+
+            nivel1:
+                !!missoesBiblia.nivel1,
+
+            nivel2:
+                !!missoesBiblia.nivel2,
+
+            nivel3:
+                !!missoesBiblia.nivel3
+
+        };
+
+
+        console.log(
+            "Minutos:",
+            bibleMissionMinutes
+        );
+
+
+        console.log(
+            "Missões concluídas:",
+            bibleMissionCompleted
+        );
+
+
+        // =========================================
+        // ATUALIZAR CARD
+        // =========================================
+
+        atualizarMissaoBiblia();
+
+
+/* =====================================================
+   MISSÃO — CHECK-IN DIÁRIO
+===================================================== */
+
+const checkinLevelPrev =
+    document.getElementById(
+        "checkinLevelPrev"
+    );
+
+const checkinLevelNext =
+    document.getElementById(
+        "checkinLevelNext"
+    );
+
+const checkinLevel =
+    document.getElementById(
+        "checkinLevel"
+    );
+
+const checkinMissionReward =
+    document.getElementById(
+        "checkinMissionReward"
+    );
+
+const checkinMissionProgress =
+    document.getElementById(
+        "checkinMissionProgress"
+    );
+
+const checkinMissionProgressText =
+    document.getElementById(
+        "checkinMissionProgressText"
+    );
+
+const missionCheckinButton =
+    document.getElementById(
+        "missionCheckinButton"
+    );
+
+const checkinMissionCard =
+    document.getElementById(
+        "checkinMissionCard"
+    );
+
+
+/* =====================================================
+   NÍVEIS DO CHECK-IN
+===================================================== */
+
+const checkinLevels = [
+
+    {
+        level: 1,
+        pontos: 5,
+        xp: 10
+    },
+
+    {
+        level: 2,
+        pontos: 15,
+        xp: 20
+    },
+
+    {
+        level: 3,
+        pontos: 20,
+        xp: 30
+    },
+
+    {
+        level: 4,
+        pontos: 35,
+        xp: 40
+    },
+
+    {
+        level: 5,
+        pontos: 35,
+        xp: 50
+    },
+
+    {
+        level: 6,
+        pontos: 50,
+        xp: 60
+    },
+
+    {
+        level: 7,
+        pontos: 70,
+        xp: 70
+    }
+
+];
+
+
+/* =====================================================
+   ESTADO
+===================================================== */
+
+let currentCheckinLevel = 1;
+
+let checkinDiaConcluido = 0;
+
+let checkinJaFezHoje = false;
+
+
+/* =====================================================
+   ATUALIZAR VISUAL DA MISSÃO
+===================================================== */
+
+function atualizarMissaoCheckin() {
+
+    if (!checkinLevel) {
+        return;
+    }
+
+    const nivel =
+        checkinLevels[
+            currentCheckinLevel - 1
+        ];
+
+    if (!nivel) {
+        return;
+    }
+
+
+    /* =================================================
+       NÚMERO DO DIA
+    ================================================= */
+
+    checkinLevel.textContent =
+        nivel.level;
+
+
+    /* =================================================
+       RECOMPENSA
+    ================================================= */
+
+    if (checkinMissionReward) {
+
+        checkinMissionReward.innerHTML = `
+
+            +${nivel.pontos}
+
+            <small>
+                PONTOS DA FÉ
+            </small>
+
+            <small>
+                +${nivel.xp} XP
+            </small>
+
+        `;
+
+    }
+
+
+    /* =================================================
+       PROGRESSO
+    ================================================= */
+
+    if (checkinMissionProgress) {
+
+        const progresso =
+            Math.min(
+                (
+                    checkinDiaConcluido /
+                    nivel.level
+                ) * 100,
+                100
+            );
+
+        checkinMissionProgress.style.width =
+            `${progresso}%`;
+
+    }
+
+
+    /* =================================================
+       TEXTO
+    ================================================= */
+
+    if (checkinMissionProgressText) {
+
+        if (
+            checkinDiaConcluido >=
+            nivel.level
+        ) {
+
+            checkinMissionProgressText.textContent =
+                `Dia ${nivel.level} — CONCLUÍDO`;
+
+        }
+
+        else if (
+            checkinDiaConcluido + 1 ===
+            nivel.level
+        ) {
+
+            if (checkinJaFezHoje) {
+
+                checkinMissionProgressText.textContent =
+                    `Dia ${nivel.level} — CHECK-IN REALIZADO HOJE`;
+
+            } else {
+
+                checkinMissionProgressText.textContent =
+                    `Dia ${nivel.level} — Faça seu check-in hoje`;
+
+            }
+
+        }
+
+        else {
+
+            checkinMissionProgressText.textContent =
+                `Dia ${nivel.level} — BLOQUEADO`;
+
+        }
+
+    }
+
+
+    /* =================================================
+       SETA ESQUERDA
+    ================================================= */
+
+    if (checkinLevelPrev) {
+
+        checkinLevelPrev.disabled =
+            currentCheckinLevel <= 1;
+
+    }
+
+
+    /* =================================================
+       SETA DIREITA
+    ================================================= */
+
+    if (checkinLevelNext) {
+
+        const maiorDiaDisponivel =
+            Math.min(
+                checkinDiaConcluido + 1,
+                7
+            );
+
+        checkinLevelNext.disabled =
+            currentCheckinLevel >=
+            maiorDiaDisponivel;
+
+    }
+
+
+    /* =================================================
+       BOTÃO CHECK-IN
+    ================================================= */
+
+    if (missionCheckinButton) {
+
+        const diaDisponivel =
+            checkinDiaConcluido + 1;
+
+        const podeFazerCheckin =
+            currentCheckinLevel ===
+            diaDisponivel &&
+            !checkinJaFezHoje;
+
+
+        if (podeFazerCheckin) {
+
+            missionCheckinButton.disabled =
+                false;
+
+            missionCheckinButton.innerHTML = `
+
+                <i data-lucide="flame"></i>
+
+                <span>
+                    FAZER CHECK-IN
+                </span>
+
+            `;
+
+        } else {
+
+            missionCheckinButton.disabled =
+                true;
+
+            if (checkinJaFezHoje) {
+
+                missionCheckinButton.innerHTML = `
+
+                    <i data-lucide="check"></i>
+
+                    <span>
+                        CHECK-IN REALIZADO
+                    </span>
+
+                `;
+
+            } else {
+
+                missionCheckinButton.innerHTML = `
+
+                    <i data-lucide="lock"></i>
+
+                    <span>
+                        DIA BLOQUEADO
+                    </span>
+
+                `;
+
+            }
+
+        }
+
+
+        /*
+         * Recria os ícones Lucide
+         */
+        if (
+            typeof lucide !== "undefined"
+        ) {
+
+            lucide.createIcons();
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   SETA — DIA ANTERIOR
+===================================================== */
+
+if (checkinLevelPrev) {
+
+    checkinLevelPrev.addEventListener(
+        "click",
+        () => {
+
+            if (
+                currentCheckinLevel <= 1
+            ) {
+
+                return;
+
+            }
+
+            currentCheckinLevel--;
+
+            atualizarMissaoCheckin();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SETA — PRÓXIMO DIA
+===================================================== */
+
+if (checkinLevelNext) {
+
+    checkinLevelNext.addEventListener(
+        "click",
+        () => {
+
+            const maiorDiaDisponivel =
+                Math.min(
+                    checkinDiaConcluido + 1,
+                    7
+                );
+
+
+            if (
+                currentCheckinLevel >=
+                maiorDiaDisponivel
+            ) {
+
+                return;
+
+            }
+
+            currentCheckinLevel++;
+
+            atualizarMissaoCheckin();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   REALIZAR CHECK-IN
+===================================================== */
+
+async function realizarCheckin() {
+
+    if (!missionCheckinButton) {
+        return;
+    }
+
+
+    const token =
+        localStorage.getItem("token");
+
+
+    if (!token) {
+
+        alert(
+            "Você precisa estar conectado para fazer o check-in."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Impede clique duplicado
+     */
+
+    if (
+        missionCheckinButton.disabled
+    ) {
+
+        return;
+
+    }
+
+
+    missionCheckinButton.disabled =
+        true;
+
+
+    missionCheckinButton.innerHTML = `
+
+        <i data-lucide="loader-circle"></i>
+
+        <span>
+            REGISTRANDO...
+        </span>
+
+    `;
+
+
+    if (
+        typeof lucide !== "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+
+    try {
+
+        const resposta =
+            await fetch(
+                "http://localhost:3000/api/users/checkin",
+                {
+                    method: "POST",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Content-Type":
+                            "application/json"
+
+                    }
+                }
+            );
+
+
+        const dados =
+            await resposta.json();
+
+
+        console.log(
+            "Resposta do check-in:",
+            dados
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                dados.mensagem ||
+                "Não foi possível realizar o check-in."
+            );
+
+        }
+
+
+        /* =================================================
+           JÁ FEZ HOJE
+        ================================================= */
+
+        if (
+            dados.jaFezHoje
+        ) {
+
+            checkinJaFezHoje =
+                true;
+
+            atualizarMissaoCheckin();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           CHECK-IN REALIZADO
+        ================================================= */
+
+        const diaRealizado =
+            Number(
+                dados.diaCheckin || 1
+            );
+
+
+        /*
+         * O backend informa o dia que acabou
+         * de ser concluído.
+         */
+
+        checkinDiaConcluido =
+            diaRealizado;
+
+
+        checkinJaFezHoje =
+            true;
+
+
+        /*
+         * Mantém o card no dia realizado
+         */
+
+        currentCheckinLevel =
+            diaRealizado;
+
+
+        atualizarMissaoCheckin();
+
+
+        /* =================================================
+           MENSAGEM DE RECOMPENSA
+        ================================================= */
+
+        if (
+            dados.recompensa
+        ) {
+
+            const pontos =
+                dados.recompensa.pontos || 0;
+
+            const xp =
+                dados.recompensa.xp || 0;
+
+
+            console.log(
+                `Check-in concluído! +${pontos} Pontos da Fé e +${xp} XP.`
+            );
+
+        }
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao realizar check-in:",
+            erro
+        );
+
+
+        /*
+         * Reativa o botão caso tenha ocorrido erro
+         */
+
+        missionCheckinButton.disabled =
+            false;
+
+
+        missionCheckinButton.innerHTML = `
+
+            <i data-lucide="flame"></i>
+
+            <span>
+                FAZER CHECK-IN
+            </span>
+
+        `;
+
+
+        if (
+            typeof lucide !== "undefined"
+        ) {
+
+            lucide.createIcons();
+
+        }
+
+
+        alert(
+            erro.message ||
+            "Erro ao realizar check-in."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   EVENTO DO BOTÃO
+===================================================== */
+
+if (missionCheckinButton) {
+
+    missionCheckinButton.addEventListener(
+        "click",
+        realizarCheckin
+    );
+
+}
+
+
+/* =====================================================
+   CARREGAR DADOS DO USUÁRIO
+===================================================== */
+
+async function carregarMissaoCheckin() {
+
+    try {
+
+        const token =
+            localStorage.getItem("token");
+
+
+        if (!token) {
+
+            console.log(
+                "Usuário não autenticado."
+            );
+
+            atualizarMissaoCheckin();
+
+            return;
+
+        }
+
+
+        const resposta =
+            await fetch(
+                "http://localhost:3000/api/users/me",
+                {
+                    method: "GET",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    }
+
+                }
+            );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "Não foi possível carregar o check-in."
+            );
+
+        }
+
+
+        const dados =
+            await resposta.json();
+
+
+        console.log(
+            "Dados do check-in:",
+            dados
+        );
+
+
+        /*
+         * Quantos dias da sequência já foram
+         * concluídos.
+         */
+
+        checkinDiaConcluido =
+            Number(
+                dados.usuario?.checkinDia || 0
+            );
+
+
+        /*
+         * Segurança para nunca ultrapassar 7.
+         */
+
+        if (
+            checkinDiaConcluido > 7
+        ) {
+
+            checkinDiaConcluido = 7;
+
+        }
+
+
+        /* =================================================
+           VERIFICAR SE JÁ FEZ CHECK-IN HOJE
+        ================================================= */
+
+        checkinJaFezHoje = false;
+
+
+        if (
+            dados.usuario?.ultimoCheckin
+        ) {
+
+            const ultimoCheckin =
+                new Date(
+                    dados.usuario.ultimoCheckin
+                );
+
+            const agora =
+                new Date();
+
+
+            const mesmoDia =
+                ultimoCheckin.getFullYear() ===
+                    agora.getFullYear() &&
+
+                ultimoCheckin.getMonth() ===
+                    agora.getMonth() &&
+
+                ultimoCheckin.getDate() ===
+                    agora.getDate();
+
+
+            checkinJaFezHoje =
+                mesmoDia;
+
+        }
+
+
+        /* =================================================
+           DEFINIR DIA EXIBIDO
+        ================================================= */
+
+        let proximoDia;
+
+
+        /*
+         * Se o Dia 7 foi concluído,
+         * o próximo ciclo começa no Dia 1.
+         */
+
+        if (
+            checkinDiaConcluido >= 7
+        ) {
+
+            proximoDia = 1;
+
+            checkinDiaConcluido = 0;
+
+        } else {
+
+            proximoDia =
+                checkinDiaConcluido + 1;
+
+        }
+
+
+        /*
+         * Se já fez o check-in hoje,
+         * permanece mostrando o dia realizado.
+         */
+
+        if (
+            checkinJaFezHoje &&
+            dados.usuario?.checkinDia > 0
+        ) {
+
+            currentCheckinLevel =
+                Number(
+                    dados.usuario.checkinDia
+                );
+
+        } else {
+
+            currentCheckinLevel =
+                Math.min(
+                    proximoDia,
+                    7
+                );
+
+        }
+
+
+        atualizarMissaoCheckin();
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar missão de check-in:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+atualizarMissaoCheckin();
+
+carregarMissaoCheckin();
+
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar missão da Bíblia:",
+            erro
+        );
+
+    }
+
+}
+
+/* =====================================================
+   DESCOBRIR O MAIOR NÍVEL DESBLOQUEADO
+===================================================== */
+
+/* =====================================================
+   DESCOBRIR O MAIOR NÍVEL DESBLOQUEADO
+===================================================== */
+
+function obterMaiorNivelBiblia() {
+
+    // =========================================
+    // NÍVEL 3 CONCLUÍDO
+    // =========================================
+
+    if (bibleMissionCompleted.nivel3) {
+        return 3;
+    }
+
+
+    // =========================================
+    // NÍVEL 2 CONCLUÍDO
+    // =========================================
+
+    if (bibleMissionCompleted.nivel2) {
+        return 3;
+    }
+
+
+    // =========================================
+    // NÍVEL 1 CONCLUÍDO
+    // =========================================
+
+    if (bibleMissionCompleted.nivel1) {
+        return 2;
+    }
+
+
+    // =========================================
+    // COMEÇA NO NÍVEL 1
+    // =========================================
+
+    return 1;
+
+}
+
+
+/* =====================================================
+   ATUALIZAR MISSÃO
+===================================================== */
+
+function atualizarMissaoBiblia() {
+
+    if (!missionLevel) return;
+
+
+    const maiorNivelDesbloqueado =
+        obterMaiorNivelBiblia();
+
+
+    /*
+       Impede o usuário de navegar
+       para um nível ainda bloqueado.
+    */
+
+    if (
+        currentBibleMissionLevel >
+        maiorNivelDesbloqueado
+    ) {
+
+        currentBibleMissionLevel =
+            maiorNivelDesbloqueado;
+
+    }
+
+
+    const nivel =
+        bibleMissionLevels[
+            currentBibleMissionLevel - 1
+        ];
+
+    if (!nivel) return;
+
+
+    /* =================================================
+       NÚMERO DO NÍVEL
+    ================================================= */
+
+    missionLevel.textContent =
+        nivel.level;
+
+
+    /* =================================================
+       RECOMPENSA
+    ================================================= */
+
+    if (missionReward) {
+
+        missionReward.innerHTML = `
+            +${nivel.reward}
+            <small>PONTOS</small>
+        `;
+
+    }
+
+
+    /* =================================================
+       PROGRESSO
+    ================================================= */
+
+    if (bibleMissionProgress) {
+
+        const progresso =
+            Math.min(
+                (bibleMissionMinutes /
+                nivel.minutes) * 100,
+                100
+            );
+
+        bibleMissionProgress.style.width =
+            `${progresso}%`;
+
+    }
+
+
+    /* =================================================
+       TEXTO
+    ================================================= */
+const nivelConcluido =
+    bibleMissionCompleted[
+        `nivel${nivel.level}`
+    ];
+
+
+if (nivelConcluido) {
+
+    bibleMissionProgressText.textContent =
+        `Nível ${nivel.level} — CONCLUÍDO`;
+
+} else {
+
+    bibleMissionProgressText.textContent =
+        `Nível ${nivel.level} — ${bibleMissionMinutes} / ${nivel.minutes} minutos`;
+
+}
+
+    
+
+    /* =================================================
+       SETA ESQUERDA
+    ================================================= */
+
+    if (missionLevelPrev) {
+
+        missionLevelPrev.disabled =
+            currentBibleMissionLevel <= 1;
+
+    }
+
+
+    /* =================================================
+       SETA DIREITA
+    ================================================= */
+
+    if (missionLevelNext) {
+
+        missionLevelNext.disabled =
+            currentBibleMissionLevel >=
+            maiorNivelDesbloqueado;
+
+    }
+
+}
+
+
+/* =====================================================
+   NÍVEL ANTERIOR
+===================================================== */
+
+if (missionLevelPrev) {
+
+    missionLevelPrev.addEventListener(
+        "click",
+        () => {
+
+            if (
+                currentBibleMissionLevel <= 1
+            ) {
+
+                return;
+
+            }
+
+            currentBibleMissionLevel--;
+
+           atualizarMissaoBiblia();
+
+           carregarProgressoMissaoBiblia();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PRÓXIMO NÍVEL
+===================================================== */
+
+if (missionLevelNext) {
+
+    missionLevelNext.addEventListener(
+        "click",
+        () => {
+
+            const maiorNivelDesbloqueado =
+                obterMaiorNivelBiblia();
+
+
+            /*
+               Não permite avançar
+               além do que foi desbloqueado.
+            */
+
+            if (
+                currentBibleMissionLevel >=
+                maiorNivelDesbloqueado
+            ) {
+
+                return;
+
+            }
+
+
+            currentBibleMissionLevel++;
+
+            atualizarMissaoBiblia();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+atualizarMissaoBiblia();
+carregarProgressoMissaoBiblia(); 
+
+
+/* =====================================================
+   PRÓXIMO NÍVEL
+===================================================== */
+
+if (missionLevelNext) {
+
+    missionLevelNext.addEventListener(
+        "click",
+        () => {
+
+            if (
+                currentBibleMissionLevel >=
+                bibleMissionLevels.length
+            ) {
+                return;
+            }
+
+            currentBibleMissionLevel++;
+
+            atualizarMissaoBiblia();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+atualizarMissaoBiblia();
+
+
     // =====================================================
     // TEMA DA BÍBLIA
     // =====================================================
@@ -3764,108 +5082,3 @@ if (missionsClose) {
 
     aplicarTemaBiblia(temaSalvo);
 
-
-    
-
-// =====================================================
-// CHAT AO VIVO — CARREGAR MENSAGENS
-// =====================================================
-
-async function carregarMensagensChat() {
-
-    try {
-
-        const token = localStorage.getItem("token") ||
-                      sessionStorage.getItem("token");
-
-        if (!token) {
-            console.log("CHAT: usuário não está logado.");
-            return;
-        }
-
-        const resposta = await fetch(
-            "http://localhost:3000/api/chat/mensagens",
-            {
-                method: "GET",
-
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            }
-        );
-
-        const dados = await resposta.json();
-
-        if (!resposta.ok || !dados.sucesso) {
-            console.error(
-                "CHAT: erro ao carregar mensagens:",
-                dados
-            );
-            return;
-        }
-
-        const container = document.getElementById("chatMensagens");
-
-        if (!container) {
-            console.error(
-                "CHAT: elemento #chatMensagens não encontrado."
-            );
-            return;
-        }
-
-        container.innerHTML = "";
-
-        dados.mensagens.forEach(mensagem => {
-
-            const elemento = document.createElement("div");
-
-            elemento.className = "chat-mensagem";
-
-            elemento.innerHTML = `
-                <div class="chat-avatar">
-                    ${
-                        mensagem.foto
-                            ? `<img src="${mensagem.foto}" alt="${mensagem.nome}">`
-                            : `<i class="fas fa-user"></i>`
-                    }
-                </div>
-
-                <div class="chat-mensagem-corpo">
-
-                    <div class="chat-mensagem-topo">
-
-                        <strong>
-                            ${mensagem.nome}
-                        </strong>
-
-                        <span>
-                            agora
-                        </span>
-
-                    </div>
-
-                    <p>
-                        ${mensagem.texto}
-                    </p>
-
-                </div>
-            `;
-
-            container.appendChild(element);
-
-        });
-
-        // Desce para a mensagem mais recente
-        container.scrollTop = container.scrollHeight;
-
-    } catch (erro) {
-
-        console.error(
-            "CHAT: erro ao carregar mensagens:",
-            erro
-        );
-
-    }
-}
-
-carregarMensagensChat();

@@ -348,59 +348,107 @@ const autenticarToken = (req, res, next) => {
 // =====================================================
 
 app.get("/api/users/me", autenticarToken, async (req, res) => {
+
     try {
 
-        const usuario = await User
-            .findById(req.usuarioId)
-            .select("-senha");
+        const usuario =
+            await User.findById(req.usuarioId);
 
         if (!usuario) {
+
             return res.status(404).json({
                 sucesso: false,
                 mensagem: "Usuário não encontrado."
             });
+
         }
 
-        const progresso = calcularProgressoNivel(
-            usuario.xp || 0
-        );
+        const progresso =
+            calcularProgressoNivel(
+                usuario.xp || 0
+            );
 
         return res.status(200).json({
+
             sucesso: true,
+
             usuario: {
+
                 id: usuario._id,
+
                 nome: usuario.nome,
+
                 email: usuario.email,
-                foto: usuario.foto,
 
-                // Evolução
+                foto: usuario.foto || "",
+
                 xp: usuario.xp || 0,
+
                 nivel: progresso.nivel,
-                xpNoNivel: progresso.xpNoNivel,
-                xpNecessario: progresso.xpNecessario,
-                progressoNivel: progresso.progressoNivel,
 
-                // Pontos e atividade
-                pontos: usuario.pontos,
-                diasLogados: usuario.diasLogados,
-                ultimoCheckin: usuario.ultimoCheckin,
-                capitulosBibliaLidos: usuario.capitulosBibliaLidos,
-                missoesConcluidas: usuario.missoesConcluidas,
+                xpNoNivel:
+                    progresso.xpNoNivel,
 
-                criadoEm: usuario.criadoEm
+                xpNecessario:
+                    progresso.xpNecessario,
+
+                progressoNivel:
+                    progresso.progressoNivel,
+
+                pontos:
+                    usuario.pontos || 0,
+
+                diasLogados:
+                    usuario.diasLogados || 0,
+
+                ultimoCheckin:
+                    usuario.ultimoCheckin,
+
+                /*
+                 * DIA ATUAL DA SEQUÊNCIA
+                 *
+                 * 0 = nenhum check-in
+                 * 1 = Dia 1 concluído
+                 * 2 = Dia 2 concluído
+                 * ...
+                 * 6 = Dia 6 concluído
+                 * 0 novamente após concluir o Dia 7
+                 */
+                checkinDia:
+                    usuario.checkinDia || 0,
+
+                capitulosBibliaLidos:
+                    usuario.capitulosBibliaLidos || 0,
+
+                missoesConcluidas:
+                    usuario.missoesConcluidas || 0,
+
+                criadoEm:
+                    usuario.criadoEm
+
             }
+
         });
 
     } catch (error) {
 
-        console.error("ERRO AO BUSCAR USUARIO LOGADO:");
+        console.error(
+            "ERRO AO BUSCAR USUÁRIO:"
+        );
+
         console.error(error);
 
         return res.status(500).json({
+
             sucesso: false,
-            mensagem: "Erro ao buscar usuário."
+
+            mensagem:
+                "Erro ao carregar dados do usuário."
+
         });
+
     }
+
 });
 
 app.get("/api/users/me/activities", autenticarToken, async (req, res) => {
@@ -493,91 +541,344 @@ app.put("/api/users/me", autenticarToken, async (req, res) => {
 });
 
 app.post("/api/users/checkin", autenticarToken, async (req, res) => {
+
     try {
-        const usuario = await User.findById(req.usuarioId);
+
+        const usuario =
+            await User.findById(req.usuarioId);
+
 
         if (!usuario) {
+
             return res.status(404).json({
                 sucesso: false,
                 mensagem: "Usuário não encontrado."
             });
+
         }
+
 
         const agora = new Date();
 
-        // Verifica se já fez check-in hoje
+
+        // =====================================================
+        // VERIFICAR SE JÁ FEZ CHECK-IN HOJE
+        // =====================================================
+
         if (usuario.ultimoCheckin) {
-            const ultimo = new Date(usuario.ultimoCheckin);
+
+            const ultimo =
+                new Date(usuario.ultimoCheckin);
+
 
             const mesmoDia =
                 ultimo.getFullYear() === agora.getFullYear() &&
                 ultimo.getMonth() === agora.getMonth() &&
                 ultimo.getDate() === agora.getDate();
 
+
             if (mesmoDia) {
+
                 return res.status(200).json({
+
                     sucesso: true,
+
                     jaFezHoje: true,
-                    mensagem: "Você já fez seu check-in hoje!",
+
+                    mensagem:
+                        "Você já fez seu check-in hoje!",
+
                     usuario: {
+
                         id: usuario._id,
+
                         nome: usuario.nome,
+
                         xp: usuario.xp || 0,
-                        pontos: usuario.pontos,
+
+                        pontos: usuario.pontos || 0,
+
                         nivel: usuario.nivel,
-                        diasLogados: usuario.diasLogados,
-                        ultimoCheckin: usuario.ultimoCheckin
+
+                        diasLogados:
+                            usuario.diasLogados || 0,
+
+                        ultimoCheckin:
+                            usuario.ultimoCheckin,
+
+                        checkinDia:
+                            usuario.checkinDia || 0
+
                     }
+
                 });
+
             }
+
         }
 
-        // =========================================
-        // PRIMEIRO CHECK-IN DO DIA
-        // =========================================
-usuario.diasLogados += 1;
 
-// Recompensa do check-in
-const progresso = await adicionarRecompensa(
-    usuario,
-    10,
-    5,
-    "checkin",
-    "Check-in diário"
-);
+        // =====================================================
+        // DESCOBRIR O DIA DO CICLO
+        // =====================================================
 
-usuario.ultimoCheckin = agora;
+        let sequenciaAtual = 1;
+
+
+        if (usuario.ultimoCheckin) {
+
+            const ultimo =
+                new Date(usuario.ultimoCheckin);
+
+
+            const inicioHoje =
+                new Date(
+                    agora.getFullYear(),
+                    agora.getMonth(),
+                    agora.getDate()
+                );
+
+
+            const inicioUltimo =
+                new Date(
+                    ultimo.getFullYear(),
+                    ultimo.getMonth(),
+                    ultimo.getDate()
+                );
+
+
+            const diferencaMilissegundos =
+                inicioHoje.getTime() -
+                inicioUltimo.getTime();
+
+
+            const diferencaDias =
+                Math.floor(
+                    diferencaMilissegundos /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            // =================================================
+            // DIA SEGUINTE
+            // =================================================
+
+            if (diferencaDias === 1) {
+
+                sequenciaAtual =
+                    (usuario.checkinDia || 0) + 1;
+
+
+                // =================================================
+                // NOVO CICLO APÓS DIA 7
+                // =================================================
+
+                if (sequenciaAtual > 7) {
+
+                    sequenciaAtual = 1;
+
+                }
+
+            }
+
+            // =================================================
+            // PERDEU A SEQUÊNCIA
+            // =================================================
+
+            else {
+
+                sequenciaAtual = 1;
+
+            }
+
+        }
+
+
+        // =====================================================
+        // RECOMPENSAS
+        // =====================================================
+
+        const recompensasCheckin = {
+
+            1: {
+                pontos: 5,
+                xp: 10
+            },
+
+            2: {
+                pontos: 15,
+                xp: 20
+            },
+
+            3: {
+                pontos: 20,
+                xp: 30
+            },
+
+            4: {
+                pontos: 35,
+                xp: 40
+            },
+
+            5: {
+                pontos: 35,
+                xp: 50
+            },
+
+            6: {
+                pontos: 50,
+                xp: 60
+            },
+
+            7: {
+                pontos: 70,
+                xp: 70
+            }
+
+        };
+
+
+        const recompensa =
+            recompensasCheckin[
+                sequenciaAtual
+            ];
+
+
+        // =====================================================
+        // DAR XP + PONTOS
+        // =====================================================
+
+        const progresso =
+            await adicionarRecompensa(
+                usuario,
+
+                recompensa.xp,
+
+                recompensa.pontos,
+
+                "checkin",
+
+                `Check-in diário — Dia ${sequenciaAtual}`
+            );
+
+
+        // =====================================================
+        // ATUALIZAR DADOS
+        // =====================================================
+
+        usuario.diasLogados =
+            (usuario.diasLogados || 0) + 1;
+
+
+        usuario.ultimoCheckin =
+            agora;
+
+
+        // =====================================================
+        // DIA 7 → FINALIZA CICLO
+        // =====================================================
+
+        if (sequenciaAtual === 7) {
+
+            usuario.checkinDia = 0;
+
+        } else {
+
+            usuario.checkinDia =
+                sequenciaAtual;
+
+        }
+
 
         await usuario.save();
 
+
+        // =====================================================
+        // RESPOSTA
+        // =====================================================
+
         return res.status(200).json({
+
             sucesso: true,
+
             jaFezHoje: false,
-            mensagem: "Check-in realizado! +10 XP e +5 pontos.",
+
+            diaCheckin:
+                sequenciaAtual,
+
+            proximoDia:
+                sequenciaAtual === 7
+                    ? 1
+                    : sequenciaAtual + 1,
+
+            recompensa: {
+
+                pontos:
+                    recompensa.pontos,
+
+                xp:
+                    recompensa.xp
+
+            },
+
+            mensagem:
+                `Check-in do Dia ${sequenciaAtual} realizado! +${recompensa.pontos} pontos e +${recompensa.xp} XP.`,
+
             usuario: {
+
                 id: usuario._id,
+
                 nome: usuario.nome,
+
                 xp: usuario.xp,
+
                 pontos: usuario.pontos,
+
                 nivel: usuario.nivel,
-                diasLogados: usuario.diasLogados,
-                ultimoCheckin: usuario.ultimoCheckin,
-                xpNoNivel: progresso.xpNoNivel,
-                xpNecessario: progresso.xpNecessario,
-                progressoNivel: progresso.progressoNivel
+
+                diasLogados:
+                    usuario.diasLogados,
+
+                ultimoCheckin:
+                    usuario.ultimoCheckin,
+
+                checkinDia:
+                    usuario.checkinDia,
+
+                xpNoNivel:
+                    progresso.xpNoNivel,
+
+                xpNecessario:
+                    progresso.xpNecessario,
+
+                progressoNivel:
+                    progresso.progressoNivel
+
             }
+
         });
+
 
     } catch (error) {
 
-        console.error("ERRO AO REALIZAR CHECK-IN:");
+        console.error(
+            "ERRO AO REALIZAR CHECK-IN:"
+        );
+
         console.error(error);
 
+
         return res.status(500).json({
+
             sucesso: false,
-            mensagem: "Erro ao realizar check-in."
+
+            mensagem:
+                "Erro ao realizar check-in."
+
         });
+
     }
+
 });
 
 
@@ -1052,15 +1353,35 @@ app.post("/api/biblia/retomar", autenticarToken, async (req, res) => {
 app.get("/api/biblia/progresso", autenticarToken, async (req, res) => {
     try {
 
+        // =========================================
+        // BUSCAR USUÁRIO
+        // =========================================
+
+        const usuario = await User.findById(req.usuarioId);
+
+        if (!usuario) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: "Usuário não encontrado."
+            });
+        }
+
+
+        // =========================================
+        // CALCULAR TEMPO TOTAL DE LEITURA
+        // =========================================
+
         const resultado = await ReadingSession.aggregate([
             {
                 $match: {
-                    usuarioId: new mongoose.Types.ObjectId(req.usuarioId)
+                    usuarioId:
+                        new mongoose.Types.ObjectId(req.usuarioId)
                 }
             },
             {
                 $group: {
                     _id: null,
+
                     tempoTotalSegundos: {
                         $sum: "$tempoAtivoSegundos"
                     }
@@ -1068,34 +1389,77 @@ app.get("/api/biblia/progresso", autenticarToken, async (req, res) => {
             }
         ]);
 
+
         const tempoTotalSegundos =
             resultado.length > 0
                 ? resultado[0].tempoTotalSegundos
                 : 0;
+
 
         const tempoTotalMinutos =
             Math.floor(
                 tempoTotalSegundos / 60
             );
 
+
+        // =========================================
+        // MISSÕES DA BÍBLIA
+        // =========================================
+
+        const missoesBiblia =
+            usuario.missoesBiblia || {
+                nivel1: false,
+                nivel2: false,
+                nivel3: false
+            };
+
+
+        // =========================================
+        // RETORNO
+        // =========================================
+
         return res.status(200).json({
+
             sucesso: true,
 
             biblia: {
+
                 tempoTotalSegundos,
-                tempoTotalMinutos
+
+                tempoTotalMinutos,
+
+                missoesBiblia: {
+
+                    nivel1:
+                        !!missoesBiblia.nivel1,
+
+                    nivel2:
+                        !!missoesBiblia.nivel2,
+
+                    nivel3:
+                        !!missoesBiblia.nivel3
+
+                }
+
             }
+
         });
+
 
     } catch (error) {
 
-        console.error("ERRO AO BUSCAR PROGRESSO DA BÍBLIA:");
+        console.error(
+            "ERRO AO BUSCAR PROGRESSO DA BÍBLIA:"
+        );
+
         console.error(error);
 
         return res.status(500).json({
             sucesso: false,
-            mensagem: "Erro ao buscar progresso da Bíblia."
+            mensagem:
+                "Erro ao buscar progresso da Bíblia."
         });
+
     }
 });
 

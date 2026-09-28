@@ -1188,146 +1188,409 @@
 
         </div>
 
+<div class="missions-list">
 
-     <div class="missions-list">
+    <!-- =====================================================
+         MISSÃO 1 — LEIA A BÍBLIA
+    ===================================================== -->
 
-    <!-- MISSÃO 1 -->
     <article class="mission-card mission-active">
 
         <div class="mission-icon">
             <i data-lucide="book-open"></i>
         </div>
 
+
         <div class="mission-content">
 
-            <strong>Leia um capítulo</strong>
+            <strong>
+                Leia a Bíblia
+            </strong>
 
             <span>
-                Leia um capítulo da Bíblia hoje.
+                Leia a Bíblia e avance nos níveis da missão.
             </span>
+
 
             <div class="mission-progress">
 
                 <div class="mission-progress-bar">
-                    <div class="mission-progress-fill" style="width: 65%;"></div>
+
+                    <div
+                        class="mission-progress-fill"
+                        id="bibleMissionProgress"
+                        style="width: 0%;"
+                    ></div>
+
                 </div>
 
-                <small>1 de 1 capítulo</small>
+                <small id="bibleMissionProgressText">
+                    Nível 1 — 10 minutos
+                </small>
 
             </div>
 
         </div>
 
-        <div class="mission-reward">
-            +50 XP
-        </div>
 
-    </article>
+        <!-- =============================================
+             CARROSSEL DE NÍVEIS
+        ============================================== -->
+
+        <div class="mission-level-control">
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+                id="missionLevelPrev"
+                aria-label="Nível anterior"
+            >
+
+                <i data-lucide="chevron-left"></i>
+
+            </button>
 
 
-    <!-- MISSÃO 2 -->
-    <article class="mission-card">
+            <div class="mission-level-info">
 
-        <div class="mission-icon">
-            <i data-lucide="flame"></i>
-        </div>
+                <span>
+                    NÍVEL
+                </span>
 
-        <div class="mission-content">
-
-            <strong>Faça seu check-in</strong>
-
-            <span>
-                Registre sua presença hoje.
-            </span>
-
-            <div class="mission-progress">
-
-                <div class="mission-progress-bar">
-                    <div class="mission-progress-fill" style="width: 100%;"></div>
-                </div>
-
-                <small>Concluído</small>
+                <strong id="missionLevel">
+                    1
+                </strong>
 
             </div>
 
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+                id="missionLevelNext"
+                aria-label="Próximo nível"
+            >
+
+                <i data-lucide="chevron-right"></i>
+
+            </button>
+
         </div>
 
-        <div class="mission-reward">
-            +30 XP
+
+        <!-- =============================================
+             RECOMPENSA DO NÍVEL ATUAL
+        ============================================== -->
+
+        <div
+            class="mission-reward"
+            id="missionReward"
+        >
+
+            +15
+            <small>
+                PONTOS
+            </small>
+
         </div>
 
     </article>
 
 
-    <!-- MISSÃO 3 -->
+
+    <!-- =====================================================
+     MISSÃO 2 — CHECK-IN DIÁRIO
+===================================================== -->
+
+<article class="mission-card" id="checkinMissionCard">
+
+    <div class="mission-icon">
+        <i data-lucide="flame"></i>
+    </div>
+
+    <div class="mission-content">
+
+        <strong>
+            Faça seu check-in
+        </strong>
+
+        <span>
+            Registre sua presença todos os dias.
+        </span>
+
+        <div class="mission-progress">
+
+            <div class="mission-progress-bar">
+
+                <div
+                    class="mission-progress-fill"
+                    id="checkinMissionProgress"
+                    style="width: 0%;"
+                ></div>
+
+            </div>
+
+            <small id="checkinMissionProgressText">
+                Dia 1 — Faça seu check-in hoje
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="mission-level-control">
+
+        <button
+            type="button"
+            class="mission-level-arrow"
+            id="checkinLevelPrev"
+            aria-label="Dia anterior"
+        >
+            <i data-lucide="chevron-left"></i>
+        </button>
+
+        <div class="mission-level-info">
+
+            <span>
+                DIA
+            </span>
+
+            <strong id="checkinLevel">
+                1
+            </strong>
+
+        </div>
+
+        <button
+            type="button"
+            class="mission-level-arrow"
+            id="checkinLevelNext"
+            aria-label="Próximo dia"
+        >
+            <i data-lucide="chevron-right"></i>
+        </button>
+
+    </div>
+
+    <div
+        class="mission-reward"
+        id="checkinMissionReward"
+    >
+
+        +5
+
+        <small>
+            PONTOS DA FÉ
+        </small>
+
+        <small>
+            +10 XP
+        </small>
+
+    </div>
+
+    <!-- BOTÃO DE CHECK-IN -->
+
+    <button
+        type="button"
+        class="mission-checkin-button"
+        id="missionCheckinButton"
+    >
+        <i data-lucide="flame"></i>
+
+        <span>
+            FAZER CHECK-IN
+        </span>
+    </button>
+
+</article>
+
+
+    <!-- =====================================================
+         MISSÃO 3 — DEVOCIONAL
+    ===================================================== -->
+
     <article class="mission-card">
 
         <div class="mission-icon">
             <i data-lucide="heart"></i>
         </div>
 
+
         <div class="mission-content">
 
-            <strong>Faça seu devocional</strong>
+            <strong>
+                Faça seu devocional
+            </strong>
 
             <span>
-                Reserve um momento para a Palavra.
+                Reserve um momento para estar com a Palavra.
             </span>
+
 
             <div class="mission-progress">
 
                 <div class="mission-progress-bar">
-                    <div class="mission-progress-fill" style="width: 40%;"></div>
+
+                    <div
+                        class="mission-progress-fill"
+                        style="width: 0%;"
+                    ></div>
+
                 </div>
 
-                <small>4 de 10 minutos</small>
+                <small>
+                    Nível 1 — Comece seu devocional
+                </small>
 
             </div>
 
         </div>
 
+
+        <div class="mission-level-control">
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+            >
+
+                <i data-lucide="chevron-left"></i>
+
+            </button>
+
+
+            <div class="mission-level-info">
+
+                <span>
+                    NÍVEL
+                </span>
+
+                <strong>
+                    1
+                </strong>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+            >
+
+                <i data-lucide="chevron-right"></i>
+
+            </button>
+
+        </div>
+
+
         <div class="mission-reward">
-            +100 XP
+
+            +40
+
+            <small>
+                PONTOS
+            </small>
+
         </div>
 
     </article>
 
 
-    <!-- MISSÃO 4 -->
+
+    <!-- =====================================================
+         MISSÃO 4 — COMPARTILHE A PALAVRA
+    ===================================================== -->
+
     <article class="mission-card">
 
         <div class="mission-icon">
             <i data-lucide="message-circle"></i>
         </div>
 
+
         <div class="mission-content">
 
-            <strong>Compartilhe a Palavra</strong>
+            <strong>
+                Compartilhe a Palavra
+            </strong>
 
             <span>
-                Compartilhe uma mensagem bíblica.
+                Compartilhe uma mensagem bíblica com outras pessoas.
             </span>
+
 
             <div class="mission-progress">
 
                 <div class="mission-progress-bar">
-                    <div class="mission-progress-fill" style="width: 0%;"></div>
+
+                    <div
+                        class="mission-progress-fill"
+                        style="width: 0%;"
+                    ></div>
+
                 </div>
 
-                <small>Não iniciado</small>
+                <small>
+                    Nível 1 — Não iniciado
+                </small>
 
             </div>
 
         </div>
 
+
+        <div class="mission-level-control">
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+            >
+
+                <i data-lucide="chevron-left"></i>
+
+            </button>
+
+
+            <div class="mission-level-info">
+
+                <span>
+                    NÍVEL
+                </span>
+
+                <strong>
+                    1
+                </strong>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="mission-level-arrow"
+            >
+
+                <i data-lucide="chevron-right"></i>
+
+            </button>
+
+        </div>
+
+
         <div class="mission-reward">
-            +75 XP
+
+            +50
+
+            <small>
+                PONTOS
+            </small>
+
         </div>
 
     </article>
 
 </div>
-
 
         <!-- BOTÃO DENTRO DO PERGAMINHO -->
 
