@@ -3606,3 +3606,387 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     visibility: hidden;
     pointer-events: none;
 }
+
+
+/* =====================================================
+   MENU DO PERFIL
+===================================================== */
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 190px;
+
+    padding: 8px;
+
+    background: rgba(20, 20, 20, 0.98);
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.profile-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile-dropdown button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.profile-dropdown button:hover {
+    background: rgba(212, 175, 55, 0.12);
+}
+
+.profile-dropdown button i {
+    width: 17px;
+    height: 17px;
+}
+
+/* =====================================================
+   MODAL DE LOGIN
+===================================================== */
+
+.login-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 5000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.login-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.login-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28, 28, 28, 0.98),
+            rgba(12, 12, 12, 0.98)
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.28);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55);
+
+    transform: translateY(15px) scale(0.98);
+
+    transition: transform 0.25s ease;
+}
+
+.login-modal.active .login-box {
+    transform: translateY(0) scale(1);
+}
+
+
+.login-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.login-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.login-close svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.login-header {
+    text-align: center;
+
+    margin-bottom: 26px;
+}
+
+
+.login-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.12);
+
+    border: 1px solid rgba(212, 175, 55, 0.28);
+
+    color: #d4af37;
+}
+
+.login-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+.login-header h2 {
+    margin: 0 0 7px;
+
+    color: #fff;
+
+    font-size: 26px;
+}
+
+
+.login-header p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 14px;
+}
+
+
+.login-field {
+    margin-bottom: 17px;
+}
+
+
+.login-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 13px;
+}
+
+
+.login-field input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.login-field input:focus {
+    border-color: rgba(212, 175, 55, 0.65);
+
+    background: rgba(255, 255, 255, 0.075);
+}
+
+.login-field input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+.login-message {
+    min-height: 20px;
+
+    margin: 4px 0 12px;
+
+    color: #ff7676;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+.login-submit {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #d4af37;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.login-submit:hover {
+    filter: brightness(1.08);
+}
+
+.login-submit:active {
+    transform: scale(0.98);
+}
+
+.login-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .login-box {
+        padding: 26px 20px;
+        border-radius: 15px;
+    }
+
+    .login-header h2 {
+        font-size: 23px;
+    }
+
+}
+
+/* =====================================================
+   ALTERNADOR LOGIN / CADASTRO
+===================================================== */
+
+.auth-switch {
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.auth-switch button {
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #d4af37;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.auth-switch button:hover {
+    opacity: 0.75;
+}

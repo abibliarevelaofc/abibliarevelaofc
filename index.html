@@ -124,7 +124,7 @@
        
 
 
-        <button class="profile">
+        <button class="profile" id="profileButton" type="button">
 
             <!-- FUTURA FOTO DO USUÁRIO -->
 
@@ -147,6 +147,183 @@
             </div>
 
         </button>
+
+<button class="profile" id="profileButton" type="button">
+
+    <!-- FUTURA FOTO DO USUÁRIO -->
+
+    <div class="profile-photo image-placeholder">
+        <i data-lucide="user"></i>
+    </div>
+
+    <div class="profile-text">
+        <span>Bem-vindo,</span>
+
+        <strong>
+            Membro
+            <i data-lucide="chevron-down"></i>
+        </strong>
+    </div>
+
+</button>
+
+<!-- =====================================================
+     MODAL DE LOGIN
+===================================================== -->
+
+<!-- =====================================================
+     MODAL DE AUTENTICAÇÃO
+===================================================== -->
+
+<div class="login-modal" id="loginModal">
+
+    <div class="login-box">
+
+        <button
+            type="button"
+            class="login-close"
+            id="loginClose"
+            aria-label="Fechar"
+        >
+            <i data-lucide="x"></i>
+        </button>
+
+        <!-- CABEÇALHO -->
+
+        <div class="login-header">
+
+            <div class="login-icon">
+                <i data-lucide="user"></i>
+            </div>
+
+            <h2 id="authTitle">Entrar</h2>
+
+            <p id="authSubtitle">
+                Entre na sua conta para continuar.
+            </p>
+
+        </div>
+
+
+        <!-- FORMULÁRIO -->
+
+        <form id="loginForm">
+
+            <!-- NOME — aparece somente no cadastro -->
+
+            <div
+                class="login-field"
+                id="registerNameField"
+                style="display: none;"
+            >
+
+                <label for="registerNome">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="registerNome"
+                    name="nome"
+                    placeholder="Seu nome"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="login-field">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    name="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- SENHA -->
+
+            <div class="login-field">
+
+                <label for="loginSenha">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="loginSenha"
+                    name="senha"
+                    placeholder="Sua senha"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- MENSAGEM -->
+
+            <div
+                class="login-message"
+                id="loginMessage"
+            ></div>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                type="submit"
+                class="login-submit"
+                id="loginSubmit"
+            >
+                Entrar
+            </button>
+
+        </form>
+
+
+        <!-- ALTERNAR LOGIN / CADASTRO -->
+
+        <div class="auth-switch">
+
+            <span id="authSwitchText">
+                Ainda não tem uma conta?
+            </span>
+
+            <button
+                type="button"
+                id="authSwitchButton"
+            >
+                Criar conta
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MENU DO PERFIL -->
+<div class="profile-dropdown" id="profileDropdown">
+
+    <button type="button" id="loginButton">
+        <i data-lucide="log-in"></i>
+        <span>Entrar</span>
+    </button>
+
+</div>
+
 
     </div>
 

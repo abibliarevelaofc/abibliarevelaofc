@@ -5082,3 +5082,1079 @@ atualizarMissaoBiblia();
 
     aplicarTemaBiblia(temaSalvo);
 
+
+
+// =====================================================
+// MENU DO PERFIL + MODAL DE LOGIN
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const profileButton =
+        document.getElementById("profileButton");
+
+    const profileDropdown =
+        document.getElementById("profileDropdown");
+
+    const loginButton =
+        document.getElementById("loginButton");
+
+    const loginModal =
+        document.getElementById("loginModal");
+
+    const loginClose =
+        document.getElementById("loginClose");
+
+
+    if (!profileButton || !profileDropdown) {
+        console.warn(
+            "Menu do perfil: elementos não encontrados."
+        );
+        return;
+    }
+
+
+    // =================================================
+    // ABRIR / FECHAR MENU DO PERFIL
+    // =================================================
+
+    profileButton.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        profileDropdown.classList.toggle("active");
+
+    });
+
+
+    // =================================================
+    // CLIQUE DENTRO DO MENU
+    // =================================================
+
+    profileDropdown.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+        }
+    );
+
+
+    // =================================================
+    // BOTÃO ENTRAR
+    // =================================================
+
+    if (loginButton && loginModal) {
+
+        loginButton.addEventListener(
+            "click",
+            () => {
+
+                profileDropdown.classList.remove(
+                    "active"
+                );
+
+                loginModal.classList.add(
+                    "active"
+                );
+
+                document.body.style.overflow = "hidden";
+
+            }
+        );
+
+    }
+
+
+    // =================================================
+    // FECHAR LOGIN
+    // =================================================
+
+    if (loginClose && loginModal) {
+
+        loginClose.addEventListener(
+            "click",
+            () => {
+
+                loginModal.classList.remove(
+                    "active"
+                );
+
+                document.body.style.overflow = "";
+
+            }
+        );
+
+    }
+
+
+    // =================================================
+    // CLICAR FORA DO MENU
+    // =================================================
+
+    document.addEventListener("click", () => {
+
+        profileDropdown.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    // =================================================
+    // CLICAR NO FUNDO DO MODAL
+    // =================================================
+
+    if (loginModal) {
+
+        loginModal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === loginModal
+                ) {
+
+                    loginModal.classList.remove(
+                        "active"
+                    );
+
+                    document.body.style.overflow =
+                        "";
+
+                }
+
+            }
+        );
+
+    }
+
+});
+
+// =====================================================
+// AUTENTICAÇÃO — LOGIN + CADASTRO + JWT
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // =================================================
+    // ELEMENTOS
+    // =================================================
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const loginEmail =
+        document.getElementById("loginEmail");
+
+    const loginSenha =
+        document.getElementById("loginSenha");
+
+    const registerNome =
+        document.getElementById("registerNome");
+
+    const registerNameField =
+        document.getElementById("registerNameField");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+    const loginSubmit =
+        document.getElementById("loginSubmit");
+
+    const loginModal =
+        document.getElementById("loginModal");
+
+    const authTitle =
+        document.getElementById("authTitle");
+
+    const authSubtitle =
+        document.getElementById("authSubtitle");
+
+    const authSwitchText =
+        document.getElementById("authSwitchText");
+
+    const authSwitchButton =
+        document.getElementById("authSwitchButton");
+
+
+    // =================================================
+    // VERIFICAR FORMULÁRIO
+    // =================================================
+
+    if (!loginForm) {
+
+        console.warn(
+            "Autenticação: formulário não encontrado."
+        );
+
+        return;
+    }
+
+
+    // =================================================
+    // MODO
+    // false = LOGIN
+    // true  = CADASTRO
+    // =================================================
+
+    let modoCadastro = false;
+
+
+    // =================================================
+    // MENSAGEM
+    // =================================================
+
+    function mostrarMensagem(
+        mensagem,
+        sucesso = false
+    ) {
+
+        if (!loginMessage) {
+            return;
+        }
+
+        loginMessage.textContent =
+            mensagem;
+
+        loginMessage.style.color =
+            sucesso
+                ? "#6ee7a0"
+                : "#ff7676";
+
+    }
+
+
+    function limparMensagem() {
+
+        if (!loginMessage) {
+            return;
+        }
+
+        loginMessage.textContent = "";
+
+        loginMessage.style.color = "";
+
+    }
+
+
+    // =================================================
+    // ALTERAR LOGIN / CADASTRO
+    // =================================================
+
+    function atualizarModo() {
+
+        limparMensagem();
+
+        loginForm.reset();
+
+
+        if (modoCadastro) {
+
+            // -----------------------------------------
+            // CADASTRO
+            // -----------------------------------------
+
+            authTitle.textContent =
+                "Criar conta";
+
+            authSubtitle.textContent =
+                "Crie sua conta para participar.";
+
+            registerNameField.style.display =
+                "block";
+
+            registerNome.required =
+                true;
+
+            loginSubmit.textContent =
+                "Criar conta";
+
+            authSwitchText.textContent =
+                "Já possui uma conta?";
+
+            authSwitchButton.textContent =
+                "Entrar";
+
+            loginSenha.setAttribute(
+                "autocomplete",
+                "new-password"
+            );
+
+
+        } else {
+
+            // -----------------------------------------
+            // LOGIN
+            // -----------------------------------------
+
+            authTitle.textContent =
+                "Entrar";
+
+            authSubtitle.textContent =
+                "Entre na sua conta para continuar.";
+
+            registerNameField.style.display =
+                "none";
+
+            registerNome.required =
+                false;
+
+            loginSubmit.textContent =
+                "Entrar";
+
+            authSwitchText.textContent =
+                "Ainda não tem uma conta?";
+
+            authSwitchButton.textContent =
+                "Criar conta";
+
+            loginSenha.setAttribute(
+                "autocomplete",
+                "current-password"
+            );
+
+        }
+
+    }
+
+
+    // =================================================
+    // BOTÃO ALTERNAR
+    // =================================================
+
+    if (authSwitchButton) {
+
+        authSwitchButton.addEventListener(
+            "click",
+            () => {
+
+                modoCadastro =
+                    !modoCadastro;
+
+                atualizarModo();
+
+            }
+        );
+
+    }
+
+
+    // =================================================
+    // FECHAR MODAL
+    // =================================================
+
+    function fecharModal() {
+
+        if (loginModal) {
+
+            loginModal.classList.remove(
+                "active"
+            );
+
+        }
+
+        document.body.style.overflow =
+            "";
+
+        loginForm.reset();
+
+        limparMensagem();
+
+        modoCadastro = false;
+
+        atualizarModo();
+
+    }
+
+
+    // =================================================
+    // ENVIO DO FORMULÁRIO
+    // =================================================
+
+    loginForm.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+
+            limparMensagem();
+
+
+            // =========================================
+            // DADOS
+            // =========================================
+
+            const email =
+                loginEmail.value.trim();
+
+            const senha =
+                loginSenha.value;
+
+
+            let nome = "";
+
+
+            // =========================================
+            // VALIDAR EMAIL
+            // =========================================
+
+            if (!email) {
+
+                mostrarMensagem(
+                    "Digite seu email."
+                );
+
+                loginEmail.focus();
+
+                return;
+
+            }
+
+
+            // =========================================
+            // VALIDAR SENHA
+            // =========================================
+
+            if (!senha) {
+
+                mostrarMensagem(
+                    "Digite sua senha."
+                );
+
+                loginSenha.focus();
+
+                return;
+
+            }
+
+
+            // =========================================
+            // VALIDAR CADASTRO
+            // =========================================
+
+            if (modoCadastro) {
+
+                nome =
+                    registerNome.value.trim();
+
+
+                if (!nome) {
+
+                    mostrarMensagem(
+                        "Digite seu nome."
+                    );
+
+                    registerNome.focus();
+
+                    return;
+
+                }
+
+
+                if (nome.length < 2) {
+
+                    mostrarMensagem(
+                        "Digite um nome válido."
+                    );
+
+                    registerNome.focus();
+
+                    return;
+
+                }
+
+
+                if (senha.length < 6) {
+
+                    mostrarMensagem(
+                        "A senha deve ter pelo menos 6 caracteres."
+                    );
+
+                    loginSenha.focus();
+
+                    return;
+
+                }
+
+            }
+
+
+            // =========================================
+            // BOTÃO
+            // =========================================
+
+            loginSubmit.disabled =
+                true;
+
+
+            loginSubmit.textContent =
+                modoCadastro
+                    ? "Criando conta..."
+                    : "Entrando...";
+
+
+            try {
+
+                // =====================================
+                // ROTA
+                // =====================================
+
+                const rota =
+                    modoCadastro
+                        ? "/api/users/register"
+                        : "/api/users/login";
+
+
+                // =====================================
+                // CORPO
+                // =====================================
+
+                const corpo =
+                    modoCadastro
+                        ? {
+                            nome: nome,
+                            email: email,
+                            senha: senha
+                        }
+                        : {
+                            email: email,
+                            senha: senha
+                        };
+
+
+                console.log(
+                    "Enviando autenticação:",
+                    rota
+                );
+
+
+                // =====================================
+                // REQUEST
+                // =====================================
+
+                const resposta =
+                    await fetch(
+                        rota,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    corpo
+                                )
+                        }
+                    );
+
+
+                // =====================================
+                // RESPOSTA
+                // =====================================
+
+                let dados = {};
+
+                try {
+
+                    dados =
+                        await resposta.json();
+
+                } catch (erro) {
+
+                    console.error(
+                        "Resposta não é JSON:",
+                        erro
+                    );
+
+                }
+
+
+                console.log(
+                    "Resposta da autenticação:",
+                    dados
+                );
+
+
+                // =====================================
+                // ERRO
+                // =====================================
+
+                if (!resposta.ok) {
+
+                    mostrarMensagem(
+                        dados.mensagem ||
+                        dados.message ||
+                        (
+                            modoCadastro
+                                ? "Não foi possível criar a conta."
+                                : "Email ou senha incorretos."
+                        )
+                    );
+
+                    return;
+
+                }
+
+
+                // =================================================
+                // CADASTRO
+                // =================================================
+
+                if (modoCadastro) {
+
+                    /*
+                     * Se o backend já devolver o JWT
+                     * depois do cadastro, entra automaticamente.
+                     */
+
+                    if (dados.token) {
+
+                        salvarSessao(
+                            dados.token,
+                            dados.usuario
+                        );
+
+
+                        mostrarMensagem(
+                            "Conta criada com sucesso!",
+                            true
+                        );
+
+
+                        setTimeout(
+                            () => {
+
+                                fecharModal();
+
+                                atualizarPerfilLogado(
+                                    dados.usuario
+                                );
+
+                            },
+                            700
+                        );
+
+
+                    } else {
+
+                        /*
+                         * Se o cadastro não devolver
+                         * token, voltamos para o login.
+                         */
+
+                        mostrarMensagem(
+                            "Conta criada com sucesso! Agora entre na sua conta.",
+                            true
+                        );
+
+
+                        setTimeout(
+                            () => {
+
+                                modoCadastro =
+                                    false;
+
+                                atualizarModo();
+
+                            },
+                            1000
+                        );
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                // =================================================
+                // LOGIN
+                // =================================================
+
+                if (!dados.token) {
+
+                    mostrarMensagem(
+                        "O servidor não retornou o token."
+                    );
+
+                    return;
+
+                }
+
+
+                // =====================================
+                // SALVAR JWT
+                // =====================================
+
+                salvarSessao(
+                    dados.token,
+                    dados.usuario
+                );
+
+
+                mostrarMensagem(
+                    "Login realizado com sucesso!",
+                    true
+                );
+
+
+                // =====================================
+                // FECHAR
+                // =====================================
+
+                setTimeout(
+                    () => {
+
+                        fecharModal();
+
+                        atualizarPerfilLogado(
+                            dados.usuario
+                        );
+
+                    },
+                    700
+                );
+
+
+            } catch (erro) {
+
+                console.error(
+                    "ERRO DE AUTENTICAÇÃO:",
+                    erro
+                );
+
+
+                mostrarMensagem(
+                    "Não foi possível conectar ao servidor."
+                );
+
+
+            } finally {
+
+                setTimeout(
+                    () => {
+
+                        loginSubmit.disabled =
+                            false;
+
+                        loginSubmit.textContent =
+                            modoCadastro
+                                ? "Criar conta"
+                                : "Entrar";
+
+                    },
+                    700
+                );
+
+            }
+
+        }
+    );
+
+
+    // =================================================
+    // SALVAR SESSÃO
+    // =================================================
+
+    function salvarSessao(
+        token,
+        usuario
+    ) {
+
+        if (!token) {
+
+            console.warn(
+                "Tentativa de salvar sessão sem token."
+            );
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            "token",
+            token
+        );
+
+
+        if (usuario) {
+
+            localStorage.setItem(
+                "usuario",
+                JSON.stringify(
+                    usuario
+                )
+            );
+
+        }
+
+
+        console.log(
+            "Sessão salva com sucesso."
+        );
+
+    }
+
+
+    // =================================================
+    // ATUALIZAR PERFIL
+    // =================================================
+
+    function atualizarPerfilLogado(
+        usuario
+    ) {
+
+        if (!usuario) {
+
+            console.warn(
+                "Usuário não informado."
+            );
+
+            return;
+
+        }
+
+
+        const profileButton =
+            document.getElementById(
+                "profileButton"
+            );
+
+
+        if (!profileButton) {
+            return;
+        }
+
+
+        // -----------------------------------------
+        // NOME
+        // -----------------------------------------
+
+        const profileName =
+            profileButton.querySelector(
+                ".profile-text strong"
+            );
+
+
+        if (profileName) {
+
+            profileName.textContent =
+                usuario.nome ||
+                usuario.name ||
+                "Usuário";
+
+        }
+
+
+        // -----------------------------------------
+        // FOTO
+        // -----------------------------------------
+
+        const profilePhoto =
+            profileButton.querySelector(
+                ".profile-photo"
+            );
+
+
+        if (
+            profilePhoto &&
+            usuario.foto
+        ) {
+
+            profilePhoto.innerHTML = `
+                <img
+                    src="${usuario.foto}"
+                    alt="${usuario.nome || "Usuário"}"
+                >
+            `;
+
+
+            profilePhoto.classList.remove(
+                "image-placeholder"
+            );
+
+        }
+
+
+        // -----------------------------------------
+        // LUCIDE
+        // -----------------------------------------
+
+        if (
+            typeof lucide !==
+            "undefined"
+        ) {
+
+            lucide.createIcons();
+
+        }
+
+    }
+
+
+    // =================================================
+    // RESTAURAR SESSÃO
+    // =================================================
+
+    async function restaurarSessao() {
+
+        const token =
+            localStorage.getItem(
+                "token"
+            );
+
+
+        const usuarioSalvo =
+            localStorage.getItem(
+                "usuario"
+            );
+
+
+        // -----------------------------------------
+        // USUÁRIO SALVO
+        // -----------------------------------------
+
+        if (usuarioSalvo) {
+
+            try {
+
+                const usuario =
+                    JSON.parse(
+                        usuarioSalvo
+                    );
+
+
+                atualizarPerfilLogado(
+                    usuario
+                );
+
+            } catch (erro) {
+
+                localStorage.removeItem(
+                    "usuario"
+                );
+
+            }
+
+        }
+
+
+        // -----------------------------------------
+        // NÃO TEM TOKEN
+        // -----------------------------------------
+
+        if (!token) {
+
+            return;
+
+        }
+
+
+        // -----------------------------------------
+        // VALIDAR JWT
+        // -----------------------------------------
+
+        try {
+
+            const resposta =
+                await fetch(
+                    "/api/users/me",
+                    {
+                        method: "GET",
+
+                        headers: {
+
+                            "Authorization":
+                                `Bearer ${token}`
+
+                        }
+
+                    }
+                );
+
+
+            // -------------------------------------
+            // TOKEN INVÁLIDO
+            // -------------------------------------
+
+            if (!resposta.ok) {
+
+                console.warn(
+                    "Sessão expirada ou inválida."
+                );
+
+
+                localStorage.removeItem(
+                    "token"
+                );
+
+                localStorage.removeItem(
+                    "usuario"
+                );
+
+
+                return;
+
+            }
+
+
+            const dados =
+                await resposta.json();
+
+
+            console.log(
+                "Sessão restaurada:",
+                dados
+            );
+
+
+            // -------------------------------------
+            // ATUALIZAR USUÁRIO
+            // -------------------------------------
+
+            if (
+                dados.usuario
+            ) {
+
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(
+                        dados.usuario
+                    )
+                );
+
+
+                atualizarPerfilLogado(
+                    dados.usuario
+                );
+
+            }
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao restaurar sessão:",
+                erro
+            );
+
+        }
+
+    }
+
+
+    // =================================================
+    // INICIALIZAR
+    // =================================================
+
+    atualizarModo();
+
+    restaurarSessao();
+
+});
