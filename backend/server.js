@@ -220,7 +220,7 @@ const token = jwt.sign(
                 criadoEm: usuario.criadoEm
             }
         });
-
+  
     } catch (error) {
         console.error("ERRO AO CADASTRAR USUARIO:");
         console.error(error);
