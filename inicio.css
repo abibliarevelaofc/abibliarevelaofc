@@ -3690,8 +3690,9 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     z-index: 9999;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 70px;
 
     padding: 24px;
 
