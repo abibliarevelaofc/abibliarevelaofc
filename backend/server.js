@@ -197,9 +197,16 @@ const usuario = await User.create({
     senha: senhaHash
 });
 
+const token = jwt.sign(
+    { id: usuario._id.toString() },
+    process.env.JWT_SECRET,
+    { expiresIn: "7d" }
+);
+
         return res.status(201).json({
             sucesso: true,
             mensagem: "Usuário cadastrado com sucesso!",
+            token,
             usuario: {
                 id: usuario._id,
                 nome: usuario.nome,

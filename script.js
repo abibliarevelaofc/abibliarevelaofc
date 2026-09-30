@@ -5612,9 +5612,9 @@ console.log(
                 // =====================================
 
                 const rota =
-                    modoCadastro
-                        ? "/api/users/register"
-                        : "/api/users/login";
+    modoCadastro
+        ? "http://localhost:3000/api/users/register"
+        : "http://localhost:3000/api/users/login";
 
 
                 // =====================================
