@@ -3680,7 +3680,8 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     height: 17px;
 }
 /* =====================================================
-   MODAL DE AUTENTICAÇÃO — PREMIUM
+   MODAL DE AUTENTICAÇÃO
+   LOGIN + CADASTRO
 ===================================================== */
 
 .login-modal {
@@ -3714,6 +3715,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         visibility 0.3s ease;
 }
 
+
 .login-modal.active {
     opacity: 1;
     visibility: visible;
@@ -3733,6 +3735,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     padding: 38px;
 
     border: 1px solid rgba(255, 255, 255, 0.08);
+
     border-radius: 28px;
 
     background:
@@ -3747,23 +3750,29 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         0 0 0 1px rgba(212, 175, 55, 0.04),
         0 0 60px rgba(212, 175, 55, 0.05);
 
-    transform: translateY(18px) scale(0.97);
+    transform:
+        translateY(18px)
+        scale(0.97);
 
     transition:
-        transform 0.35s cubic-bezier(.2,.8,.2,1);
+        transform 0.35s cubic-bezier(.2, .8, .2, 1);
 }
 
+
 .login-modal.active .login-box {
-    transform: translateY(0) scale(1);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
 /* =====================================================
-   FECHAR
+   BOTÃO FECHAR
 ===================================================== */
 
 .login-close {
     position: absolute;
+
     top: 18px;
     right: 18px;
 
@@ -3789,10 +3798,19 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         transform 0.2s ease;
 }
 
+
 .login-close:hover {
     background: rgba(212, 175, 55, 0.12);
+
     color: #d4af37;
+
     transform: rotate(90deg);
+}
+
+
+.login-close svg {
+    width: 18px;
+    height: 18px;
 }
 
 
@@ -3803,10 +3821,12 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 .login-header {
     display: flex;
     align-items: center;
+
     gap: 16px;
 
     margin-bottom: 30px;
 }
+
 
 .login-icon {
     flex: 0 0 52px;
@@ -3819,6 +3839,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     justify-content: center;
 
     border: 1px solid rgba(212, 175, 55, 0.22);
+
     border-radius: 16px;
 
     background:
@@ -3835,14 +3856,17 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+
 .login-icon svg {
     width: 23px;
     height: 23px;
 }
 
+
 .login-header-content {
     min-width: 0;
 }
+
 
 .login-eyebrow {
     display: block;
@@ -3857,6 +3881,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     color: #d4af37;
 }
 
+
 .login-header h2 {
     margin: 0;
 
@@ -3867,6 +3892,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
     color: #ffffff;
 }
+
 
 .login-header p {
     margin: 7px 0 0;
@@ -3886,13 +3912,21 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     margin-bottom: 18px;
 }
 
+
+/*
+   O campo Nome fica escondido no login.
+   O JavaScript adiciona .auth-visible no cadastro.
+*/
+
 #registerNameField {
     display: none;
 }
 
+
 #registerNameField.auth-visible {
     display: block !important;
 }
+
 
 .login-field label {
     display: block;
@@ -3905,6 +3939,11 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     color: rgba(255, 255, 255, 0.72);
 }
 
+
+/* =====================================================
+   INPUT
+===================================================== */
+
 .login-input-wrapper {
     position: relative;
 
@@ -3912,8 +3951,10 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     align-items: center;
 }
 
+
 .login-input-wrapper > svg {
     position: absolute;
+
     left: 15px;
 
     width: 17px;
@@ -3923,17 +3964,23 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
     pointer-events: none;
 
-    transition: color 0.2s ease;
+    transition:
+        color 0.2s ease;
 }
+
 
 .login-input-wrapper input {
     width: 100%;
-
     height: 52px;
 
-    padding: 0 16px 0 45px;
+    padding:
+        0
+        16px
+        0
+        45px;
 
     border: 1px solid rgba(255, 255, 255, 0.08);
+
     border-radius: 14px;
 
     outline: none;
@@ -3951,9 +3998,11 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         box-shadow 0.2s ease;
 }
 
+
 .login-input-wrapper input::placeholder {
     color: rgba(255, 255, 255, 0.28);
 }
+
 
 .login-input-wrapper input:focus {
     border-color: rgba(212, 175, 55, 0.55);
@@ -3964,9 +4013,15 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         0 0 0 4px rgba(212, 175, 55, 0.07);
 }
 
+
 .login-input-wrapper:focus-within > svg {
     color: #d4af37;
 }
+
+
+/* =====================================================
+   TEXTO ABAIXO DA SENHA
+===================================================== */
 
 .login-hint {
     display: block;
@@ -3980,13 +4035,16 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
 
 /* =====================================================
-   MENSAGEM
+   MENSAGEM DE ERRO / SUCESSO
 ===================================================== */
 
 .login-message {
     min-height: 20px;
 
-    margin: 4px 0 10px;
+    margin:
+        4px
+        0
+        10px;
 
     font-size: 12px;
     line-height: 1.4;
@@ -3996,21 +4054,24 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
 
 /* =====================================================
-   BOTÃO PRINCIPAL
+   BOTÃO ENTRAR / CRIAR CONTA
 ===================================================== */
 
 .login-submit {
     width: 100%;
+
     min-height: 54px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 10px;
 
     margin-top: 8px;
 
     border: 1px solid rgba(212, 175, 55, 0.4);
+
     border-radius: 15px;
 
     background:
@@ -4037,6 +4098,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         filter 0.2s ease;
 }
 
+
 .login-submit:hover {
     transform: translateY(-2px);
 
@@ -4046,15 +4108,20 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         0 16px 38px rgba(212, 175, 55, 0.24);
 }
 
+
 .login-submit:active {
     transform: translateY(0);
 }
 
+
 .login-submit:disabled {
     opacity: 0.65;
+
     cursor: wait;
+
     transform: none;
 }
+
 
 .login-submit-icon {
     width: 17px;
@@ -4069,14 +4136,19 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 .login-divider {
     display: flex;
     align-items: center;
+
     gap: 12px;
 
-    margin: 24px 0 20px;
+    margin:
+        24px
+        0
+        20px;
 
     color: rgba(255, 255, 255, 0.25);
 
     font-size: 11px;
 }
+
 
 .login-divider::before,
 .login-divider::after {
@@ -4086,18 +4158,20 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
     height: 1px;
 
-    background: rgba(255, 255, 255, 0.07);
+    background:
+        rgba(255, 255, 255, 0.07);
 }
 
 
 /* =====================================================
-   ALTERNAR LOGIN / CADASTRO
+   CRIAR CONTA / ENTRAR
 ===================================================== */
 
 .auth-switch {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 5px;
 
     text-align: center;
@@ -4106,6 +4180,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
     color: rgba(255, 255, 255, 0.45);
 }
+
 
 .auth-switch button {
     padding: 0;
@@ -4123,6 +4198,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     cursor: pointer;
 }
 
+
 .auth-switch button:hover {
     text-decoration: underline;
 }
@@ -4136,6 +4212,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 7px;
 
     margin-top: 22px;
@@ -4144,6 +4221,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
     color: rgba(255, 255, 255, 0.25);
 }
+
 
 .login-security svg {
     width: 13px;
@@ -4154,7 +4232,7 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 
 
 /* =====================================================
-   MOBILE
+   RESPONSIVO
 ===================================================== */
 
 @media (max-width: 520px) {
@@ -4163,36 +4241,43 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         padding: 16px;
     }
 
+
     .login-box {
         padding: 30px 22px;
 
         border-radius: 23px;
     }
 
+
     .login-header {
         margin-bottom: 24px;
     }
+
 
     .login-header h2 {
         font-size: 24px;
     }
 
+
     .login-header p {
         font-size: 12px;
     }
 
+
     .login-icon {
         width: 46px;
         height: 46px;
+
         flex-basis: 46px;
     }
+
 
     .login-input-wrapper input {
         height: 50px;
     }
 
+
     .login-submit {
         min-height: 52px;
     }
-
 }
