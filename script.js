@@ -5659,18 +5659,18 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
 
-            try {
+          try {
 
-                // =========================================
-                // ROTA
-                // =========================================
+    // =========================================
+    // ROTA
+    // =========================================
 
-                const rota =
-                    modoCadastro
-                        ? "http://localhost:3000/api/users/register"
-                        : "http://localhost:3000/api/users/login";
+    const API_URL = "https://abibliarevelaofc.vercel.app";
 
-
+    const rota =
+        modoCadastro
+            ? `${API_URL}/api/users/register`
+            : `${API_URL}/api/users/login`;
                 // =========================================
                 // CORPO
                 // =========================================
