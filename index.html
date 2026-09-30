@@ -170,7 +170,6 @@
 <!-- =====================================================
      MODAL DE LOGIN
 ===================================================== -->
-
 <!-- =====================================================
      MODAL DE AUTENTICAÇÃO
 ===================================================== -->
@@ -178,6 +177,8 @@
 <div class="login-modal" id="loginModal">
 
     <div class="login-box">
+
+        <!-- FECHAR -->
 
         <button
             type="button"
@@ -188,45 +189,66 @@
             <i data-lucide="x"></i>
         </button>
 
-        <!-- CABEÇALHO -->
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
 
         <div class="login-header">
 
             <div class="login-icon">
-                <i data-lucide="user"></i>
+                <i data-lucide="user-round"></i>
             </div>
 
-            <h2 id="authTitle">Entrar</h2>
+            <div class="login-header-content">
 
-            <p id="authSubtitle">
-                Entre na sua conta para continuar.
-            </p>
+                <span class="login-eyebrow">
+                    A BÍBLIA REVELA
+                </span>
+
+                <h2 id="authTitle">
+                    Entrar
+                </h2>
+
+                <p id="authSubtitle">
+                    Entre na sua conta para continuar.
+                </p>
+
+            </div>
 
         </div>
 
 
-        <!-- FORMULÁRIO -->
+        <!-- =================================================
+             FORMULÁRIO
+        ================================================== -->
 
-        <form id="loginForm">
+        <form id="loginForm" novalidate>
 
-            <!-- NOME — aparece somente no cadastro -->
+            <!-- NOME — somente cadastro -->
 
             <div
-    class="login-field"
-    id="registerNameField"
->
+                class="login-field"
+                id="registerNameField"
+            >
 
                 <label for="registerNome">
                     Nome
                 </label>
 
-                <input
-                    type="text"
-                    id="registerNome"
-                    name="nome"
-                    placeholder="Seu nome"
-                    autocomplete="name"
-                >
+                <div class="login-input-wrapper">
+
+                    <i data-lucide="user"></i>
+
+                    <input
+                        type="text"
+                        id="registerNome"
+                        name="nome"
+                        placeholder="Como podemos chamar você?"
+                        autocomplete="name"
+                    >
+
+                </div>
 
             </div>
 
@@ -239,14 +261,20 @@
                     Email
                 </label>
 
-                <input
-                    type="email"
-                    id="loginEmail"
-                    name="email"
-                    placeholder="seu@email.com"
-                    autocomplete="email"
-                    required
-                >
+                <div class="login-input-wrapper">
+
+                    <i data-lucide="mail"></i>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="seu@email.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
 
             </div>
 
@@ -259,14 +287,25 @@
                     Senha
                 </label>
 
-                <input
-                    type="password"
-                    id="loginSenha"
-                    name="senha"
-                    placeholder="Sua senha"
-                    autocomplete="current-password"
-                    required
-                >
+                <div class="login-input-wrapper">
+
+                    <i data-lucide="lock-keyhole"></i>
+
+                    <input
+                        type="password"
+                        id="loginSenha"
+                        name="senha"
+                        placeholder="Sua senha"
+                        autocomplete="current-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+                <small class="login-hint">
+                    Mínimo de 6 caracteres.
+                </small>
 
             </div>
 
@@ -276,23 +315,43 @@
             <div
                 class="login-message"
                 id="loginMessage"
+                role="alert"
+                aria-live="polite"
             ></div>
 
 
             <!-- BOTÃO -->
 
             <button
-    type="submit"
-    class="login-submit"
-    id="loginSubmit"
->
-    Criar conta
-</button>
+                type="submit"
+                class="login-submit"
+                id="loginSubmit"
+            >
+                <span class="login-submit-text">
+                    Entrar
+                </span>
+
+                <i
+                    data-lucide="arrow-right"
+                    class="login-submit-icon"
+                ></i>
+            </button>
 
         </form>
 
 
-        <!-- ALTERNAR LOGIN / CADASTRO -->
+        <!-- =================================================
+             DIVISOR
+        ================================================== -->
+
+        <div class="login-divider">
+            <span>ou</span>
+        </div>
+
+
+        <!-- =================================================
+             ALTERNAR LOGIN / CADASTRO
+        ================================================== -->
 
         <div class="auth-switch">
 
@@ -306,6 +365,21 @@
             >
                 Criar conta
             </button>
+
+        </div>
+
+
+        <!-- =================================================
+             RODAPÉ
+        ================================================== -->
+
+        <div class="login-security">
+
+            <i data-lucide="shield-check"></i>
+
+            <span>
+                Seus dados são protegidos com segurança.
+            </span>
 
         </div>
 

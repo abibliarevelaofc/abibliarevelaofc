@@ -5106,10 +5106,16 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("loginClose");
 
 
+    // =================================================
+    // VERIFICAR MENU
+    // =================================================
+
     if (!profileButton || !profileDropdown) {
+
         console.warn(
             "Menu do perfil: elementos não encontrados."
         );
+
         return;
     }
 
@@ -5118,13 +5124,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // ABRIR / FECHAR MENU DO PERFIL
     // =================================================
 
-    profileButton.addEventListener("click", (event) => {
+    profileButton.addEventListener(
+        "click",
+        (event) => {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        profileDropdown.classList.toggle("active");
+            profileDropdown.classList.toggle(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
     // =================================================
@@ -5159,7 +5170,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     "active"
                 );
 
-                document.body.style.overflow = "hidden";
+                document.body.style.overflow =
+                    "hidden";
 
             }
         );
@@ -5168,7 +5180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =================================================
-    // FECHAR LOGIN
+    // FECHAR MODAL PELO X
     // =================================================
 
     if (loginClose && loginModal) {
@@ -5181,7 +5193,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     "active"
                 );
 
-                document.body.style.overflow = "";
+                document.body.style.overflow =
+                    "";
 
             }
         );
@@ -5193,13 +5206,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // CLICAR FORA DO MENU
     // =================================================
 
-    document.addEventListener("click", () => {
+    document.addEventListener(
+        "click",
+        () => {
 
-        profileDropdown.classList.remove(
-            "active"
-        );
+            profileDropdown.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
     // =================================================
@@ -5231,6 +5247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
 
 // =====================================================
 // AUTENTICAÇÃO — LOGIN + CADASTRO + JWT
@@ -5340,6 +5357,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =================================================
+    // ATUALIZAR ÍCONES
+    // =================================================
+
+    function atualizarIcones() {
+
+        if (
+            typeof lucide !== "undefined"
+        ) {
+
+            lucide.createIcons();
+
+        }
+
+    }
+
+
+    // =================================================
+    // ATUALIZAR BOTÃO PRINCIPAL
+    // =================================================
+
+    function atualizarBotao() {
+
+        if (!loginSubmit) {
+            return;
+        }
+
+        loginSubmit.innerHTML = `
+            <span class="login-submit-text">
+                ${modoCadastro
+                    ? "Criar conta"
+                    : "Entrar"
+                }
+            </span>
+
+            <i
+                data-lucide="arrow-right"
+                class="login-submit-icon"
+            ></i>
+        `;
+
+        atualizarIcones();
+
+    }
+
+
+    // =================================================
     // ALTERAR LOGIN / CADASTRO
     // =================================================
 
@@ -5350,41 +5413,42 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.reset();
 
 
+        // =================================================
+        // CADASTRO
+        // =================================================
+
         if (modoCadastro) {
 
-    if (!dados.token) {
-        mostrarMensagem(
-            dados.mensagem ||
-            "Conta criada, mas o servidor não retornou o token."
-        );
-        return;
-    }
+            authTitle.textContent =
+                "Criar conta";
 
-    salvarSessao(
-        dados.token,
-        dados.usuario
-    );
+            authSubtitle.textContent =
+                "Crie sua conta para participar.";
 
-    mostrarMensagem(
-        "Conta criada com sucesso!",
-        true
-    );
+            registerNameField.classList.add(
+                "auth-visible"
+            );
 
-    setTimeout(() => {
-        fecharModal();
+            registerNome.required =
+                true;
 
-        atualizarPerfilLogado(
-            dados.usuario
-        );
+            authSwitchText.textContent =
+                "Já possui uma conta?";
 
-    }, 700);
+            authSwitchButton.textContent =
+                "Entrar";
 
-    return;
-        
+            loginSenha.setAttribute(
+                "autocomplete",
+                "new-password"
+            );
 
-            // -----------------------------------------
-            // LOGIN
-            // -----------------------------------------
+
+        // =================================================
+        // LOGIN
+        // =================================================
+
+        } else {
 
             authTitle.textContent =
                 "Entrar";
@@ -5392,16 +5456,12 @@ document.addEventListener("DOMContentLoaded", () => {
             authSubtitle.textContent =
                 "Entre na sua conta para continuar.";
 
-           registerNameField.style.setProperty(
-    "display",
-    "none",
-    "important"
-);
+            registerNameField.classList.remove(
+                "auth-visible"
+            );
+
             registerNome.required =
                 false;
-
-            loginSubmit.textContent =
-                "Entrar";
 
             authSwitchText.textContent =
                 "Ainda não tem uma conta?";
@@ -5416,11 +5476,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
+        atualizarBotao();
+
     }
 
 
     // =================================================
-    // BOTÃO ALTERNAR
+    // BOTÃO ALTERNAR LOGIN / CADASTRO
     // =================================================
 
     if (authSwitchButton) {
@@ -5478,17 +5541,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             event.preventDefault();
 
-console.log(
-    "FORMULÁRIO ENVIADO",
-    modoCadastro ? "CADASTRO" : "LOGIN"
-);
-
             limparMensagem();
 
 
-            // =========================================
+            // =============================================
             // DADOS
-            // =========================================
+            // =============================================
 
             const email =
                 loginEmail.value.trim();
@@ -5496,13 +5554,12 @@ console.log(
             const senha =
                 loginSenha.value;
 
-
             let nome = "";
 
 
-            // =========================================
+            // =============================================
             // VALIDAR EMAIL
-            // =========================================
+            // =============================================
 
             if (!email) {
 
@@ -5517,9 +5574,9 @@ console.log(
             }
 
 
-            // =========================================
+            // =============================================
             // VALIDAR SENHA
-            // =========================================
+            // =============================================
 
             if (!senha) {
 
@@ -5534,9 +5591,9 @@ console.log(
             }
 
 
-            // =========================================
+            // =============================================
             // VALIDAR CADASTRO
-            // =========================================
+            // =============================================
 
             if (modoCadastro) {
 
@@ -5585,35 +5642,38 @@ console.log(
             }
 
 
-            // =========================================
-            // BOTÃO
-            // =========================================
+            // =============================================
+            // BLOQUEAR BOTÃO
+            // =============================================
 
             loginSubmit.disabled =
                 true;
 
-
-            loginSubmit.textContent =
-                modoCadastro
-                    ? "Criando conta..."
-                    : "Entrando...";
+            loginSubmit.innerHTML = `
+                <span class="login-submit-text">
+                    ${modoCadastro
+                        ? "Criando conta..."
+                        : "Entrando..."
+                    }
+                </span>
+            `;
 
 
             try {
 
-                // =====================================
+                // =========================================
                 // ROTA
-                // =====================================
+                // =========================================
 
                 const rota =
-    modoCadastro
-        ? "http://localhost:3000/api/users/register"
-        : "http://localhost:3000/api/users/login";
+                    modoCadastro
+                        ? "http://localhost:3000/api/users/register"
+                        : "http://localhost:3000/api/users/login";
 
 
-                // =====================================
+                // =========================================
                 // CORPO
-                // =====================================
+                // =========================================
 
                 const corpo =
                     modoCadastro
@@ -5628,15 +5688,9 @@ console.log(
                         };
 
 
-                console.log(
-                    "Enviando autenticação:",
-                    rota
-                );
-
-
-                // =====================================
+                // =========================================
                 // REQUEST
-                // =====================================
+                // =========================================
 
                 const resposta =
                     await fetch(
@@ -5657,9 +5711,9 @@ console.log(
                     );
 
 
-                // =====================================
+                // =========================================
                 // RESPOSTA
-                // =====================================
+                // =========================================
 
                 let dados = {};
 
@@ -5678,15 +5732,9 @@ console.log(
                 }
 
 
-                console.log(
-                    "Resposta da autenticação:",
-                    dados
-                );
-
-
-                // =====================================
-                // ERRO
-                // =====================================
+                // =========================================
+                // ERRO HTTP
+                // =========================================
 
                 if (!resposta.ok) {
 
@@ -5711,65 +5759,42 @@ console.log(
 
                 if (modoCadastro) {
 
-                    /*
-                     * Se o backend já devolver o JWT
-                     * depois do cadastro, entra automaticamente.
-                     */
-
-                    if (dados.token) {
-
-                        salvarSessao(
-                            dados.token,
-                            dados.usuario
-                        );
-
+                    if (!dados.token) {
 
                         mostrarMensagem(
-                            "Conta criada com sucesso!",
-                            true
+                            dados.mensagem ||
+                            "Conta criada, mas o servidor não retornou o token."
                         );
 
-
-                        setTimeout(
-                            () => {
-
-                                fecharModal();
-
-                                atualizarPerfilLogado(
-                                    dados.usuario
-                                );
-
-                            },
-                            700
-                        );
-
-
-                    } else {
-
-                        /*
-                         * Se o cadastro não devolver
-                         * token, voltamos para o login.
-                         */
-
-                        mostrarMensagem(
-                            "Conta criada com sucesso! Agora entre na sua conta.",
-                            true
-                        );
-
-
-                        setTimeout(
-                            () => {
-
-                                modoCadastro =
-                                    false;
-
-                                atualizarModo();
-
-                            },
-                            1000
-                        );
+                        return;
 
                     }
+
+
+                    salvarSessao(
+                        dados.token,
+                        dados.usuario
+                    );
+
+
+                    mostrarMensagem(
+                        "Conta criada com sucesso!",
+                        true
+                    );
+
+
+                    setTimeout(
+                        () => {
+
+                            fecharModal();
+
+                            atualizarPerfilLogado(
+                                dados.usuario
+                            );
+
+                        },
+                        700
+                    );
 
 
                     return;
@@ -5792,9 +5817,9 @@ console.log(
                 }
 
 
-                // =====================================
+                // =============================================
                 // SALVAR JWT
-                // =====================================
+                // =============================================
 
                 salvarSessao(
                     dados.token,
@@ -5808,9 +5833,9 @@ console.log(
                 );
 
 
-                // =====================================
-                // FECHAR
-                // =====================================
+                // =============================================
+                // FECHAR MODAL
+                // =============================================
 
                 setTimeout(
                     () => {
@@ -5833,7 +5858,6 @@ console.log(
                     erro
                 );
 
-
                 mostrarMensagem(
                     "Não foi possível conectar ao servidor."
                 );
@@ -5847,10 +5871,7 @@ console.log(
                         loginSubmit.disabled =
                             false;
 
-                        loginSubmit.textContent =
-                            modoCadastro
-                                ? "Criar conta"
-                                : "Entrar";
+                        atualizarBotao();
 
                     },
                     700
@@ -5878,7 +5899,6 @@ console.log(
             );
 
             return;
-
         }
 
 
@@ -5899,16 +5919,11 @@ console.log(
 
         }
 
-
-        console.log(
-            "Sessão salva com sucesso."
-        );
-
     }
 
 
     // =================================================
-    // ATUALIZAR PERFIL
+    // ATUALIZAR PERFIL LOGADO
     // =================================================
 
     function atualizarPerfilLogado(
@@ -5916,13 +5931,7 @@ console.log(
     ) {
 
         if (!usuario) {
-
-            console.warn(
-                "Usuário não informado."
-            );
-
             return;
-
         }
 
 
@@ -5937,9 +5946,9 @@ console.log(
         }
 
 
-        // -----------------------------------------
+        // =============================================
         // NOME
-        // -----------------------------------------
+        // =============================================
 
         const profileName =
             profileButton.querySelector(
@@ -5957,9 +5966,9 @@ console.log(
         }
 
 
-        // -----------------------------------------
+        // =============================================
         // FOTO
-        // -----------------------------------------
+        // =============================================
 
         const profilePhoto =
             profileButton.querySelector(
@@ -5987,18 +5996,7 @@ console.log(
         }
 
 
-        // -----------------------------------------
-        // LUCIDE
-        // -----------------------------------------
-
-        if (
-            typeof lucide !==
-            "undefined"
-        ) {
-
-            lucide.createIcons();
-
-        }
+        atualizarIcones();
 
     }
 
@@ -6014,16 +6012,15 @@ console.log(
                 "token"
             );
 
-
         const usuarioSalvo =
             localStorage.getItem(
                 "usuario"
             );
 
 
-        // -----------------------------------------
+        // =============================================
         // USUÁRIO SALVO
-        // -----------------------------------------
+        // =============================================
 
         if (usuarioSalvo) {
 
@@ -6033,7 +6030,6 @@ console.log(
                     JSON.parse(
                         usuarioSalvo
                     );
-
 
                 atualizarPerfilLogado(
                     usuario
@@ -6050,50 +6046,45 @@ console.log(
         }
 
 
-        // -----------------------------------------
-        // NÃO TEM TOKEN
-        // -----------------------------------------
+        // =============================================
+        // SEM TOKEN
+        // =============================================
 
         if (!token) {
-
             return;
-
         }
 
 
-        // -----------------------------------------
+        // =============================================
         // VALIDAR JWT
-        // -----------------------------------------
+        // =============================================
 
         try {
 
             const resposta =
                 await fetch(
-                    "/api/users/me",
+                    "http://localhost:3000/api/users/me",
                     {
                         method: "GET",
 
                         headers: {
-
                             "Authorization":
                                 `Bearer ${token}`
-
                         }
 
                     }
                 );
 
 
-            // -------------------------------------
+            // =========================================
             // TOKEN INVÁLIDO
-            // -------------------------------------
+            // =========================================
 
             if (!resposta.ok) {
 
                 console.warn(
                     "Sessão expirada ou inválida."
                 );
-
 
                 localStorage.removeItem(
                     "token"
@@ -6103,29 +6094,20 @@ console.log(
                     "usuario"
                 );
 
-
                 return;
 
             }
 
 
+            // =========================================
+            // DADOS DO USUÁRIO
+            // =========================================
+
             const dados =
                 await resposta.json();
 
 
-            console.log(
-                "Sessão restaurada:",
-                dados
-            );
-
-
-            // -------------------------------------
-            // ATUALIZAR USUÁRIO
-            // -------------------------------------
-
-            if (
-                dados.usuario
-            ) {
+            if (dados.usuario) {
 
                 localStorage.setItem(
                     "usuario",
@@ -6140,6 +6122,7 @@ console.log(
                 );
 
             }
+
 
         } catch (erro) {
 
@@ -6162,3 +6145,4 @@ console.log(
     restaurarSessao();
 
 });
+

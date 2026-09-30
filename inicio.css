@@ -3679,68 +3679,78 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     width: 17px;
     height: 17px;
 }
-
 /* =====================================================
-   MODAL DE LOGIN
+   MODAL DE AUTENTICAÇÃO — PREMIUM
 ===================================================== */
 
 .login-modal {
     position: fixed;
-
     inset: 0;
+    z-index: 9999;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 20px;
+    padding: 24px;
 
-    background: rgba(0, 0, 0, 0.72);
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212, 175, 55, 0.10),
+            transparent 42%
+        ),
+        rgba(4, 5, 7, 0.78);
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    z-index: 5000;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 
     transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 .login-modal.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
+
+/* =====================================================
+   CAIXA
+===================================================== */
 
 .login-box {
     position: relative;
 
-    width: 100%;
-    max-width: 420px;
+    width: min(100%, 440px);
 
-    padding: 32px;
+    padding: 38px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(28, 28, 28, 0.98),
-            rgba(12, 12, 12, 0.98)
+            rgba(27, 28, 32, 0.98),
+            rgba(12, 13, 16, 0.98)
         );
 
-    border: 1px solid rgba(212, 175, 55, 0.28);
-
-    border-radius: 18px;
-
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.55);
+        0 30px 90px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(212, 175, 55, 0.04),
+        0 0 60px rgba(212, 175, 55, 0.05);
 
-    transform: translateY(15px) scale(0.98);
+    transform: translateY(18px) scale(0.97);
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1);
 }
 
 .login-modal.active .login-box {
@@ -3748,65 +3758,81 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
 }
 
 
+/* =====================================================
+   FECHAR
+===================================================== */
+
 .login-close {
     position: absolute;
+    top: 18px;
+    right: 18px;
 
-    top: 14px;
-    right: 14px;
-
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.04);
 
-    color: #fff;
+    color: rgba(255, 255, 255, 0.65);
 
     cursor: pointer;
 
-    transition: background 0.2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .login-close:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(212, 175, 55, 0.12);
+    color: #d4af37;
+    transform: rotate(90deg);
 }
 
-.login-close svg {
-    width: 18px;
-    height: 18px;
-}
 
+/* =====================================================
+   CABEÇALHO
+===================================================== */
 
 .login-header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-    margin-bottom: 26px;
+    margin-bottom: 30px;
 }
 
-
 .login-icon {
+    flex: 0 0 52px;
+
     width: 52px;
     height: 52px;
-
-    margin: 0 auto 14px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 16px;
 
-    background: rgba(212, 175, 55, 0.12);
-
-    border: 1px solid rgba(212, 175, 55, 0.28);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212, 175, 55, 0.16),
+            rgba(212, 175, 55, 0.04)
+        );
 
     color: #d4af37;
+
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.05),
+        0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .login-icon svg {
@@ -3814,179 +3840,359 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
     height: 23px;
 }
 
+.login-header-content {
+    min-width: 0;
+}
+
+.login-eyebrow {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    color: #d4af37;
+}
 
 .login-header h2 {
-    margin: 0 0 7px;
-
-    color: #fff;
-
-    font-size: 26px;
-}
-
-
-.login-header p {
     margin: 0;
 
-    color: rgba(255, 255, 255, 0.58);
+    font-size: 27px;
+    line-height: 1.15;
 
-    font-size: 14px;
+    font-weight: 700;
+
+    color: #ffffff;
 }
 
+.login-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, 0.52);
+}
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
 
 .login-field {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
+#registerNameField {
+    display: none;
+}
+
+#registerNameField.auth-visible {
+    display: block !important;
+}
 
 .login-field label {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    font-weight: 600;
 
-    font-size: 13px;
+    color: rgba(255, 255, 255, 0.72);
 }
 
+.login-input-wrapper {
+    position: relative;
 
-.login-field input {
+    display: flex;
+    align-items: center;
+}
+
+.login-input-wrapper > svg {
+    position: absolute;
+    left: 15px;
+
+    width: 17px;
+    height: 17px;
+
+    color: rgba(255, 255, 255, 0.34);
+
+    pointer-events: none;
+
+    transition: color 0.2s ease;
+}
+
+.login-input-wrapper input {
     width: 100%;
 
-    box-sizing: border-box;
+    height: 52px;
 
-    padding: 13px 14px;
+    padding: 0 16px 0 45px;
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.055);
+    background: rgba(255, 255, 255, 0.045);
 
-    color: #fff;
+    color: #ffffff;
 
     font-family: inherit;
     font-size: 14px;
 
     transition:
         border-color 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.login-field input:focus {
-    border-color: rgba(212, 175, 55, 0.65);
-
-    background: rgba(255, 255, 255, 0.075);
+.login-input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.28);
 }
 
-.login-field input::placeholder {
-    color: rgba(255, 255, 255, 0.35);
+.login-input-wrapper input:focus {
+    border-color: rgba(212, 175, 55, 0.55);
+
+    background: rgba(255, 255, 255, 0.065);
+
+    box-shadow:
+        0 0 0 4px rgba(212, 175, 55, 0.07);
 }
 
+.login-input-wrapper:focus-within > svg {
+    color: #d4af37;
+}
+
+.login-hint {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.32);
+}
+
+
+/* =====================================================
+   MENSAGEM
+===================================================== */
 
 .login-message {
     min-height: 20px;
 
-    margin: 4px 0 12px;
+    margin: 4px 0 10px;
 
-    color: #ff7676;
+    font-size: 12px;
+    line-height: 1.4;
 
     text-align: center;
-
-    font-size: 13px;
 }
 
 
+/* =====================================================
+   BOTÃO PRINCIPAL
+===================================================== */
+
 .login-submit {
     width: 100%;
+    min-height: 54px;
 
-    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
-    border: none;
+    margin-top: 8px;
 
-    border-radius: 9px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 15px;
 
-    background: #d4af37;
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #b88a20
+        );
 
-    color: #111;
+    color: #111111;
 
     font-family: inherit;
-
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
 
     cursor: pointer;
 
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.16);
+
     transition:
         transform 0.2s ease,
+        box-shadow 0.2s ease,
         filter 0.2s ease;
 }
 
 .login-submit:hover {
-    filter: brightness(1.08);
+    transform: translateY(-2px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 16px 38px rgba(212, 175, 55, 0.24);
 }
 
 .login-submit:active {
-    transform: scale(0.98);
+    transform: translateY(0);
 }
 
 .login-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
 }
 
-
-/* MOBILE */
-
-@media (max-width: 500px) {
-
-    .login-box {
-        padding: 26px 20px;
-        border-radius: 15px;
-    }
-
-    .login-header h2 {
-        font-size: 23px;
-    }
-
+.login-submit-icon {
+    width: 17px;
+    height: 17px;
 }
+
 
 /* =====================================================
-   ALTERNADOR LOGIN / CADASTRO
+   DIVISOR
+===================================================== */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 24px 0 20px;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-size: 11px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+
+/* =====================================================
+   ALTERNAR LOGIN / CADASTRO
 ===================================================== */
 
 .auth-switch {
-    margin-top: 20px;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-
     text-align: center;
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .auth-switch button {
     padding: 0;
 
-    border: none;
+    border: 0;
+
     background: transparent;
 
     color: #d4af37;
 
     font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: inherit;
+    font-weight: 700;
 
     cursor: pointer;
-
-    transition: opacity 0.2s ease;
 }
 
 .auth-switch button:hover {
-    opacity: 0.75;
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   SEGURANÇA
+===================================================== */
+
+.login-security {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    margin-top: 22px;
+
+    font-size: 10px;
+
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.login-security svg {
+    width: 13px;
+    height: 13px;
+
+    color: rgba(212, 175, 55, 0.6);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 520px) {
+
+    .login-modal {
+        padding: 16px;
+    }
+
+    .login-box {
+        padding: 30px 22px;
+
+        border-radius: 23px;
+    }
+
+    .login-header {
+        margin-bottom: 24px;
+    }
+
+    .login-header h2 {
+        font-size: 24px;
+    }
+
+    .login-header p {
+        font-size: 12px;
+    }
+
+    .login-icon {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+    }
+
+    .login-input-wrapper input {
+        height: 50px;
+    }
+
+    .login-submit {
+        min-height: 52px;
+    }
+
 }
