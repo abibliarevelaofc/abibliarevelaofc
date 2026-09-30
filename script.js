@@ -5362,8 +5362,11 @@ document.addEventListener("DOMContentLoaded", () => {
             authSubtitle.textContent =
                 "Crie sua conta para participar.";
 
-            registerNameField.style.display =
-                "block";
+            registerNameField.style.setProperty(
+    "display",
+    "block",
+    "important"
+);
 
             registerNome.required =
                 true;
@@ -5395,9 +5398,11 @@ document.addEventListener("DOMContentLoaded", () => {
             authSubtitle.textContent =
                 "Entre na sua conta para continuar.";
 
-            registerNameField.style.display =
-                "none";
-
+           registerNameField.style.setProperty(
+    "display",
+    "none",
+    "important"
+);
             registerNome.required =
                 false;
 
@@ -5478,6 +5483,11 @@ document.addEventListener("DOMContentLoaded", () => {
         async (event) => {
 
             event.preventDefault();
+
+console.log(
+    "FORMULÁRIO ENVIADO",
+    modoCadastro ? "CADASTRO" : "LOGIN"
+);
 
             limparMensagem();
 
