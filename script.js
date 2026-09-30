@@ -5352,41 +5352,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (modoCadastro) {
 
-            // -----------------------------------------
-            // CADASTRO
-            // -----------------------------------------
+    if (!dados.token) {
+        mostrarMensagem(
+            dados.mensagem ||
+            "Conta criada, mas o servidor não retornou o token."
+        );
+        return;
+    }
 
-            authTitle.textContent =
-                "Criar conta";
+    salvarSessao(
+        dados.token,
+        dados.usuario
+    );
 
-            authSubtitle.textContent =
-                "Crie sua conta para participar.";
+    mostrarMensagem(
+        "Conta criada com sucesso!",
+        true
+    );
 
-            registerNameField.style.setProperty(
-    "display",
-    "block",
-    "important"
-);
+    setTimeout(() => {
+        fecharModal();
 
-            registerNome.required =
-                true;
+        atualizarPerfilLogado(
+            dados.usuario
+        );
 
-            loginSubmit.textContent =
-                "Criar conta";
+    }, 700);
 
-            authSwitchText.textContent =
-                "Já possui uma conta?";
-
-            authSwitchButton.textContent =
-                "Entrar";
-
-            loginSenha.setAttribute(
-                "autocomplete",
-                "new-password"
-            );
-
-
-        } else {
+    return;
+        
 
             // -----------------------------------------
             // LOGIN
