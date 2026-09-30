@@ -1890,8 +1890,4 @@ app.get("/api/status", (req, res) => {
 /* =========================================
    INICIAR SERVIDOR
 ========================================= */
-
-app.listen(PORT, () => {
-    console.log(`Backend rodando na porta ${PORT}`);
-});
-
+module.exports = app;
