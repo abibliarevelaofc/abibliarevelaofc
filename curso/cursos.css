@@ -1729,10 +1729,9 @@ body.course-open #cursosView .course-final-highlight {
 
 
     body.course-open #cursosView {
-
-        padding:
-            65px 15px 90px !important;
-    }
+    padding:
+        5px 15px 90px !important;
+}
 
 
     .course-header {
@@ -2287,4 +2286,11 @@ body.course-open #cursosView .course-final-highlight {
     margin-bottom: 0;
 }
 
+.course-container {
+    padding-top: 20px;
+}
+
+.course-header {
+    margin-top: 0;
+}
 }
