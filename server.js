@@ -185,6 +185,19 @@ app.get("/", (req, res) => {
 
 });
 
+
+app.get("/curso/", (req, res) => {
+
+    res.sendFile(
+        path.join(
+            pastaSite,
+            "curso",
+            "index.html"
+        )
+    );
+
+});
+
 // =====================================================
 // CONTADOR DO YOUTUBE
 // =====================================================
