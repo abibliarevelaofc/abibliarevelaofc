@@ -68,12 +68,20 @@
             class="course-video-player"
             id="courseVideo"
             src="./jabarcurso.mp4"
+            poster="./capacurso.png"
             controls
             playsinline
             preload="metadata"
         >
             Seu navegador não suporta reprodução de vídeo.
         </video>
+
+        <img
+            class="course-video-cover"
+            id="courseVideoCover"
+            src="./capacurso.png"
+            alt="Capa do Curso Criador PRO"
+        >
 
     </div>
 
@@ -175,7 +183,7 @@
 
     <span>
         <strong>Bônus exclusivo</strong>
-        Crie seu canal do zero comigo e aprenda passo a passo como começar, mesmo que você ainda não saiba por onde começar.
+        Crie seu canal do zero comigo e aprenda passo a passo como começar.
     </span>
 
 </div>
@@ -514,8 +522,53 @@
 
 </section>
 
+<script>
+    const courseVideo = document.getElementById("courseVideo");
+    const courseVideoCover = document.getElementById("courseVideoCover");
+
+    // Mostra a capa
+    function mostrarCapa() {
+        courseVideoCover.style.display = "block";
+    }
+
+    // Esconde a capa
+    function esconderCapa() {
+        courseVideoCover.style.display = "none";
+    }
+
+    // Clicou na capa
+    courseVideoCover.addEventListener("click", () => {
+        esconderCapa();
+        courseVideo.play();
+    });
+
+    // Quando pausa: mostra a capa,
+    // mas NÃO altera o ponto do vídeo
+    courseVideo.addEventListener("pause", () => {
+        if (!courseVideo.ended) {
+            mostrarCapa();
+        }
+    });
+
+    // Quando começa/recomeça
+    courseVideo.addEventListener("play", () => {
+        esconderCapa();
+    });
+
+    // Quando termina: volta para o início
+    // e mostra novamente a capa
+    courseVideo.addEventListener("ended", () => {
+        courseVideo.currentTime = 0;
+        mostrarCapa();
+    });
+
+    // Começa mostrando a capa
+    mostrarCapa();
+</script>
+
 
 </body>
+
 
 </html>
 
