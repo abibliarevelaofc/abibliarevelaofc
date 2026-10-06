@@ -1,8 +1,31 @@
-
 /* =====================================================
    CURSOS — A BÍBLIA REVELA
-   TELA COMPLETA / CURSO CRIADOR PRO
+   CURSO CRIADOR PRO — LANDING PAGE PREMIUM
 ===================================================== */
+
+
+/* =====================================================
+   VARIÁVEIS LOCAIS
+===================================================== */
+
+:root {
+    --course-gold: #d4af37;
+    --course-gold-light: #f0d878;
+    --course-gold-dark: #9c7822;
+
+    --course-bg: #050505;
+    --course-bg-2: #090909;
+
+    --course-white: #ffffff;
+    --course-text: rgba(255,255,255,.72);
+    --course-muted: rgba(255,255,255,.42);
+    --course-faint: rgba(255,255,255,.20);
+
+    --course-border: rgba(255,255,255,.08);
+    --course-border-gold: rgba(212,175,55,.25);
+
+    --course-radius: 24px;
+}
 
 
 /* =====================================================
@@ -10,20 +33,30 @@
 ===================================================== */
 
 .course-view {
+
     position: relative;
+
     z-index: 9999;
 
     width: 100%;
+
     min-height: 100vh;
 
-    padding: 110px 6% 100px;
+    padding: 100px 6% 120px;
 
     display: none;
 
     overflow: hidden;
 
-    color: #fff;
-    background: #080808;
+    color: var(--course-white);
+
+    background:
+        linear-gradient(
+            180deg,
+            #030303 0%,
+            #080808 45%,
+            #040404 100%
+        );
 
     isolation: isolate;
 }
@@ -43,7 +76,9 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-bg {
+
     position: absolute;
+
     inset: 0;
 
     width: 100%;
@@ -54,22 +89,29 @@ body.course-open #cursosView {
     pointer-events: none;
 
     background:
+
         radial-gradient(
-            circle at 50% 5%,
-            rgba(212,175,55,.12),
-            transparent 35%
+            circle at 50% 0%,
+            rgba(212,175,55,.13),
+            transparent 30%
         ),
 
         radial-gradient(
-            circle at 0% 60%,
+            circle at 10% 30%,
             rgba(255,255,255,.025),
-            transparent 35%
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 65%,
+            rgba(212,175,55,.035),
+            transparent 32%
         ),
 
         linear-gradient(
             180deg,
-            #050505 0%,
-            #090909 55%,
+            #030303 0%,
+            #090909 50%,
             #040404 100%
         );
 }
@@ -79,7 +121,43 @@ body.course-open #cursosView {
    BRILHO SUPERIOR
 ===================================================== */
 
+.course-view::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 900px;
+    height: 500px;
+
+    top: -300px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(212,175,55,.13),
+            transparent 70%
+        );
+
+    filter: blur(50px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   BRILHO INFERIOR
+===================================================== */
+
 .course-view::after {
+
     content: "";
 
     position: absolute;
@@ -87,16 +165,19 @@ body.course-open #cursosView {
     width: 700px;
     height: 700px;
 
-    top: -350px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: rgba(212,175,55,.055);
-
-    filter: blur(120px);
+    right: -350px;
+    bottom: -350px;
 
     border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.055),
+            transparent 70%
+        );
+
+    filter: blur(70px);
 
     pointer-events: none;
 
@@ -109,16 +190,16 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-container {
+
     position: relative;
 
     z-index: 10;
 
     width: 100%;
-    max-width: 1150px;
+
+    max-width: 1180px;
 
     margin: 0 auto;
-
-    display: block;
 
     visibility: visible;
     opacity: 1;
@@ -130,68 +211,205 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-header {
-    max-width: 750px;
+
+    position: relative;
+
+    max-width: 850px;
 
     margin: 0 auto 55px;
 
     text-align: center;
+
+    z-index: 20;
 }
+
+
+/* =====================================================
+   PEQUENO LABEL
+===================================================== */
 
 .course-label {
-    display: block;
 
-    margin-bottom: 18px;
+    display: inline-flex;
 
-    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(212,175,55,.22);
+
+    border-radius: 50px;
+
+    background:
+        rgba(212,175,55,.045);
+
+    box-shadow:
+        inset 0 0 20px rgba(212,175,55,.025);
+
+    font-size: 9px;
+
     font-weight: 800;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    color: rgba(255,255,255,.50);
+    color:
+        rgba(255,255,255,.62);
 }
 
+
+/* =====================================================
+   TÍTULO PRINCIPAL
+===================================================== */
+
 .course-header h1 {
+
     margin: 0;
 
-    font-size: clamp(45px, 6vw, 78px);
+    font-size:
+        clamp(44px, 6vw, 78px);
 
-    line-height: .98;
+    line-height: .95;
 
     font-weight: 300;
 
-    letter-spacing: -3px;
+    letter-spacing: -4px;
 
     color: #fff;
+
+    text-wrap: balance;
 }
 
+
 .course-header h1 strong {
+
     display: block;
 
-    font-weight: 800;
+    font-weight: 850;
 
     background:
         linear-gradient(
-            90deg,
-            #fff 0%,
-            #d4af37 50%,
-            #fff 100%
+            100deg,
+            #ffffff 0%,
+            #f0d878 35%,
+            #d4af37 55%,
+            #ffffff 100%
         );
 
     -webkit-background-clip: text;
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
+
+    background-size: 200% auto;
+
+    animation:
+        courseGoldFlow 7s linear infinite;
 }
 
-.course-header p {
-    max-width: 580px;
 
-    margin: 24px auto 0;
+@keyframes courseGoldFlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+
+/* =====================================================
+   DESCRIÇÃO DO TOPO
+===================================================== */
+
+.course-header p {
+
+    max-width: 650px;
+
+    margin: 25px auto 0;
 
     font-size: 14px;
-    line-height: 1.7;
 
-    color: rgba(255,255,255,.52);
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,.50);
+
+    text-wrap: balance;
+}
+
+
+/* =====================================================
+   VÍDEO — VERTICAL 9:16
+===================================================== */
+
+.course-video-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 1px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(240,216,120,.65),
+            rgba(255,255,255,.08) 35%,
+            rgba(212,175,55,.20) 70%,
+            rgba(255,255,255,.04)
+        );
+
+    box-shadow:
+
+        0 45px 120px rgba(0,0,0,.72),
+
+        0 0 80px rgba(212,175,55,.07);
+
+    z-index: 20;
+}
+
+
+/* =====================================================
+   BRILHO AO REDOR DO VÍDEO
+===================================================== */
+
+.course-video-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -35px;
+
+    border-radius: 45px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(212,175,55,.10),
+            transparent 65%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
 
@@ -199,50 +417,27 @@ body.course-open #cursosView {
    VÍDEO
 ===================================================== */
 
-.course-video-wrapper {
-    position: relative;
-
-    width: 100%;
-    max-width: 950px;
-
-    margin: 0 auto;
-
-    padding: 1px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(212,175,55,.45),
-            rgba(255,255,255,.08),
-            rgba(212,175,55,.20)
-        );
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.55);
-
-    z-index: 20;
-}
-
 .course-video {
+
     position: relative;
 
     width: 100%;
 
-    aspect-ratio: 16 / 8.3;
+    aspect-ratio: 9 / 16;
 
     overflow: hidden;
 
-    border-radius: 23px;
+    border-radius: 25px;
 
     background:
+
         radial-gradient(
             circle at center,
             rgba(212,175,55,.12),
-            transparent 55%
+            transparent 50%
         ),
-        #0b0b0b;
+
+        #080808;
 
     z-index: 20;
 }
@@ -253,6 +448,7 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-video-placeholder {
+
     position: absolute;
 
     inset: 0;
@@ -270,82 +466,104 @@ body.course-open #cursosView {
     gap: 12px;
 
     background:
+
         linear-gradient(
-            135deg,
+            145deg,
             rgba(255,255,255,.035),
-            rgba(0,0,0,.20)
+            rgba(0,0,0,.30)
         );
 
-    color: rgba(255,255,255,.45);
+    color:
+        rgba(255,255,255,.45);
 }
 
+
 .course-video-placeholder::before {
+
     content: "";
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 230px;
+    height: 230px;
 
     border-radius: 50%;
 
-    background: rgba(212,175,55,.08);
+    background:
+        rgba(212,175,55,.08);
 
-    filter: blur(50px);
+    filter: blur(60px);
 }
 
+
 .course-video-placeholder i {
+
     position: relative;
 
     z-index: 2;
 
-    width: 64px;
-    height: 64px;
+    width: 68px;
+    height: 68px;
 
-    padding: 20px;
+    padding: 21px;
 
     border-radius: 50%;
 
     color: #080808;
 
-    background: #d4af37;
+    background:
+        linear-gradient(
+            145deg,
+            #f0d878,
+            #b48d2d
+        );
 
     box-shadow:
-        0 10px 45px rgba(212,175,55,.25);
+        0 15px 55px rgba(212,175,55,.30);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+        transform .35s ease,
+        box-shadow .35s ease;
 }
+
 
 .course-video-placeholder:hover i {
-    transform: scale(1.08);
+
+    transform:
+        scale(1.08);
 
     box-shadow:
-        0 15px 55px rgba(212,175,55,.40);
+        0 20px 70px rgba(212,175,55,.45);
 }
 
+
 .course-video-placeholder span {
+
     position: relative;
 
     z-index: 2;
 
     font-size: 10px;
+
     font-weight: 800;
 
     letter-spacing: 3px;
 
-    color: rgba(255,255,255,.65);
+    color:
+        rgba(255,255,255,.65);
 }
 
+
 .course-video-placeholder small {
+
     position: relative;
 
     z-index: 2;
 
     font-size: 11px;
 
-    color: rgba(255,255,255,.30);
+    color:
+        rgba(255,255,255,.28);
 }
 
 
@@ -354,13 +572,14 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-info {
+
     position: relative;
 
     z-index: 20;
 
     max-width: 950px;
 
-    margin: 65px auto 0;
+    margin: 75px auto 0;
 
     visibility: visible;
     opacity: 1;
@@ -372,48 +591,66 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-category {
-    display: block;
 
-    margin-bottom: 14px;
+    display: inline-flex;
 
-    font-size: 9px;
+    margin-bottom: 15px;
+
+    padding: 7px 12px;
+
+    border:
+        1px solid rgba(212,175,55,.18);
+
+    border-radius: 50px;
+
+    background:
+        rgba(212,175,55,.035);
+
+    font-size: 8px;
+
     font-weight: 800;
 
     letter-spacing: 3px;
 
-    color: rgba(255,255,255,.40);
+    color:
+        rgba(255,255,255,.45);
 }
 
 
 /* =====================================================
-   TÍTULO
+   TÍTULO DA INFORMAÇÃO
 ===================================================== */
 
 .course-info h2 {
+
     margin: 0;
 
-    font-size: clamp(32px, 5vw, 52px);
+    font-size:
+        clamp(32px, 5vw, 55px);
 
-    line-height: 1.05;
+    line-height: 1.02;
 
     font-weight: 300;
 
-    letter-spacing: -2px;
+    letter-spacing: -2.5px;
 
     color: #fff;
 }
 
+
 .course-info h2 strong {
-    font-weight: 800;
+
+    font-weight: 850;
 
     background:
         linear-gradient(
             90deg,
-            #fff,
+            #ffffff,
             #d4af37
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
@@ -425,15 +662,17 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-description {
+
     max-width: 780px;
 
     margin: 22px 0 0;
 
     font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 
-    color: rgba(255,255,255,.52);
+    color:
+        rgba(255,255,255,.50);
 }
 
 
@@ -442,6 +681,7 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-benefits {
+
     position: relative;
 
     z-index: 20;
@@ -451,15 +691,17 @@ body.course-open #cursosView {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 12px;
+    gap: 13px;
 
-    margin-top: 35px;
+    margin-top: 38px;
 
     visibility: visible;
     opacity: 1;
 }
 
+
 .course-benefit {
+
     position: relative;
 
     z-index: 20;
@@ -468,60 +710,89 @@ body.course-open #cursosView {
 
     align-items: center;
 
-    gap: 11px;
+    gap: 12px;
 
-    min-height: 65px;
+    min-height: 70px;
 
-    padding: 15px;
+    padding: 17px;
 
     border:
-        1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.075);
 
-    border-radius: 12px;
+    border-radius: 15px;
 
     background:
-        rgba(255,255,255,.025);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
 
     transition:
-        border-color .3s ease,
         transform .3s ease,
-        background .3s ease;
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 
     visibility: visible;
     opacity: 1;
 }
 
+
 .course-benefit:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-4px);
 
     border-color:
-        rgba(212,175,55,.25);
+        rgba(212,175,55,.28);
 
     background:
-        rgba(212,175,55,.035);
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.065),
+            rgba(255,255,255,.015)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.25);
 }
 
+
 .course-benefit i {
+
     flex-shrink: 0;
 
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
 
     padding: 4px;
 
     border-radius: 50%;
 
-    background: #d4af37;
+    background:
+        linear-gradient(
+            135deg,
+            #f0d878,
+            #b48d2d
+        );
 
-    color: #050505;
+    color:
+        #050505;
 }
 
+
 .course-benefit span {
+
     font-size: 11px;
 
-    line-height: 1.4;
+    line-height: 1.45;
 
-    color: rgba(255,255,255,.62);
+    color:
+        rgba(255,255,255,.62);
 }
 
 
@@ -530,6 +801,7 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-purchase {
+
     position: relative;
 
     z-index: 20;
@@ -544,7 +816,7 @@ body.course-open #cursosView {
 
     margin-top: 45px;
 
-    padding-top: 30px;
+    padding: 28px 0 0;
 
     border-top:
         1px solid rgba(255,255,255,.08);
@@ -559,6 +831,7 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-price {
+
     display: flex;
 
     flex-direction: column;
@@ -566,24 +839,40 @@ body.course-open #cursosView {
     gap: 7px;
 }
 
+
 .course-price small {
+
     font-size: 8px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    color: rgba(255,255,255,.35);
+    color:
+        rgba(255,255,255,.35);
 }
 
+
 .course-price strong {
-    font-size: 30px;
+
+    font-size: 32px;
 
     line-height: 1;
 
-    font-weight: 800;
+    font-weight: 850;
 
-    color: #d4af37;
+    background:
+        linear-gradient(
+            90deg,
+            #f0d878,
+            #d4af37
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -592,7 +881,12 @@ body.course-open #cursosView {
 ===================================================== */
 
 .course-buy {
-    min-width: 230px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-width: 245px;
 
     display: flex;
 
@@ -602,18 +896,19 @@ body.course-open #cursosView {
 
     gap: 10px;
 
-    padding: 17px 28px;
+    padding: 18px 30px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     background:
         linear-gradient(
             135deg,
-            #e0c15c,
+            #f0d878,
             #b18c32
         );
 
-    color: #050505;
+    color:
+        #050505;
 
     text-decoration: none;
 
@@ -624,73 +919,139 @@ body.course-open #cursosView {
     letter-spacing: 1.8px;
 
     box-shadow:
-        0 12px 35px rgba(212,175,55,.12);
+        0 15px 40px rgba(212,175,55,.16);
 
     transition:
         transform .3s ease,
         box-shadow .3s ease;
 }
 
-.course-buy:hover {
-    transform: translateY(-4px);
 
-    box-shadow:
-        0 18px 45px rgba(212,175,55,.25);
+.course-buy::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .7s ease;
 }
 
+
+.course-buy:hover::before {
+    left: 140%;
+}
+
+
+.course-buy:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 55px rgba(212,175,55,.28);
+}
+
+
 .course-buy i {
+
     width: 16px;
     height: 16px;
 }
 
 
 /* =====================================================
-   DESTAQUE FINAL
+   =====================================================
+   CARROSSEL — RESULTADOS / PRINTS
+   =====================================================
 ===================================================== */
 
-.course-final-highlight {
+
+/* =====================================================
+   ÁREA GERAL
+===================================================== */
+
+.course-results {
+
     position: relative;
 
     z-index: 20;
 
-    margin-top: 80px;
+    width: 100%;
 
-    padding: 60px 30px;
+    margin-top: 105px;
 
-    text-align: center;
+    padding-top: 70px;
 
     border-top:
         1px solid rgba(255,255,255,.06);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.06);
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.015),
-            rgba(212,175,55,.025)
-        );
 }
 
-.course-final-highlight span {
+
+/* =====================================================
+   CABEÇALHO DO CARROSSEL
+===================================================== */
+
+.course-results-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.course-results-title {
+
+    max-width: 650px;
+}
+
+
+.course-results-label {
+
     display: block;
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 
-    font-size: 9px;
+    font-size: 8px;
 
     font-weight: 800;
 
     letter-spacing: 3px;
 
-    color: rgba(255,255,255,.35);
+    color:
+        rgba(212,175,55,.70);
 }
 
-.course-final-highlight h1 {
+
+.course-results-title h2 {
+
     margin: 0;
 
-    font-size: clamp(32px, 5vw, 58px);
+    font-size:
+        clamp(30px, 4vw, 48px);
 
     line-height: 1;
 
@@ -701,289 +1062,520 @@ body.course-open #cursosView {
     color: #fff;
 }
 
-.course-final-highlight h1 strong {
+
+.course-results-title h2 strong {
+
     font-weight: 800;
 
-    color: #d4af37;
+    color:
+        #d4af37;
 }
 
+
+.course-results-title p {
+
+    max-width: 600px;
+
+    margin: 15px 0 0;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.40);
+}
+
+
+/* =====================================================
+   SETAS
+===================================================== */
+
+.course-carousel-controls {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+.course-carousel-arrow {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:
+        rgba(255,255,255,.65);
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+
+.course-carousel-arrow:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    background:
+        rgba(212,175,55,.07);
+
+    color:
+        #d4af37;
+}
+
+
+.course-carousel-arrow:active {
+
+    transform:
+        scale(.94);
+}
+
+
+.course-carousel-arrow i {
+
+    width: 18px;
+    height: 18px;
+}
+
+
+/* =====================================================
+   JANELA DO CARROSSEL
+===================================================== */
+
+.course-carousel {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 10px 2px 25px;
+}
+
+
+/* =====================================================
+   TRILHO
+===================================================== */
+
+.course-carousel-track {
+
+    display: flex;
+
+    gap: 18px;
+
+    width: max-content;
+
+    transform:
+        translateX(0);
+
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1);
+
+    will-change:
+        transform;
+}
+
+
+/* =====================================================
+   CARD DO PRINT
+===================================================== */
+
+.course-result-card {
+
+    position: relative;
+
+    flex:
+        0 0 300px;
+
+    width: 300px;
+
+    min-height: 390px;
+
+    padding: 8px;
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.012)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+
+        inset 0 1px 0
+        rgba(255,255,255,.04);
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+
+.course-result-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(212,175,55,.28);
+}
+
+
+/* =====================================================
+   ÁREA DA IMAGEM
+===================================================== */
+
+.course-result-image {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 374px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+        #111;
+}
+
+
+.course-result-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 374px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.course-result-card:hover
+.course-result-image img {
+
+    transform:
+        scale(1.025);
+}
+
+
+/* =====================================================
+   BRILHO SOBRE IMAGEM
+===================================================== */
+
+.course-result-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02),
+            transparent 55%,
+            rgba(0,0,0,.30)
+        );
+}
+
+
+/* =====================================================
+   NÚMERO DO RESULTADO
+===================================================== */
+
+.course-result-number {
+
+    position: absolute;
+
+    top: 16px;
+    left: 16px;
+
+    z-index: 5;
+
+    min-width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 9px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 50px;
+
+    background:
+        rgba(0,0,0,.55);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    color:
+        #d4af37;
+}
+
+
+/* =====================================================
+   LEGENDA DO CARD
+===================================================== */
+
+.course-result-caption {
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+
+    z-index: 5;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,0,0,.58);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+.course-result-caption span {
+
+    font-size: 9px;
+
+    line-height: 1.4;
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.course-carousel-dots {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 2px;
+}
+
+
+.course-carousel-dot {
+
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.20);
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+}
+
+
+.course-carousel-dot.active {
+
+    width: 22px;
+
+    border-radius: 20px;
+
+    background:
+        #d4af37;
+}
+
+
+/* =====================================================
+   DESTAQUE FINAL
+===================================================== */
+
+.course-final-highlight {
+
+    position: relative;
+
+    z-index: 20;
+
+    margin-top: 105px;
+
+    padding: 80px 30px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(212,175,55,.055),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.012),
+            rgba(212,175,55,.018)
+        );
+}
+
+
+.course-final-highlight span {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.35);
+}
+
+
+.course-final-highlight h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(34px, 5vw, 60px);
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    letter-spacing: -2px;
+
+    color: #fff;
+}
+
+
+.course-final-highlight h1 strong {
+
+    font-weight: 850;
+
+    color:
+        #d4af37;
+}
+
+
 .course-final-highlight p {
+
     max-width: 650px;
 
     margin: 20px auto 0;
 
     font-size: 13px;
 
-    line-height: 1.7;
-
-    color: rgba(255,255,255,.45);
-}
-
-
-/* =====================================================
-   BOTÃO VOLTAR
-===================================================== */
-
-.course-back {
-    position: relative;
-
-    z-index: 30;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 9px;
-
-    margin: 55px auto 0;
-
-    padding: 13px 22px;
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    border-radius: 50px;
-
-    background:
-        rgba(255,255,255,.035);
+    line-height: 1.8;
 
     color:
-        rgba(255,255,255,.60);
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease,
-        color .3s ease;
+        rgba(255,255,255,.43);
 }
 
-.course-back:hover {
-    transform: translateY(-2px);
-
-    border-color:
-        rgba(212,175,55,.35);
-
-    background:
-        rgba(212,175,55,.06);
-
-    color: #d4af37;
-}
-
-.course-back i {
-    width: 15px;
-    height: 15px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .course-view {
-        padding: 80px 25px 100px;
-    }
-
-    .course-header {
-        margin-bottom: 40px;
-    }
-
-    .course-benefits {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 650px) {
-
-    .course-view {
-        padding: 70px 15px 90px;
-    }
-
-    .course-header {
-        margin-bottom: 30px;
-    }
-
-    .course-label {
-        font-size: 8px;
-        letter-spacing: 2.5px;
-    }
-
-    .course-header h1 {
-        font-size: 48px;
-        letter-spacing: -2px;
-    }
-
-    .course-header p {
-        margin-top: 20px;
-
-        font-size: 12px;
-
-        line-height: 1.6;
-    }
-
-    .course-video-wrapper {
-        max-width: 100%;
-
-        border-radius: 17px;
-    }
-
-    .course-video {
-        aspect-ratio: 16 / 9;
-
-        border-radius: 16px;
-    }
-
-    .course-video-placeholder i {
-        width: 54px;
-        height: 54px;
-
-        padding: 17px;
-    }
-
-    .course-video-placeholder span {
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-    .course-video-placeholder small {
-        font-size: 9px;
-    }
-
-    .course-info {
-        margin-top: 40px;
-    }
-
-    .course-category {
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-    .course-info h2 {
-        font-size: 31px;
-
-        letter-spacing: -1px;
-    }
-
-    .course-description {
-        margin-top: 18px;
-
-        font-size: 12px;
-
-        line-height: 1.7;
-    }
-
-    .course-benefits {
-        margin-top: 25px;
-
-        gap: 8px;
-    }
-
-    .course-benefit {
-        min-height: 58px;
-
-        padding: 12px;
-    }
-
-    .course-benefit span {
-        font-size: 10px;
-    }
-
-    .course-purchase {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 20px;
-
-        margin-top: 35px;
-
-        padding-top: 25px;
-    }
-
-    .course-price {
-        align-items: center;
-    }
-
-    .course-price strong {
-        font-size: 28px;
-    }
-
-    .course-buy {
-        width: 100%;
-
-        min-width: 0;
-
-        padding: 16px 20px;
-    }
-
-    .course-final-highlight {
-        margin-top: 55px;
-
-        padding: 45px 20px;
-    }
-
-    .course-final-highlight h1 {
-        font-size: 35px;
-    }
-
-    .course-final-highlight p {
-        font-size: 11px;
-    }
-
-    .course-back {
-        width: 100%;
-
-        margin-top: 40px;
-    }
-}
-
-
-/* =====================================================
-   MOBILE MUITO PEQUENO
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .course-header h1 {
-        font-size: 43px;
-    }
-
-    .course-info h2 {
-        font-size: 28px;
-    }
-
-    .course-final-highlight h1 {
-        font-size: 31px;
-    }
-}
 
 /* =====================================================
    CURSO — TELA SOBREPOSTA AO SITE
 ===================================================== */
 
 body.course-open {
+
     overflow: hidden !important;
 }
 
+
+/* =====================================================
+   OVERLAY PRINCIPAL
+===================================================== */
+
 body.course-open #cursosView {
+
     position: fixed !important;
 
     top: 0 !important;
@@ -998,27 +1590,36 @@ body.course-open #cursosView {
 
     margin: 0 !important;
 
-    padding: 110px 6% 100px !important;
+    padding:
+        100px 6% 120px !important;
 
     overflow-x: hidden !important;
+
     overflow-y: auto !important;
 
     display: block !important;
 
     visibility: visible !important;
+
     opacity: 1 !important;
 
-    background: #080808 !important;
+    background:
+        #050505 !important;
 
-    z-index: 2147483647 !important;
+    z-index:
+        2147483647 !important;
 
-    isolation: isolate !important;
+    isolation:
+        isolate !important;
 }
 
 
-/* Fundo do curso */
+/* =====================================================
+   FUNDO DO CURSO
+===================================================== */
 
 body.course-open #cursosView .course-bg {
+
     position: absolute !important;
 
     inset: 0 !important;
@@ -1030,19 +1631,25 @@ body.course-open #cursosView .course-bg {
 }
 
 
-/* Conteúdo do curso */
+/* =====================================================
+   CONTEÚDO
+===================================================== */
 
 body.course-open #cursosView .course-container {
+
     position: relative !important;
 
     z-index: 10 !important;
 
     visibility: visible !important;
+
     opacity: 1 !important;
 }
 
 
-/* Elementos internos */
+/* =====================================================
+   ELEMENTOS INTERNOS
+===================================================== */
 
 body.course-open #cursosView .course-video-wrapper,
 body.course-open #cursosView .course-video,
@@ -1051,10 +1658,451 @@ body.course-open #cursosView .course-info,
 body.course-open #cursosView .course-benefits,
 body.course-open #cursosView .course-benefit,
 body.course-open #cursosView .course-purchase,
-body.course-open #cursosView .course-final-highlight,
-body.course-open #cursosView .course-back {
+body.course-open #cursosView .course-results,
+body.course-open #cursosView .course-result-card,
+body.course-open #cursosView .course-final-highlight {
 
     visibility: visible !important;
 
     opacity: 1 !important;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .course-view {
+
+        padding:
+            80px 25px 100px;
+    }
+
+
+    .course-header {
+
+        margin-bottom: 45px;
+    }
+
+
+    .course-benefits {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .course-results {
+
+        margin-top: 85px;
+    }
+
+
+    .course-results-header {
+
+        align-items: flex-start;
+    }
+
+
+    .course-result-card {
+
+        flex-basis: 280px;
+
+        width: 280px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .course-view {
+
+        padding:
+            65px 15px 90px;
+    }
+
+
+    body.course-open #cursosView {
+
+        padding:
+            65px 15px 90px !important;
+    }
+
+
+    .course-header {
+
+        margin-bottom: 35px;
+    }
+
+
+    .course-label {
+
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+
+        padding:
+            7px 12px;
+    }
+
+
+    .course-header h1 {
+
+        font-size: 47px;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .course-header p {
+
+        margin-top: 20px;
+
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       VÍDEO MOBILE
+    ========================= */
+
+    .course-video-wrapper {
+
+        max-width: 360px;
+
+        border-radius: 21px;
+    }
+
+
+    .course-video {
+
+        border-radius: 20px;
+
+        aspect-ratio:
+            9 / 16;
+    }
+
+
+    .course-video-placeholder i {
+
+        width: 56px;
+        height: 56px;
+
+        padding: 17px;
+    }
+
+
+    .course-video-placeholder span {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .course-video-placeholder small {
+
+        font-size: 9px;
+    }
+
+
+    /* =========================
+       INFORMAÇÕES
+    ========================= */
+
+    .course-info {
+
+        margin-top: 48px;
+    }
+
+
+    .course-category {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .course-info h2 {
+
+        font-size: 32px;
+
+        letter-spacing: -1.2px;
+    }
+
+
+    .course-description {
+
+        margin-top: 18px;
+
+        font-size: 12px;
+
+        line-height: 1.75;
+    }
+
+
+    .course-benefits {
+
+        margin-top: 27px;
+
+        gap: 8px;
+    }
+
+
+    .course-benefit {
+
+        min-height: 60px;
+
+        padding: 13px;
+    }
+
+
+    .course-benefit span {
+
+        font-size: 10px;
+    }
+
+
+    /* =========================
+       COMPRA
+    ========================= */
+
+    .course-purchase {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+
+        margin-top: 35px;
+
+        padding-top: 25px;
+    }
+
+
+    .course-price {
+
+        align-items: center;
+    }
+
+
+    .course-price strong {
+
+        font-size: 29px;
+    }
+
+
+    .course-buy {
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding:
+            17px 20px;
+    }
+
+
+    /* =========================
+       CARROSSEL
+    ========================= */
+
+    .course-results {
+
+        margin-top: 75px;
+
+        padding-top: 50px;
+    }
+
+
+    .course-results-header {
+
+        display: block;
+
+        margin-bottom: 22px;
+    }
+
+
+    .course-results-title h2 {
+
+        font-size: 34px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .course-results-title p {
+
+        font-size: 11px;
+
+        line-height: 1.7;
+    }
+
+
+    .course-carousel-controls {
+
+        margin-top: 20px;
+    }
+
+
+    .course-carousel-arrow {
+
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .course-carousel {
+
+        margin-left: -15px;
+
+        width:
+            calc(100% + 30px);
+
+        padding-left: 15px;
+        padding-right: 15px;
+
+        overflow-x: hidden;
+    }
+
+
+    .course-result-card {
+
+        flex-basis: 255px;
+
+        width: 255px;
+
+        min-height: 340px;
+
+        padding: 6px;
+
+        border-radius: 17px;
+    }
+
+
+    .course-result-image {
+
+        min-height: 328px;
+
+        border-radius: 12px;
+    }
+
+
+    .course-result-image img {
+
+        min-height: 328px;
+    }
+
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .course-final-highlight {
+
+        margin-top: 70px;
+
+        padding:
+            55px 20px;
+    }
+
+
+    .course-final-highlight h1 {
+
+        font-size: 35px;
+    }
+
+
+    .course-final-highlight p {
+
+        font-size: 11px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE MUITO PEQUENO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .course-header h1 {
+
+        font-size: 42px;
+    }
+
+
+    .course-info h2 {
+
+        font-size: 28px;
+    }
+
+
+    .course-result-card {
+
+        flex-basis: 235px;
+
+        width: 235px;
+    }
+
+
+    .course-result-image,
+    .course-result-image img {
+
+        min-height: 305px;
+    }
+
+
+    .course-final-highlight h1 {
+
+        font-size: 31px;
+    }
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
+.course-buy:focus-visible,
+.course-carousel-arrow:focus-visible,
+.course-carousel-dot:focus-visible {
+
+    outline:
+        2px solid #d4af37;
+
+    outline-offset:
+        4px;
+}
+
+
+/* =====================================================
+   REDUÇÃO DE MOVIMENTO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .course-header h1 strong {
+
+        animation: none;
+    }
+
+    .course-buy,
+    .course-benefit,
+    .course-result-card,
+    .course-carousel-track,
+    .course-video-placeholder i {
+
+        transition: none;
+    }
 }
