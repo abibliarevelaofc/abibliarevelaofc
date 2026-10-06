@@ -1,18 +1,42 @@
 
-
 /* =====================================================
    CURSOS — A BÍBLIA REVELA
+   TELA COMPLETA / CURSO CRIADOR PRO
+===================================================== */
+
+
+/* =====================================================
+   BASE DA TELA
 ===================================================== */
 
 .course-view {
     position: relative;
+    z-index: 9999;
+
     width: 100%;
     min-height: 100vh;
+
     padding: 110px 6% 100px;
-    overflow: hidden;
+
     display: none;
+
+    overflow: hidden;
+
     color: #fff;
+    background: #080808;
+
+    isolation: isolate;
 }
+
+
+/* =====================================================
+   CURSO ABERTO
+===================================================== */
+
+body.course-open #cursosView {
+    display: block !important;
+}
+
 
 /* =====================================================
    FUNDO
@@ -21,19 +45,27 @@
 .course-bg {
     position: absolute;
     inset: 0;
-    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
 
     background:
         radial-gradient(
             circle at 50% 5%,
-            rgba(212,175,55,.10),
+            rgba(212,175,55,.12),
             transparent 35%
         ),
+
         radial-gradient(
             circle at 0% 60%,
             rgba(255,255,255,.025),
             transparent 35%
         ),
+
         linear-gradient(
             180deg,
             #050505 0%,
@@ -42,8 +74,14 @@
         );
 }
 
+
+/* =====================================================
+   BRILHO SUPERIOR
+===================================================== */
+
 .course-view::after {
     content: "";
+
     position: absolute;
 
     width: 700px;
@@ -61,7 +99,8 @@
     border-radius: 50%;
 
     pointer-events: none;
-    z-index: -1;
+
+    z-index: 1;
 }
 
 
@@ -71,9 +110,18 @@
 
 .course-container {
     position: relative;
+
+    z-index: 10;
+
     width: 100%;
     max-width: 1150px;
+
     margin: 0 auto;
+
+    display: block;
+
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -83,7 +131,9 @@
 
 .course-header {
     max-width: 750px;
+
     margin: 0 auto 55px;
+
     text-align: center;
 }
 
@@ -153,6 +203,7 @@
     position: relative;
 
     width: 100%;
+    max-width: 950px;
 
     margin: 0 auto;
 
@@ -170,6 +221,8 @@
 
     box-shadow:
         0 35px 100px rgba(0,0,0,.55);
+
+    z-index: 20;
 }
 
 .course-video {
@@ -177,7 +230,7 @@
 
     width: 100%;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 8.3;
 
     overflow: hidden;
 
@@ -190,6 +243,8 @@
             transparent 55%
         ),
         #0b0b0b;
+
+    z-index: 20;
 }
 
 
@@ -199,13 +254,17 @@
 
 .course-video-placeholder {
     position: absolute;
+
     inset: 0;
+
+    z-index: 21;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 12px;
@@ -237,6 +296,7 @@
 
 .course-video-placeholder i {
     position: relative;
+
     z-index: 2;
 
     width: 64px;
@@ -267,6 +327,7 @@
 
 .course-video-placeholder span {
     position: relative;
+
     z-index: 2;
 
     font-size: 10px;
@@ -279,6 +340,7 @@
 
 .course-video-placeholder small {
     position: relative;
+
     z-index: 2;
 
     font-size: 11px;
@@ -292,9 +354,16 @@
 ===================================================== */
 
 .course-info {
+    position: relative;
+
+    z-index: 20;
+
     max-width: 950px;
 
     margin: 65px auto 0;
+
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -373,6 +442,10 @@
 ===================================================== */
 
 .course-benefits {
+    position: relative;
+
+    z-index: 20;
+
     display: grid;
 
     grid-template-columns:
@@ -381,9 +454,16 @@
     gap: 12px;
 
     margin-top: 35px;
+
+    visibility: visible;
+    opacity: 1;
 }
 
 .course-benefit {
+    position: relative;
+
+    z-index: 20;
+
     display: flex;
 
     align-items: center;
@@ -406,6 +486,9 @@
         border-color .3s ease,
         transform .3s ease,
         background .3s ease;
+
+    visibility: visible;
+    opacity: 1;
 }
 
 .course-benefit:hover {
@@ -447,6 +530,10 @@
 ===================================================== */
 
 .course-purchase {
+    position: relative;
+
+    z-index: 20;
+
     display: flex;
 
     align-items: center;
@@ -461,6 +548,9 @@
 
     border-top:
         1px solid rgba(255,255,255,.08);
+
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -507,6 +597,7 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 10px;
@@ -554,16 +645,145 @@
 
 
 /* =====================================================
-   QUANDO CURSOS ESTÁ ABERTO
+   DESTAQUE FINAL
 ===================================================== */
 
-body.course-open main > *:not(#cursosView) {
-    display: none;
+.course-final-highlight {
+    position: relative;
+
+    z-index: 20;
+
+    margin-top: 80px;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.015),
+            rgba(212,175,55,.025)
+        );
 }
 
-body.course-open #cursosView {
+.course-final-highlight span {
     display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,.35);
 }
+
+.course-final-highlight h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 5vw, 58px);
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    letter-spacing: -2px;
+
+    color: #fff;
+}
+
+.course-final-highlight h1 strong {
+    font-weight: 800;
+
+    color: #d4af37;
+}
+
+.course-final-highlight p {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.45);
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.course-back {
+    position: relative;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 55px auto 0;
+
+    padding: 13px 22px;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        color .3s ease;
+}
+
+.course-back:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    background:
+        rgba(212,175,55,.06);
+
+    color: #d4af37;
+}
+
+.course-back i {
+    width: 15px;
+    height: 15px;
+}
+
 
 /* =====================================================
    TABLET
@@ -582,7 +802,6 @@ body.course-open #cursosView {
     .course-benefits {
         grid-template-columns: 1fr;
     }
-
 }
 
 
@@ -619,10 +838,14 @@ body.course-open #cursosView {
     }
 
     .course-video-wrapper {
+        max-width: 100%;
+
         border-radius: 17px;
     }
 
     .course-video {
+        aspect-ratio: 16 / 9;
+
         border-radius: 16px;
     }
 
@@ -635,6 +858,7 @@ body.course-open #cursosView {
 
     .course-video-placeholder span {
         font-size: 8px;
+
         letter-spacing: 2px;
     }
 
@@ -648,11 +872,13 @@ body.course-open #cursosView {
 
     .course-category {
         font-size: 8px;
+
         letter-spacing: 2px;
     }
 
     .course-info h2 {
         font-size: 31px;
+
         letter-spacing: -1px;
     }
 
@@ -702,11 +928,31 @@ body.course-open #cursosView {
 
     .course-buy {
         width: 100%;
+
         min-width: 0;
 
         padding: 16px 20px;
     }
 
+    .course-final-highlight {
+        margin-top: 55px;
+
+        padding: 45px 20px;
+    }
+
+    .course-final-highlight h1 {
+        font-size: 35px;
+    }
+
+    .course-final-highlight p {
+        font-size: 11px;
+    }
+
+    .course-back {
+        width: 100%;
+
+        margin-top: 40px;
+    }
 }
 
 
@@ -724,95 +970,91 @@ body.course-open #cursosView {
         font-size: 28px;
     }
 
+    .course-final-highlight h1 {
+        font-size: 31px;
+    }
 }
 
 /* =====================================================
-   BOTÃO VOLTAR — CURSOS
+   CURSO — TELA SOBREPOSTA AO SITE
 ===================================================== */
 
-.course-back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-
-    margin: 55px auto 0;
-
-    padding: 13px 22px;
-
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 50px;
-
-    background: rgba(255,255,255,.035);
-
-    color: rgba(255,255,255,.60);
-
-    font-size: 9px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease,
-        color .3s ease;
+body.course-open {
+    overflow: hidden !important;
 }
 
-.course-back:hover {
-    transform: translateY(-2px);
+body.course-open #cursosView {
+    position: fixed !important;
 
-    border-color: rgba(212,175,55,.35);
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
 
-    background: rgba(212,175,55,.06);
+    width: 100vw !important;
+    height: 100vh !important;
 
-    color: #d4af37;
-}
+    min-height: 100vh !important;
 
-.course-back i {
-    width: 15px;
-    height: 15px;
-}
+    margin: 0 !important;
 
-@media (max-width: 650px) {
+    padding: 110px 6% 100px !important;
 
-    .course-back {
-        margin-top: 40px;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
 
-        width: 100%;
-    }
+    display: block !important;
 
-}
+    visibility: visible !important;
+    opacity: 1 !important;
 
-/* =====================================================
-   VÍDEO — MAIS COMPACTO
-===================================================== */
+    background: #080808 !important;
 
-.course-video-wrapper {
-    max-width: 950px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    z-index: 2147483647 !important;
 
-.course-video {
-    aspect-ratio: 16 / 8.3;
+    isolation: isolate !important;
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* Fundo do curso */
 
-@media (max-width: 650px) {
+body.course-open #cursosView .course-bg {
+    position: absolute !important;
 
-    .course-video-wrapper {
-        max-width: 100%;
-    }
+    inset: 0 !important;
 
-    .course-video {
-        aspect-ratio: 16 / 9;
-    }
+    width: 100% !important;
+    height: 100% !important;
 
+    z-index: 0 !important;
+}
+
+
+/* Conteúdo do curso */
+
+body.course-open #cursosView .course-container {
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* Elementos internos */
+
+body.course-open #cursosView .course-video-wrapper,
+body.course-open #cursosView .course-video,
+body.course-open #cursosView .course-video-placeholder,
+body.course-open #cursosView .course-info,
+body.course-open #cursosView .course-benefits,
+body.course-open #cursosView .course-benefit,
+body.course-open #cursosView .course-purchase,
+body.course-open #cursosView .course-final-highlight,
+body.course-open #cursosView .course-back {
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
 }

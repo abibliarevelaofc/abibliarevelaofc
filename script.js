@@ -2524,41 +2524,62 @@ function fecharTelas() {
     });
 
 
+
+
     /* =====================================================
        ABRIR CURSOS
     ===================================================== */
 
-    cursoLinks.forEach(link => {
 
-        link.addEventListener("click", event => {
 
-            event.preventDefault();
+    /* =====================================================
+   ABRIR CURSOS
+===================================================== */
 
-            fecharTelas();
+cursoLinks.forEach(link => {
 
-            document.body.classList.add("course-open");
+    link.addEventListener("click", function (event) {
 
-            if (cursosView) {
+        event.preventDefault();
+        event.stopPropagation();
 
-                void cursosView.offsetWidth;
+        console.log("CURSO: clique detectado");
 
-                cursosView.classList.add("active");
+        /* Fecha todas as outras telas */
+        fecharTelas();
 
-            }
+        /* Abre o modo curso */
+        document.body.classList.add("course-open");
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+        /* Mostra a tela do curso */
+        if (cursosView) {
 
-            if (window.lucide) {
-                lucide.createIcons();
-            }
+            cursosView.classList.add("active");
 
+            cursosView.style.display = "block";
+            cursosView.style.visibility = "visible";
+            cursosView.style.opacity = "1";
+
+        } else {
+
+            console.error("CURSO: #cursosView não encontrado!");
+
+        }
+
+        /* Volta para o topo */
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
+
+        /* Recria os ícones */
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
     });
 
+});
 
     /* =====================================================
    ABRIR COMUNIDADE
