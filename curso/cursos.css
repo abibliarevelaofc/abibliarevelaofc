@@ -2188,3 +2188,97 @@ body.course-open #cursosView .course-final-highlight {
     border: 0;
     background: #000;
 }
+
+
+/* =====================================================
+   CURSO — AJUSTE MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .course-view {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .course-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .course-header,
+    .course-info,
+    .course-results,
+    .course-final-highlight {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-video-wrapper,
+    .course-video {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-video-player {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .course-results {
+        overflow: hidden;
+    }
+
+    .course-carousel {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .course-carousel-track {
+        max-width: 100%;
+    }
+
+    .course-result-card {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-result-image {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-result-image img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .course-purchase {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-buy {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .course-final-highlight {
+        overflow: hidden;
+    }
+
+}
