@@ -18,14 +18,17 @@ console.log("=================================");
 // =====================================================
 // CONFIGURAÇÕES
 // =====================================================
-
 app.use(express.json());
 
 // Arquivos públicos do site
-const pastaSite = path.join(__dirname, "..");
+
+const pastaSite = __dirname;
 
 app.use(express.static(pastaSite));
 
+app.get("/curso/", (req, res) => {
+    res.sendFile(path.join(pastaSite, "curso", "index.html"));
+});
 // =====================================================
 // PROTEÇÃO DE COTA DO YOUTUBE
 // =====================================================
