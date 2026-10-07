@@ -1388,7 +1388,9 @@ const SENHA_ANALYTICS =
 
    ESTE É O ÚNICO EVENTO DA BOLINHA.
 ===================================================== */
+
 analyticsTrigger.onclick = function () {
+
     console.log("CLIQUE NA BOLINHA");
 
     const aberta =
@@ -1396,8 +1398,8 @@ analyticsTrigger.onclick = function () {
 
     if (aberta) {
 
-        // FECHA A CAIXA DE SENHA
-        analyticsLogin.style.display = "none";
+        analyticsLogin.style.display =
+            "none";
 
         analyticsLogin.setAttribute(
             "aria-hidden",
@@ -1406,8 +1408,8 @@ analyticsTrigger.onclick = function () {
 
     } else {
 
-        // ABRE A CAIXA DE SENHA
-        analyticsLogin.style.display = "flex";
+        analyticsLogin.style.display =
+            "flex";
 
         analyticsLogin.setAttribute(
             "aria-hidden",
@@ -1417,7 +1419,10 @@ analyticsTrigger.onclick = function () {
         analyticsPassword.focus();
 
     }
+
 };
+
+
 /* =====================================================
    VERIFICAR SENHA
 ===================================================== */
@@ -1429,8 +1434,8 @@ function verificarSenha() {
         SENHA_ANALYTICS
     ) {
 
-        // FECHA A CAIXA DE SENHA
-        analyticsLogin.style.display = "none";
+        analyticsLogin.style.display =
+            "none";
 
         analyticsLogin.setAttribute(
             "aria-hidden",
@@ -1438,17 +1443,14 @@ function verificarSenha() {
         );
 
 
-        // LIMPA ERRO
         analyticsError.classList.remove(
             "active"
         );
 
 
-        // LIMPA SENHA
         analyticsPassword.value = "";
 
 
-        // ABRE O PAINEL
         analyticsPanel.classList.add(
             "active"
         );
@@ -1459,28 +1461,25 @@ function verificarSenha() {
         );
 
 
-        // CARREGA OS DADOS SALVOS NO MONGODB
         atualizarAnalytics();
 
 
     } else {
 
-        // MOSTRA ERRO
         analyticsError.classList.add(
             "active"
         );
 
 
-        // LIMPA CAMPO
         analyticsPassword.value = "";
 
-
-        // VOLTA PARA O CAMPO
         analyticsPassword.focus();
 
     }
 
 }
+
+
 /* =====================================================
    BOTÃO ENTRAR
 ===================================================== */
@@ -1578,31 +1577,43 @@ function formatarTempo(
 /* =====================================================
    BUSCAR DADOS DO ANALYTICS
 ===================================================== */
+
 async function atualizarAnalytics() {
 
     try {
 
         console.log("=================================");
         console.log("BUSCANDO ANALYTICS DO CURSO");
-        console.log("URL:", "/api/curso/analytics");
+        console.log(
+            "URL:",
+            "/api/curso/analytics"
+        );
+
 
         const resposta =
-            await fetch("/api/curso/analytics");
+            await fetch(
+                "/api/curso/analytics"
+            );
+
 
         console.log(
             "STATUS:",
             resposta.status
         );
 
+
         const texto =
             await resposta.text();
+
 
         console.log(
             "RESPOSTA BRUTA:",
             texto
         );
 
+
         let resultado;
+
 
         try {
 
@@ -1617,14 +1628,19 @@ async function atualizarAnalytics() {
             );
 
             return;
+
         }
+
 
         console.log(
             "RESULTADO ANALYTICS:",
             resultado
         );
 
-        if (!resultado.sucesso) {
+
+        if (
+            !resultado.sucesso
+        ) {
 
             console.error(
                 "API RETORNOU ERRO:",
@@ -1635,34 +1651,46 @@ async function atualizarAnalytics() {
 
         }
 
+
         const dados =
             resultado.dados;
+
 
         console.log(
             "DADOS DO MONGODB:",
             dados
         );
 
+
         document.getElementById(
             "analyticsAcessos"
         ).textContent =
             Number(
                 dados.acessos || 0
-            ).toLocaleString("pt-BR");
+            ).toLocaleString(
+                "pt-BR"
+            );
+
 
         document.getElementById(
             "analyticsCompras"
         ).textContent =
             Number(
                 dados.compras || 0
-            ).toLocaleString("pt-BR");
+            ).toLocaleString(
+                "pt-BR"
+            );
+
 
         document.getElementById(
             "analyticsVideoInicio"
         ).textContent =
             Number(
                 dados.videoInicio || 0
-            ).toLocaleString("pt-BR");
+            ).toLocaleString(
+                "pt-BR"
+            );
+
 
         document.getElementById(
             "analyticsTempo"
@@ -1671,19 +1699,21 @@ async function atualizarAnalytics() {
                 dados.tempoAssistido || 0
             );
 
- 
-} catch (erro) {
-    console.error("ERRO AO BUSCAR ANALYTICS DO CURSO:");
-    console.error(erro);
 
-    return res.status(500).json({
-        sucesso: false,
-        mensagem: "Erro ao buscar analytics.",
-        erro: erro.message
-    });
+    } catch (erro) {
+
+        console.error(
+            "ERRO AO BUSCAR ANALYTICS DO CURSO:"
+        );
+
+        console.error(
+            erro
+        );
+
+    }
+
 }
 
-}
 
 /* =====================================================
    CARREGAR CARROSSEL
