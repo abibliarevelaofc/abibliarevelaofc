@@ -695,6 +695,55 @@ window.addEventListener("resize", () => {
 
 });
 
+// =====================================================
+// ARRASTAR CARROSSEL COM O DEDO
+// =====================================================
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+courseCarousel.addEventListener("touchstart", (event) => {
+
+    touchStartX = event.touches[0].clientX;
+
+}, { passive: true });
+
+
+courseCarousel.addEventListener("touchend", (event) => {
+
+    touchEndX = event.changedTouches[0].clientX;
+
+    const diferenca = touchStartX - touchEndX;
+
+    // Arrastou para a esquerda
+    if (diferenca > 50) {
+
+        if (carouselIndex < carouselCards.length - 1) {
+
+            carouselIndex++;
+
+            atualizarCarrossel();
+
+        }
+
+    }
+
+    // Arrastou para a direita
+    if (diferenca < -50) {
+
+        if (carouselIndex > 0) {
+
+            carouselIndex--;
+
+            atualizarCarrossel();
+
+        }
+
+    }
+
+}, { passive: true });
+
+
 </script>
 
 
