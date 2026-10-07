@@ -3649,3 +3649,97 @@ body.course-open #cursosView .course-final-highlight {
     }
 
 }
+
+/* =====================================================
+   DESTAQUE — PAGAMENTOS / MONETIZAÇÃO
+===================================================== */
+
+.course-results-intro {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 38px;
+    padding: 28px 30px;
+    box-sizing: border-box;
+
+    text-align: center;
+
+    border: 1px solid rgba(212,175,55,.12);
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(212,175,55,.055),
+            transparent 70%
+        ),
+        rgba(255,255,255,.015);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.course-results-intro p {
+    margin: 0 0 14px;
+
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    line-height: 1.75;
+    font-weight: 400;
+
+    color: rgba(255,255,255,.55);
+}
+
+.course-results-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.course-results-intro strong {
+    font-weight: 800;
+    color: #fff;
+}
+
+.course-results-intro p:first-child strong {
+    color: #d4af37;
+}
+
+.course-results-intro p:nth-child(3) strong {
+    color: #fff;
+}
+
+.course-results-intro p:last-child strong {
+    display: inline-block;
+
+    margin-top: 4px;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    color: #d4af37;
+
+    text-shadow:
+        0 0 18px rgba(212,175,55,.16);
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .course-results-intro {
+        max-width: 100%;
+        margin-bottom: 28px;
+        padding: 22px 18px;
+        border-radius: 15px;
+    }
+
+    .course-results-intro p {
+        font-size: 11px;
+        line-height: 1.75;
+    }
+
+    .course-results-intro p:last-child strong {
+        font-size: 13px;
+    }
+}
