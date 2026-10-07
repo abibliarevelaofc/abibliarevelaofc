@@ -964,8 +964,15 @@ app.use("/api", (req, res) => {
 
 });
 
+
 // =====================================================
 // INICIAR SERVIDOR
 // =====================================================
 
-module.exports = app;
+app.listen(PORT, () => {
+
+    console.log(
+        `🚀 Servidor rodando na porta ${PORT}`
+    );
+
+});
