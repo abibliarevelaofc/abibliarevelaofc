@@ -97,106 +97,98 @@ app.get("/api/curso/analytics", async (req, res) => {
 
 console.log("🔥 GET /api/curso/analytics FOI EXECUTADO");
 
-    try {
+  try {
 
-        await conectarMongoDB();
+    console.log("ANALYTICS 1 - entrou no try");
 
-        const resultados =
-            await CourseAnalytics.aggregate([
+    await conectarMongoDB();
 
-                {
-                    $group: {
+    console.log("ANALYTICS 2 - Mongo conectado");
 
-                        _id: "$tipo",
+    const resultados =
+        await CourseAnalytics.aggregate([
+            {
+                $group: {
+                    _id: "$tipo",
 
-                        total: {
-                            $sum: 1
-                        },
+                    total: {
+                        $sum: 1
+                    },
 
-                        tempo: {
-                            $sum: "$tempoAssistido"
-                        }
-
+                    tempo: {
+                        $sum: "$tempoAssistido"
                     }
                 }
-
-            ]);
-
-        const dados = {
-
-            acessos: 0,
-
-            compras: 0,
-
-            videoInicio: 0,
-
-            tempoAssistido: 0
-
-        };
-
-        resultados.forEach(item => {
-
-            if (item._id === "acesso") {
-
-                dados.acessos =
-                    item.total;
-
             }
+        ]);
 
-            if (item._id === "compra") {
+    console.log(
+        "ANALYTICS 3 - aggregate executado"
+    );
 
-                dados.compras =
-                    item.total;
+    console.log(
+        "RESULTADOS:",
+        resultados
+    );
 
-            }
+    const dados = {
 
-            if (item._id === "video_inicio") {
+        acessos: 0,
 
-                dados.videoInicio =
-                    item.total;
+        compras: 0,
 
-            }
+        videoInicio: 0,
 
-            if (item._id === "video_tempo") {
+        tempoAssistido: 0
 
-                dados.tempoAssistido =
-                    item.tempo;
+    };
 
-            }
+    resultados.forEach(item => {
 
-        });
+        if (item._id === "acesso") {
 
-        return res.status(200).json({
+            dados.acessos =
+                item.total;
 
-            sucesso: true,
+        }
 
-            dados
+        if (item._id === "compra") {
 
-        });
+            dados.compras =
+                item.total;
 
-    } catch (erro) {
+        }
 
-        console.error(
-            "ERRO AO BUSCAR ANALYTICS DO CURSO:"
-        );
+        if (item._id === "video_inicio") {
 
-        console.error(erro);
+            dados.videoInicio =
+                item.total;
 
-        return res.status(500).json({
+        }
 
-            sucesso: false,
+        if (item._id === "video_tempo") {
 
-            mensagem:
-                "Erro ao buscar analytics.",
+            dados.tempoAssistido =
+                item.tempo;
 
-            erro:
-                process.env.NODE_ENV === "production"
-                    ? undefined
-                    : erro.message
+        }
 
-        });
+    });
 
-    }
+    console.log(
+        "ANALYTICS 4 - dados montados",
+        dados
+    );
+
+    return res.status(200).json({
+
+        sucesso: true,
+
+        dados
+
+    });
+
+}
 
 });
 
