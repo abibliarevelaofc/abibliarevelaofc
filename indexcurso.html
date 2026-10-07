@@ -1675,7 +1675,13 @@ async function atualizarAnalytics() {
     console.error("ERRO AO REGISTRAR ANALYTICS DO CURSO:");
     console.error(erro);
 
- }
+    return res.status(500).json({
+        sucesso: false,
+        mensagem: "Erro ao registrar evento.",
+        erro: erro.message,
+        nome: erro.name
+    });
+}
 
 }
 
