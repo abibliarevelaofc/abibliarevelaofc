@@ -91,7 +91,11 @@ app.post("/api/curso/analytics", async (req, res) => {
 // ANALYTICS — DADOS DO CURSO
 // =====================================================
 
+console.log("🔥 ROTA ANALYTICS CARREGADA NA VERCEL");
+
 app.get("/api/curso/analytics", async (req, res) => {
+
+console.log("🔥 GET /api/curso/analytics FOI EXECUTADO");
 
     try {
 
