@@ -1578,63 +1578,91 @@ function formatarTempo(
 /* =====================================================
    BUSCAR DADOS DO ANALYTICS
 ===================================================== */
-
 async function atualizarAnalytics() {
 
     try {
 
+        console.log("=================================");
+        console.log("BUSCANDO ANALYTICS DO CURSO");
+        console.log("URL:", "/api/curso/analytics");
+
         const resposta =
-            await fetch(
-                "/api/curso/analytics"
+            await fetch("/api/curso/analytics");
+
+        console.log(
+            "STATUS:",
+            resposta.status
+        );
+
+        const texto =
+            await resposta.text();
+
+        console.log(
+            "RESPOSTA BRUTA:",
+            texto
+        );
+
+        let resultado;
+
+        try {
+
+            resultado =
+                JSON.parse(texto);
+
+        } catch (erro) {
+
+            console.error(
+                "RESPOSTA NÃO É JSON:",
+                texto
             );
 
+            return;
+        }
 
-        const resultado =
-            await resposta.json();
+        console.log(
+            "RESULTADO ANALYTICS:",
+            resultado
+        );
 
+        if (!resultado.sucesso) {
 
-        if (
-            !resultado.sucesso
-        ) {
+            console.error(
+                "API RETORNOU ERRO:",
+                resultado
+            );
 
             return;
 
         }
 
-
         const dados =
             resultado.dados;
 
+        console.log(
+            "DADOS DO MONGODB:",
+            dados
+        );
 
         document.getElementById(
             "analyticsAcessos"
         ).textContent =
             Number(
                 dados.acessos || 0
-            ).toLocaleString(
-                "pt-BR"
-            );
-
+            ).toLocaleString("pt-BR");
 
         document.getElementById(
             "analyticsCompras"
         ).textContent =
             Number(
                 dados.compras || 0
-            ).toLocaleString(
-                "pt-BR"
-            );
-
+            ).toLocaleString("pt-BR");
 
         document.getElementById(
             "analyticsVideoInicio"
         ).textContent =
             Number(
                 dados.videoInicio || 0
-            ).toLocaleString(
-                "pt-BR"
-            );
-
+            ).toLocaleString("pt-BR");
 
         document.getElementById(
             "analyticsTempo"
@@ -1643,18 +1671,16 @@ async function atualizarAnalytics() {
                 dados.tempoAssistido || 0
             );
 
-
     } catch (erro) {
 
         console.error(
-            "Erro ao carregar analytics:",
+            "ERRO AO CARREGAR ANALYTICS:",
             erro
         );
 
     }
 
 }
-
 
 /* =====================================================
    CARREGAR CARROSSEL
