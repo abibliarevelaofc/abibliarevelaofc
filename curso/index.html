@@ -594,6 +594,107 @@
 
     mostrarCapa();
 
+
+// =====================================================
+// CARROSSEL DE RESULTADOS
+// =====================================================
+
+const courseCarousel = document.getElementById("courseCarousel");
+const courseCarouselTrack = document.getElementById("courseCarouselTrack");
+const courseCarouselPrev = document.getElementById("courseCarouselPrev");
+const courseCarouselNext = document.getElementById("courseCarouselNext");
+const courseCarouselDots = document.querySelectorAll(".course-carousel-dot");
+
+let carouselIndex = 0;
+
+const carouselCards = document.querySelectorAll(".course-result-card");
+
+function atualizarCarrossel() {
+
+    if (!carouselCards.length) return;
+
+    const cardWidth = carouselCards[0].offsetWidth;
+
+    courseCarouselTrack.style.transform =
+        `translateX(-${carouselIndex * cardWidth}px)`;
+
+    courseCarouselDots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === carouselIndex
+        );
+
+    });
+
+}
+
+
+// =====================================================
+// PRÓXIMO
+// =====================================================
+
+courseCarouselNext.addEventListener("click", () => {
+
+    if (carouselIndex < carouselCards.length - 1) {
+
+        carouselIndex++;
+
+        atualizarCarrossel();
+
+    }
+
+});
+
+
+// =====================================================
+// ANTERIOR
+// =====================================================
+
+courseCarouselPrev.addEventListener("click", () => {
+
+    if (carouselIndex > 0) {
+
+        carouselIndex--;
+
+        atualizarCarrossel();
+
+    }
+
+});
+
+
+// =====================================================
+// INDICADORES
+// =====================================================
+
+courseCarouselDots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        if (index < carouselCards.length) {
+
+            carouselIndex = index;
+
+            atualizarCarrossel();
+
+        }
+
+    });
+
+});
+
+
+// =====================================================
+// RESPONSIVO
+// =====================================================
+
+window.addEventListener("resize", () => {
+
+    atualizarCarrossel();
+
+});
+
 </script>
 
 
