@@ -23,6 +23,8 @@ app.use(express.json());
 
 app.post("/api/curso/analytics", async (req, res) => {
 
+await conectarMongoDB();
+
     try {
 
         const { tipo, tempoAssistido } = req.body;
@@ -82,6 +84,9 @@ app.post("/api/curso/analytics", async (req, res) => {
 // =====================================================
 
 app.get("/api/curso/analytics", async (req, res) => {
+
+     await conectarMongoDB();
+     
     try {
 
         const resultados = await CourseAnalytics.aggregate([
@@ -270,17 +275,50 @@ async function adicionarRecompensa(
 /* =========================================
    CONEXÃO COM MONGODB
 ========================================= */
+/* =====================================================
+   CONEXÃO MONGODB
+   COMPATÍVEL COM VERCEL / SERVERLESS
+===================================================== */
 
-mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log("MongoDB conectado com sucesso!");
-    })
-    .catch((error) => {
-        console.error("Erro ao conectar ao MongoDB:");
-        console.error(error.message);
-    });
+let mongoConectando = null;
 
+async function conectarMongoDB() {
+
+    if (mongoose.connection.readyState === 1) {
+        return;
+    }
+
+    if (!mongoConectando) {
+
+        mongoConectando = mongoose.connect(
+            process.env.MONGODB_URI
+        );
+
+    }
+
+    try {
+
+        await mongoConectando;
+
+        console.log(
+            "MongoDB conectado com sucesso!"
+        );
+
+    } catch (erro) {
+
+        mongoConectando = null;
+
+        console.error(
+            "Erro ao conectar ao MongoDB:"
+        );
+
+        console.error(
+            erro.message
+        );
+
+        throw erro;
+    }
+}
 /* =========================================
    CADASTRO DE USUÁRIO
 ========================================= */
