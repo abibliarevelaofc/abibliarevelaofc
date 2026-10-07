@@ -24,36 +24,14 @@ app.use(express.json());
 
 
 async function conectarMongoDB() {
-
     if (mongoose.connection.readyState === 1) {
         return;
     }
 
-    if (!mongoConectando) {
-
-        mongoConectando = mongoose.connect(
-            process.env.MONGODB_URI,
-            {
-                serverSelectionTimeoutMS: 10000
-            }
-        );
-
-    }
-
-    try {
-
-        await mongoConectando;
-
-    } catch (erro) {
-
-        mongoConectando = null;
-
-        throw erro;
-
-    }
-
+    await mongoose.connect(process.env.MONGODB_URI, {
+        serverSelectionTimeoutMS: 10000
+    });
 }
-
 // =====================================================
 // ANALYTICS — CURSO CRIADOR PRO
 // =====================================================
