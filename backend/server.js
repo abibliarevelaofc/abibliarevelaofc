@@ -79,27 +79,25 @@ app.post("/api/curso/analytics", async (req, res) => {
 
     } catch (erro) {
 
-        console.error(
-            "ERRO AO REGISTRAR ANALYTICS DO CURSO:"
-        );
+    console.error(
+        "ERRO AO REGISTRAR ANALYTICS DO CURSO:"
+    );
 
-        console.error(erro);
+    console.error(erro);
 
-        return res.status(500).json({
+    return res.status(500).json({
 
-            sucesso: false,
+        sucesso: false,
 
-            mensagem:
-                "Erro ao registrar evento.",
+        mensagem: "Erro ao registrar evento.",
 
-            erro:
-                process.env.NODE_ENV === "production"
-                    ? undefined
-                    : erro.message
+        erro: erro.message,
 
-        });
+        nome: erro.name
 
-    }
+    });
+
+}
 
 });
 
