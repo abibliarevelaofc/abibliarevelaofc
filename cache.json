@@ -1,7 +1,7 @@
 {
   "youtube": {
     "inscritos": "156000",
-    "visualizacoes": "20601615",
+    "visualizacoes": "20604206",
     "videos": "232"
   },
   "videos": [
@@ -118,6 +118,12 @@
   ],
   "comentarios": [
     {
+      "nome": "@MiguelBrandão-w7q",
+      "foto": "https://yt3.ggpht.com/MWl_Xem1ktYVc2HRhudaG0tG53B7iZZ3q9960DftXqv_yp7okCFwlMUUQz4nwDKZCdrD3g5O=s48-c-k-c0x00ffffff-no-rj",
+      "texto": "amém",
+      "data": "2026-10-07T15:25:24Z"
+    },
+    {
       "nome": "@gilbertosilvaVincenzo",
       "foto": "https://yt3.ggpht.com/ytc/AIdro_kVUYJMOsdWEkrIJushlpekiXW8N8LW3KSupPXcKqwfwBFdZrelgN7AEScxF_6PzoNvbA=s48-c-k-c0x00ffffff-no-rj",
       "texto": "Amém 🙏",
@@ -230,12 +236,6 @@
       "foto": "https://yt3.ggpht.com/ytc/AIdro_nbnIwyYsF5KGzS2pWd-Bbv2zgtWKXIXYtKtnh9Q669BzQAGM9gxLELfbqgp3aEheu7BQ=s48-c-k-c0x00ffffff-no-rj",
       "texto": "Amém",
       "data": "2026-10-07T01:33:43Z"
-    },
-    {
-      "nome": "@PauloMarcolino-jz8wx",
-      "foto": "https://yt3.ggpht.com/ytc/AIdro_lRyZkwPw0x7IAtIsr3h8RD7OLQiMj64AT9z9wg5IdKOvALoEa8EA9SKI35G023QyLAFA=s48-c-k-c0x00ffffff-no-rj",
-      "texto": "Amen",
-      "data": "2026-10-07T01:24:43Z"
     }
   ],
   "fluxo": {
