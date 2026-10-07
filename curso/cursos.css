@@ -9,6 +9,7 @@
 ===================================================== */
 
 :root {
+
     --course-gold: #d4af37;
     --course-gold-light: #f0d878;
     --course-gold-dark: #9c7822;
@@ -39,7 +40,6 @@
     z-index: 9999;
 
     width: 100%;
-
     min-height: 100vh;
 
     padding: 100px 6% 120px;
@@ -67,6 +67,7 @@
 ===================================================== */
 
 body.course-open #cursosView {
+
     display: block !important;
 }
 
@@ -89,7 +90,6 @@ body.course-open #cursosView {
     pointer-events: none;
 
     background:
-
         radial-gradient(
             circle at 50% 0%,
             rgba(212,175,55,.13),
@@ -196,7 +196,6 @@ body.course-open #cursosView {
     z-index: 10;
 
     width: 100%;
-
     max-width: 1180px;
 
     margin: 0 auto;
@@ -239,7 +238,8 @@ body.course-open #cursosView {
 
     padding: 8px 15px;
 
-    border: 1px solid rgba(212,175,55,.22);
+    border:
+        1px solid rgba(212,175,55,.22);
 
     border-radius: 50px;
 
@@ -356,7 +356,6 @@ body.course-open #cursosView {
     position: relative;
 
     width: 100%;
-
     max-width: 480px;
 
     margin: 0 auto;
@@ -375,9 +374,7 @@ body.course-open #cursosView {
         );
 
     box-shadow:
-
         0 45px 120px rgba(0,0,0,.72),
-
         0 0 80px rgba(212,175,55,.07);
 
     z-index: 20;
@@ -430,13 +427,11 @@ body.course-open #cursosView {
     border-radius: 25px;
 
     background:
-
         radial-gradient(
             circle at center,
             rgba(212,175,55,.12),
             transparent 50%
         ),
-
         #080808;
 
     z-index: 20;
@@ -466,7 +461,6 @@ body.course-open #cursosView {
     gap: 12px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.035),
@@ -582,6 +576,7 @@ body.course-open #cursosView {
     margin: 75px auto 0;
 
     visibility: visible;
+
     opacity: 1;
 }
 
@@ -650,7 +645,6 @@ body.course-open #cursosView {
         );
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
@@ -696,6 +690,7 @@ body.course-open #cursosView {
     margin-top: 38px;
 
     visibility: visible;
+
     opacity: 1;
 }
 
@@ -738,6 +733,7 @@ body.course-open #cursosView {
         box-shadow .3s ease;
 
     visibility: visible;
+
     opacity: 1;
 }
 
@@ -822,6 +818,7 @@ body.course-open #cursosView {
         1px solid rgba(255,255,255,.08);
 
     visibility: visible;
+
     opacity: 1;
 }
 
@@ -956,6 +953,7 @@ body.course-open #cursosView {
 
 
 .course-buy:hover::before {
+
     left: 140%;
 }
 
@@ -978,14 +976,7 @@ body.course-open #cursosView {
 
 
 /* =====================================================
-   =====================================================
    CARROSSEL — RESULTADOS / PRINTS
-   =====================================================
-===================================================== */
-
-
-/* =====================================================
-   ÁREA GERAL
 ===================================================== */
 
 .course-results {
@@ -1232,7 +1223,6 @@ body.course-open #cursosView {
 
     box-shadow:
         0 25px 70px rgba(0,0,0,.35),
-
         inset 0 1px 0
         rgba(255,255,255,.04);
 
@@ -1280,6 +1270,7 @@ body.course-open #cursosView {
     display: block;
 
     width: 100%;
+
     height: 100%;
 
     min-height: 374px;
@@ -1339,11 +1330,13 @@ body.course-open #cursosView {
     z-index: 5;
 
     min-width: 31px;
+
     height: 31px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 0 9px;
@@ -1423,6 +1416,7 @@ body.course-open #cursosView {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 7px;
@@ -1487,7 +1481,6 @@ body.course-open #cursosView {
         1px solid rgba(255,255,255,.06);
 
     background:
-
         radial-gradient(
             ellipse at center,
             rgba(212,175,55,.055),
@@ -1594,20 +1587,18 @@ body.course-open #cursosView {
         100px 6% 120px !important;
 
     overflow-x: hidden !important;
-
     overflow-y: auto !important;
 
     display: block !important;
 
     visibility: visible !important;
-
     opacity: 1 !important;
 
     background:
         #050505 !important;
 
     z-index:
-        2147483647 !important;
+        2147483640 !important;
 
     isolation:
         isolate !important;
@@ -1669,445 +1660,6 @@ body.course-open #cursosView .course-final-highlight {
 
 
 /* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .course-view {
-
-        padding:
-            80px 25px 100px;
-    }
-
-
-    .course-header {
-
-        margin-bottom: 45px;
-    }
-
-
-    .course-benefits {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .course-results {
-
-        margin-top: 85px;
-    }
-
-
-    .course-results-header {
-
-        align-items: flex-start;
-    }
-
-
-    .course-result-card {
-
-        flex-basis: 280px;
-
-        width: 280px;
-    }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 650px) {
-
-    .course-view {
-
-        padding:
-            65px 15px 90px;
-    }
-
-
-    body.course-open #cursosView {
-    padding:
-        5px 15px 90px !important;
-}
-
-
-    .course-header {
-
-        margin-bottom: 35px;
-    }
-
-
-    .course-label {
-
-        font-size: 8px;
-
-        letter-spacing: 2.5px;
-
-        padding:
-            7px 12px;
-    }
-
-
-    .course-header h1 {
-
-        font-size: 47px;
-
-        letter-spacing: -2.5px;
-    }
-
-
-    .course-header p {
-
-        margin-top: 20px;
-
-        font-size: 12px;
-
-        line-height: 1.7;
-    }
-
-
-    /* =========================
-       VÍDEO MOBILE
-    ========================= */
-
-    .course-video-wrapper {
-
-        max-width: 360px;
-
-        border-radius: 21px;
-    }
-
-
-    .course-video {
-
-        border-radius: 20px;
-
-        aspect-ratio:
-            9 / 16;
-    }
-
-
-    .course-video-placeholder i {
-
-        width: 56px;
-        height: 56px;
-
-        padding: 17px;
-    }
-
-
-    .course-video-placeholder span {
-
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .course-video-placeholder small {
-
-        font-size: 9px;
-    }
-
-
-    /* =========================
-       INFORMAÇÕES
-    ========================= */
-
-    .course-info {
-
-        margin-top: 48px;
-    }
-
-
-    .course-category {
-
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .course-info h2 {
-
-        font-size: 32px;
-
-        letter-spacing: -1.2px;
-    }
-
-
-    .course-description {
-
-        margin-top: 18px;
-
-        font-size: 12px;
-
-        line-height: 1.75;
-    }
-
-
-    .course-benefits {
-
-        margin-top: 27px;
-
-        gap: 8px;
-    }
-
-
-    .course-benefit {
-
-        min-height: 60px;
-
-        padding: 13px;
-    }
-
-
-    .course-benefit span {
-
-        font-size: 10px;
-    }
-
-
-    /* =========================
-       COMPRA
-    ========================= */
-
-    .course-purchase {
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 20px;
-
-        margin-top: 35px;
-
-        padding-top: 25px;
-    }
-
-
-    .course-price {
-
-        align-items: center;
-    }
-
-
-    .course-price strong {
-
-        font-size: 29px;
-    }
-
-
-    .course-buy {
-
-        width: 100%;
-
-        min-width: 0;
-
-        padding:
-            17px 20px;
-    }
-
-
-    /* =========================
-       CARROSSEL
-    ========================= */
-
-    .course-results {
-
-        margin-top: 75px;
-
-        padding-top: 50px;
-    }
-
-
-    .course-results-header {
-
-        display: block;
-
-        margin-bottom: 22px;
-    }
-
-
-    .course-results-title h2 {
-
-        font-size: 34px;
-
-        letter-spacing: -1.5px;
-    }
-
-
-    .course-results-title p {
-
-        font-size: 11px;
-
-        line-height: 1.7;
-    }
-
-
-    .course-carousel-controls {
-
-        margin-top: 20px;
-    }
-
-
-    .course-carousel-arrow {
-
-        width: 42px;
-        height: 42px;
-    }
-
-
-    .course-carousel {
-
-        margin-left: -15px;
-
-        width:
-            calc(100% + 30px);
-
-        padding-left: 15px;
-        padding-right: 15px;
-
-        overflow-x: hidden;
-    }
-
-
-    .course-result-card {
-
-        flex-basis: 255px;
-
-        width: 255px;
-
-        min-height: 340px;
-
-        padding: 6px;
-
-        border-radius: 17px;
-    }
-
-
-    .course-result-image {
-
-        min-height: 328px;
-
-        border-radius: 12px;
-    }
-
-
-    .course-result-image img {
-
-        min-height: 328px;
-    }
-
-
-    /* =========================
-       FINAL
-    ========================= */
-
-    .course-final-highlight {
-
-        margin-top: 70px;
-
-        padding:
-            55px 20px;
-    }
-
-
-    .course-final-highlight h1 {
-
-        font-size: 35px;
-    }
-
-
-    .course-final-highlight p {
-
-        font-size: 11px;
-    }
-}
-
-
-/* =====================================================
-   MOBILE MUITO PEQUENO
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .course-header h1 {
-
-        font-size: 42px;
-    }
-
-
-    .course-info h2 {
-
-        font-size: 28px;
-    }
-
-
-    .course-result-card {
-
-        flex-basis: 235px;
-
-        width: 235px;
-    }
-
-
-    .course-result-image,
-    .course-result-image img {
-
-        min-height: 305px;
-    }
-
-
-    .course-final-highlight h1 {
-
-        font-size: 31px;
-    }
-}
-
-
-/* =====================================================
-   ACESSIBILIDADE
-===================================================== */
-
-.course-buy:focus-visible,
-.course-carousel-arrow:focus-visible,
-.course-carousel-dot:focus-visible {
-
-    outline:
-        2px solid #d4af37;
-
-    outline-offset:
-        4px;
-}
-
-
-/* =====================================================
-   REDUÇÃO DE MOVIMENTO
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .course-header h1 strong {
-
-        animation: none;
-    }
-
-    .course-buy,
-    .course-benefit,
-    .course-result-card,
-    .course-carousel-track,
-    .course-video-placeholder i {
-
-        transition: none;
-    }
-}
-
-
-/* =====================================================
    VÍDEO REAL — JABARCURSO
 ===================================================== */
 
@@ -2152,7 +1704,8 @@ body.course-open #cursosView .course-final-highlight {
 
 .course-video {
 
-    aspect-ratio: 9 / 16 !important;
+    aspect-ratio:
+        9 / 16 !important;
 
     position: relative;
 
@@ -2161,298 +1714,536 @@ body.course-open #cursosView .course-final-highlight {
 
 
 /* =====================================================
-   VÍDEO DO CURSO — GOOGLE DRIVE
+   VÍDEO DO CURSO
 ===================================================== */
 
 .course-video {
+
     position: relative;
+
     width: 100%;
-    aspect-ratio: 9 / 16 !important;
+
+    aspect-ratio:
+        9 / 16 !important;
+
     overflow: hidden;
-    border-radius: var(--course-radius);
-    background: #000;
-    border: 1px solid var(--course-border-gold);
+
+    border-radius:
+        var(--course-radius);
+
+    background:
+        #000;
+
+    border:
+        1px solid var(--course-border-gold);
+
     box-shadow:
+
         0 0 0 1px rgba(212,175,55,.08),
+
         0 25px 70px rgba(0,0,0,.55),
+
         0 0 45px rgba(212,175,55,.08);
 }
 
+
 .course-video-drive {
+
     position: absolute;
+
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     display: block;
+
     border: 0;
-    background: #000;
+
+    background:
+        #000;
 }
 
 
 /* =====================================================
-   CURSO — AJUSTE MOBILE
+   CAPA DO VÍDEO
 ===================================================== */
 
-@media (max-width: 600px) {
-
-    .course-view {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        box-sizing: border-box;
-    }
-
-    .course-container {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 18px;
-        padding-right: 18px;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-
-    .course-header,
-    .course-info,
-    .course-results,
-    .course-final-highlight {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-video-wrapper,
-    .course-video {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-video-player {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        box-sizing: border-box;
-    }
-
-    .course-results {
-        overflow: hidden;
-    }
-
-    .course-carousel {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .course-carousel-track {
-        max-width: 100%;
-    }
-
-    .course-result-card {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-result-image {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-result-image img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .course-purchase {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-buy {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .course-final-highlight {
-        overflow: hidden;
-    }
-
-.course-header h1 {
-    font-size: 32px;
-    line-height: 1.05;
-    margin-bottom: 0;
-}
-
-.course-container {
-    padding-top: 20px;
-}
-
-.course-header {
-    margin-top: 0;
-}
-
-}
-
 .course-video-cover {
+
     position: absolute;
+
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     z-index: 5;
+
     cursor: pointer;
+
     display: none;
 }
 
+
 .course-video-watch {
+
     position: absolute;
+
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
+
     z-index: 6;
 
-    padding: 14px 24px;
-    border: 1px solid rgba(255,255,255,.45);
-    border-radius: 50px;
+    padding:
+        14px 24px;
 
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(8px);
+    border:
+        1px solid rgba(255,255,255,.45);
 
-    color: #fff;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2px;
-
-    pointer-events: none;
-}
-
-/* =====================================================
-   PAINEL DE CONTROLE — CURSO
-===================================================== */
-
-.course-analytics-panel {
-    position: relative;
-    width: 100%;
-    max-width: 1180px;
-    margin: 70px auto 0;
-    padding: 22px;
-
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 18px;
+    border-radius:
+        50px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.015)
-        );
+        rgba(0,0,0,.55);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.25);
+    backdrop-filter:
+        blur(8px);
 
-    backdrop-filter: blur(12px);
+    color:
+        #fff;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+
+    pointer-events:
+        none;
 }
 
+
+/* =====================================================
+   ANALYTICS — BOTÃO DISCRETO
+===================================================== */
+
+#courseAnalyticsTrigger {
+
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 22px !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    border:
+        1px solid rgba(212,175,55,.45) !important;
+
+    border-radius:
+        50% !important;
+
+    background:
+        rgba(12,12,12,.90) !important;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.55),
+        0 0 10px rgba(212,175,55,.08);
+
+    cursor:
+        pointer !important;
+
+    z-index:
+        2147483647 !important;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+#courseAnalyticsTrigger:hover {
+
+    transform:
+        scale(1.08);
+
+    border-color:
+        rgba(212,175,55,.80) !important;
+
+    background:
+        rgba(25,25,25,.96) !important;
+
+    box-shadow:
+        0 5px 22px rgba(0,0,0,.65),
+        0 0 14px rgba(212,175,55,.16);
+}
+
+
+#courseAnalyticsTrigger span {
+
+    display: block !important;
+
+    width: 6px !important;
+    height: 6px !important;
+
+    min-width: 6px !important;
+    min-height: 6px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-radius:
+        50% !important;
+
+    background:
+        #d4af37 !important;
+
+    box-shadow:
+        0 0 7px rgba(212,175,55,.65);
+}
+
+
+/* =====================================================
+   ANALYTICS — PAINEL OCULTO
+===================================================== */
+
+#courseAnalyticsPanel {
+
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 66px !important;
+
+    width:
+        min(360px, calc(100vw - 30px)) !important;
+
+    max-width:
+        calc(100vw - 30px) !important;
+
+    margin: 0 !important;
+
+    padding: 18px !important;
+
+    border:
+        1px solid rgba(255,255,255,.09) !important;
+
+    border-radius:
+        17px !important;
+
+    background:
+        rgba(12,12,12,.96) !important;
+
+    backdrop-filter:
+        blur(18px) !important;
+
+    -webkit-backdrop-filter:
+        blur(18px) !important;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.65) !important;
+
+    z-index:
+        2147483646 !important;
+
+    opacity:
+        0 !important;
+
+    visibility:
+        hidden !important;
+
+    pointer-events:
+        none !important;
+
+    transform:
+        translateY(10px) scale(.97) !important;
+
+    transform-origin:
+        bottom right !important;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease !important;
+}
+
+
+/* =====================================================
+   ANALYTICS — PAINEL ABERTO
+===================================================== */
+
+#courseAnalyticsPanel.active {
+
+    opacity:
+        1 !important;
+
+    visibility:
+        visible !important;
+
+    pointer-events:
+        auto !important;
+
+    transform:
+        translateY(0) scale(1) !important;
+}
+
+
+/* =====================================================
+   CABEÇALHO ANALYTICS
+===================================================== */
+
 .course-analytics-header {
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 20px;
 
     margin-bottom: 20px;
 }
 
+
 .course-analytics-label {
+
     display: block;
 
     margin-bottom: 5px;
 
     font-size: 10px;
+
     font-weight: 800;
+
     letter-spacing: 2px;
 
-    color: rgba(255,255,255,.4);
+    color:
+        rgba(255,255,255,.4);
 }
 
+
 .course-analytics-header h3 {
+
     margin: 0;
 
     font-size: 18px;
+
     font-weight: 700;
 
-    color: #fff;
+    color:
+        #fff;
 }
+
 
 .course-analytics-status {
-    padding: 7px 11px;
 
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 30px;
+    padding:
+        7px 11px;
 
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    border:
+        1px solid rgba(255,255,255,.08);
 
-    color: rgba(255,255,255,.5);
+    border-radius:
+        30px;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+
+    color:
+        rgba(255,255,255,.5);
 }
+
+
+/* =====================================================
+   GRID ANALYTICS
+===================================================== */
 
 .course-analytics-grid {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        10px;
 }
+
+
+/* =====================================================
+   CARDS ANALYTICS
+===================================================== */
 
 .course-analytics-card {
+
     display: flex;
+
     align-items: center;
-    gap: 12px;
 
-    min-height: 72px;
-    padding: 14px;
+    gap: 10px;
 
-    border: 1px solid rgba(255,255,255,.06);
-    border-radius: 14px;
+    min-height: 68px;
 
-    background: rgba(0,0,0,.18);
+    padding:
+        12px;
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(0,0,0,.20);
 }
+
 
 .course-analytics-icon {
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    width: 36px;
-    height: 36px;
+    flex-shrink: 0;
 
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
 
-    background: rgba(255,255,255,.05);
+    border-radius:
+        9px;
 
-    font-size: 15px;
+    background:
+        rgba(255,255,255,.05);
+
+    font-size:
+        14px;
 }
+
 
 .course-analytics-card strong {
+
     display: block;
 
-    font-size: 20px;
-    line-height: 1.1;
+    font-size:
+        19px;
 
-    color: #fff;
+    line-height:
+        1.1;
+
+    color:
+        #fff;
 }
 
+
 .course-analytics-card small {
+
     display: block;
 
-    margin-top: 4px;
+    margin-top:
+        4px;
 
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .5px;
+    font-size:
+        8px;
 
-    color: rgba(255,255,255,.38);
+    font-weight:
+        700;
+
+    letter-spacing:
+        .5px;
+
+    color:
+        rgba(255,255,255,.38);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .course-view {
+
+        padding:
+            80px 25px 100px;
+    }
+
+
+    .course-header {
+
+        margin-bottom:
+            45px;
+    }
+
+
+    .course-benefits {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .course-results {
+
+        margin-top:
+            85px;
+    }
+
+
+    .course-results-header {
+
+        align-items:
+            flex-start;
+    }
+
+
+    .course-result-card {
+
+        flex-basis:
+            280px;
+
+        width:
+            280px;
+    }
 }
 
 
@@ -2460,35 +2251,1401 @@ body.course-open #cursosView .course-final-highlight {
    MOBILE
 ===================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
 
-    .course-analytics-panel {
-        margin-top: 45px;
-        padding: 16px;
-        border-radius: 15px;
+    .course-view {
+
+        padding:
+            65px 15px 90px;
     }
+
+
+    body.course-open #cursosView {
+
+        padding:
+            5px 15px 90px !important;
+    }
+
+
+    .course-header {
+
+        margin-bottom:
+            35px;
+    }
+
+
+    .course-label {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            2.5px;
+
+        padding:
+            7px 12px;
+    }
+
+
+    .course-header h1 {
+
+        font-size:
+            47px;
+
+        letter-spacing:
+            -2.5px;
+    }
+
+
+    .course-header p {
+
+        margin-top:
+            20px;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.7;
+    }
+
+
+    /* =========================
+       VÍDEO MOBILE
+    ========================= */
+
+    .course-video-wrapper {
+
+        max-width:
+            360px;
+
+        border-radius:
+            21px;
+    }
+
+
+    .course-video {
+
+        border-radius:
+            20px;
+
+        aspect-ratio:
+            9 / 16;
+    }
+
+
+    .course-video-placeholder i {
+
+        width:
+            56px;
+
+        height:
+            56px;
+
+        padding:
+            17px;
+    }
+
+
+    .course-video-placeholder span {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .course-video-placeholder small {
+
+        font-size:
+            9px;
+    }
+
+
+    /* =========================
+       INFORMAÇÕES
+    ========================= */
+
+    .course-info {
+
+        margin-top:
+            48px;
+    }
+
+
+    .course-category {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .course-info h2 {
+
+        font-size:
+            32px;
+
+        letter-spacing:
+            -1.2px;
+    }
+
+
+    .course-description {
+
+        margin-top:
+            18px;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.75;
+    }
+
+
+    .course-benefits {
+
+        margin-top:
+            27px;
+
+        gap:
+            8px;
+    }
+
+
+    .course-benefit {
+
+        min-height:
+            60px;
+
+        padding:
+            13px;
+    }
+
+
+    .course-benefit span {
+
+        font-size:
+            10px;
+    }
+
+
+    /* =========================
+       COMPRA
+    ========================= */
+
+    .course-purchase {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            20px;
+
+        margin-top:
+            35px;
+
+        padding-top:
+            25px;
+    }
+
+
+    .course-price {
+
+        align-items:
+            center;
+    }
+
+
+    .course-price strong {
+
+        font-size:
+            29px;
+    }
+
+
+    .course-buy {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        padding:
+            17px 20px;
+    }
+
+
+    /* =========================
+       CARROSSEL
+    ========================= */
+
+    .course-results {
+
+        margin-top:
+            75px;
+
+        padding-top:
+            50px;
+    }
+
+
+    .course-results-header {
+
+        display:
+            block;
+
+        margin-bottom:
+            22px;
+    }
+
+
+    .course-results-title h2 {
+
+        font-size:
+            34px;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+
+    .course-results-title p {
+
+        font-size:
+            11px;
+
+        line-height:
+            1.7;
+    }
+
+
+    .course-carousel-controls {
+
+        margin-top:
+            20px;
+    }
+
+
+    .course-carousel-arrow {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .course-carousel {
+
+        margin-left:
+            -15px;
+
+        width:
+            calc(100% + 30px);
+
+        padding-left:
+            15px;
+
+        padding-right:
+            15px;
+
+        overflow-x:
+            hidden;
+    }
+
+
+    .course-result-card {
+
+        flex-basis:
+            255px;
+
+        width:
+            255px;
+
+        min-height:
+            340px;
+
+        padding:
+            6px;
+
+        border-radius:
+            17px;
+    }
+
+
+    .course-result-image {
+
+        min-height:
+            328px;
+
+        border-radius:
+            12px;
+    }
+
+
+    .course-result-image img {
+
+        min-height:
+            328px;
+    }
+
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .course-final-highlight {
+
+        margin-top:
+            70px;
+
+        padding:
+            55px 20px;
+    }
+
+
+    .course-final-highlight h1 {
+
+        font-size:
+            35px;
+    }
+
+
+    .course-final-highlight p {
+
+        font-size:
+            11px;
+    }
+
+
+    /* =========================
+       ANALYTICS MOBILE
+    ========================= */
+
+    #courseAnalyticsTrigger {
+
+        right:
+            15px !important;
+
+        bottom:
+            15px !important;
+
+        width:
+            34px !important;
+
+        height:
+            34px !important;
+    }
+
+
+    #courseAnalyticsPanel {
+
+        right:
+            15px !important;
+
+        bottom:
+            58px !important;
+
+        width:
+            calc(100vw - 30px) !important;
+
+        max-width:
+            calc(100vw - 30px) !important;
+
+        padding:
+            15px !important;
+    }
+
 
     .course-analytics-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
+
 
     .course-analytics-card {
-        min-height: 68px;
-        padding: 11px;
+
+        min-height:
+            64px;
+
+        padding:
+            10px;
     }
+
 
     .course-analytics-card strong {
-        font-size: 17px;
+
+        font-size:
+            16px;
     }
+
 
     .course-analytics-card small {
-        font-size: 8px;
+
+        font-size:
+            7px;
     }
 
+
     .course-analytics-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
+
+        width:
+            30px;
+
+        height:
+            30px;
+
+        font-size:
+            12px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE MUITO PEQUENO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .course-header h1 {
+
+        font-size:
+            42px;
+    }
+
+
+    .course-info h2 {
+
+        font-size:
+            28px;
+    }
+
+
+    .course-result-card {
+
+        flex-basis:
+            235px;
+
+        width:
+            235px;
+    }
+
+
+    .course-result-image,
+    .course-result-image img {
+
+        min-height:
+            305px;
+    }
+
+
+    .course-final-highlight h1 {
+
+        font-size:
+            31px;
+    }
+}
+
+
+/* =====================================================
+   AJUSTE MOBILE EXTRA
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .course-view {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        overflow-x:
+            hidden;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-container {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        padding-left:
+            18px;
+
+        padding-right:
+            18px;
+
+        box-sizing:
+            border-box;
+
+        overflow-x:
+            hidden;
+    }
+
+
+    .course-header,
+    .course-info,
+    .course-results,
+    .course-final-highlight {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-video-wrapper,
+    .course-video {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-video-player {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        height:
+            auto;
+
+        display:
+            block;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-results {
+
+        overflow:
+            hidden;
+    }
+
+
+    .course-carousel {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        overflow:
+            hidden;
+    }
+
+
+    .course-carousel-track {
+
+        max-width:
+            100%;
+    }
+
+
+    .course-result-card {
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-result-image {
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-result-image img {
+
+        max-width:
+            100%;
+
+        height:
+            auto;
+
+        display:
+            block;
+    }
+
+
+    .course-purchase {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-buy {
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .course-final-highlight {
+
+        overflow:
+            hidden;
+    }
+
+
+    .course-header h1 {
+
+        font-size:
+            32px;
+
+        line-height:
+            1.05;
+
+        margin-bottom:
+            0;
+    }
+
+
+    .course-container {
+
+        padding-top:
+            20px;
+    }
+
+
+    .course-header {
+
+        margin-top:
+            0;
+    }
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
+.course-buy:focus-visible,
+.course-carousel-arrow:focus-visible,
+.course-carousel-dot:focus-visible,
+#courseAnalyticsTrigger:focus-visible {
+
+    outline:
+        2px solid #d4af37;
+
+    outline-offset:
+        4px;
+}
+
+
+/* =====================================================
+   REDUÇÃO DE MOVIMENTO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .course-header h1 strong {
+
+        animation:
+            none;
+    }
+
+
+    .course-buy,
+    .course-benefit,
+    .course-result-card,
+    .course-carousel-track,
+    .course-video-placeholder i,
+    #courseAnalyticsTrigger,
+    #courseAnalyticsPanel {
+
+        transition:
+            none;
+    }
+}
+
+/* =====================================================
+   ACESSO PROTEGIDO DO ANALYTICS
+===================================================== */
+
+.course-analytics-access {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CAIXINHA DA SENHA */
+
+.course-analytics-login {
+    display: none;
+
+    width: 220px;
+    margin: 0 auto 25px;
+    padding: 12px;
+
+    background: rgba(5,5,5,.97);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.5);
+
+    gap: 8px;
+}
+
+.course-analytics-login.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-analytics-login input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 9px 10px;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #111;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.course-analytics-login input:focus {
+    border-color: rgba(212,175,55,.5);
+}
+
+.course-analytics-login button {
+    width: 100%;
+
+    padding: 8px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: #151515;
+    color: rgba(255,255,255,.75);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.course-analytics-login button:hover {
+    background: #222;
+    color: #fff;
+}
+
+#courseAnalyticsError {
+    display: none;
+
+    text-align: center;
+
+    color: #b66;
+    font-size: 10px;
+}
+
+#courseAnalyticsError.active {
+    display: block;
+}
+
+/* =====================================================
+   CORREÇÃO — CAIXA DE LOGIN DO ANALYTICS
+===================================================== */
+
+#courseAnalyticsLogin {
+    display: none !important;
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 66px !important;
+
+    width: 220px !important;
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+    padding: 12px !important;
+
+    flex-direction: column !important;
+    gap: 8px !important;
+
+    background: rgba(5, 5, 5, .97) !important;
+
+    border: 1px solid rgba(255, 255, 255, .10) !important;
+    border-radius: 12px !important;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .5) !important;
+
+    z-index: 2147483647 !important;
+}
+
+#courseAnalyticsLogin input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 9px 10px !important;
+
+    border: 1px solid rgba(255,255,255,.12) !important;
+    border-radius: 7px !important;
+
+    outline: none !important;
+
+    background: #111 !important;
+    color: #fff !important;
+}
+
+#courseAnalyticsLogin button {
+    width: 100% !important;
+    padding: 8px !important;
+
+    border: 0 !important;
+    border-radius: 7px !important;
+
+    background: #151515 !important;
+    color: #fff !important;
+
+    cursor: pointer !important;
+}
+
+#courseAnalyticsLogin[style*="display: flex"] {
+    display: flex !important;
+}
+
+/* =====================================================
+   CONTROLE ADMINISTRATIVO — CURSO
+   PÁGINA ATIVA + BOLINHA + LOGIN
+===================================================== */
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.course-analytics-access {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =====================================================
+   STATUS — PÁGINA ATIVA
+===================================================== */
+
+.course-admin-status {
+    position: fixed !important;
+
+    right: 56px !important;
+    bottom: 22px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    height: 24px !important;
+
+    z-index: 2147483647 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =====================================================
+   BOLINHA VERDE DO STATUS
+===================================================== */
+
+.course-admin-dot {
+    display: block !important;
+
+    width: 5px !important;
+    height: 5px !important;
+
+    min-width: 5px !important;
+    min-height: 5px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: #35d06f !important;
+
+    box-shadow:
+        0 0 5px rgba(53, 208, 111, .70) !important;
+}
+
+
+/* =====================================================
+   TEXTO — PÁGINA ATIVA
+===================================================== */
+
+.course-admin-status-text {
+    display: block !important;
+
+    color: rgba(255, 255, 255, .48) !important;
+
+    font-family: Inter, sans-serif !important;
+
+    font-size: 9px !important;
+
+    font-weight: 500 !important;
+
+    line-height: 1 !important;
+
+    letter-spacing: .25px !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =====================================================
+   BOTÃO / BOLINHA DO ADMINISTRADOR
+===================================================== */
+
+#courseAnalyticsTrigger {
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 22px !important;
+
+    width: 24px !important;
+    height: 24px !important;
+
+    min-width: 24px !important;
+    min-height: 24px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    border: 1px solid rgba(53, 208, 111, .30) !important;
+
+    border-radius: 50% !important;
+
+    background: rgba(12, 12, 12, .92) !important;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, .45) !important;
+
+    cursor: pointer !important;
+
+    z-index: 2147483647 !important;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease !important;
+}
+
+
+/* =====================================================
+   PONTO VERDE DENTRO DA BOLINHA
+===================================================== */
+
+#courseAnalyticsTrigger span {
+    display: block !important;
+
+    width: 4px !important;
+    height: 4px !important;
+
+    min-width: 4px !important;
+    min-height: 4px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: #35d06f !important;
+
+    box-shadow:
+        0 0 5px rgba(53, 208, 111, .75) !important;
+}
+
+
+/* =====================================================
+   HOVER DA BOLINHA
+===================================================== */
+
+#courseAnalyticsTrigger:hover {
+    border-color: rgba(53, 208, 111, .65) !important;
+
+    background: rgba(20, 25, 21, .95) !important;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, .55),
+        0 0 8px rgba(53, 208, 111, .10) !important;
+
+    transform: scale(1.05) !important;
+}
+
+
+/* =====================================================
+   CAIXA DE SENHA
+===================================================== */
+
+#courseAnalyticsLogin {
+    display: none !important;
+
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 56px !important;
+
+    width: 230px !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+
+    padding: 14px !important;
+
+    flex-direction: column !important;
+
+    gap: 8px !important;
+
+    background: rgba(5, 5, 5, .97) !important;
+
+    border: 1px solid rgba(255, 255, 255, .10) !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .55) !important;
+
+    z-index: 2147483647 !important;
+}
+
+
+/* =====================================================
+   QUANDO O JAVASCRIPT ABRIR
+===================================================== */
+
+#courseAnalyticsLogin[style*="display: flex"] {
+    display: flex !important;
+}
+
+
+/* =====================================================
+   AVISO DO ADMINISTRADOR
+===================================================== */
+
+.course-admin-warning {
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 0 3px 0 !important;
+
+    padding: 0 4px !important;
+
+    text-align: center !important;
+
+    color: rgba(255, 255, 255, .55) !important;
+
+    font-family: Inter, sans-serif !important;
+
+    font-size: 9px !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1.45 !important;
+
+    letter-spacing: .1px !important;
+}
+
+
+/* =====================================================
+   CAMPO DE SENHA
+===================================================== */
+
+#courseAnalyticsPassword {
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 9px 10px !important;
+
+    border: 1px solid rgba(255, 255, 255, .12) !important;
+
+    border-radius: 7px !important;
+
+    outline: none !important;
+
+    background: #111 !important;
+
+    color: #fff !important;
+
+    font-family: Inter, sans-serif !important;
+
+    font-size: 12px !important;
+}
+
+
+#courseAnalyticsPassword::placeholder {
+    color: rgba(255, 255, 255, .35) !important;
+}
+
+
+#courseAnalyticsPassword:focus {
+    border-color: rgba(53, 208, 111, .45) !important;
+
+    box-shadow:
+        0 0 0 2px rgba(53, 208, 111, .06) !important;
+}
+
+
+/* =====================================================
+   BOTÃO ENTRAR
+===================================================== */
+
+#courseAnalyticsUnlock {
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 8px !important;
+
+    border: 0 !important;
+
+    border-radius: 7px !important;
+
+    background: #151515 !important;
+
+    color: rgba(255, 255, 255, .78) !important;
+
+    font-family: Inter, sans-serif !important;
+
+    font-size: 10px !important;
+
+    font-weight: 600 !important;
+
+    letter-spacing: .4px !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background .2s ease,
+        color .2s ease !important;
+}
+
+
+#courseAnalyticsUnlock:hover {
+    background: #222 !important;
+
+    color: #fff !important;
+}
+
+
+/* =====================================================
+   ERRO DA SENHA
+===================================================== */
+
+#courseAnalyticsError {
+    display: none;
+
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #b66 !important;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.3;
+}
+
+
+#courseAnalyticsError.active {
+    display: block !important;
+}
+
+
+/* =====================================================
+   PAINEL DE ANALYTICS
+===================================================== */
+
+#courseAnalyticsPanel {
+    position: fixed !important;
+
+    right: 22px !important;
+    bottom: 56px !important;
+
+    width: min(360px, calc(100vw - 30px)) !important;
+
+    max-width: calc(100vw - 30px) !important;
+
+    margin: 0 !important;
+
+    padding: 18px !important;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(255, 255, 255, .09) !important;
+
+    border-radius: 17px !important;
+
+    background: rgba(12, 12, 12, .96) !important;
+
+    backdrop-filter: blur(18px) !important;
+
+    -webkit-backdrop-filter: blur(18px) !important;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .65) !important;
+
+    z-index: 2147483646 !important;
+
+    opacity: 0 !important;
+
+    visibility: hidden !important;
+
+    pointer-events: none !important;
+
+    transform:
+        translateY(10px)
+        scale(.97) !important;
+
+    transform-origin: bottom right !important;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease !important;
+}
+
+
+#courseAnalyticsPanel.active {
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    pointer-events: auto !important;
+
+    transform:
+        translateY(0)
+        scale(1) !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .course-admin-status {
+        right: 48px !important;
+        bottom: 15px !important;
+    }
+
+
+    #courseAnalyticsTrigger {
+        right: 15px !important;
+        bottom: 15px !important;
+
+        width: 22px !important;
+        height: 22px !important;
+
+        min-width: 22px !important;
+        min-height: 22px !important;
+    }
+
+
+    #courseAnalyticsTrigger span {
+        width: 4px !important;
+        height: 4px !important;
+
+        min-width: 4px !important;
+        min-height: 4px !important;
+    }
+
+
+    #courseAnalyticsLogin {
+        right: 15px !important;
+        bottom: 48px !important;
+
+        width: 220px !important;
+    }
+
+
+    #courseAnalyticsPanel {
+        right: 15px !important;
+        bottom: 48px !important;
+
+        width: calc(100vw - 30px) !important;
+
+        max-width: calc(100vw - 30px) !important;
+
+        padding: 15px !important;
     }
 
 }

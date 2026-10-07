@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -10,338 +11,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Curso Criador PRO — Edição com IA | A Bíblia Revela</title>
+    <title>
+        Curso Criador PRO — Edição com IA | A Bíblia Revela
+    </title>
 
     <link rel="stylesheet" href="/curso/cursos.css">
+
     <link rel="stylesheet" href="/style.css">
-
-    <!-- =====================================================
-         ANALYTICS — ESTILO DO PAINEL DISCRETO
-    ====================================================== -->
-
-    <style>
-
-        /* =====================================================
-           BOTÃO FLUTUANTE
-        ===================================================== */
-
-        .course-analytics-trigger {
-
-            position: fixed;
-
-            right: 18px;
-            bottom: 18px;
-
-            width: 34px;
-            height: 34px;
-
-            border: 1px solid rgba(255,255,255,.12);
-            border-radius: 50%;
-
-            background: rgba(15,15,15,.78);
-
-            backdrop-filter: blur(10px);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            cursor: pointer;
-
-            z-index: 99999;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.35);
-
-            transition:
-                transform .2s ease,
-                background .2s ease,
-                border-color .2s ease;
-
-        }
-
-
-        .course-analytics-trigger:hover {
-
-            transform: scale(1.08);
-
-            background: rgba(30,30,30,.9);
-
-            border-color: rgba(255,255,255,.25);
-
-        }
-
-
-        .course-analytics-trigger span {
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: rgba(255,255,255,.65);
-
-            box-shadow:
-                0 0 8px rgba(255,255,255,.25);
-
-        }
-
-
-        /* =====================================================
-           PAINEL
-        ===================================================== */
-
-        .course-analytics-panel {
-
-            position: fixed;
-
-            right: 18px;
-            bottom: 62px;
-
-            width: 330px;
-
-            padding: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.09);
-
-            border-radius: 16px;
-
-            background:
-                rgba(12,12,12,.94);
-
-            backdrop-filter: blur(18px);
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.55);
-
-            z-index: 99998;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transform:
-                translateY(10px)
-                scale(.97);
-
-            transform-origin:
-                bottom right;
-
-            transition:
-                opacity .2s ease,
-                visibility .2s ease,
-                transform .2s ease;
-
-        }
-
-
-        .course-analytics-panel.active {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            transform:
-                translateY(0)
-                scale(1);
-
-        }
-
-
-        /* =====================================================
-           CABEÇALHO
-        ===================================================== */
-
-        .course-analytics-header {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .course-analytics-label {
-
-            display: block;
-
-            margin-bottom: 4px;
-
-            font-size: 8px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-            color:
-                rgba(255,255,255,.35);
-
-        }
-
-
-        .course-analytics-header h3 {
-
-            margin: 0;
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-            color: #fff;
-
-        }
-
-
-        .course-analytics-status {
-
-            font-size: 8px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            color:
-                rgba(255,255,255,.38);
-
-            white-space: nowrap;
-
-        }
-
-
-        /* =====================================================
-           GRID
-        ===================================================== */
-
-        .course-analytics-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 8px;
-
-        }
-
-
-        .course-analytics-card {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            min-height: 58px;
-
-            padding: 10px;
-
-            border:
-                1px solid rgba(255,255,255,.055);
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,255,255,.025);
-
-        }
-
-
-        .course-analytics-icon {
-
-            width: 28px;
-            height: 28px;
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 8px;
-
-            background:
-                rgba(255,255,255,.045);
-
-            font-size: 12px;
-
-            opacity: .7;
-
-        }
-
-
-        .course-analytics-card strong {
-
-            display: block;
-
-            font-size: 17px;
-
-            line-height: 1.1;
-
-            color: #fff;
-
-        }
-
-
-        .course-analytics-card small {
-
-            display: block;
-
-            margin-top: 3px;
-
-            font-size: 8px;
-
-            font-weight: 700;
-
-            letter-spacing: .3px;
-
-            color:
-                rgba(255,255,255,.32);
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            .course-analytics-trigger {
-
-                right: 12px;
-
-                bottom: 12px;
-
-                width: 31px;
-                height: 31px;
-
-            }
-
-
-            .course-analytics-panel {
-
-                right: 12px;
-
-                bottom: 52px;
-
-                width:
-                    calc(100vw - 24px);
-
-                max-width: 330px;
-
-            }
-
-        }
-
-    </style>
 
 </head>
 
@@ -354,21 +30,18 @@
      A BÍBLIA REVELA
 ===================================================== -->
 
-<section class="course-view" id="cursosView">
-
-
-    <!-- =================================================
-         FUNDO
-    ================================================= -->
+<section
+    class="course-view"
+    id="cursosView"
+>
 
     <div class="course-bg"></div>
-
 
     <div class="course-container">
 
 
         <!-- =================================================
-             CABEÇALHO PRINCIPAL
+             CABEÇALHO
         ================================================= -->
 
         <header class="course-header">
@@ -378,11 +51,17 @@
             </span>
 
             <h1>
+
                 CRIADOR PRO
-                <strong>EDIÇÃO COM IA</strong>
+
+                <strong>
+                    EDIÇÃO COM IA
+                </strong>
+
             </h1>
 
         </header>
+
 
 
         <!-- =================================================
@@ -402,7 +81,9 @@
                     playsinline
                     preload="metadata"
                 >
+
                     Seu navegador não suporta reprodução de vídeo.
+
                 </video>
 
 
@@ -423,8 +104,9 @@
         </div>
 
 
+
         <!-- =================================================
-             INFORMAÇÕES PRINCIPAIS
+             INFORMAÇÕES
         ================================================= -->
 
         <div class="course-info">
@@ -435,8 +117,13 @@
 
 
             <h2>
+
                 Crie conteúdo profissional,
-                <strong>que realmente viraliza.</strong>
+
+                <strong>
+                    que realmente viraliza.
+                </strong>
+
             </h2>
 
 
@@ -450,6 +137,7 @@
                 video profisisonal pronto para publicar.
 
             </p>
+
 
 
             <!-- =================================================
@@ -508,7 +196,8 @@
                     <i data-lucide="check"></i>
 
                     <span>
-                        Pacote completo com as melhores trilhas sonoras e efeitos
+                        Pacote completo com as melhores trilhas
+                        sonoras e efeitos
                     </span>
 
                 </div>
@@ -520,15 +209,20 @@
 
                     <span>
 
-                        <strong>Bônus exclusivo</strong>
+                        <strong>
+                            Bônus exclusivo
+                        </strong>
 
-                        Crie seu canal do zero comigo e aprenda passo a passo como começar.
+                        Crie seu canal do zero comigo e aprenda
+                        passo a passo como começar.
 
                     </span>
 
                 </div>
 
+
             </div>
+
 
 
             <!-- =================================================
@@ -569,8 +263,9 @@
         </div>
 
 
+
         <!-- =================================================
-             RESULTADOS / PRINTS
+             RESULTADOS
         ================================================= -->
 
         <section class="course-results">
@@ -589,7 +284,10 @@
                     <h2>
 
                         Veja o que você pode
-                        <strong>criar.</strong>
+
+                        <strong>
+                            criar.
+                        </strong>
 
                     </h2>
 
@@ -603,6 +301,7 @@
                     </p>
 
                 </div>
+
 
 
                 <!-- =================================================
@@ -639,6 +338,7 @@
             </div>
 
 
+
             <!-- =================================================
                  CARROSSEL
             ================================================= -->
@@ -653,8 +353,6 @@
                     id="courseCarouselTrack"
                 >
 
-
-                    <!-- PRINT 01 -->
 
                     <article class="course-result-card">
 
@@ -675,7 +373,6 @@
                     </article>
 
 
-                    <!-- PRINT 02 -->
 
                     <article class="course-result-card">
 
@@ -696,7 +393,6 @@
                     </article>
 
 
-                    <!-- PRINT 03 -->
 
                     <article class="course-result-card">
 
@@ -717,7 +413,6 @@
                     </article>
 
 
-                    <!-- PRINT 04 -->
 
                     <article class="course-result-card">
 
@@ -738,7 +433,6 @@
                     </article>
 
 
-                    <!-- PRINT 05 -->
 
                     <article class="course-result-card">
 
@@ -762,6 +456,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- =================================================
@@ -806,6 +501,7 @@
         </section>
 
 
+
         <!-- =================================================
              DESTAQUE FINAL
         ================================================= -->
@@ -820,7 +516,10 @@
             <h1>
 
                 APRENDA A CRIAR
-                <strong>COM IA</strong>
+
+                <strong>
+                    COM IA
+                </strong>
 
             </h1>
 
@@ -841,503 +540,732 @@
 </section>
 
 
-<!-- =====================================================
-     BOTÃO DISCRETO DO PAINEL
-===================================================== -->
-
-<button
-    type="button"
-    class="course-analytics-trigger"
-    id="courseAnalyticsTrigger"
-    aria-label="Abrir controle do curso"
-    aria-expanded="false"
->
-
-    <span></span>
-
-</button>
-
 
 <!-- =====================================================
-     PAINEL DE CONTROLE
+     CONTROLE + SENHA + PAINEL DE ANALYTICS
+     EXISTE SOMENTE UMA BOLINHA
 ===================================================== -->
 
-<section
-    class="course-analytics-panel"
-    id="courseAnalyticsPanel"
-    aria-hidden="true"
->
+<div class="course-analytics-access">
 
 
-    <div class="course-analytics-header">
+    <!-- =================================================
+         STATUS — PÁGINA ATIVA
+    ================================================= -->
 
-        <div>
+    <div class="course-admin-status">
 
-            <span class="course-analytics-label">
-                CONTROLE DO CURSO
-            </span>
+        <span
+            class="course-admin-dot"
+            title="Página ativa"
+        ></span>
 
-            <h3>
-                Criador PRO
-            </h3>
-
-        </div>
-
-
-        <span class="course-analytics-status">
-            ● ONLINE
+        <span class="course-admin-status-text">
+            Página ativa
         </span>
 
     </div>
 
 
-    <div class="course-analytics-grid">
+
+    <!-- =================================================
+         BOLINHA
+    ================================================= -->
+
+    <button
+        type="button"
+        class="course-analytics-trigger"
+        id="courseAnalyticsTrigger"
+        aria-label="Abrir controle do curso"
+        aria-expanded="false"
+    >
+
+        <span></span>
+
+    </button>
 
 
-        <!-- ACESSOS -->
 
-        <div class="course-analytics-card">
+    <!-- =================================================
+         CAIXA DE SENHA
+    ================================================= -->
 
-            <span class="course-analytics-icon">
-                👁
-            </span>
+    <div
+        class="course-analytics-login"
+        id="courseAnalyticsLogin"
+        aria-hidden="true"
+    >
 
-            <div>
+        <div class="course-admin-warning">
 
-                <strong id="analyticsAcessos">
-                    0
-                </strong>
-
-                <small>
-                    Acessos
-                </small>
-
-            </div>
-
-        </div>
-
-
-        <!-- COMPRAS -->
-
-        <div class="course-analytics-card">
-
-            <span class="course-analytics-icon">
-                🛒
-            </span>
-
-            <div>
-
-                <strong id="analyticsCompras">
-                    0
-                </strong>
-
-                <small>
-                    Cliques em comprar
-                </small>
-
-            </div>
+            Somente o administrador pode acessar este painel
 
         </div>
 
 
-        <!-- VÍDEOS -->
-
-        <div class="course-analytics-card">
-
-            <span class="course-analytics-icon">
-                ▶
-            </span>
-
-            <div>
-
-                <strong id="analyticsVideoInicio">
-                    0
-                </strong>
-
-                <small>
-                    Inícios do vídeo
-                </small>
-
-            </div>
-
-        </div>
+        <input
+            type="password"
+            id="courseAnalyticsPassword"
+            placeholder="Senha"
+            autocomplete="off"
+        >
 
 
-        <!-- TEMPO -->
+        <button
+            type="button"
+            id="courseAnalyticsUnlock"
+        >
 
-        <div class="course-analytics-card">
+            ENTRAR
 
-            <span class="course-analytics-icon">
-                ⏱
-            </span>
+        </button>
 
-            <div>
 
-                <strong id="analyticsTempo">
-                    0m
-                </strong>
+        <small id="courseAnalyticsError">
 
-                <small>
-                    Tempo assistido
-                </small>
+            Senha incorreta
 
-            </div>
-
-        </div>
-
+        </small>
 
     </div>
 
-</section>
+
+
+    <!-- =================================================
+         PAINEL
+    ================================================= -->
+
+    <section
+        class="course-analytics-panel"
+        id="courseAnalyticsPanel"
+        aria-hidden="true"
+    >
+
+
+        <div class="course-analytics-header">
+
+
+            <div>
+
+                <span class="course-analytics-label">
+
+                    CONTROLE DO CURSO
+
+                </span>
+
+
+                <h3>
+
+                    Criador PRO
+
+                </h3>
+
+            </div>
+
+
+            <span class="course-analytics-status">
+
+                ● ONLINE
+
+            </span>
+
+
+        </div>
+
+
+
+        <div class="course-analytics-grid">
+
+
+            <!-- =================================================
+                 ACESSOS
+            ================================================= -->
+
+            <div class="course-analytics-card">
+
+                <span class="course-analytics-icon">
+
+                    👁
+
+                </span>
+
+
+                <div>
+
+                    <strong id="analyticsAcessos">
+
+                        0
+
+                    </strong>
+
+
+                    <small>
+
+                        Acessos
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 COMPRAS
+            ================================================= -->
+
+            <div class="course-analytics-card">
+
+                <span class="course-analytics-icon">
+
+                    🛒
+
+                </span>
+
+
+                <div>
+
+                    <strong id="analyticsCompras">
+
+                        0
+
+                    </strong>
+
+
+                    <small>
+
+                        Cliques em comprar
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INÍCIOS DO VÍDEO
+            ================================================= -->
+
+            <div class="course-analytics-card">
+
+                <span class="course-analytics-icon">
+
+                    ▶
+
+                </span>
+
+
+                <div>
+
+                    <strong id="analyticsVideoInicio">
+
+                        0
+
+                    </strong>
+
+
+                    <small>
+
+                        Inícios do vídeo
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TEMPO ASSISTIDO
+            ================================================= -->
+
+            <div class="course-analytics-card">
+
+                <span class="course-analytics-icon">
+
+                    ⏱
+
+                </span>
+
+
+                <div>
+
+                    <strong id="analyticsTempo">
+
+                        0m
+
+                    </strong>
+
+
+                    <small>
+
+                        Tempo assistido
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
 
 
 <script>
 
+/* =====================================================
+   VÍDEO
+===================================================== */
 
-    /* =====================================================
-       VÍDEO
-    ===================================================== */
+const courseVideo =
+    document.getElementById("courseVideo");
 
-    const courseVideo =
-        document.getElementById("courseVideo");
+const courseVideoCover =
+    document.getElementById("courseVideoCover");
 
+const courseVideoWatch =
+    document.querySelector(".course-video-watch");
 
-    const courseVideoCover =
-        document.getElementById("courseVideoCover");
-
-
-    const courseVideoWatch =
-        document.querySelector(".course-video-watch");
-
-
-    let videoInicioRegistrado = false;
+let videoInicioRegistrado = false;
 
 
-    /* =====================================================
-       TEMPO DO VÍDEO
-    ===================================================== */
+/* =====================================================
+   TEMPO DO VÍDEO
+===================================================== */
 
-    let ultimoTempoVideo = 0;
+let ultimoTempoVideo = 0;
+let tempoAssistidoTotal = 0;
 
-    let tempoAssistidoTotal = 0;
+
+/* =====================================================
+   ANALYTICS — REGISTRAR
+===================================================== */
+
+async function registrarAnalytics(
+    tipo,
+    tempoAssistido = 0
+) {
+
+    try {
+
+        await fetch(
+            "/api/curso/analytics",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    tipo,
+                    tempoAssistido
+                })
+            }
+        );
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao registrar analytics:",
+            erro
+        );
+
+    }
+
+}
 
 
-    /* =====================================================
-       ANALYTICS
-    ===================================================== */
+/* =====================================================
+   INÍCIO DO VÍDEO
+===================================================== */
 
-    async function registrarAnalytics(
-        tipo,
-        tempoAssistido = 0
-    ) {
+courseVideo.addEventListener(
+    "play",
+    () => {
 
-        try {
+        if (!videoInicioRegistrado) {
 
-            await fetch(
-                "/api/curso/analytics",
-                {
+            videoInicioRegistrado = true;
 
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        tipo,
-
-                        tempoAssistido
-
-                    })
-
-                }
+            registrarAnalytics(
+                "video_inicio"
             );
 
-        } catch (erro) {
+        }
 
-            console.error(
-                "Erro ao registrar analytics:",
-                erro
+    }
+);
+
+
+/* =====================================================
+   CONTAGEM DO TEMPO
+===================================================== */
+
+courseVideo.addEventListener(
+    "timeupdate",
+    () => {
+
+        const tempoAtual =
+            courseVideo.currentTime;
+
+        if (
+            !courseVideo.paused &&
+            !courseVideo.ended
+        ) {
+
+            const diferenca =
+                tempoAtual -
+                ultimoTempoVideo;
+
+            if (
+                diferenca > 0 &&
+                diferenca < 2
+            ) {
+
+                tempoAssistidoTotal +=
+                    diferenca;
+
+            }
+
+        }
+
+        ultimoTempoVideo =
+            tempoAtual;
+
+    }
+);
+
+
+/* =====================================================
+   ENVIAR TEMPO AO PAUSAR
+===================================================== */
+
+courseVideo.addEventListener(
+    "pause",
+    () => {
+
+        if (
+            tempoAssistidoTotal > 0
+        ) {
+
+            registrarAnalytics(
+                "video_tempo",
+                Math.round(
+                    tempoAssistidoTotal
+                )
             );
 
+            tempoAssistidoTotal = 0;
+
         }
 
     }
+);
 
 
-    /* =====================================================
-       INÍCIO DO VÍDEO
-    ===================================================== */
+/* =====================================================
+   CAPA DO VÍDEO
+===================================================== */
 
-    courseVideo.addEventListener(
-        "play",
-        () => {
+function mostrarCapa() {
 
-            if (!videoInicioRegistrado) {
+    courseVideoCover.style.display =
+        "block";
 
-                videoInicioRegistrado = true;
+    courseVideoWatch.style.display =
+        "block";
 
-                registrarAnalytics(
-                    "video_inicio"
-                );
-
-            }
-
-        }
-    );
+}
 
 
-    /* =====================================================
-       CONTAGEM DO TEMPO
-    ===================================================== */
+function esconderCapa() {
 
-    courseVideo.addEventListener(
-        "timeupdate",
-        () => {
+    courseVideoCover.style.display =
+        "none";
 
-            const tempoAtual =
-                courseVideo.currentTime;
+    courseVideoWatch.style.display =
+        "none";
 
-
-            if (
-                !courseVideo.paused &&
-                !courseVideo.ended
-            ) {
-
-                const diferenca =
-                    tempoAtual -
-                    ultimoTempoVideo;
+}
 
 
-                if (
-                    diferenca > 0 &&
-                    diferenca < 2
-                ) {
+/* =====================================================
+   CLICOU NA CAPA
+===================================================== */
 
-                    tempoAssistidoTotal +=
-                        diferenca;
+courseVideoCover.addEventListener(
+    "click",
+    () => {
 
-                }
+        esconderCapa();
 
-            }
-
-
-            ultimoTempoVideo =
-                tempoAtual;
-
-        }
-    );
-
-
-    /* =====================================================
-       ENVIAR TEMPO AO PAUSAR
-    ===================================================== */
-
-    courseVideo.addEventListener(
-        "pause",
-        () => {
-
-            if (
-                tempoAssistidoTotal > 0
-            ) {
-
-                registrarAnalytics(
-                    "video_tempo",
-                    Math.round(
-                        tempoAssistidoTotal
-                    )
-                );
-
-
-                tempoAssistidoTotal = 0;
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       CAPA DO VÍDEO
-    ===================================================== */
-
-    function mostrarCapa() {
-
-        courseVideoCover.style.display =
-            "block";
-
-        courseVideoWatch.style.display =
-            "block";
+        courseVideo.play();
 
     }
+);
 
 
-    function esconderCapa() {
+/* =====================================================
+   PAUSAR
+===================================================== */
 
-        courseVideoCover.style.display =
-            "none";
+courseVideo.addEventListener(
+    "pause",
+    () => {
 
-        courseVideoWatch.style.display =
-            "none";
-
-    }
-
-
-    /* =====================================================
-       CLICOU NA CAPA
-    ===================================================== */
-
-    courseVideoCover.addEventListener(
-        "click",
-        () => {
-
-            esconderCapa();
-
-            courseVideo.play();
-
-        }
-    );
-
-
-    /* =====================================================
-       PAUSAR
-    ===================================================== */
-
-    courseVideo.addEventListener(
-        "pause",
-        () => {
-
-            if (!courseVideo.ended) {
-
-                mostrarCapa();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       COMEÇAR / CONTINUAR
-    ===================================================== */
-
-    courseVideo.addEventListener(
-        "play",
-        () => {
-
-            esconderCapa();
-
-        }
-    );
-
-
-    /* =====================================================
-       TERMINAR
-    ===================================================== */
-
-    courseVideo.addEventListener(
-        "ended",
-        () => {
-
-            courseVideo.currentTime = 0;
+        if (!courseVideo.ended) {
 
             mostrarCapa();
 
         }
+
+    }
+);
+
+
+/* =====================================================
+   COMEÇAR / CONTINUAR
+===================================================== */
+
+courseVideo.addEventListener(
+    "play",
+    () => {
+
+        esconderCapa();
+
+    }
+);
+
+
+/* =====================================================
+   TERMINAR
+===================================================== */
+
+courseVideo.addEventListener(
+    "ended",
+    () => {
+
+        courseVideo.currentTime = 0;
+
+        mostrarCapa();
+
+    }
+);
+
+
+/* =====================================================
+   CAPA INICIAL
+===================================================== */
+
+mostrarCapa();
+
+
+
+/* =====================================================
+   CARROSSEL
+===================================================== */
+
+const courseCarousel =
+    document.getElementById(
+        "courseCarousel"
+    );
+
+const courseCarouselTrack =
+    document.getElementById(
+        "courseCarouselTrack"
+    );
+
+const courseCarouselPrev =
+    document.getElementById(
+        "courseCarouselPrev"
+    );
+
+const courseCarouselNext =
+    document.getElementById(
+        "courseCarouselNext"
+    );
+
+const courseCarouselDots =
+    document.querySelectorAll(
+        ".course-carousel-dot"
+    );
+
+let carouselIndex = 0;
+
+const carouselCards =
+    document.querySelectorAll(
+        ".course-result-card"
     );
 
 
-    /* =====================================================
-       CAPA INICIAL
-    ===================================================== */
+function atualizarCarrossel() {
 
-    mostrarCapa();
+    if (
+        !carouselCards.length
+    ) {
 
+        return;
 
-    /* =====================================================
-       CARROSSEL
-    ===================================================== */
+    }
 
-    const courseCarousel =
-        document.getElementById(
-            "courseCarousel"
-        );
+    const cardWidth =
+        carouselCards[0].offsetWidth;
 
+    courseCarouselTrack.style.transform =
+        `translateX(-${carouselIndex * cardWidth}px)`;
 
-    const courseCarouselTrack =
-        document.getElementById(
-            "courseCarouselTrack"
-        );
+    courseCarouselDots.forEach(
+        (dot, index) => {
 
+            dot.classList.toggle(
+                "active",
+                index === carouselIndex
+            );
 
-    const courseCarouselPrev =
-        document.getElementById(
-            "courseCarouselPrev"
-        );
+        }
+    );
 
-
-    const courseCarouselNext =
-        document.getElementById(
-            "courseCarouselNext"
-        );
+}
 
 
-    const courseCarouselDots =
-        document.querySelectorAll(
-            ".course-carousel-dot"
-        );
+/* =====================================================
+   PRÓXIMO
+===================================================== */
 
-
-    let carouselIndex = 0;
-
-
-    const carouselCards =
-        document.querySelectorAll(
-            ".course-result-card"
-        );
-
-
-    function atualizarCarrossel() {
+courseCarouselNext.addEventListener(
+    "click",
+    () => {
 
         if (
-            !carouselCards.length
+            carouselIndex <
+            carouselCards.length - 1
         ) {
 
-            return;
+            carouselIndex++;
+
+            atualizarCarrossel();
 
         }
 
-
-        const cardWidth =
-            carouselCards[0].offsetWidth;
-
-
-        courseCarouselTrack.style.transform =
-            `translateX(-${carouselIndex * cardWidth}px)`;
+    }
+);
 
 
-        courseCarouselDots.forEach(
-            (dot, index) => {
+/* =====================================================
+   ANTERIOR
+===================================================== */
 
-                dot.classList.toggle(
-                    "active",
-                    index === carouselIndex
-                );
+courseCarouselPrev.addEventListener(
+    "click",
+    () => {
+
+        if (
+            carouselIndex > 0
+        ) {
+
+            carouselIndex--;
+
+            atualizarCarrossel();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+courseCarouselDots.forEach(
+    (dot, index) => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    index <
+                    carouselCards.length
+                ) {
+
+                    carouselIndex =
+                        index;
+
+                    atualizarCarrossel();
+
+                }
 
             }
         );
 
     }
+);
 
 
-    /* =====================================================
-       PRÓXIMO
-    ===================================================== */
+/* =====================================================
+   RESPONSIVO
+===================================================== */
 
-    courseCarouselNext.addEventListener(
-        "click",
-        () => {
+window.addEventListener(
+    "resize",
+    () => {
+
+        atualizarCarrossel();
+
+    }
+);
+
+
+/* =====================================================
+   SWIPE
+===================================================== */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+courseCarousel.addEventListener(
+    "touchstart",
+    (event) => {
+
+        touchStartX =
+            event.touches[0].clientX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+courseCarousel.addEventListener(
+    "touchend",
+    (event) => {
+
+        touchEndX =
+            event.changedTouches[0].clientX;
+
+        const diferenca =
+            touchStartX -
+            touchEndX;
+
+
+        if (
+            diferenca > 50
+        ) {
 
             if (
                 carouselIndex <
@@ -1351,16 +1279,11 @@
             }
 
         }
-    );
 
 
-    /* =====================================================
-       ANTERIOR
-    ===================================================== */
-
-    courseCarouselPrev.addEventListener(
-        "click",
-        () => {
+        if (
+            diferenca < -50
+        ) {
 
             if (
                 carouselIndex > 0
@@ -1373,395 +1296,374 @@
             }
 
         }
-    );
 
-
-    /* =====================================================
-       INDICADORES
-    ===================================================== */
-
-    courseCarouselDots.forEach(
-        (dot, index) => {
-
-            dot.addEventListener(
-                "click",
-                () => {
-
-                    if (
-                        index <
-                        carouselCards.length
-                    ) {
-
-                        carouselIndex =
-                            index;
-
-                        atualizarCarrossel();
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       RESPONSIVO
-    ===================================================== */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            atualizarCarrossel();
-
-        }
-    );
-
-
-    /* =====================================================
-       SWIPE
-    ===================================================== */
-
-    let touchStartX = 0;
-
-    let touchEndX = 0;
-
-
-    courseCarousel.addEventListener(
-        "touchstart",
-        (event) => {
-
-            touchStartX =
-                event.touches[0].clientX;
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    courseCarousel.addEventListener(
-        "touchend",
-        (event) => {
-
-            touchEndX =
-                event.changedTouches[0].clientX;
-
-
-            const diferenca =
-                touchStartX -
-                touchEndX;
-
-
-            if (
-                diferenca > 50
-            ) {
-
-                if (
-                    carouselIndex <
-                    carouselCards.length - 1
-                ) {
-
-                    carouselIndex++;
-
-                    atualizarCarrossel();
-
-                }
-
-            }
-
-
-            if (
-                diferenca < -50
-            ) {
-
-                if (
-                    carouselIndex > 0
-                ) {
-
-                    carouselIndex--;
-
-                    atualizarCarrossel();
-
-                }
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    /* =====================================================
-       REGISTRAR ACESSO
-    ===================================================== */
-
-    registrarAnalytics(
-        "acesso"
-    );
-
-
-    /* =====================================================
-       BOTÃO COMPRAR
-    ===================================================== */
-
-    const courseBuy =
-        document.getElementById(
-            "courseBuy"
-        );
-
-
-    if (courseBuy) {
-
-        courseBuy.addEventListener(
-            "click",
-            () => {
-
-                registrarAnalytics(
-                    "compra"
-                );
-
-            }
-        );
-
+    },
+    {
+        passive: true
     }
+);
 
 
-    /* =====================================================
-       PAINEL DE ANALYTICS
-    ===================================================== */
 
-    const analyticsTrigger =
-        document.getElementById(
-            "courseAnalyticsTrigger"
-        );
+/* =====================================================
+   REGISTRAR ACESSO
+===================================================== */
 
-
-    const analyticsPanel =
-        document.getElementById(
-            "courseAnalyticsPanel"
-        );
+registrarAnalytics(
+    "acesso"
+);
 
 
-    let analyticsAberto = false;
+/* =====================================================
+   BOTÃO COMPRAR
+===================================================== */
 
+const courseBuy =
+    document.getElementById(
+        "courseBuy"
+    );
 
-    /* =====================================================
-       FORMATAR TEMPO
-    ===================================================== */
+if (courseBuy) {
 
-    function formatarTempo(
-        segundos
-    ) {
-
-        segundos =
-            Math.max(
-                0,
-                Math.round(segundos)
-            );
-
-
-        const horas =
-            Math.floor(
-                segundos / 3600
-            );
-
-
-        const minutos =
-            Math.floor(
-                (segundos % 3600) / 60
-            );
-
-
-        const segundosRestantes =
-            segundos % 60;
-
-
-        if (horas > 0) {
-
-            return `${horas}h ${minutos}m`;
-
-        }
-
-
-        if (minutos > 0) {
-
-            return `${minutos}m ${segundosRestantes}s`;
-
-        }
-
-
-        return `${segundosRestantes}s`;
-
-    }
-
-
-    /* =====================================================
-       BUSCAR DADOS
-    ===================================================== */
-
-    async function atualizarAnalytics() {
-
-        try {
-
-            const resposta =
-                await fetch(
-                    "/api/curso/analytics"
-                );
-
-
-            const resultado =
-                await resposta.json();
-
-
-            if (
-                !resultado.sucesso
-            ) {
-
-                return;
-
-            }
-
-
-            const dados =
-                resultado.dados;
-
-
-            document.getElementById(
-                "analyticsAcessos"
-            ).textContent =
-                Number(
-                    dados.acessos || 0
-                ).toLocaleString(
-                    "pt-BR"
-                );
-
-
-            document.getElementById(
-                "analyticsCompras"
-            ).textContent =
-                Number(
-                    dados.compras || 0
-                ).toLocaleString(
-                    "pt-BR"
-                );
-
-
-            document.getElementById(
-                "analyticsVideoInicio"
-            ).textContent =
-                Number(
-                    dados.videoInicio || 0
-                ).toLocaleString(
-                    "pt-BR"
-                );
-
-
-            document.getElementById(
-                "analyticsTempo"
-            ).textContent =
-                formatarTempo(
-                    dados.tempoAssistido || 0
-                );
-
-        } catch (erro) {
-
-            console.error(
-                "Erro ao carregar analytics:",
-                erro
-            );
-
-        }
-
-    }
-
-
-    /* =====================================================
-       ABRIR / FECHAR PAINEL
-    ===================================================== */
-
-    analyticsTrigger.addEventListener(
+    courseBuy.addEventListener(
         "click",
         () => {
 
-            analyticsAberto =
-                !analyticsAberto;
-
-
-            analyticsPanel.classList.toggle(
-                "active",
-                analyticsAberto
+            registrarAnalytics(
+                "compra"
             );
-
-
-            analyticsTrigger.setAttribute(
-                "aria-expanded",
-                analyticsAberto
-            );
-
-
-            analyticsPanel.setAttribute(
-                "aria-hidden",
-                !analyticsAberto
-            );
-
-
-            if (
-                analyticsAberto
-            ) {
-
-                atualizarAnalytics();
-
-            }
 
         }
     );
 
+}
 
-    /* =====================================================
-       CARREGAR CARROSSEL
-    ===================================================== */
 
-    atualizarCarrossel();
 
+/* =====================================================
+   ANALYTICS — ELEMENTOS
+===================================================== */
+
+const analyticsTrigger =
+    document.getElementById(
+        "courseAnalyticsTrigger"
+    );
+
+const analyticsLogin =
+    document.getElementById(
+        "courseAnalyticsLogin"
+    );
+
+const analyticsPassword =
+    document.getElementById(
+        "courseAnalyticsPassword"
+    );
+
+const analyticsUnlock =
+    document.getElementById(
+        "courseAnalyticsUnlock"
+    );
+
+const analyticsError =
+    document.getElementById(
+        "courseAnalyticsError"
+    );
+
+const analyticsPanel =
+    document.getElementById(
+        "courseAnalyticsPanel"
+    );
+
+
+/* =====================================================
+   SENHA
+===================================================== */
+
+const SENHA_ANALYTICS =
+    "92533911";
+
+
+/* =====================================================
+   ABRIR / FECHAR CAIXA DE SENHA
+
+   ESTE É O ÚNICO EVENTO DA BOLINHA.
+===================================================== */
+analyticsTrigger.onclick = function () {
+    console.log("CLIQUE NA BOLINHA");
+
+    const aberta =
+        analyticsLogin.style.display === "flex";
+
+    if (aberta) {
+
+        // FECHA A CAIXA DE SENHA
+        analyticsLogin.style.display = "none";
+
+        analyticsLogin.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+    } else {
+
+        // ABRE A CAIXA DE SENHA
+        analyticsLogin.style.display = "flex";
+
+        analyticsLogin.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        analyticsPassword.focus();
+
+    }
+};
+/* =====================================================
+   VERIFICAR SENHA
+===================================================== */
+
+function verificarSenha() {
+
+    if (
+        analyticsPassword.value.trim() ===
+        SENHA_ANALYTICS
+    ) {
+
+        // FECHA A CAIXA DE SENHA
+        analyticsLogin.style.display = "none";
+
+        analyticsLogin.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        // LIMPA ERRO
+        analyticsError.classList.remove(
+            "active"
+        );
+
+
+        // LIMPA SENHA
+        analyticsPassword.value = "";
+
+
+        // ABRE O PAINEL
+        analyticsPanel.classList.add(
+            "active"
+        );
+
+        analyticsPanel.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        // CARREGA OS DADOS SALVOS NO MONGODB
+        atualizarAnalytics();
+
+
+    } else {
+
+        // MOSTRA ERRO
+        analyticsError.classList.add(
+            "active"
+        );
+
+
+        // LIMPA CAMPO
+        analyticsPassword.value = "";
+
+
+        // VOLTA PARA O CAMPO
+        analyticsPassword.focus();
+
+    }
+
+}
+/* =====================================================
+   BOTÃO ENTRAR
+===================================================== */
+
+analyticsUnlock.addEventListener(
+    "click",
+    (event) => {
+
+        event.preventDefault();
+
+        verificarSenha();
+
+    }
+);
+
+
+/* =====================================================
+   ENTER NA SENHA
+===================================================== */
+
+analyticsPassword.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            verificarSenha();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FORMATAR TEMPO
+===================================================== */
+
+function formatarTempo(
+    segundos
+) {
+
+    segundos =
+        Math.max(
+            0,
+            Math.round(
+                segundos
+            )
+        );
+
+
+    const horas =
+        Math.floor(
+            segundos / 3600
+        );
+
+
+    const minutos =
+        Math.floor(
+            (segundos % 3600) / 60
+        );
+
+
+    const segundosRestantes =
+        segundos % 60;
+
+
+    if (
+        horas > 0
+    ) {
+
+        return `${horas}h ${minutos}m`;
+
+    }
+
+
+    if (
+        minutos > 0
+    ) {
+
+        return `${minutos}m ${segundosRestantes}s`;
+
+    }
+
+
+    return `${segundosRestantes}s`;
+
+}
+
+
+/* =====================================================
+   BUSCAR DADOS DO ANALYTICS
+===================================================== */
+
+async function atualizarAnalytics() {
+
+    try {
+
+        const resposta =
+            await fetch(
+                "/api/curso/analytics"
+            );
+
+
+        const resultado =
+            await resposta.json();
+
+
+        if (
+            !resultado.sucesso
+        ) {
+
+            return;
+
+        }
+
+
+        const dados =
+            resultado.dados;
+
+
+        document.getElementById(
+            "analyticsAcessos"
+        ).textContent =
+            Number(
+                dados.acessos || 0
+            ).toLocaleString(
+                "pt-BR"
+            );
+
+
+        document.getElementById(
+            "analyticsCompras"
+        ).textContent =
+            Number(
+                dados.compras || 0
+            ).toLocaleString(
+                "pt-BR"
+            );
+
+
+        document.getElementById(
+            "analyticsVideoInicio"
+        ).textContent =
+            Number(
+                dados.videoInicio || 0
+            ).toLocaleString(
+                "pt-BR"
+            );
+
+
+        document.getElementById(
+            "analyticsTempo"
+        ).textContent =
+            formatarTempo(
+                dados.tempoAssistido || 0
+            );
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar analytics:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CARREGAR CARROSSEL
+===================================================== */
+
+atualizarCarrossel();
 
 </script>
 
-
-<button
-    id="courseAnalyticsTrigger"
-    type="button"
-    style="
-        position: fixed !important;
-        right: 20px !important;
-        bottom: 20px !important;
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 50% !important;
-        border: 2px solid white !important;
-        background: black !important;
-        z-index: 999999 !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    "
->
-    <span
-        style="
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: white;
-            display: block;
-        "
-    ></span>
-</button>
 
 </body>
 
