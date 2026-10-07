@@ -4,6 +4,7 @@ const User = require("./models/User");
 const Activity = require("./models/Activity");
 const ReadingSession = require("./models/ReadingSession");
 const ChatMessage = require("./models/ChatMessage");
+const CourseAnalytics = require("./models/CourseAnalytics");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
@@ -16,6 +17,132 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// =====================================================
+// ANALYTICS — CURSO CRIADOR PRO
+// =====================================================
+
+app.post("/api/curso/analytics", async (req, res) => {
+
+    try {
+
+        const { tipo, tempoAssistido } = req.body;
+
+        const tiposPermitidos = [
+            "acesso",
+            "compra",
+            "video_inicio",
+            "video_tempo"
+        ];
+
+        if (!tiposPermitidos.includes(tipo)) {
+
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: "Tipo de evento inválido."
+            });
+
+        }
+
+        const registro = await CourseAnalytics.create({
+
+            tipo,
+
+            tempoAssistido:
+                Number(tempoAssistido) || 0
+
+        });
+
+        res.status(201).json({
+
+            sucesso: true,
+            id: registro._id
+
+        });
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao registrar analytics do curso:",
+            erro
+        );
+
+        res.status(500).json({
+
+            sucesso: false,
+            mensagem: "Erro ao registrar evento."
+
+        });
+
+    }
+
+});
+
+// =====================================================
+// ANALYTICS — DADOS DO CURSO
+// =====================================================
+
+app.get("/api/curso/analytics", async (req, res) => {
+    try {
+
+        const resultados = await CourseAnalytics.aggregate([
+            {
+                $group: {
+                    _id: "$tipo",
+                    total: {
+                        $sum: 1
+                    },
+                    tempo: {
+                        $sum: "$tempoAssistido"
+                    }
+                }
+            }
+        ]);
+
+        const dados = {
+            acessos: 0,
+            compras: 0,
+            videoInicio: 0,
+            tempoAssistido: 0
+        };
+
+        resultados.forEach(item => {
+
+            if (item._id === "acesso") {
+                dados.acessos = item.total;
+            }
+
+            if (item._id === "compra") {
+                dados.compras = item.total;
+            }
+
+            if (item._id === "video_inicio") {
+                dados.videoInicio = item.total;
+            }
+
+            if (item._id === "video_tempo") {
+                dados.tempoAssistido = item.tempo;
+            }
+
+        });
+
+        return res.json({
+            sucesso: true,
+            dados
+        });
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao buscar analytics do curso:",
+            erro
+        );
+
+        return res.status(500).json({
+            sucesso: false,
+            mensagem: "Erro ao buscar analytics."
+        });
+    }
+});
 
 // =====================================================
 // SISTEMA DE NÍVEL — XP

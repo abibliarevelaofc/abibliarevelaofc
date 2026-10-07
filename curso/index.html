@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-
 <head>
 
     <meta charset="UTF-8">
@@ -13,14 +12,342 @@
 
     <title>Curso Criador PRO — Edição com IA | A Bíblia Revela</title>
 
-   <link rel="stylesheet" href="/curso/cursos.css">
-   <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/curso/cursos.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- =====================================================
+         ANALYTICS — ESTILO DO PAINEL DISCRETO
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           BOTÃO FLUTUANTE
+        ===================================================== */
+
+        .course-analytics-trigger {
+
+            position: fixed;
+
+            right: 18px;
+            bottom: 18px;
+
+            width: 34px;
+            height: 34px;
+
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 50%;
+
+            background: rgba(15,15,15,.78);
+
+            backdrop-filter: blur(10px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 99999;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.35);
+
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                border-color .2s ease;
+
+        }
+
+
+        .course-analytics-trigger:hover {
+
+            transform: scale(1.08);
+
+            background: rgba(30,30,30,.9);
+
+            border-color: rgba(255,255,255,.25);
+
+        }
+
+
+        .course-analytics-trigger span {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.65);
+
+            box-shadow:
+                0 0 8px rgba(255,255,255,.25);
+
+        }
+
+
+        /* =====================================================
+           PAINEL
+        ===================================================== */
+
+        .course-analytics-panel {
+
+            position: fixed;
+
+            right: 18px;
+            bottom: 62px;
+
+            width: 330px;
+
+            padding: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            border-radius: 16px;
+
+            background:
+                rgba(12,12,12,.94);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.55);
+
+            z-index: 99998;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(10px)
+                scale(.97);
+
+            transform-origin:
+                bottom right;
+
+            transition:
+                opacity .2s ease,
+                visibility .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .course-analytics-panel.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+
+        /* =====================================================
+           CABEÇALHO
+        ===================================================== */
+
+        .course-analytics-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .course-analytics-label {
+
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(255,255,255,.35);
+
+        }
+
+
+        .course-analytics-header h3 {
+
+            margin: 0;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: #fff;
+
+        }
+
+
+        .course-analytics-status {
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color:
+                rgba(255,255,255,.38);
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .course-analytics-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .course-analytics-card {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            min-height: 58px;
+
+            padding: 10px;
+
+            border:
+                1px solid rgba(255,255,255,.055);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.025);
+
+        }
+
+
+        .course-analytics-icon {
+
+            width: 28px;
+            height: 28px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            font-size: 12px;
+
+            opacity: .7;
+
+        }
+
+
+        .course-analytics-card strong {
+
+            display: block;
+
+            font-size: 17px;
+
+            line-height: 1.1;
+
+            color: #fff;
+
+        }
+
+
+        .course-analytics-card small {
+
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: .3px;
+
+            color:
+                rgba(255,255,255,.32);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .course-analytics-trigger {
+
+                right: 12px;
+
+                bottom: 12px;
+
+                width: 31px;
+                height: 31px;
+
+            }
+
+
+            .course-analytics-panel {
+
+                right: 12px;
+
+                bottom: 52px;
+
+                width:
+                    calc(100vw - 24px);
+
+                max-width: 330px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-
 <body class="course-open">
+
 
 <!-- =====================================================
      TELA — CURSO CRIADOR PRO
@@ -28,6 +355,7 @@
 ===================================================== -->
 
 <section class="course-view" id="cursosView">
+
 
     <!-- =================================================
          FUNDO
@@ -49,46 +377,50 @@
                 CURSO ONLINE
             </span>
 
-        <h1>
-    CRIADOR PRO
-    <strong>EDIÇÃO COM IA</strong>
-</h1>
-
-            
+            <h1>
+                CRIADOR PRO
+                <strong>EDIÇÃO COM IA</strong>
+            </h1>
 
         </header>
 
 
+        <!-- =================================================
+             VÍDEO
+        ================================================= -->
 
-<div class="course-video-wrapper">
+        <div class="course-video-wrapper">
 
-    <div class="course-video">
+            <div class="course-video">
 
-        <video
-            class="course-video-player"
-            id="courseVideo"
-            src="./jabarcurso.mp4"
-            poster="./capacurso.png"
-            controls
-            playsinline
-            preload="metadata"
-        >
-            Seu navegador não suporta reprodução de vídeo.
-        </video>
+                <video
+                    class="course-video-player"
+                    id="courseVideo"
+                    src="./jabarcurso.mp4"
+                    poster="./capacurso.png"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+                    Seu navegador não suporta reprodução de vídeo.
+                </video>
 
-        <img
-            class="course-video-cover"
-            id="courseVideoCover"
-            src="./capacurso.png"
-            alt="Capa do Curso Criador PRO"
-        >
-<span class="course-video-watch">
-    ▶ ASSISTIR
-</span>
-    </div>
 
-</div>
+                <img
+                    class="course-video-cover"
+                    id="courseVideoCover"
+                    src="./capacurso.png"
+                    alt="Capa do Curso Criador PRO"
+                >
 
+
+                <span class="course-video-watch">
+                    ▶ ASSISTIR
+                </span>
+
+            </div>
+
+        </div>
 
 
         <!-- =================================================
@@ -102,17 +434,21 @@
             </span>
 
 
-         <h2> Crie conteúdo profissional,
-             <strong>que realmente viraliza.</strong> </h2>
+            <h2>
+                Crie conteúdo profissional,
+                <strong>que realmente viraliza.</strong>
+            </h2>
 
 
             <p class="course-description">
+
                 Aprenda um método completo para produzir vídeos
                 utilizando inteligência artificial, edição,
-                criação de imagens, roteiros e as melhores 
+                criação de imagens, roteiros e as melhores
                 ferramentas de IA para criação de conteúdo.
-                Aprenda de verdade como fazer um 
+                Aprenda de verdade como fazer um
                 video profisisonal pronto para publicar.
+
             </p>
 
 
@@ -178,19 +514,21 @@
                 </div>
 
 
-                
-<div class="course-benefit">
+                <div class="course-benefit">
 
-    <i data-lucide="gift"></i>
+                    <i data-lucide="gift"></i>
 
-    <span>
-        <strong>Bônus exclusivo</strong>
-        Crie seu canal do zero comigo e aprenda passo a passo como começar.
-    </span>
+                    <span>
 
-</div>
+                        <strong>Bônus exclusivo</strong>
 
+                        Crie seu canal do zero comigo e aprenda passo a passo como começar.
 
+                    </span>
+
+                </div>
+
+            </div>
 
 
             <!-- =================================================
@@ -238,10 +576,6 @@
         <section class="course-results">
 
 
-            <!-- =================================================
-                 CABEÇALHO DOS RESULTADOS
-            ================================================= -->
-
             <div class="course-results-header">
 
 
@@ -251,15 +585,21 @@
                         RESULTADOS REAIS
                     </span>
 
+
                     <h2>
+
                         Veja o que você pode
                         <strong>criar.</strong>
+
                     </h2>
 
+
                     <p>
+
                         Alguns exemplos dos resultados que podem
                         ser alcançados utilizando as técnicas e
                         ferramentas ensinadas no Curso Criador PRO.
+
                     </p>
 
                 </div>
@@ -314,121 +654,109 @@
                 >
 
 
-<!-- =================================================
-     PRINT 01
-================================================= -->
+                    <!-- PRINT 01 -->
 
-<article class="course-result-card">
+                    <article class="course-result-card">
 
-    <div class="course-result-image">
+                        <div class="course-result-image">
 
-        <span class="course-result-number">
-            01
-        </span>
+                            <span class="course-result-number">
+                                01
+                            </span>
 
-        <img
-            src="./prints/print1.jpeg"
-            alt="Resultado criado utilizando as técnicas do curso"
-            loading="lazy"
-        >
+                            <img
+                                src="./prints/print1.jpeg"
+                                alt="Resultado criado utilizando as técnicas do curso"
+                                loading="lazy"
+                            >
 
-    </div>
+                        </div>
 
-</article>
+                    </article>
 
 
-<!-- =================================================
-     PRINT 02
-================================================= -->
+                    <!-- PRINT 02 -->
 
-<article class="course-result-card">
+                    <article class="course-result-card">
 
-    <div class="course-result-image">
+                        <div class="course-result-image">
 
-        <span class="course-result-number">
-            02
-        </span>
+                            <span class="course-result-number">
+                                02
+                            </span>
 
-        <img
-            src="./prints/print2.jpeg"
-            alt="Resultado criado utilizando as técnicas do curso"
-            loading="lazy"
-        >
+                            <img
+                                src="./prints/print2.jpeg"
+                                alt="Resultado criado utilizando as técnicas do curso"
+                                loading="lazy"
+                            >
 
-    </div>
+                        </div>
 
-</article>
+                    </article>
 
 
-<!-- =================================================
-     PRINT 03
-================================================= -->
+                    <!-- PRINT 03 -->
 
-<article class="course-result-card">
+                    <article class="course-result-card">
 
-    <div class="course-result-image">
+                        <div class="course-result-image">
 
-        <span class="course-result-number">
-            03
-        </span>
+                            <span class="course-result-number">
+                                03
+                            </span>
 
-        <img
-            src="./prints/print3.jpeg"
-            alt="Resultado criado utilizando as técnicas do curso"
-            loading="lazy"
-        >
+                            <img
+                                src="./prints/print3.jpeg"
+                                alt="Resultado criado utilizando as técnicas do curso"
+                                loading="lazy"
+                            >
 
-    </div>
+                        </div>
 
-</article>
+                    </article>
 
 
-<!-- =================================================
-     PRINT 04
-================================================= -->
+                    <!-- PRINT 04 -->
 
-<article class="course-result-card">
+                    <article class="course-result-card">
 
-    <div class="course-result-image">
+                        <div class="course-result-image">
 
-        <span class="course-result-number">
-            04
-        </span>
+                            <span class="course-result-number">
+                                04
+                            </span>
 
-        <img
-            src="./prints/print4.jpeg"
-            alt="Resultado criado utilizando as técnicas do curso"
-            loading="lazy"
-        >
+                            <img
+                                src="./prints/print4.jpeg"
+                                alt="Resultado criado utilizando as técnicas do curso"
+                                loading="lazy"
+                            >
 
-    </div>
+                        </div>
 
-</article>
+                    </article>
 
 
-<!-- =================================================
-     PRINT 05
-================================================= -->
+                    <!-- PRINT 05 -->
 
-<article class="course-result-card">
+                    <article class="course-result-card">
 
-    <div class="course-result-image">
+                        <div class="course-result-image">
 
-        <span class="course-result-number">
-            05
-        </span>
+                            <span class="course-result-number">
+                                05
+                            </span>
 
-        <img
-            src="./prints/print5.jpeg"
-            alt="Resultado criado utilizando as técnicas do curso"
-            loading="lazy"
-        >
+                            <img
+                                src="./prints/print5.jpeg"
+                                alt="Resultado criado utilizando as técnicas do curso"
+                                loading="lazy"
+                            >
 
-    </div>
+                        </div>
 
-</article>
-
-
+                    </article>
 
 
                 </div>
@@ -451,17 +779,20 @@
                     aria-label="Ir para resultado 1"
                 ></button>
 
+
                 <button
                     type="button"
                     class="course-carousel-dot"
                     aria-label="Ir para resultado 2"
                 ></button>
 
+
                 <button
                     type="button"
                     class="course-carousel-dot"
                     aria-label="Ir para resultado 3"
                 ></button>
+
 
                 <button
                     type="button"
@@ -485,15 +816,21 @@
                 A BÍBLIA REVELA • CURSO CRIADOR PRO
             </span>
 
+
             <h1>
+
                 APRENDA A CRIAR
                 <strong>COM IA</strong>
+
             </h1>
 
+
             <p>
+
                 Transforme suas ideias em conteúdos profissionais
                 utilizando inteligência artificial, criatividade
                 e técnicas de edição.
+
             </p>
 
         </div>
@@ -504,253 +841,928 @@
 </section>
 
 
+<!-- =====================================================
+     BOTÃO DISCRETO DO PAINEL
+===================================================== -->
+
+<button
+    type="button"
+    class="course-analytics-trigger"
+    id="courseAnalyticsTrigger"
+    aria-label="Abrir controle do curso"
+    aria-expanded="false"
+>
+
+    <span></span>
+
+</button>
+
+
+<!-- =====================================================
+     PAINEL DE CONTROLE
+===================================================== -->
+
+<section
+    class="course-analytics-panel"
+    id="courseAnalyticsPanel"
+    aria-hidden="true"
+>
+
+
+    <div class="course-analytics-header">
+
+        <div>
+
+            <span class="course-analytics-label">
+                CONTROLE DO CURSO
+            </span>
+
+            <h3>
+                Criador PRO
+            </h3>
+
+        </div>
+
+
+        <span class="course-analytics-status">
+            ● ONLINE
+        </span>
+
+    </div>
+
+
+    <div class="course-analytics-grid">
+
+
+        <!-- ACESSOS -->
+
+        <div class="course-analytics-card">
+
+            <span class="course-analytics-icon">
+                👁
+            </span>
+
+            <div>
+
+                <strong id="analyticsAcessos">
+                    0
+                </strong>
+
+                <small>
+                    Acessos
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPRAS -->
+
+        <div class="course-analytics-card">
+
+            <span class="course-analytics-icon">
+                🛒
+            </span>
+
+            <div>
+
+                <strong id="analyticsCompras">
+                    0
+                </strong>
+
+                <small>
+                    Cliques em comprar
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- VÍDEOS -->
+
+        <div class="course-analytics-card">
+
+            <span class="course-analytics-icon">
+                ▶
+            </span>
+
+            <div>
+
+                <strong id="analyticsVideoInicio">
+                    0
+                </strong>
+
+                <small>
+                    Inícios do vídeo
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- TEMPO -->
+
+        <div class="course-analytics-card">
+
+            <span class="course-analytics-icon">
+                ⏱
+            </span>
+
+            <div>
+
+                <strong id="analyticsTempo">
+                    0m
+                </strong>
+
+                <small>
+                    Tempo assistido
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
 <script>
-    const courseVideo = document.getElementById("courseVideo");
-    const courseVideoCover = document.getElementById("courseVideoCover");
-    const courseVideoWatch = document.querySelector(".course-video-watch");
 
 
-    // =====================================================
-    // MOSTRAR CAPA + BOTÃO ASSISTIR
-    // =====================================================
+    /* =====================================================
+       VÍDEO
+    ===================================================== */
+
+    const courseVideo =
+        document.getElementById("courseVideo");
+
+
+    const courseVideoCover =
+        document.getElementById("courseVideoCover");
+
+
+    const courseVideoWatch =
+        document.querySelector(".course-video-watch");
+
+
+    let videoInicioRegistrado = false;
+
+
+    /* =====================================================
+       TEMPO DO VÍDEO
+    ===================================================== */
+
+    let ultimoTempoVideo = 0;
+
+    let tempoAssistidoTotal = 0;
+
+
+    /* =====================================================
+       ANALYTICS
+    ===================================================== */
+
+    async function registrarAnalytics(
+        tipo,
+        tempoAssistido = 0
+    ) {
+
+        try {
+
+            await fetch(
+                "/api/curso/analytics",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        tipo,
+
+                        tempoAssistido
+
+                    })
+
+                }
+            );
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao registrar analytics:",
+                erro
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       INÍCIO DO VÍDEO
+    ===================================================== */
+
+    courseVideo.addEventListener(
+        "play",
+        () => {
+
+            if (!videoInicioRegistrado) {
+
+                videoInicioRegistrado = true;
+
+                registrarAnalytics(
+                    "video_inicio"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CONTAGEM DO TEMPO
+    ===================================================== */
+
+    courseVideo.addEventListener(
+        "timeupdate",
+        () => {
+
+            const tempoAtual =
+                courseVideo.currentTime;
+
+
+            if (
+                !courseVideo.paused &&
+                !courseVideo.ended
+            ) {
+
+                const diferenca =
+                    tempoAtual -
+                    ultimoTempoVideo;
+
+
+                if (
+                    diferenca > 0 &&
+                    diferenca < 2
+                ) {
+
+                    tempoAssistidoTotal +=
+                        diferenca;
+
+                }
+
+            }
+
+
+            ultimoTempoVideo =
+                tempoAtual;
+
+        }
+    );
+
+
+    /* =====================================================
+       ENVIAR TEMPO AO PAUSAR
+    ===================================================== */
+
+    courseVideo.addEventListener(
+        "pause",
+        () => {
+
+            if (
+                tempoAssistidoTotal > 0
+            ) {
+
+                registrarAnalytics(
+                    "video_tempo",
+                    Math.round(
+                        tempoAssistidoTotal
+                    )
+                );
+
+
+                tempoAssistidoTotal = 0;
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CAPA DO VÍDEO
+    ===================================================== */
 
     function mostrarCapa() {
 
-        courseVideoCover.style.display = "block";
-        courseVideoWatch.style.display = "block";
+        courseVideoCover.style.display =
+            "block";
+
+        courseVideoWatch.style.display =
+            "block";
 
     }
 
-
-    // =====================================================
-    // ESCONDER CAPA + BOTÃO ASSISTIR
-    // =====================================================
 
     function esconderCapa() {
 
-        courseVideoCover.style.display = "none";
-        courseVideoWatch.style.display = "none";
+        courseVideoCover.style.display =
+            "none";
+
+        courseVideoWatch.style.display =
+            "none";
 
     }
 
 
-    // =====================================================
-    // CLICOU NA CAPA
-    // =====================================================
+    /* =====================================================
+       CLICOU NA CAPA
+    ===================================================== */
 
-    courseVideoCover.addEventListener("click", () => {
+    courseVideoCover.addEventListener(
+        "click",
+        () => {
 
-        esconderCapa();
+            esconderCapa();
 
-        courseVideo.play();
+            courseVideo.play();
 
-    });
+        }
+    );
 
 
-    // =====================================================
-    // QUANDO PAUSAR
-    // NÃO ALTERA O TEMPO DO VÍDEO
-    // =====================================================
+    /* =====================================================
+       PAUSAR
+    ===================================================== */
 
-    courseVideo.addEventListener("pause", () => {
+    courseVideo.addEventListener(
+        "pause",
+        () => {
 
-        if (!courseVideo.ended) {
+            if (!courseVideo.ended) {
+
+                mostrarCapa();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       COMEÇAR / CONTINUAR
+    ===================================================== */
+
+    courseVideo.addEventListener(
+        "play",
+        () => {
+
+            esconderCapa();
+
+        }
+    );
+
+
+    /* =====================================================
+       TERMINAR
+    ===================================================== */
+
+    courseVideo.addEventListener(
+        "ended",
+        () => {
+
+            courseVideo.currentTime = 0;
 
             mostrarCapa();
 
         }
-
-    });
-
-
-    // =====================================================
-    // QUANDO COMEÇAR / CONTINUAR
-    // =====================================================
-
-    courseVideo.addEventListener("play", () => {
-
-        esconderCapa();
-
-    });
+    );
 
 
-    // =====================================================
-    // QUANDO TERMINAR
-    // VOLTA PARA O INÍCIO + CAPA
-    // =====================================================
-
-    courseVideo.addEventListener("ended", () => {
-
-        courseVideo.currentTime = 0;
-
-        mostrarCapa();
-
-    });
-
-
-    // =====================================================
-    // AO ABRIR A PÁGINA
-    // =====================================================
+    /* =====================================================
+       CAPA INICIAL
+    ===================================================== */
 
     mostrarCapa();
 
 
-// =====================================================
-// CARROSSEL DE RESULTADOS
-// =====================================================
+    /* =====================================================
+       CARROSSEL
+    ===================================================== */
 
-const courseCarousel = document.getElementById("courseCarousel");
-const courseCarouselTrack = document.getElementById("courseCarouselTrack");
-const courseCarouselPrev = document.getElementById("courseCarouselPrev");
-const courseCarouselNext = document.getElementById("courseCarouselNext");
-const courseCarouselDots = document.querySelectorAll(".course-carousel-dot");
-
-let carouselIndex = 0;
-
-const carouselCards = document.querySelectorAll(".course-result-card");
-
-function atualizarCarrossel() {
-
-    if (!carouselCards.length) return;
-
-    const cardWidth = carouselCards[0].offsetWidth;
-
-    courseCarouselTrack.style.transform =
-        `translateX(-${carouselIndex * cardWidth}px)`;
-
-    courseCarouselDots.forEach((dot, index) => {
-
-        dot.classList.toggle(
-            "active",
-            index === carouselIndex
+    const courseCarousel =
+        document.getElementById(
+            "courseCarousel"
         );
 
-    });
 
-}
+    const courseCarouselTrack =
+        document.getElementById(
+            "courseCarouselTrack"
+        );
 
 
-// =====================================================
-// PRÓXIMO
-// =====================================================
+    const courseCarouselPrev =
+        document.getElementById(
+            "courseCarouselPrev"
+        );
 
-courseCarouselNext.addEventListener("click", () => {
 
-    if (carouselIndex < carouselCards.length - 1) {
+    const courseCarouselNext =
+        document.getElementById(
+            "courseCarouselNext"
+        );
 
-        carouselIndex++;
 
-        atualizarCarrossel();
+    const courseCarouselDots =
+        document.querySelectorAll(
+            ".course-carousel-dot"
+        );
+
+
+    let carouselIndex = 0;
+
+
+    const carouselCards =
+        document.querySelectorAll(
+            ".course-result-card"
+        );
+
+
+    function atualizarCarrossel() {
+
+        if (
+            !carouselCards.length
+        ) {
+
+            return;
+
+        }
+
+
+        const cardWidth =
+            carouselCards[0].offsetWidth;
+
+
+        courseCarouselTrack.style.transform =
+            `translateX(-${carouselIndex * cardWidth}px)`;
+
+
+        courseCarouselDots.forEach(
+            (dot, index) => {
+
+                dot.classList.toggle(
+                    "active",
+                    index === carouselIndex
+                );
+
+            }
+        );
 
     }
 
-});
+
+    /* =====================================================
+       PRÓXIMO
+    ===================================================== */
+
+    courseCarouselNext.addEventListener(
+        "click",
+        () => {
+
+            if (
+                carouselIndex <
+                carouselCards.length - 1
+            ) {
+
+                carouselIndex++;
+
+                atualizarCarrossel();
+
+            }
+
+        }
+    );
 
 
-// =====================================================
-// ANTERIOR
-// =====================================================
+    /* =====================================================
+       ANTERIOR
+    ===================================================== */
 
-courseCarouselPrev.addEventListener("click", () => {
+    courseCarouselPrev.addEventListener(
+        "click",
+        () => {
 
-    if (carouselIndex > 0) {
+            if (
+                carouselIndex > 0
+            ) {
 
-        carouselIndex--;
+                carouselIndex--;
 
-        atualizarCarrossel();
+                atualizarCarrossel();
 
-    }
+            }
 
-});
+        }
+    );
 
 
-// =====================================================
-// INDICADORES
-// =====================================================
+    /* =====================================================
+       INDICADORES
+    ===================================================== */
 
-courseCarouselDots.forEach((dot, index) => {
+    courseCarouselDots.forEach(
+        (dot, index) => {
 
-    dot.addEventListener("click", () => {
+            dot.addEventListener(
+                "click",
+                () => {
 
-        if (index < carouselCards.length) {
+                    if (
+                        index <
+                        carouselCards.length
+                    ) {
 
-            carouselIndex = index;
+                        carouselIndex =
+                            index;
+
+                        atualizarCarrossel();
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       RESPONSIVO
+    ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        () => {
 
             atualizarCarrossel();
 
         }
-
-    });
-
-});
+    );
 
 
-// =====================================================
-// RESPONSIVO
-// =====================================================
+    /* =====================================================
+       SWIPE
+    ===================================================== */
 
-window.addEventListener("resize", () => {
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    courseCarousel.addEventListener(
+        "touchstart",
+        (event) => {
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    courseCarousel.addEventListener(
+        "touchend",
+        (event) => {
+
+            touchEndX =
+                event.changedTouches[0].clientX;
+
+
+            const diferenca =
+                touchStartX -
+                touchEndX;
+
+
+            if (
+                diferenca > 50
+            ) {
+
+                if (
+                    carouselIndex <
+                    carouselCards.length - 1
+                ) {
+
+                    carouselIndex++;
+
+                    atualizarCarrossel();
+
+                }
+
+            }
+
+
+            if (
+                diferenca < -50
+            ) {
+
+                if (
+                    carouselIndex > 0
+                ) {
+
+                    carouselIndex--;
+
+                    atualizarCarrossel();
+
+                }
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       REGISTRAR ACESSO
+    ===================================================== */
+
+    registrarAnalytics(
+        "acesso"
+    );
+
+
+    /* =====================================================
+       BOTÃO COMPRAR
+    ===================================================== */
+
+    const courseBuy =
+        document.getElementById(
+            "courseBuy"
+        );
+
+
+    if (courseBuy) {
+
+        courseBuy.addEventListener(
+            "click",
+            () => {
+
+                registrarAnalytics(
+                    "compra"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PAINEL DE ANALYTICS
+    ===================================================== */
+
+    const analyticsTrigger =
+        document.getElementById(
+            "courseAnalyticsTrigger"
+        );
+
+
+    const analyticsPanel =
+        document.getElementById(
+            "courseAnalyticsPanel"
+        );
+
+
+    let analyticsAberto = false;
+
+
+    /* =====================================================
+       FORMATAR TEMPO
+    ===================================================== */
+
+    function formatarTempo(
+        segundos
+    ) {
+
+        segundos =
+            Math.max(
+                0,
+                Math.round(segundos)
+            );
+
+
+        const horas =
+            Math.floor(
+                segundos / 3600
+            );
+
+
+        const minutos =
+            Math.floor(
+                (segundos % 3600) / 60
+            );
+
+
+        const segundosRestantes =
+            segundos % 60;
+
+
+        if (horas > 0) {
+
+            return `${horas}h ${minutos}m`;
+
+        }
+
+
+        if (minutos > 0) {
+
+            return `${minutos}m ${segundosRestantes}s`;
+
+        }
+
+
+        return `${segundosRestantes}s`;
+
+    }
+
+
+    /* =====================================================
+       BUSCAR DADOS
+    ===================================================== */
+
+    async function atualizarAnalytics() {
+
+        try {
+
+            const resposta =
+                await fetch(
+                    "/api/curso/analytics"
+                );
+
+
+            const resultado =
+                await resposta.json();
+
+
+            if (
+                !resultado.sucesso
+            ) {
+
+                return;
+
+            }
+
+
+            const dados =
+                resultado.dados;
+
+
+            document.getElementById(
+                "analyticsAcessos"
+            ).textContent =
+                Number(
+                    dados.acessos || 0
+                ).toLocaleString(
+                    "pt-BR"
+                );
+
+
+            document.getElementById(
+                "analyticsCompras"
+            ).textContent =
+                Number(
+                    dados.compras || 0
+                ).toLocaleString(
+                    "pt-BR"
+                );
+
+
+            document.getElementById(
+                "analyticsVideoInicio"
+            ).textContent =
+                Number(
+                    dados.videoInicio || 0
+                ).toLocaleString(
+                    "pt-BR"
+                );
+
+
+            document.getElementById(
+                "analyticsTempo"
+            ).textContent =
+                formatarTempo(
+                    dados.tempoAssistido || 0
+                );
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao carregar analytics:",
+                erro
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ABRIR / FECHAR PAINEL
+    ===================================================== */
+
+    analyticsTrigger.addEventListener(
+        "click",
+        () => {
+
+            analyticsAberto =
+                !analyticsAberto;
+
+
+            analyticsPanel.classList.toggle(
+                "active",
+                analyticsAberto
+            );
+
+
+            analyticsTrigger.setAttribute(
+                "aria-expanded",
+                analyticsAberto
+            );
+
+
+            analyticsPanel.setAttribute(
+                "aria-hidden",
+                !analyticsAberto
+            );
+
+
+            if (
+                analyticsAberto
+            ) {
+
+                atualizarAnalytics();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CARREGAR CARROSSEL
+    ===================================================== */
 
     atualizarCarrossel();
-
-});
-
-// =====================================================
-// ARRASTAR CARROSSEL COM O DEDO
-// =====================================================
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-courseCarousel.addEventListener("touchstart", (event) => {
-
-    touchStartX = event.touches[0].clientX;
-
-}, { passive: true });
-
-
-courseCarousel.addEventListener("touchend", (event) => {
-
-    touchEndX = event.changedTouches[0].clientX;
-
-    const diferenca = touchStartX - touchEndX;
-
-    // Arrastou para a esquerda
-    if (diferenca > 50) {
-
-        if (carouselIndex < carouselCards.length - 1) {
-
-            carouselIndex++;
-
-            atualizarCarrossel();
-
-        }
-
-    }
-
-    // Arrastou para a direita
-    if (diferenca < -50) {
-
-        if (carouselIndex > 0) {
-
-            carouselIndex--;
-
-            atualizarCarrossel();
-
-        }
-
-    }
-
-}, { passive: true });
 
 
 </script>
 
 
-
+<button
+    id="courseAnalyticsTrigger"
+    type="button"
+    style="
+        position: fixed !important;
+        right: 20px !important;
+        bottom: 20px !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        border: 2px solid white !important;
+        background: black !important;
+        z-index: 999999 !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    "
+>
+    <span
+        style="
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+            display: block;
+        "
+    ></span>
+</button>
 
 </body>
 
-
 </html>
-

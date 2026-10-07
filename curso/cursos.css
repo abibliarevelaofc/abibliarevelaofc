@@ -2328,3 +2328,167 @@ body.course-open #cursosView .course-final-highlight {
 
     pointer-events: none;
 }
+
+/* =====================================================
+   PAINEL DE CONTROLE — CURSO
+===================================================== */
+
+.course-analytics-panel {
+    position: relative;
+    width: 100%;
+    max-width: 1180px;
+    margin: 70px auto 0;
+    padding: 22px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+    backdrop-filter: blur(12px);
+}
+
+.course-analytics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.course-analytics-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.4);
+}
+
+.course-analytics-header h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.course-analytics-status {
+    padding: 7px 11px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 30px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,.5);
+}
+
+.course-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.course-analytics-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 72px;
+    padding: 14px;
+
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+
+    background: rgba(0,0,0,.18);
+}
+
+.course-analytics-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.05);
+
+    font-size: 15px;
+}
+
+.course-analytics-card strong {
+    display: block;
+
+    font-size: 20px;
+    line-height: 1.1;
+
+    color: #fff;
+}
+
+.course-analytics-card small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .5px;
+
+    color: rgba(255,255,255,.38);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .course-analytics-panel {
+        margin-top: 45px;
+        padding: 16px;
+        border-radius: 15px;
+    }
+
+    .course-analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .course-analytics-card {
+        min-height: 68px;
+        padding: 11px;
+    }
+
+    .course-analytics-card strong {
+        font-size: 17px;
+    }
+
+    .course-analytics-card small {
+        font-size: 8px;
+    }
+
+    .course-analytics-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+}

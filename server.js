@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const axios = require("axios");
 require("dotenv").config();
+const backendApp = require("./backend/server");
 
 const app = express();
 
@@ -19,6 +20,8 @@ console.log("=================================");
 // CONFIGURAÇÕES
 // =====================================================
 app.use(express.json());
+
+
 
 // Arquivos públicos do site
 
@@ -942,6 +945,12 @@ app.post("/api/fluxo", (req, res) => {
     return res.json(cache.fluxo);
 
 });
+
+// =====================================================
+// BACKEND / MONGODB
+// =====================================================
+
+app.use(backendApp);
 
 // =====================================================
 // ROTA 404 DA API
