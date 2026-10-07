@@ -23,9 +23,9 @@ app.use(express.json());
 
 app.post("/api/curso/analytics", async (req, res) => {
 
-await conectarMongoDB();
-
     try {
+
+        await conectarMongoDB();
 
         const { tipo, tempoAssistido } = req.body;
 
@@ -54,7 +54,7 @@ await conectarMongoDB();
 
         });
 
-        res.status(201).json({
+        return res.status(201).json({
 
             sucesso: true,
             id: registro._id
@@ -64,14 +64,22 @@ await conectarMongoDB();
     } catch (erro) {
 
         console.error(
-            "Erro ao registrar analytics do curso:",
-            erro
+            "ERRO AO REGISTRAR ANALYTICS DO CURSO:"
         );
 
-        res.status(500).json({
+        console.error(erro);
+
+        return res.status(500).json({
 
             sucesso: false,
-            mensagem: "Erro ao registrar evento."
+
+            mensagem:
+                "Erro ao registrar evento.",
+
+            erro:
+                process.env.NODE_ENV === "production"
+                    ? undefined
+                    : erro.message
 
         });
 
@@ -85,68 +93,107 @@ await conectarMongoDB();
 
 app.get("/api/curso/analytics", async (req, res) => {
 
-     await conectarMongoDB();
-     
     try {
 
-        const resultados = await CourseAnalytics.aggregate([
-            {
-                $group: {
-                    _id: "$tipo",
-                    total: {
-                        $sum: 1
-                    },
-                    tempo: {
-                        $sum: "$tempoAssistido"
+        await conectarMongoDB();
+
+        const resultados =
+            await CourseAnalytics.aggregate([
+
+                {
+                    $group: {
+
+                        _id: "$tipo",
+
+                        total: {
+                            $sum: 1
+                        },
+
+                        tempo: {
+                            $sum: "$tempoAssistido"
+                        }
+
                     }
                 }
-            }
-        ]);
+
+            ]);
 
         const dados = {
+
             acessos: 0,
+
             compras: 0,
+
             videoInicio: 0,
+
             tempoAssistido: 0
+
         };
 
         resultados.forEach(item => {
 
             if (item._id === "acesso") {
-                dados.acessos = item.total;
+
+                dados.acessos =
+                    item.total;
+
             }
 
             if (item._id === "compra") {
-                dados.compras = item.total;
+
+                dados.compras =
+                    item.total;
+
             }
 
             if (item._id === "video_inicio") {
-                dados.videoInicio = item.total;
+
+                dados.videoInicio =
+                    item.total;
+
             }
 
             if (item._id === "video_tempo") {
-                dados.tempoAssistido = item.tempo;
+
+                dados.tempoAssistido =
+                    item.tempo;
+
             }
 
         });
 
-        return res.json({
+        return res.status(200).json({
+
             sucesso: true,
+
             dados
+
         });
 
     } catch (erro) {
 
         console.error(
-            "Erro ao buscar analytics do curso:",
-            erro
+            "ERRO AO BUSCAR ANALYTICS DO CURSO:"
         );
 
+        console.error(erro);
+
         return res.status(500).json({
+
             sucesso: false,
-            mensagem: "Erro ao buscar analytics."
+
+            mensagem:
+                "Erro ao buscar analytics.",
+
+            erro:
+                process.env.NODE_ENV === "production"
+                    ? undefined
+                    : erro.message
+
         });
+
     }
+
 });
 
 // =====================================================
