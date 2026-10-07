@@ -1671,15 +1671,15 @@ async function atualizarAnalytics() {
                 dados.tempoAssistido || 0
             );
 
- } catch (erro) {
-    console.error("ERRO AO REGISTRAR ANALYTICS DO CURSO:");
+ 
+} catch (erro) {
+    console.error("ERRO AO BUSCAR ANALYTICS DO CURSO:");
     console.error(erro);
 
     return res.status(500).json({
         sucesso: false,
-        mensagem: "Erro ao registrar evento.",
-        erro: erro.message,
-        nome: erro.name
+        mensagem: "Erro ao buscar analytics.",
+        erro: erro.message
     });
 }
 
