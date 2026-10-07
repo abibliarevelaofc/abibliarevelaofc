@@ -2306,3 +2306,25 @@ body.course-open #cursosView .course-final-highlight {
     cursor: pointer;
     display: none;
 }
+
+.course-video-watch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+
+    padding: 14px 24px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 50px;
+
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    pointer-events: none;
+}
