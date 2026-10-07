@@ -22,45 +22,14 @@ app.use(express.json());
 // CONEXÃO COM MONGODB
 // =====================================================
 
-let mongoConectando = null;
 
 async function conectarMongoDB() {
 
-    console.log("=== TESTE MONGODB ===");
-
-    console.log(
-        "MONGODB_URI existe:",
-        !!process.env.MONGODB_URI
-    );
-
-    console.log(
-        "Estado Mongo:",
-        mongoose.connection.readyState
-    );
-
-    if (!process.env.MONGODB_URI) {
-
-        throw new Error(
-            "MONGODB_URI NÃO EXISTE NA VERCEL"
-        );
-
-    }
-
     if (mongoose.connection.readyState === 1) {
-
-        console.log(
-            "MongoDB já está conectado."
-        );
-
         return;
-
     }
 
     if (!mongoConectando) {
-
-        console.log(
-            "Tentando conectar ao MongoDB..."
-        );
 
         mongoConectando = mongoose.connect(
             process.env.MONGODB_URI,
@@ -75,28 +44,15 @@ async function conectarMongoDB() {
 
         await mongoConectando;
 
-        console.log(
-            "MongoDB conectado com sucesso!"
-        );
-
     } catch (erro) {
 
         mongoConectando = null;
-
-        console.error(
-            "ERRO REAL DO MONGODB:"
-        );
-
-        console.error(
-            erro
-        );
 
         throw erro;
 
     }
 
 }
-
 
 // =====================================================
 // ANALYTICS — CURSO CRIADOR PRO
