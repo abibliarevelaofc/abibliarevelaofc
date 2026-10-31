@@ -5937,60 +5937,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // ATUALIZAR PERFIL LOGADO
     // =================================================
 
-    function atualizarPerfilLogado(
-        usuario
-    ) {
+    function atualizarPerfilLogado(usuario) {
 
-        if (!usuario) {
-            return;
-        }
+    if (!usuario) return;
 
+    // =============================================
+    // PERFIL
+    // =============================================
 
-        const profileButton =
-            document.getElementById(
-                "profileButton"
-            );
+    const profileButton = document.getElementById("profileButton");
 
+    if (profileButton) {
 
-        if (!profileButton) {
-            return;
-        }
-
-
-        // =============================================
-        // NOME
-        // =============================================
-
-        const profileName =
-            profileButton.querySelector(
-                ".profile-text strong"
-            );
-
+        const profileName = profileButton.querySelector(
+            ".profile-text strong"
+        );
 
         if (profileName) {
-
             profileName.textContent =
-                usuario.nome ||
-                usuario.name ||
-                "Usuário";
-
+                usuario.nome || usuario.name || "Usuário";
         }
 
+        const profilePhoto = profileButton.querySelector(
+            ".profile-photo"
+        );
 
-        // =============================================
-        // FOTO
-        // =============================================
-
-        const profilePhoto =
-            profileButton.querySelector(
-                ".profile-photo"
-            );
-
-
-        if (
-            profilePhoto &&
-            usuario.foto
-        ) {
+        if (profilePhoto && usuario.foto) {
 
             profilePhoto.innerHTML = `
                 <img
@@ -5999,17 +5971,123 @@ document.addEventListener("DOMContentLoaded", () => {
                 >
             `;
 
-
-            profilePhoto.classList.remove(
-                "image-placeholder"
-            );
-
+            profilePhoto.classList.remove("image-placeholder");
         }
-
-
-        atualizarIcones();
-
     }
+
+
+    // =============================================
+    // DADOS DO PAINEL
+    // =============================================
+
+    const nivel = Number(usuario.nivel) || 1;
+    const xp = Number(usuario.xp) || 0;
+    const xpNoNivel = Number(usuario.xpNoNivel) || 0;
+    const xpNecessario = Number(usuario.xpNecessario) || 50;
+    const pontos = Number(usuario.pontos) || 0;
+    const diasLogados = Number(usuario.diasLogados) || 0;
+
+
+    // =============================================
+    // DIAS DE SEQUÊNCIA
+    // =============================================
+
+    const memberStreak = document.getElementById("memberStreak");
+
+    if (memberStreak) {
+        memberStreak.textContent = diasLogados;
+    }
+
+
+    // =============================================
+    // PONTOS DA FÉ
+    // =============================================
+
+    const memberFaithPoints = document.getElementById(
+        "memberFaithPoints"
+    );
+
+    if (memberFaithPoints) {
+        memberFaithPoints.textContent =
+            pontos.toLocaleString("pt-BR");
+    }
+
+
+    // =============================================
+    // NÍVEL
+    // =============================================
+
+    const memberLevel = document.getElementById("memberLevel");
+
+    if (memberLevel) {
+        memberLevel.textContent = nivel;
+    }
+
+    const memberLevelLabel = document.getElementById(
+        "memberLevelLabel"
+    );
+
+    if (memberLevelLabel) {
+        memberLevelLabel.textContent = nivel;
+    }
+
+
+    // =============================================
+    // XP TOTAL
+    // =============================================
+
+    const memberXpText = document.getElementById("memberXpText");
+
+    if (memberXpText) {
+        memberXpText.textContent =
+            xp.toLocaleString("pt-BR") + " XP";
+    }
+
+
+    // =============================================
+    // PROGRESSO DO CÍRCULO DE XP
+    // =============================================
+
+    const memberXpCircle = document.getElementById(
+        "memberXpCircle"
+    );
+
+    if (memberXpCircle) {
+
+        const progresso = Math.min(
+            100,
+            Math.max(
+                0,
+                xpNecessario > 0
+                    ? (xpNoNivel / xpNecessario) * 100
+                    : 0
+            )
+        );
+
+        const raio = Number(memberXpCircle.getAttribute("r"));
+
+        if (raio > 0) {
+
+            const circunferencia = 2 * Math.PI * raio;
+
+            memberXpCircle.style.strokeDasharray =
+                circunferencia;
+
+            memberXpCircle.style.strokeDashoffset =
+                circunferencia * (1 - progresso / 100);
+        }
+    }
+
+
+    // =============================================
+    // ATUALIZAR ÍCONES
+    // =============================================
+
+    if (typeof atualizarIcones === "function") {
+        atualizarIcones();
+    }
+
+}
 
 
     // =================================================
@@ -6018,133 +6096,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function restaurarSessao() {
 
-        const token =
-            localStorage.getItem(
-                "token"
-            );
+    const token = localStorage.getItem("token");
 
-        const usuarioSalvo =
-            localStorage.getItem(
-                "usuario"
-            );
+    const usuarioSalvo = localStorage.getItem("usuario");
 
 
-        // =============================================
-        // USUÁRIO SALVO
-        // =============================================
+    // =============================================
+    // USUÁRIO SALVO
+    // =============================================
 
-        if (usuarioSalvo) {
+    if (usuarioSalvo) {
 
-            try {
+        try {
 
-                const usuario =
-                    JSON.parse(
-                        usuarioSalvo
-                    );
+            const usuario = JSON.parse(usuarioSalvo);
 
-                atualizarPerfilLogado(
-                    usuario
-                );
+            atualizarPerfilLogado(usuario);
 
-            } catch (erro) {
+        } catch (erro) {
 
-                localStorage.removeItem(
-                    "usuario"
-                );
-
-            }
+            localStorage.removeItem("usuario");
 
         }
+    }
 
 
-        // =============================================
-        // SEM TOKEN
-        // =============================================
+    // =============================================
+    // SEM TOKEN
+    // =============================================
 
-        if (!token) {
+    if (!token) return;
+
+
+    // =============================================
+    // VALIDAR JWT NO SERVIDOR
+    // =============================================
+
+    try {
+
+        const resposta = await fetch(
+            "https://abibliarevelaofc.vercel.app/api/users/me",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );
+
+
+        if (!resposta.ok) {
+
+            console.warn("Sessão expirada ou inválida.");
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("usuario");
+
             return;
         }
 
 
         // =============================================
-        // VALIDAR JWT
+        // DADOS ATUALIZADOS DO MONGODB
         // =============================================
 
-        try {
+        const dados = await resposta.json();
 
-            const resposta =
-                await fetch(
-                    "https://abibliarevelaofc.vercel.app/api/users/me",
-                    {
-                        method: "GET",
+        if (dados.sucesso && dados.usuario) {
 
-                        headers: {
-                            "Authorization":
-                                `Bearer ${token}`
-                        }
-
-                    }
-                );
-
-
-            // =========================================
-            // TOKEN INVÁLIDO
-            // =========================================
-
-            if (!resposta.ok) {
-
-                console.warn(
-                    "Sessão expirada ou inválida."
-                );
-
-                localStorage.removeItem(
-                    "token"
-                );
-
-                localStorage.removeItem(
-                    "usuario"
-                );
-
-                return;
-
-            }
-
-
-            // =========================================
-            // DADOS DO USUÁRIO
-            // =========================================
-
-            const dados =
-                await resposta.json();
-
-
-            if (dados.usuario) {
-
-                localStorage.setItem(
-                    "usuario",
-                    JSON.stringify(
-                        dados.usuario
-                    )
-                );
-
-
-                atualizarPerfilLogado(
-                    dados.usuario
-                );
-
-            }
-
-
-        } catch (erro) {
-
-            console.error(
-                "Erro ao restaurar sessão:",
-                erro
+            localStorage.setItem(
+                "usuario",
+                JSON.stringify(dados.usuario)
             );
 
+            atualizarPerfilLogado(dados.usuario);
         }
 
+    } catch (erro) {
+
+        console.error(
+            "Erro ao restaurar sessão:",
+            erro
+        );
     }
+}
 
 
     // =================================================
