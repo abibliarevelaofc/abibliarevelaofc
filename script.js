@@ -765,15 +765,15 @@ async function carregarDestaquesBiblia() {
     try {
 
         const resposta = await fetch(
-            "http://localhost:3000/api/biblia/destaques",
-            {
-                method: "GET",
+    "https://abibliarevelaofc.vercel.app/api/biblia/destaques",
+    {
+        method: "GET",
 
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+);
 
         const dados = await resposta.json();
 
@@ -940,31 +940,31 @@ function abrirPaletaDestaque(article, capitulo, versiculo) {
                 try {
 
                     const resposta =
-                        await fetch(
-                            "http://localhost:3000/api/biblia/destaque",
-                            {
-                                method: "POST",
+    await fetch(
+        "https://abibliarevelaofc.vercel.app/api/biblia/destaque",
+        {
+            method: "POST",
 
-                                headers: {
-                                    "Content-Type":
-                                        "application/json",
+            headers: {
+                "Content-Type":
+                    "application/json",
 
-                                    "Authorization":
-                                        `Bearer ${token}`
-                                },
+                "Authorization":
+                    `Bearer ${token}`
+            },
 
-                                body: JSON.stringify({
-                                    capitulo:
-                                        capitulo,
+            body: JSON.stringify({
+                capitulo:
+                    capitulo,
 
-                                    versiculo:
-                                        Number(versiculo),
+                versiculo:
+                    Number(versiculo),
 
-                                    cor:
-                                        corSelecionada
-                                })
-                            }
-                        );
+                cor:
+                    corSelecionada
+            })
+        }
+    );
 
                     const dados =
                         await resposta.json();
@@ -1348,7 +1348,7 @@ if (bibleMarkRead) {
 
                 const resposta =
                     await fetch(
-                        "http://localhost:3000/api/biblia/marcar-lido",
+                        "https://abibliarevelaofc.vercel.app/api/users/me",
                         {
                             method: "POST",
 
@@ -3809,7 +3809,7 @@ async function carregarProgressoMissaoBiblia() {
 
 
         const resposta = await fetch(
-            "http://localhost:3000/api/biblia/progresso",
+            "https://abibliarevelaofc.vercel.app/api/users/me",
             {
                 method: "GET",
 
@@ -4354,22 +4354,22 @@ async function realizarCheckin() {
     try {
 
         const resposta =
-            await fetch(
-                "http://localhost:3000/api/users/checkin",
-                {
-                    method: "POST",
+    await fetch(
+        "https://abibliarevelaofc.vercel.app/api/users/checkin",
+        {
+            method: "POST",
 
-                    headers: {
+            headers: {
 
-                        "Authorization":
-                            `Bearer ${token}`,
+                "Authorization":
+                    `Bearer ${token}`,
 
-                        "Content-Type":
-                            "application/json"
+                "Content-Type":
+                    "application/json"
 
-                    }
-                }
-            );
+            }
+        }
+    );
 
 
         const dados =
@@ -4552,20 +4552,17 @@ async function carregarMissaoCheckin() {
 
 
         const resposta =
-            await fetch(
-                "http://localhost:3000/api/users/me",
-                {
-                    method: "GET",
+    await fetch(
+        "https://abibliarevelaofc.vercel.app/api/users/me",
+        {
+            method: "GET",
 
-                    headers: {
-
-                        "Authorization":
-                            `Bearer ${token}`
-
-                    }
-
-                }
-            );
+            headers: {
+                "Authorization":
+                    `Bearer ${token}`
+            }
+        }
+    );
 
 
         if (!resposta.ok) {
@@ -6077,7 +6074,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const resposta =
                 await fetch(
-                    "http://localhost:3000/api/users/me",
+                    "https://abibliarevelaofc.vercel.app/api/users/me",
                     {
                         method: "GET",
 
