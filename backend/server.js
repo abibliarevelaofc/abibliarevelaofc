@@ -374,6 +374,8 @@ app.post("/api/users/register", async (req, res) => {
 
     try {
 
+        await conectarMongoDB();
+
         const {
             nome,
             email,
@@ -537,6 +539,8 @@ app.post("/api/users/register", async (req, res) => {
 app.post("/api/users/login", async (req, res) => {
 
     try {
+
+  await conectarMongoDB();
 
         const {
             email,
