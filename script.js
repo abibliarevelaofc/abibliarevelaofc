@@ -5933,6 +5933,119 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
+
+
+// =====================================================
+// ATUALIZAR BOTÃO DO MENU DO PERFIL
+// =====================================================
+
+function atualizarAcaoPerfil(usuario) {
+
+    const profileDropdown =
+        document.getElementById("profileDropdown");
+
+    const loginButton =
+        document.getElementById("loginButton");
+
+    if (!profileDropdown || !loginButton) return;
+
+    // Remove o botão antigo e seus eventos
+    const novoBotao = loginButton.cloneNode(false);
+
+    novoBotao.type = "button";
+
+    if (usuario) {
+
+        // USUÁRIO LOGADO: MOSTRAR SAIR
+
+        novoBotao.innerHTML = `
+            <i data-lucide="log-out"></i>
+            <span>Sair</span>
+        `;
+
+        novoBotao.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Encerrar sessão
+            localStorage.removeItem("token");
+            localStorage.removeItem("usuario");
+
+            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("usuario");
+
+            // Restaurar nome do perfil
+            const profileName = document.querySelector(
+                "#profileButton .profile-text strong"
+            );
+
+            if (profileName) {
+                profileName.textContent = "Membro";
+            }
+
+            // Restaurar foto padrão
+            const profilePhoto = document.querySelector(
+                "#profileButton .profile-photo"
+            );
+
+            if (profilePhoto) {
+
+                profilePhoto.innerHTML = `
+                    <i data-lucide="user"></i>
+                `;
+
+                profilePhoto.classList.add(
+                    "image-placeholder"
+                );
+            }
+
+            // Restaurar botão Entrar
+            atualizarAcaoPerfil(null);
+
+            profileDropdown.classList.remove("active");
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            console.log("Usuário desconectado.");
+
+        });
+
+    } else {
+
+        // USUÁRIO DESLOGADO: MOSTRAR ENTRAR
+
+        novoBotao.innerHTML = `
+            <i data-lucide="log-in"></i>
+            <span>Entrar</span>
+        `;
+
+        novoBotao.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            profileDropdown.classList.remove("active");
+
+            if (loginModal) {
+                loginModal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+        });
+
+    }
+
+    loginButton.replaceWith(novoBotao);
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+}
+
     // =================================================
     // ATUALIZAR PERFIL LOGADO
     // =================================================
@@ -5940,6 +6053,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function atualizarPerfilLogado(usuario) {
 
     if (!usuario) return;
+
+    atualizarAcaoPerfil(usuario);
 
     // =============================================
     // PERFIL
@@ -6088,6 +6203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 }
+
 
 
     // =================================================
