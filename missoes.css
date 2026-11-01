@@ -1,4 +1,30 @@
 
+
+/* =====================================================
+   BÍBLIA REVELA — PAINEL DE MISSÕES
+   ESTILO GAME HUD / DARK PREMIUM
+===================================================== */
+
+:root {
+    --mission-bg: #0b0e13;
+    --mission-panel: #111720;
+    --mission-card: #171f2b;
+    --mission-card-hover: #1c2735;
+
+    --mission-gold: #d6ad61;
+    --mission-gold-light: #f2d493;
+    --mission-gold-dark: #8f6a32;
+
+    --mission-text: #f1f2f4;
+    --mission-muted: #929baa;
+
+    --mission-border: rgba(214, 173, 97, .22);
+    --mission-green: #67d6a0;
+
+    --mission-font: "Inter", sans-serif;
+    --mission-title-font: "Cinzel", serif;
+}
+
 /* =====================================================
    TELA — MISSÕES
 ===================================================== */
@@ -6,8 +32,10 @@
 .missions-view {
     position: fixed;
     inset: 0;
+
     width: 100vw;
     height: 100dvh;
+
     z-index: 2000;
 
     display: flex;
@@ -16,60 +44,69 @@
 
     pointer-events: none;
     visibility: visible;
+
     overflow: hidden;
+
+    background: rgba(0, 0, 0, .72);
+
+    opacity: 0;
+
+    transition: opacity .45s ease;
 }
 
 body.missions-open .missions-view {
     pointer-events: auto;
+    opacity: 1;
 }
 
 /* =====================================================
-   PERGAMINHO
+   PAINEL PRINCIPAL
 ===================================================== */
 
 .missions-scroll {
     position: relative;
 
-    width: min(1100px, 94vw);
-    height: calc(100dvh - 150px);
+    width: min(1120px, 94vw);
+    height: calc(100dvh - 145px);
 
     margin: 0;
-    padding: 55px 50px 45px;
+    padding: 48px 46px 42px;
 
     overflow-y: auto;
     overflow-x: hidden;
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(87, 48, 17, 0.18),
-            transparent 8%,
-            transparent 92%,
-            rgba(87, 48, 17, 0.18)
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(214, 173, 97, .12),
+            transparent 48%
         ),
         linear-gradient(
-            180deg,
-            #ead7a7 0%,
-            #f4e5bd 48%,
-            #dfc38b 100%
+            145deg,
+            #151c27 0%,
+            #0d121a 48%,
+            #111720 100%
         );
 
-    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(214, 173, 97, .28);
+    border-bottom: none;
+
+    border-radius: 20px 20px 0 0;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        inset 0 0 45px rgba(91, 51, 17, 0.22),
-        inset 0 0 8px rgba(72, 39, 10, 0.35);
+        0 -12px 60px rgba(0, 0, 0, .55),
+        0 0 45px rgba(214, 173, 97, .07),
+        inset 0 1px 0 rgba(255, 255, 255, .06);
 
     transform: translateY(110%);
     opacity: 0;
 
     transition:
-        transform 0.95s cubic-bezier(.16, .8, .25, 1),
-        opacity 0.4s ease;
+        transform .85s cubic-bezier(.16, .8, .25, 1),
+        opacity .4s ease;
 
     scrollbar-width: thin;
-    scrollbar-color: #9b7441 transparent;
+    scrollbar-color: #80633b transparent;
 }
 
 body.missions-open .missions-scroll {
@@ -77,13 +114,62 @@ body.missions-open .missions-scroll {
     opacity: 1;
 }
 
+.missions-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.missions-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.missions-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #d6ad61,
+        #72532c
+    );
+
+    border-radius: 10px;
+}
+
 /* =====================================================
-   IMPACTO E POEIRA DO PERGAMINHO
+   LINHA DOURADA SUPERIOR
+===================================================== */
+
+.missions-scroll::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--mission-gold),
+        var(--mission-gold-light),
+        var(--mission-gold),
+        transparent
+    );
+
+    box-shadow:
+        0 0 12px rgba(214, 173, 97, .45),
+        0 0 28px rgba(214, 173, 97, .16);
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   PARTÍCULAS / ENTRADA DO PAINEL
 ===================================================== */
 
 .missions-view::before,
 .missions-view::after {
     content: "";
+
     position: absolute;
     left: 0;
     right: 0;
@@ -91,102 +177,63 @@ body.missions-open .missions-scroll {
 
     pointer-events: none;
     z-index: 3000;
+
     opacity: 0;
 }
 
 .missions-view::before {
-    height: 32px;
+    height: 35px;
 
     background:
-        radial-gradient(circle at 4% 65%, rgba(119,82,44,.75) 0 1px, transparent 2px),
-        radial-gradient(circle at 9% 35%, rgba(194,153,94,.85) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 17% 70%, rgba(127,88,48,.65) 0 1px, transparent 2px),
-        radial-gradient(circle at 26% 25%, rgba(211,173,112,.8) 0 1px, transparent 2px),
-        radial-gradient(circle at 34% 68%, rgba(125,86,47,.75) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 43% 35%, rgba(203,163,103,.8) 0 1px, transparent 2px),
-        radial-gradient(circle at 52% 72%, rgba(116,79,42,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 61% 28%, rgba(211,174,113,.85) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 70% 65%, rgba(122,84,45,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 79% 32%, rgba(204,165,105,.85) 0 1px, transparent 2px),
-        radial-gradient(circle at 88% 70%, rgba(120,82,44,.7) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 96% 35%, rgba(210,172,111,.8) 0 1px, transparent 2px);
-
-    filter: blur(.15px);
-}
-
-.missions-view::after {
-    height: 38px;
-    z-index: 3001;
-
-    background:
-        radial-gradient(circle at 7% 78%, rgba(224,190,134,.75) 0 1px, transparent 2px),
-        radial-gradient(circle at 14% 22%, rgba(103,69,37,.55) 0 1px, transparent 2px),
-        radial-gradient(circle at 21% 82%, rgba(218,182,126,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 31% 18%, rgba(109,74,39,.6) 0 1px, transparent 2px),
-        radial-gradient(circle at 39% 76%, rgba(226,192,137,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 48% 20%, rgba(105,71,38,.55) 0 1px, transparent 2px),
-        radial-gradient(circle at 57% 84%, rgba(221,187,130,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 66% 17%, rgba(105,71,38,.55) 0 1px, transparent 2px),
-        radial-gradient(circle at 75% 78%, rgba(224,190,134,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 84% 22%, rgba(104,70,37,.55) 0 1px, transparent 2px),
-        radial-gradient(circle at 93% 76%, rgba(220,184,127,.7) 0 1px, transparent 2px);
+        radial-gradient(circle at 8% 70%, rgba(242, 212, 147, .9) 0 1px, transparent 2px),
+        radial-gradient(circle at 19% 30%, rgba(214, 173, 97, .8) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 31% 75%, rgba(242, 212, 147, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 25%, rgba(214, 173, 97, .9) 0 1px, transparent 2px),
+        radial-gradient(circle at 58% 70%, rgba(242, 212, 147, .8) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 73% 32%, rgba(214, 173, 97, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 70%, rgba(242, 212, 147, .9) 0 1.5px, transparent 2.5px);
 
     filter: blur(.2px);
 }
 
+.missions-view::after {
+    height: 45px;
+
+    background:
+        radial-gradient(circle at 12% 80%, rgba(214, 173, 97, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 27% 25%, rgba(242, 212, 147, .7) 0 1px, transparent 2px),
+        radial-gradient(circle at 43% 75%, rgba(214, 173, 97, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 62% 25%, rgba(242, 212, 147, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 79% 78%, rgba(214, 173, 97, .8) 0 1px, transparent 2px),
+        radial-gradient(circle at 94% 25%, rgba(242, 212, 147, .7) 0 1px, transparent 2px);
+}
+
 body.missions-open .missions-view::before {
-    animation: parchmentImpact 1.05s cubic-bezier(.2,.8,.25,1) both;
+    animation: missionParticles 1s ease-out both;
 }
 
 body.missions-open .missions-view::after {
-    animation: parchmentDust 1.25s ease-out .08s both;
+    animation: missionParticles 1.25s ease-out .1s both;
 }
 
-@keyframes parchmentImpact {
+@keyframes missionParticles {
     0% {
         opacity: 0;
-        transform: translateY(0) scaleX(.98);
+        transform: translateY(8px);
     }
-    18% { opacity: .95; }
-    32% {
-        opacity: 1;
-        transform: translateY(1px) scaleX(1);
-    }
-    38% {
+
+    25% {
         opacity: .9;
-        transform: translateY(-2px) scaleX(1.012);
     }
-    55% {
-        opacity: .65;
-        transform: translateY(-5px) scaleX(1.018);
-    }
-    75% {
-        opacity: .3;
-        transform: translateY(-9px) scaleX(1.025);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-15px) scaleX(1.035);
-    }
-}
 
-@keyframes parchmentDust {
-    0% {
-        opacity: 0;
-        transform: translateY(3px) scaleX(.98);
-    }
-    22% { opacity: .75; }
-    42% {
-        opacity: .8;
-        transform: translateY(-2px) scaleX(1);
-    }
     65% {
         opacity: .45;
-        transform: translateY(-7px) scaleX(1.015);
+        transform: translateY(-8px);
     }
+
     100% {
         opacity: 0;
-        transform: translateY(-14px) scaleX(1.025);
+        transform: translateY(-18px);
     }
 }
 
@@ -198,42 +245,59 @@ body.missions-open .missions-view::after {
     position: relative;
     z-index: 3;
 
-    max-width: 700px;
-    margin: 0 auto 40px;
+    max-width: 760px;
+    margin: 0 auto 42px;
 
     text-align: center;
 }
 
 .missions-kicker {
-    display: block;
-    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .22em;
+    margin-bottom: 12px;
+    padding: 7px 16px;
 
-    color: #765326;
+    border: 1px solid rgba(214, 173, 97, .24);
+    border-radius: 30px;
+
+    background: rgba(214, 173, 97, .07);
+
+    font-family: var(--mission-font);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .24em;
+
+    color: var(--mission-gold-light);
+    text-transform: uppercase;
 }
 
 .missions-header h1 {
     margin: 0;
 
-    font-family: "Cinzel", serif;
-    font-size: clamp(32px, 5vw, 58px);
+    font-family: var(--mission-title-font);
+    font-size: clamp(34px, 5vw, 58px);
     font-weight: 700;
     letter-spacing: .08em;
 
-    color: #4d3015;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    color: #f4e5c2;
+
+    text-shadow:
+        0 2px 12px rgba(214, 173, 97, .15),
+        0 3px 20px rgba(0, 0, 0, .5);
 }
 
 .missions-header p {
-    margin: 10px 0 0;
+    margin: 12px 0 0;
 
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    color: #71552f;
+    font-family: var(--mission-font);
+    font-size: 13px;
+    font-weight: 400;
+
+    color: var(--mission-muted);
+    letter-spacing: .02em;
 }
 
 /* =====================================================
@@ -245,10 +309,11 @@ body.missions-open .missions-view::after {
     z-index: 3;
 
     display: grid;
-    gap: 16px;
+    gap: 17px;
 
     width: 100%;
-    max-width: 850px;
+    max-width: 880px;
+
     margin: 0 auto;
 }
 
@@ -257,38 +322,88 @@ body.missions-open .missions-view::after {
 ===================================================== */
 
 .mission-card {
+    position: relative;
+
     display: flex;
     align-items: center;
     gap: 18px;
 
-    min-height: 88px;
-    padding: 16px 20px;
+    min-height: 94px;
+    padding: 18px 21px;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.28),
-            rgba(150,103,48,.08)
+            115deg,
+            rgba(255, 255, 255, .035),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #1b2532,
+            #131b26
         );
 
-    border: 1px solid rgba(109,71,28,.28);
-    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 14px;
 
     box-shadow:
-        0 7px 18px rgba(73,42,14,.12),
-        inset 0 1px 0 rgba(255,255,255,.35);
+        0 8px 22px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .035);
 
     transition:
         transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
         box-shadow .25s ease;
+}
+
+/* Linha lateral dourada */
+
+.mission-card::before {
+    content: "";
+
+    position: absolute;
+    top: 18%;
+    bottom: 18%;
+    left: 0;
+
+    width: 3px;
+
+    border-radius: 0 5px 5px 0;
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        var(--mission-gold),
+        transparent
+    );
+
+    opacity: .65;
 }
 
 .mission-card:hover {
     transform: translateY(-3px);
 
+    border-color: rgba(214, 173, 97, .34);
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(214, 173, 97, .055),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #202c3a,
+            #151e29
+        );
+
     box-shadow:
-        0 12px 25px rgba(73,42,14,.18),
-        inset 0 1px 0 rgba(255,255,255,.4);
+        0 12px 30px rgba(0, 0, 0, .32),
+        0 0 18px rgba(214, 173, 97, .055),
+        inset 0 1px 0 rgba(255, 255, 255, .05);
 }
 
 /* =====================================================
@@ -296,28 +411,52 @@ body.missions-open .missions-view::after {
 ===================================================== */
 
 .mission-icon {
-    flex: 0 0 52px;
+    position: relative;
 
-    width: 52px;
-    height: 52px;
+    flex: 0 0 54px;
+
+    width: 54px;
+    height: 54px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    border: 1px solid rgba(214, 173, 97, .38);
+    border-radius: 14px;
 
-    background: linear-gradient(145deg, #8d642d, #c49a58);
-    color: #fff8e8;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214, 173, 97, .2),
+            rgba(126, 88, 40, .08)
+        );
+
+    color: var(--mission-gold-light);
 
     box-shadow:
-        0 5px 12px rgba(72,42,12,.25),
-        inset 0 1px 2px rgba(255,255,255,.35);
+        0 5px 15px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.mission-card:hover .mission-icon {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, .25),
+        0 0 14px rgba(214, 173, 97, .15),
+        inset 0 1px 0 rgba(255, 255, 255, .1);
 }
 
 .mission-icon svg {
-    width: 23px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
+
+    stroke-width: 1.8;
 }
 
 /* =====================================================
@@ -327,22 +466,28 @@ body.missions-open .missions-view::after {
 .mission-content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
 
     flex: 1 1 auto;
     min-width: 0;
 }
 
 .mission-content strong {
-    font-family: "Cinzel", serif;
-    font-size: 16px;
-    color: #4d3015;
+    font-family: var(--mission-title-font);
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #f0e6d2;
+    letter-spacing: .015em;
 }
 
 .mission-content span {
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    color: #765b36;
+    font-family: var(--mission-font);
+    font-size: 11px;
+    font-weight: 400;
+
+    color: #9ba7b6;
+    line-height: 1.5;
 }
 
 /* =====================================================
@@ -352,39 +497,74 @@ body.missions-open .missions-view::after {
 .mission-progress {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 11px;
 
-    margin-top: 8px;
+    margin-top: 9px;
     min-width: 0;
 }
 
 .mission-progress-bar {
-    width: 150px;
-    height: 5px;
+    position: relative;
 
-    flex: 0 1 150px;
+    width: 170px;
+    height: 6px;
+
+    flex: 0 1 170px;
 
     overflow: hidden;
-    border-radius: 10px;
 
-    background: rgba(91,58,22,.14);
+    border: 1px solid rgba(255, 255, 255, .045);
+    border-radius: 20px;
+
+    background: #090e15;
+
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, .45);
 }
 
 .mission-progress-fill {
+    position: relative;
+
     width: 0;
     height: 100%;
 
     border-radius: inherit;
 
-    background: linear-gradient(90deg, #8d642d, #c49a58);
+    background: linear-gradient(
+        90deg,
+        #96703a,
+        #d6ad61,
+        #f2d493
+    );
 
-    transition: width .35s ease;
+    box-shadow:
+        0 0 9px rgba(214, 173, 97, .35);
+
+    transition: width .5s cubic-bezier(.2, .8, .2, 1);
+}
+
+.mission-progress-fill::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 18px;
+    height: 100%;
+
+    background: rgba(255, 255, 255, .35);
+
+    filter: blur(5px);
 }
 
 .mission-progress small {
-    font-family: "Inter", sans-serif;
+    font-family: var(--mission-font);
     font-size: 9px;
-    color: #765b36;
+    font-weight: 700;
+
+    color: #a9b2bf;
+
     white-space: nowrap;
 }
 
@@ -396,10 +576,10 @@ body.missions-open .missions-view::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
+    gap: 10px;
 
     flex: 0 0 auto;
-    min-width: 112px;
+    min-width: 118px;
 }
 
 .mission-level-info {
@@ -408,46 +588,56 @@ body.missions-open .missions-view::after {
     align-items: center;
     justify-content: center;
 
-    min-width: 38px;
+    min-width: 40px;
     text-align: center;
 }
 
 .mission-level-info span {
-    font-family: "Inter", sans-serif;
+    font-family: var(--mission-font);
     font-size: 8px;
     font-weight: 800;
-    letter-spacing: 1px;
-    color: #80613a;
+
+    letter-spacing: 1.5px;
+    color: #929baa;
 }
 
 .mission-level-info strong {
-    font-family: "Cinzel", serif;
-    font-size: 22px;
+    font-family: var(--mission-title-font);
+    font-size: 25px;
     line-height: 1.2;
-    color: #4d3015;
+
+    color: var(--mission-gold-light);
+
+    text-shadow: 0 0 12px rgba(214, 173, 97, .17);
 }
+
+/* =====================================================
+   SETAS DOS NÍVEIS
+===================================================== */
 
 .mission-level-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 29px;
-    height: 29px;
+    width: 31px;
+    height: 31px;
     padding: 0;
 
-    border: 1px solid rgba(105,71,28,.24);
-    border-radius: 50%;
+    border: 1px solid rgba(214, 173, 97, .24);
+    border-radius: 9px;
 
-    background: rgba(105,71,28,.10);
-    color: #67471f;
+    background: rgba(214, 173, 97, .07);
+
+    color: var(--mission-gold-light);
 
     cursor: pointer;
 
     transition:
         background .2s ease,
         transform .2s ease,
-        border-color .2s ease;
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
 .mission-level-arrow svg {
@@ -456,13 +646,21 @@ body.missions-open .missions-view::after {
 }
 
 .mission-level-arrow:not(:disabled):hover {
-    background: rgba(105,71,28,.22);
-    border-color: rgba(105,71,28,.45);
+    background: rgba(214, 173, 97, .19);
+
+    border-color: rgba(214, 173, 97, .55);
+
     transform: scale(1.08);
+
+    box-shadow: 0 0 12px rgba(214, 173, 97, .1);
+}
+
+.mission-level-arrow:not(:disabled):active {
+    transform: scale(.94);
 }
 
 .mission-level-arrow:disabled {
-    opacity: .35;
+    opacity: .3;
     cursor: not-allowed;
 }
 
@@ -471,36 +669,49 @@ body.missions-open .missions-view::after {
 ===================================================== */
 
 .mission-reward {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     flex: 0 0 auto;
-    min-width: 65px;
+    min-width: 72px;
 
-    padding: 8px 12px;
+    padding: 9px 12px;
 
-    border: 1px solid rgba(105,71,28,.2);
-    border-radius: 12px;
+    border: 1px solid rgba(214, 173, 97, .3);
+    border-radius: 11px;
 
-    background: rgba(105,71,28,.12);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214, 173, 97, .16),
+            rgba(214, 173, 97, .045)
+        );
 
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-family: var(--mission-font);
+    font-size: 15px;
     font-weight: 800;
 
-    color: #67471f;
+    color: var(--mission-gold-light);
     text-align: center;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .045),
+        0 4px 12px rgba(0, 0, 0, .16);
 }
 
 .mission-reward small {
-    margin-top: 2px;
+    margin-top: 3px;
 
-    font-family: "Inter", sans-serif;
+    font-family: var(--mission-font);
     font-size: 8px;
-    font-weight: 700;
-    letter-spacing: .8px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+    color: #aeb5c0;
 }
 
 /* =====================================================
@@ -508,34 +719,60 @@ body.missions-open .missions-view::after {
 ===================================================== */
 
 .mission-card:has(.mission-progress-fill[style*="100%"]) {
+    border-color: rgba(103, 214, 160, .3);
+
     background:
         linear-gradient(
-            135deg,
-            rgba(196,154,88,.16),
-            rgba(255,255,255,.22)
+            110deg,
+            rgba(103, 214, 160, .07),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #17272a,
+            #131e25
         );
 }
 
+.mission-card:has(.mission-progress-fill[style*="100%"])::before {
+    background: linear-gradient(
+        180deg,
+        transparent,
+        var(--mission-green),
+        transparent
+    );
+}
+
+.mission-card:has(.mission-progress-fill[style*="100%"]) .mission-progress-fill {
+    background: linear-gradient(
+        90deg,
+        #318c67,
+        #67d6a0
+    );
+
+    box-shadow: 0 0 10px rgba(103, 214, 160, .25);
+}
+
 /* =====================================================
-   MISSÃO 2 — CHECK-IN
-   ORGANIZAÇÃO EXCLUSIVA DESTE CARD
+   MISSÃO — CHECK-IN
 ===================================================== */
 
 #checkinMissionCard {
     display: grid;
 
-    grid-template-columns: 52px minmax(0, 1fr) auto;
+    grid-template-columns: 54px minmax(0, 1fr) auto;
     grid-template-rows: auto auto;
 
     align-items: center;
+
     column-gap: 18px;
-    row-gap: 13px;
+    row-gap: 14px;
 
     min-height: 0;
-    padding: 18px 20px;
+    padding: 20px 21px;
 }
 
-/* Ícone ocupa a altura das duas linhas */
+/* Ícone */
 
 #checkinMissionCard > .mission-icon {
     grid-column: 1;
@@ -544,7 +781,7 @@ body.missions-open .missions-view::after {
     align-self: center;
 }
 
-/* Texto e progresso */
+/* Conteúdo */
 
 #checkinMissionCard > .mission-content {
     grid-column: 2;
@@ -553,7 +790,7 @@ body.missions-open .missions-view::after {
     align-self: center;
 }
 
-/* Setas e nível */
+/* Controle de nível */
 
 #checkinMissionCard > .mission-level-control {
     grid-column: 3;
@@ -562,8 +799,8 @@ body.missions-open .missions-view::after {
     justify-self: end;
     align-self: center;
 
-    min-width: 112px;
-    gap: 8px;
+    min-width: 118px;
+    gap: 9px;
 }
 
 /* Recompensa */
@@ -575,13 +812,13 @@ body.missions-open .missions-view::after {
     justify-self: end;
     align-self: center;
 
-    min-width: 85px;
+    min-width: 82px;
 }
 
-/* Botão ocupa a parte inferior do card */
+/* Botão de check-in */
 
 #checkinMissionCard > .mission-checkin-button {
-    grid-column: 2 / 4;
+    grid-column: 2;
     grid-row: 2;
 
     justify-self: stretch;
@@ -589,53 +826,66 @@ body.missions-open .missions-view::after {
 
     width: 100%;
     min-width: 0;
-    min-height: 42px;
+    min-height: 43px;
 
     margin: 0;
-    padding: 10px 16px;
+    padding: 11px 18px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 9px;
 
-    border: 1px solid rgba(212,170,88,.65);
+    border: 1px solid rgba(242, 212, 147, .55);
     border-radius: 10px;
 
-    background: linear-gradient(135deg, #70471f, #3a1e0d);
+    background:
+        linear-gradient(
+            135deg,
+            #c49a53,
+            #8f682f 55%,
+            #68471f
+        );
 
-    color: #f3d58a;
+    color: #17120b;
 
-    font-family: "Cinzel", serif;
+    font-family: var(--mission-font);
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .8px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
     white-space: nowrap;
     cursor: pointer;
 
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, .25),
+        inset 0 1px 0 rgba(255, 255, 255, .25);
+
     transition:
         transform .2s ease,
         box-shadow .2s ease,
+        filter .2s ease,
         opacity .2s ease;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 4px 12px rgba(0,0,0,.18);
 }
 
 #checkinMissionCard > .mission-checkin-button svg {
     width: 17px;
     height: 17px;
+
     flex-shrink: 0;
 }
 
 #checkinMissionCard > .mission-checkin-button:not(:disabled):hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+
+    filter: brightness(1.12);
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.1),
-        0 6px 16px rgba(0,0,0,.25);
+        0 8px 20px rgba(0, 0, 0, .3),
+        0 0 15px rgba(214, 173, 97, .2),
+        inset 0 1px 0 rgba(255, 255, 255, .3);
 }
 
 #checkinMissionCard > .mission-checkin-button:not(:disabled):active {
@@ -643,9 +893,11 @@ body.missions-open .missions-view::after {
 }
 
 #checkinMissionCard > .mission-checkin-button:disabled {
-    opacity: .55;
+    opacity: .48;
     cursor: not-allowed;
     transform: none;
+
+    filter: grayscale(.35);
 }
 
 /* =====================================================
@@ -659,34 +911,43 @@ body.missions-open .missions-view::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 9px;
 
     width: fit-content;
-    margin: 35px auto 45px;
-    padding: 12px 22px;
 
-    border: 1px solid rgba(82,52,20,.30);
-    border-radius: 30px;
+    margin: 36px auto 45px;
+    padding: 13px 25px;
 
-    background: rgba(92,59,23,.10);
-    color: #583a19;
+    border: 1px solid rgba(214, 173, 97, .28);
+    border-radius: 10px;
 
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .08em;
+    background: rgba(214, 173, 97, .055);
+
+    color: #d8c49d;
+
+    font-family: var(--mission-font);
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 
     cursor: pointer;
 
-    box-shadow: 0 5px 15px rgba(72,42,12,.12);
-
     transition:
         background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
         transform .25s ease;
 }
 
 .missions-close:hover {
-    background: rgba(92,59,23,.18);
+    background: rgba(214, 173, 97, .13);
+
+    border-color: rgba(214, 173, 97, .55);
+
+    color: var(--mission-gold-light);
+
     transform: translateY(-2px);
 }
 
@@ -696,7 +957,7 @@ body.missions-open .missions-view::after {
 }
 
 /* =====================================================
-   MEMBER PROGRESS — PERGAMINHO
+   MEMBER PROGRESS — BARRA SUPERIOR
 ===================================================== */
 
 .member-progress {
@@ -705,7 +966,8 @@ body.missions-open .missions-view::after {
     left: 50%;
     bottom: 18px;
 
-    width: min(100vw, 1100px);
+    width: min(100vw, 1120px);
+
     margin: 0;
 
     transform: translateX(-50%);
@@ -713,10 +975,23 @@ body.missions-open .missions-view::after {
     z-index: 2100;
 
     transition:
-        transform .95s cubic-bezier(.16,.8,.25,1);
+        transform .85s cubic-bezier(.16, .8, .25, 1);
 
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    border: 1px solid rgba(214, 173, 97, .25) !important;
+    border-bottom: none !important;
+
+    border-radius: 13px 13px 0 0 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1a2430,
+            #101720
+        ) !important;
+
+    box-shadow:
+        0 -5px 25px rgba(0, 0, 0, .32),
+        inset 0 1px 0 rgba(255, 255, 255, .05) !important;
 
     overflow: visible !important;
 }
@@ -729,41 +1004,319 @@ body.missions-open .missions-view::after {
     right: 0;
     top: 100%;
 
-    height: 22px;
+    height: 13px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #b28a50 0%,
-            #e2c58f 45%,
-            #a77c42 100%
-        );
+    background: linear-gradient(
+        180deg,
+        #1a2430,
+        #101720
+    );
 
-    border-radius: 0 0 45% 45%;
+    border-radius: 0 0 12px 12px;
+
+    border: 1px solid rgba(214, 173, 97, .18);
+    border-top: none;
 
     box-shadow:
-        0 4px 9px rgba(0,0,0,.28),
-        inset 0 1px 2px rgba(255,255,255,.25);
+        0 5px 12px rgba(0, 0, 0, .25);
 
     z-index: 2200;
     pointer-events: none;
 }
 
 body.missions-open .member-progress {
-    transform: translate(-50%, calc(-100dvh + 100%));
-
-    box-shadow:
-        0 8px 18px rgba(0,0,0,.18) !important;
+    transform: translate(
+        -50%,
+        calc(-100dvh + 100%)
+    );
 }
 
 /* =====================================================
-   TELA FIXA
+   ACESSIBILIDADE — REDUZIR ANIMAÇÕES
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .missions-scroll,
+    .missions-view,
+    .mission-card,
+    .mission-icon,
+    .mission-progress-fill,
+    .missions-close,
+    .member-progress {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVIDADE — TABLETS E CELULARES
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .missions-view {
+        align-items: flex-end;
+    }
+
+    .missions-scroll {
+        width: 100vw;
+        height: calc(100dvh - 115px);
+
+        padding: 36px 16px 30px;
+
+        border-radius: 19px 19px 0 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .missions-header {
+        margin-bottom: 29px;
+    }
+
+    .missions-kicker {
+        font-size: 8px;
+        padding: 6px 13px;
+    }
+
+    .missions-header h1 {
+        font-size: 34px;
+    }
+
+    .missions-header p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .missions-list {
+        gap: 13px;
+    }
+
+    .mission-card {
+        gap: 12px;
+
+        min-height: 78px;
+
+        padding: 13px 12px;
+
+        border-radius: 12px;
+    }
+
+    .mission-icon {
+        flex-basis: 44px;
+
+        width: 44px;
+        height: 44px;
+
+        border-radius: 11px;
+    }
+
+    .mission-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mission-content {
+        gap: 4px;
+    }
+
+    .mission-content strong {
+        font-size: 12px;
+    }
+
+    .mission-content span {
+        font-size: 9px;
+    }
+
+    .mission-reward {
+        min-width: 57px;
+
+        padding: 7px 8px;
+
+        font-size: 11px;
+    }
+
+    .mission-reward small {
+        font-size: 7px;
+    }
+
+    .mission-level-control {
+        min-width: 94px;
+        gap: 5px;
+    }
+
+    .mission-level-arrow {
+        width: 26px;
+        height: 26px;
+
+        border-radius: 7px;
+    }
+
+    .mission-level-info {
+        min-width: 30px;
+    }
+
+    .mission-level-info span {
+        font-size: 7px;
+    }
+
+    .mission-level-info strong {
+        font-size: 20px;
+    }
+
+    .mission-progress {
+        gap: 7px;
+        margin-top: 6px;
+    }
+
+    .mission-progress-bar {
+        width: 100px;
+        flex-basis: 100px;
+        height: 5px;
+    }
+
+    .mission-progress small {
+        font-size: 8px;
+    }
+
+    /* CHECK-IN MOBILE */
+
+    #checkinMissionCard {
+        grid-template-columns: 44px minmax(0, 1fr) 74px;
+        grid-template-rows: auto auto;
+
+        column-gap: 10px;
+        row-gap: 12px;
+
+        padding: 14px 11px;
+    }
+
+    #checkinMissionCard > .mission-icon {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    #checkinMissionCard > .mission-content {
+        grid-column: 2 / 4;
+        grid-row: 1;
+    }
+
+    #checkinMissionCard > .mission-level-control {
+        grid-column: 2;
+        grid-row: 2;
+
+        justify-self: start;
+        justify-content: flex-start;
+
+        min-width: 0;
+        gap: 6px;
+    }
+
+    #checkinMissionCard > .mission-reward {
+        grid-column: 3;
+        grid-row: 2;
+
+        justify-self: end;
+
+        min-width: 68px;
+    }
+
+    #checkinMissionCard > .mission-checkin-button {
+        grid-column: 2 / 4;
+        grid-row: 3;
+
+        width: 100%;
+        min-height: 41px;
+
+        font-size: 10px;
+    }
+
+    .missions-close {
+        margin: 29px auto 35px;
+
+        padding: 11px 20px;
+
+        font-size: 9px;
+    }
+
+    .member-progress {
+        width: 100%;
+        bottom: 12px;
+
+        border-radius: 11px 11px 0 0 !important;
+    }
+
+}
+
+/* =====================================================
+   CELULARES ESTREITOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .missions-scroll {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .missions-header h1 {
+        font-size: 30px;
+    }
+
+    .mission-card {
+        gap: 9px;
+        padding: 11px 9px;
+    }
+
+    .mission-icon {
+        flex-basis: 40px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+    .mission-content strong {
+        font-size: 11px;
+    }
+
+    .mission-content span {
+        font-size: 8px;
+    }
+
+    .mission-progress-bar {
+        width: 80px;
+        flex-basis: 80px;
+    }
+
+    .mission-progress small {
+        font-size: 7px;
+    }
+
+    #checkinMissionCard {
+        grid-template-columns: 40px minmax(0, 1fr) 65px;
+
+        column-gap: 8px;
+
+        padding: 12px 9px;
+    }
+
+    #checkinMissionCard > .mission-checkin-button {
+        font-size: 9px;
+        letter-spacing: .5px;
+    }
+
+}
+
+/* =====================================================
+   TELA FIXA — ESTRUTURA ORIGINAL DO APP
 ===================================================== */
 
 html,
 body {
     width: 100%;
     height: 100%;
+
     margin: 0;
 
     overflow: hidden;
@@ -778,188 +1331,6 @@ body {
 .app {
     width: 100vw;
     height: 100dvh;
+
     overflow: hidden;
-}
-
-/* =====================================================
-   RESPONSIVIDADE — TABLETS E CELULARES
-===================================================== */
-
-@media (max-width: 700px) {
-
-    .missions-scroll {
-        width: 100vw;
-        height: calc(100dvh - 125px);
-
-        padding: 40px 18px 35px;
-
-        border-radius: 18px 18px 0 0;
-    }
-
-    .missions-header {
-        margin-bottom: 28px;
-    }
-
-    .missions-header h1 {
-        font-size: 34px;
-    }
-
-    .missions-header p {
-        font-size: 12px;
-    }
-
-    .mission-card {
-        gap: 12px;
-        min-height: 76px;
-        padding: 12px;
-    }
-
-    .mission-icon {
-        flex-basis: 44px;
-        width: 44px;
-        height: 44px;
-    }
-
-    .mission-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .mission-content strong {
-        font-size: 13px;
-    }
-
-    .mission-content span {
-        font-size: 10px;
-    }
-
-    .mission-reward {
-        min-width: 55px;
-        padding: 6px 8px;
-        font-size: 9px;
-    }
-
-    .mission-level-control {
-        min-width: 94px;
-        gap: 5px;
-    }
-
-    .mission-level-arrow {
-        width: 25px;
-        height: 25px;
-    }
-
-    .mission-level-info {
-        min-width: 30px;
-    }
-
-    .mission-level-info strong {
-        font-size: 19px;
-    }
-
-    .mission-progress {
-        gap: 7px;
-        margin-top: 6px;
-    }
-
-    .mission-progress-bar {
-        width: 100px;
-        flex-basis: 100px;
-        height: 4px;
-    }
-
-    .mission-progress small {
-        font-size: 8px;
-    }
-
-    .missions-close {
-        margin: 30px auto 40px;
-        padding: 11px 18px;
-        font-size: 10px;
-    }
-
-    /* CHECK-IN NO CELULAR */
-
-    #checkinMissionCard {
-        grid-template-columns: 44px minmax(0, 1fr);
-        grid-template-rows: auto auto auto;
-
-        column-gap: 12px;
-        row-gap: 12px;
-
-        padding: 14px 12px;
-    }
-
-    #checkinMissionCard > .mission-icon {
-        grid-column: 1;
-        grid-row: 1 / 4;
-    }
-
-    #checkinMissionCard > .mission-content {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    #checkinMissionCard > .mission-level-control {
-        grid-column: 2;
-        grid-row: 2;
-
-        justify-self: start;
-        justify-content: flex-start;
-
-        min-width: 0;
-    }
-
-    #checkinMissionCard > .mission-reward {
-        grid-column: 2;
-        grid-row: 2;
-
-        justify-self: end;
-        min-width: 70px;
-    }
-
-    #checkinMissionCard > .mission-checkin-button {
-        grid-column: 2;
-        grid-row: 3;
-
-        width: 100%;
-        min-height: 40px;
-
-        font-size: 10px;
-    }
-}
-
-/* =====================================================
-   CELULARES ESTREITOS
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .missions-scroll {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .mission-card {
-        gap: 9px;
-        padding: 10px;
-    }
-
-    .mission-content strong {
-        font-size: 12px;
-    }
-
-    .mission-content span {
-        font-size: 9px;
-    }
-
-    #checkinMissionCard {
-        column-gap: 9px;
-        padding: 12px 9px;
-    }
-
-    #checkinMissionCard > .mission-checkin-button {
-        font-size: 9px;
-        letter-spacing: .5px;
-    }
 }
