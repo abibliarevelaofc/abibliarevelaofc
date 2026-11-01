@@ -3809,7 +3809,7 @@ async function carregarProgressoMissaoBiblia() {
 
 
         const resposta = await fetch(
-            "https://abibliarevelaofc.vercel.app/api/users/me",
+            "https://abibliarevelaofc.vercel.app/api/biblia/progresso",
             {
                 method: "GET",
 

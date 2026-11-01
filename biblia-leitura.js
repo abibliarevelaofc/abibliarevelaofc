@@ -114,7 +114,7 @@
         try {
 
             const resposta = await fetch(
-                "http://localhost:3000/api/biblia/iniciar",
+                "https://abibliarevelaofc.vercel.app/api/biblia/iniciar",
                 {
                     method: "POST",
 
@@ -187,7 +187,7 @@
         try {
 
             const resposta = await fetch(
-                "http://localhost:3000/api/biblia/atividade",
+                "https://abibliarevelaofc.vercel.app/api/biblia/atividade",
                 {
                     method: "POST",
 
@@ -207,6 +207,10 @@
                     "segundos contabilizados."
                 );
             }
+
+      if (typeof window.carregarProgressoMissaoBiblia === "function") {
+    window.carregarProgressoMissaoBiblia();
+}
 
         } catch (error) {
 
@@ -275,7 +279,7 @@
         try {
 
             const resposta = await fetch(
-                "http://localhost:3000/api/biblia/pausar",
+                "https://abibliarevelaofc.vercel.app/api/biblia/pausar",
                 {
                     method: "POST",
 
@@ -334,7 +338,7 @@
         try {
 
             const resposta = await fetch(
-                "http://localhost:3000/api/biblia/retomar",
+                "https://abibliarevelaofc.vercel.app/api/biblia/retomar",
                 {
                     method: "POST",
 
