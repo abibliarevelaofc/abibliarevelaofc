@@ -6210,43 +6210,24 @@ function atualizarAcaoPerfil(usuario) {
     // RESTAURAR SESSÃO
     // =================================================
 
-    async function restaurarSessao() {
+
+async function restaurarSessao() {
 
     const token = localStorage.getItem("token");
-
     const usuarioSalvo = localStorage.getItem("usuario");
 
-
-    // =============================================
-    // USUÁRIO SALVO
-    // =============================================
-
+    // Restaurar perfil imediatamente usando dados locais
     if (usuarioSalvo) {
-
         try {
-
             const usuario = JSON.parse(usuarioSalvo);
-
             atualizarPerfilLogado(usuario);
-
         } catch (erro) {
-
-            localStorage.removeItem("usuario");
-
+            console.error("Erro ao recuperar usuário salvo:", erro);
         }
     }
 
-
-    // =============================================
-    // SEM TOKEN
-    // =============================================
-
+    // Sem token, não existe sessão para validar
     if (!token) return;
-
-
-    // =============================================
-    // VALIDAR JWT NO SERVIDOR
-    // =============================================
 
     try {
 
@@ -6254,28 +6235,38 @@ function atualizarAcaoPerfil(usuario) {
             "https://abibliarevelaofc.vercel.app/api/users/me",
             {
                 method: "GET",
-
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             }
         );
 
+        // Somente 401 ou 403 indicam rejeição da autenticação
+        if (
+            resposta.status === 401 ||
+            resposta.status === 403
+        ) {
 
-        if (!resposta.ok) {
-
-            console.warn("Sessão expirada ou inválida.");
+            console.warn("Token rejeitado pelo servidor.");
 
             localStorage.removeItem("token");
             localStorage.removeItem("usuario");
 
+            atualizarAcaoPerfil(null);
+
             return;
         }
 
+        // Erros de servidor não devem apagar a sessão
+        if (!resposta.ok) {
 
-        // =============================================
-        // DADOS ATUALIZADOS DO MONGODB
-        // =============================================
+            console.warn(
+                "Não foi possível validar a sessão. Mantendo login local.",
+                resposta.status
+            );
+
+            return;
+        }
 
         const dados = await resposta.json();
 
@@ -6292,11 +6283,14 @@ function atualizarAcaoPerfil(usuario) {
     } catch (erro) {
 
         console.error(
-            "Erro ao restaurar sessão:",
+            "Falha de conexão ao restaurar sessão:",
             erro
         );
+
+        // Não apagar token nem usuário por falha de conexão.
     }
 }
+
 
 
     // =================================================
