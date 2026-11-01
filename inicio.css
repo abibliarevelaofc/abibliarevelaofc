@@ -4282,3 +4282,42 @@ body.community-open .hero > *:not(.hero-background):not(.hero-overlay) {
         min-height: 52px;
     }
 }
+
+/* =====================================================
+   AJUSTE — MISSÃO CHECK-IN
+===================================================== */
+
+#checkinMissionCard .mission-level-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+#checkinMissionCard .mission-level-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 42px;
+}
+
+#checkinMissionCard .mission-level-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+#checkinMissionCard .mission-checkin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: center;
+    white-space: nowrap;
+}
