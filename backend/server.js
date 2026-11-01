@@ -19,19 +19,84 @@ app.use(express.json());
 
 
 // =====================================================
-// CONEXÃO COM MONGODB
+// CONEXÃO COM MONGODB — VERCEL
 // =====================================================
 
+let conexaoMongoDB = null;
 
 async function conectarMongoDB() {
+
+    // Já conectado
     if (mongoose.connection.readyState === 1) {
-        return;
+        return mongoose.connection;
     }
 
-    await mongoose.connect(process.env.MONGODB_URI, {
-        serverSelectionTimeoutMS: 10000
+    // Já existe uma conexão em andamento
+    if (conexaoMongoDB) {
+        return conexaoMongoDB;
+    }
+
+    // Verificar variável de ambiente
+    if (!process.env.MONGODB_URI) {
+        throw new Error("MONGODB_URI não configurada.");
+    }
+
+    conexaoMongoDB = mongoose.connect(
+        process.env.MONGODB_URI,
+        {
+            serverSelectionTimeoutMS: 10000
+        }
+    )
+    .then(() => {
+        console.log("MongoDB conectado com sucesso.");
+        return mongoose.connection;
+    })
+    .catch((erro) => {
+
+        conexaoMongoDB = null;
+
+        console.error("ERRO NA CONEXÃO MONGODB:", erro);
+
+        throw erro;
     });
+
+    return conexaoMongoDB;
 }
+
+
+
+ // =====================================================
+ // MIDDLEWARE GLOBAL — GARANTIR MONGODB NAS ROTAS API
+ // =====================================================
+
+app.use("/api", async (req, res, next) => {
+
+    try {
+
+        await conectarMongoDB();
+
+        next();
+
+    } catch (erro) {
+
+        console.error(
+            "ERRO AO CONECTAR MONGODB NA API:",
+            erro
+        );
+
+        return res.status(503).json({
+
+            sucesso: false,
+
+            mensagem: "Banco de dados temporariamente indisponível."
+
+        });
+
+    }
+
+});
+
+
 // =====================================================
 // ANALYTICS — CURSO CRIADOR PRO
 // =====================================================
