@@ -1,6 +1,19 @@
+
 {
   "version": 2,
   "routes": [
+    {
+      "src": "^/jabarcurso\\.mp4$",
+      "dest": "/curso/jabarcurso.mp4"
+    },
+    {
+      "src": "^/capacurso\\.png$",
+      "dest": "/curso/capacurso.png"
+    },
+    {
+      "src": "^/prints/(.*)$",
+      "dest": "/curso/prints/$1"
+    },
     {
       "src": "/api/(.*)",
       "dest": "/api/index.js"
