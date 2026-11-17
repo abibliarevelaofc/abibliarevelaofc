@@ -27,6 +27,22 @@ app.use(express.json());
 
 const pastaSite = __dirname;
 
+// Corrige os caminhos dos arquivos do curso na Vercel
+app.get("/jabarcurso.mp4", (req, res) => {
+    res.sendFile(path.join(pastaSite, "curso", "jabarcurso.mp4"));
+});
+
+app.get("/capacurso.png", (req, res) => {
+    res.sendFile(path.join(pastaSite, "curso", "capacurso.png"));
+});
+
+// Mantém os endereços /prints/print1.jpeg, /prints/print2.jpeg etc.
+app.use(
+    "/prints",
+    express.static(path.join(pastaSite, "curso", "prints"))
+);
+
+// Arquivos públicos do site
 app.use(express.static(pastaSite));
 
 app.get("/curso/", (req, res) => {
